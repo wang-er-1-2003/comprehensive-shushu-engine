@@ -1,0 +1,2075 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- Copyright (c) 2026 wang-er-1-2003 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>术数引擎</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  /* ── 统一滚动条（深色金边主题）── */
+  * { scrollbar-width: thin; scrollbar-color: #333b52 transparent; }
+  *::-webkit-scrollbar { width:8px; height:8px; }
+  *::-webkit-scrollbar-track { background:transparent; }
+  *::-webkit-scrollbar-thumb { background:linear-gradient(180deg,#333b52,#3f4a6b); border-radius:5px; border:1.5px solid transparent; background-clip:padding-box; }
+  *::-webkit-scrollbar-thumb:hover { background:linear-gradient(180deg,rgba(201,168,106,.65),rgba(201,168,106,.4)); background-clip:padding-box; border-color:transparent; }
+  *::-webkit-scrollbar-corner { background:transparent; }
+  :root {
+    --bg:#0f1117; --panel:#171a23; --panel2:#1e2230; --line:#2a2f42;
+    --tx:#d7dae3; --tx1:#e2e5ec; --tx2:#9aa0b4; --tx3:#7c8599; --acc:#c9a86a; --acc2:#8a6d3b;
+    --good:#6fbf8f; --bad:#d17a7a; --mid:#c9b06a;
+  }
+  html,body { height:100%; }
+  body { background:var(--bg); color:var(--tx); font-family:"Microsoft YaHei","PingFang SC",sans-serif; display:flex; flex-direction:column; overflow:hidden; }
+  header { padding:10px 20px; border-bottom:1px solid var(--line); display:flex; align-items:baseline; gap:16px; flex:0 0 auto; background:linear-gradient(180deg,#14161f,#0f1117); }
+  header h1 { font-size:17px; color:var(--acc); letter-spacing:2px; font-weight:600; }
+  header .sub { font-size:12px; color:var(--tx2); }
+  nav { display:flex; flex-wrap:wrap; gap:4px; padding:8px 16px; border-bottom:1px solid var(--line); flex:0 0 auto; background:#12141d; align-items:center; }
+  nav .br { flex-basis:100%; height:0; }
+  nav button { background:transparent; border:1px solid transparent; color:var(--tx2); padding:7px 18px; font-size:13.5px; cursor:pointer; border-radius:6px; transition:all .15s; }
+  nav button:hover { color:var(--tx); background:var(--panel2); }
+  nav button.on { color:#111; background:var(--acc); font-weight:600; }
+  main { flex:1 1 auto; overflow:hidden; display:flex; }
+  .tab { display:none; width:100%; height:100%; padding:16px 20px; overflow:auto; }
+  .tab.on { display:block; }
+  h2.sec { font-size:14px; color:var(--acc); margin:0 0 10px; letter-spacing:1px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:12px; }
+  .card h3 { font-size:14px; color:var(--tx); margin-bottom:8px; }
+  button.act { background:var(--acc); color:#141414; border:none; padding:8px 20px; border-radius:7px; font-size:14px; cursor:pointer; font-weight:600; }
+  button.act:hover { filter:brightness(1.1); }
+  button.btn, select.btn { background:var(--panel); color:var(--tx1); border:1px solid var(--line); padding:7px 14px; border-radius:7px; font-size:13px; cursor:pointer; font-family:inherit; }
+  button.btn:hover { border-color:var(--acc); }
+  button.btn.ghost { background:transparent; }
+  button.sec { background:var(--panel2); color:var(--tx); border:1px solid var(--line); padding:7px 16px; border-radius:7px; font-size:13px; cursor:pointer; }
+  button.sec:hover { border-color:var(--acc2); }
+  input[type=text],input[type=number] { background:#12141d; border:1px solid var(--line); color:var(--tx); padding:7px 10px; border-radius:6px; font-size:14px; outline:none; }
+  input:focus { border-color:var(--acc2); }
+  select { background:#12141d; border:1px solid var(--line); color:var(--tx); padding:7px 10px; border-radius:6px; font-size:14px; }
+  .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .muted { color:var(--tx2); font-size:12.5px; }
+  .q { color:var(--tx3); font-size:12px; }
+  .b { color:#7fb069; font-size:12px; }
+  .k2 { color:#d98a6a; font-size:12px; }
+  .tag { display:inline-block; padding:2px 10px; border-radius:10px; font-size:12px; margin-right:6px; }
+  .tag.ji { background:rgba(111,191,143,.15); color:var(--good); border:1px solid rgba(111,191,143,.4); }
+  .tag.xiong { background:rgba(209,122,122,.15); color:var(--bad); border:1px solid rgba(209,122,122,.4); }
+  .tag.ban { background:rgba(201,176,106,.15); color:var(--mid); border:1px solid rgba(201,176,106,.4); }
+  .gua-name { font-size:20px; color:var(--acc); font-weight:700; letter-spacing:1px; }
+  .big-num { font-size:26px; color:var(--acc); font-weight:700; }
+  .poem { font-size:15px; line-height:1.9; color:var(--tx); white-space:pre-wrap; }
+  .jie { font-size:14px; line-height:1.8; color:var(--tx2); white-space:pre-wrap; }
+  .item-block { margin-bottom:10px; }
+  .item-block .k { color:var(--acc2); font-weight:600; font-size:13px; margin-right:6px; }
+  .item-block .v { font-size:14px; line-height:1.75; color:var(--tx); white-space:pre-wrap; }
+  .steps { font-size:13px; color:var(--tx2); line-height:1.8; margin:6px 0; }
+  .steps b { color:var(--acc); }
+  /* 爻线 */
+  .yao-row { display:flex; align-items:center; gap:10px; margin:6px 0; }
+  .yao-label { width:56px; font-size:12px; color:var(--tx2); text-align:right; }
+  .yao-lines { width:150px; }
+  .yao-lines .y { height:14px; margin:1px 0; }
+  .y.yang { background:var(--acc); border-radius:2px; }
+  .y.yin { background:transparent; border-top:5px solid var(--acc); border-bottom:5px solid var(--acc); height:14px; box-sizing:border-box; }
+  .y.dong { outline:2px solid #e08a3c; outline-offset:1px; }
+  .y.dong { background:#e08a3c; }
+  .y.yin.dong { border-color:#e08a3c; background:transparent; }
+  .hex-box { display:flex; gap:24px; flex-wrap:wrap; }
+  .hex-box .col { flex:1; min-width:280px; }
+  .dong-info { background:rgba(224,138,60,.1); border:1px solid rgba(224,138,60,.35); border-radius:8px; padding:10px 12px; margin-top:8px; }
+  .dong-info .k { color:#e08a3c; font-weight:600; }
+  #zhuge-chars, #wuge-chars { letter-spacing:6px; font-size:16px; }
+  .divider { height:1px; background:var(--line); margin:10px 0; }
+  /* 帮助注释卡 */
+  details.help-card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:0; margin-bottom:12px; overflow:hidden; }
+  details.help-card summary { cursor:pointer; padding:11px 16px; font-size:13.5px; color:var(--acc); font-weight:600; letter-spacing:.5px; user-select:none; list-style:none; }
+  details.help-card summary::before { content:"▸ "; color:var(--acc2); }
+  details.help-card[open] summary::before { content:"▾ "; }
+  details.help-card summary:hover { background:var(--panel2); }
+  details.help-card .help-body { padding:4px 16px 14px; font-size:13px; line-height:1.85; color:var(--tx); }
+  details.help-card .help-body b { color:var(--acc); }
+  details.help-card .help-body .step-line { margin:6px 0; padding-left:10px; border-left:2px solid var(--line); }
+  details.help-card .help-body table { width:100%; border-collapse:collapse; margin:8px 0; }
+  details.help-card .help-body th, details.help-card .help-body td { border:1px solid var(--line); padding:5px 8px; text-align:left; font-size:12.5px; }
+  details.help-card .help-body th { color:var(--acc); background:var(--panel2); }
+  /* 灵棋掷子动画 */
+  .anim-area { margin:12px 0; }
+  .qi-board { display:flex; flex-direction:column; gap:10px; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:10px; }
+  .qi-row { display:flex; gap:18px; justify-content:center; }
+  .qi { width:34px; height:34px; border-radius:50%; border:2px solid var(--acc2); background:radial-gradient(circle at 35% 30%, #3a3f52, #1e2230); opacity:0; transform:translateY(-46px) rotate(-150deg) scale(.7); }
+  .qi.fall { opacity:1; transform:translateY(0) rotate(0) scale(1); transition:transform .5s cubic-bezier(.18,.85,.35,1.15), opacity .2s; }
+  .qi.word { background:radial-gradient(circle at 35% 30%, #e2c384, var(--acc)); border-color:var(--acc); }
+  .qi.word::after { content:"字"; color:#141414; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; height:100%; }
+  /* 周易演卦动画 */
+  .zy-vis { display:flex; gap:8px; align-items:stretch; margin-bottom:8px; flex-wrap:wrap; }
+  .zy-vis .vbox { flex:1; min-width:110px; background:var(--panel2); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  .zy-vis .vbox .vt { font-size:11px; color:var(--tx2); margin-bottom:5px; }
+  .zy-vis .vbox .vn { font-size:19px; color:var(--acc); font-weight:700; animation:numPop .35s ease-out; }
+  .zy-vis .vbox .vn small { font-size:12px; color:var(--tx2); font-weight:400; }
+  .zy-vis .vbox .bar { height:7px; border-radius:4px; background:var(--acc); margin-top:6px; animation:barGrow .4s ease-out; transform-origin:left; }
+  .zy-vis .vbox.hot { border-color:#e08a3c; }
+  .zy-vis .vbox.hot .vn { color:#e08a3c; }
+  @keyframes numPop { 0% { transform:scale(1.35); opacity:.3; } 100% { transform:scale(1); opacity:1; } }
+  @keyframes barGrow { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+  /* 爻线生长 + 动爻脉冲 */
+  @keyframes yaoGrow { from { transform:scaleX(0); opacity:.2; } to { transform:scaleX(1); opacity:1; } }
+  @keyframes dongPulse { 0%,100% { box-shadow:0 0 0 0 rgba(224,138,60,.55); } 50% { box-shadow:0 0 0 7px rgba(224,138,60,0); } }
+  .yao-lines .y { transform-origin:left; animation:yaoGrow .45s ease-out both; }
+  .yao-lines .y.dong { animation:yaoGrow .45s ease-out both, dongPulse 1.1s ease-in-out .7s 3; }
+  /* 金钱课 / 孔明神卦：铜钱掷卦 */
+  .coin-board { display:flex; flex-direction:column; gap:10px; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:10px; }
+  .coin-row { display:flex; gap:16px; justify-content:center; }
+  .coin { width:42px; height:42px; border-radius:50%; position:relative; border:2px solid #b98a3e; background:radial-gradient(circle at 36% 30%, #e8c07a, #a5712c 68%, #7c531f); box-shadow:inset 0 0 8px rgba(0,0,0,.35); opacity:0; transform:translateY(-52px) rotate(-170deg) scale(.6); }
+  .coin.fall { opacity:1; transform:translateY(0) rotate(0) scale(1); transition:transform .5s cubic-bezier(.18,.85,.35,1.15), opacity .2s; }
+  .coin .hole { position:absolute; left:50%; top:50%; width:11px; height:11px; background:var(--panel); border-radius:50%; transform:translate(-50%,-50%); box-shadow:inset 0 0 4px #000; }
+  .coin .face { position:absolute; left:0; right:0; top:0; bottom:0; display:flex; align-items:center; justify-content:center; font-size:16px; color:#5b3d14; font-weight:700; letter-spacing:1px; }
+  .coin.zheng .face::after { content:"字"; }
+  .coin.fan .face::after { content:"〣"; font-size:22px; }
+  .coin-ring { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .coin-mini { width:34px; height:34px; border-radius:50%; border:2px solid #b98a3e; background:radial-gradient(circle at 36% 30%, #e8c07a, #a5712c 68%, #7c531f); display:flex; align-items:center; justify-content:center; font-size:13px; color:#5b3d14; font-weight:700; cursor:pointer; user-select:none; }
+  .coin-mini.zheng { background:radial-gradient(circle at 36% 30%, #f3d9a4, #c69546 68%, #8f6527); }
+  .coin-mini.fan { background:radial-gradient(circle at 36% 30%, #b9b1a4, #7d7668 68%, #5d5749); }
+  .coin-mini .hole { width:9px; height:9px; }
+  .coin-mini .face { font-size:13px; }
+  .coin-mini.fan .face::after { content:"〣"; font-size:17px; }
+  .qk-hex { display:flex; flex-direction:column-reverse; gap:5px; margin:8px 0 4px; }
+  .qk-yao { display:flex; align-items:center; gap:10px; }
+  .qk-yao .pos { width:70px; font-size:12px; color:var(--tx2); }
+  .qk-yao .line { height:15px; }
+  .qk-yao .line.yang { width:110px; background:var(--acc); border-radius:3px; }
+  .qk-yao .line.yin { width:110px; border-top:5px solid var(--acc); border-bottom:5px solid var(--acc); height:15px; box-sizing:border-box; }
+  .qk-yao .sym { width:26px; text-align:center; color:var(--acc); font-weight:700; }
+  .note-box { background:rgba(224,138,60,.08); border:1px solid rgba(224,138,60,.3); border-radius:8px; padding:9px 12px; font-size:12.5px; color:#d9a05e; line-height:1.7; margin-top:8px; }
+  .src-line { font-size:11.5px; color:var(--tx2); margin-top:6px; line-height:1.6; }
+  .err { color:var(--bad); padding:14px; border:1px dashed rgba(209,122,122,.4); border-radius:8px; margin:10px 0; }
+  .tag.b { background:rgba(155,169,199,.14); color:#aebbd6; border:1px solid rgba(155,169,199,.35); }
+  .tag.g { background:rgba(111,191,143,.13); color:var(--good); border:1px solid rgba(111,191,143,.35); }
+  .tag.p { background:rgba(201,168,106,.13); color:var(--acc); border:1px solid rgba(201,168,106,.35); }
+  .tag.y { background:rgba(230,190,90,.13); color:#e0c07a; border:1px solid rgba(230,190,90,.35); }
+  .tag.z { background:rgba(160,140,220,.13); color:#b7a8e8; border:1px solid rgba(160,140,220,.35); }
+  .stars { color:var(--acc); margin-right:6px; }
+  .collapse { margin:6px 0; }
+  .zw-pan { width:100%; max-width:780px; margin:6px auto; border-collapse:collapse; table-layout:fixed; background:transparent; }
+  .zw-pan td.zw-cell { border:1px solid #3a4056; width:25%; height:110px; vertical-align:top; padding:5px 7px; background:#151823; position:relative; }
+  .zw-pan td.zw-ming { background:rgba(201,168,106,.10); border-color:rgba(201,168,106,.55); }
+  .zw-pan td.zw-shen { background:rgba(155,169,199,.08); border-color:rgba(155,169,199,.45); }
+  .zw-pan .zw-gname { font-size:13px; color:#c9cede; display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px dashed #2a2f42; padding-bottom:3px; margin-bottom:4px; }
+  .zw-pan .zw-gname i { font-style:normal; font-size:11px; color:var(--tx2); }
+  .zw-pan .zw-gname em { font-style:normal; font-size:11px; color:var(--acc); border:1px solid rgba(201,168,106,.5); border-radius:3px; padding:0 4px; }
+  .zw-pan .zw-stars { font-size:12px; line-height:1.55; color:var(--tx); }
+  .zw-pan .zw-stars b { color:#e6c07a; font-weight:600; }
+  .zw-pan .zw-stars i.zw-br { font-style:normal; font-size:10px; color:#7fb0e0; margin-left:2px; font-weight:400; }
+  .zw-pan .zw-stars i.ln { font-style:normal; color:#8f9bb8; font-size:11px; }
+  .zw-pan .zw-sihua { font-size:11px; color:#d99a5e; margin-top:2px; }
+  .zw-pan .zw-liu { font-size:10px; color:#7f9fd0; margin-top:2px; line-height:1.4; }
+  .zw-pan .zw-liu.ln { color:#8f9bb8; }
+  .zw-pan .zw-lim { font-size:10.5px; color:var(--tx2); margin-top:3px; line-height:1.4; }
+  .luck-big { font-size:22px; font-weight:700; letter-spacing:2px; }
+  .luck-big.ji { color:var(--good); } .luck-big.ban { color:var(--mid); } .luck-big.xiong { color:var(--bad); }
+  /* 小六壬掌诀图 */
+  .xln-palm { position:relative; width:300px; height:300px; margin:6px auto 4px; }
+  .xln-palm svg { width:100%; height:100%; }
+  .xln-gong { font-size:13px; fill:var(--tx2); cursor:default; }
+  .xln-gong.hit { fill:var(--acc); font-weight:800; }
+  .xln-pos { font-size:10.5px; fill:#667; }
+  .xln-dot { fill:var(--panel); stroke:var(--line); }
+  .xln-dot.hit { fill:var(--acc); stroke:#f0d9a8; }
+  .xln-palm .trail { stroke:var(--acc); stroke-width:2; stroke-dasharray:5 4; fill:none; opacity:.85; }
+  .xln-guide { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:6px; font-size:11.5px; color:var(--tx2); }
+  .xln-guide .s { padding:2px 8px; border:1px solid var(--line); border-radius:10px; }
+  .xln-guide .s.hit { border-color:var(--acc); color:var(--acc); font-weight:700; }
+  .xln-guide .s.dim { opacity:.4; }
+  /* 金钱卦三枚铜钱组 */
+  .coin3 { display:flex; gap:12px; justify-content:center; align-items:center; }
+  .coin3 .coin { width:34px; height:34px; }
+  .coin3 .yao-tag { font-size:13px; color:var(--tx2); margin-left:14px; min-width:110px; }
+  .jq3-hex { display:flex; flex-direction:column-reverse; gap:5px; margin:8px 0 4px; }
+  .jq3-hex .qk-yao .line.dong { box-shadow:0 0 8px rgba(224,138,60,.9); }
+  .gp { display:block; text-align:left; font-size:12px; line-height:1.55; color:#c8d0dc; margin-top:5px; word-break:break-all; max-height:84px; overflow-y:auto; }
+  .gp::-webkit-scrollbar { width:5px; }
+  .gp::-webkit-scrollbar-thumb { background:#3a4560; border-radius:3px; }
+  .gp::-webkit-scrollbar-thumb:hover { background:#55637f; }
+  .gp::-webkit-scrollbar-track { background:transparent; }
+  .gp::after { content:'▾ 可滚动'; display:block; font-size:10px; color:#5a6478; margin-top:2px; }
+  .yl-dual { display:flex; flex-wrap:wrap; gap:16px; margin:8px 0 4px; }
+  .yl-one { flex:1 1 240px; min-width:220px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 12px; }
+  .yl-one-t { font-size:13px; color:var(--acc); font-weight:700; margin-bottom:4px; }
+  .jq3-picker { display:flex; gap:14px; flex-wrap:wrap; }
+  .jq3-pick { display:flex; flex-direction:column; align-items:center; gap:3px; }
+  .jq3-pick select { background:var(--panel); color:var(--tx1); border:1px solid var(--line); border-radius:6px; padding:3px 6px; font-size:12.5px; }
+  .jq3-pick .pl { font-size:11px; color:var(--tx2); }
+  /* ── 解梦面板（周公解梦 988 / 现代库 / 古籍梦部）── */
+  .dream-wrap { display:flex; gap:14px; align-items:flex-start; }
+  .dream-board { flex:1.4; min-width:0; }
+  .dream-side { width:330px; flex-shrink:0; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; max-height:calc(100vh - 190px); overflow-y:auto; }
+  .dream-side h2 { font-size:14px; color:var(--tx1); margin:8px 0 6px; }
+  .dream-side h3 { font-size:13px; color:var(--acc); margin:10px 0 4px; }
+  .dream-side .side-back { font-size:12px; color:var(--acc); cursor:pointer; margin-bottom:8px; user-select:none; }
+  .dream-side .side-back:hover { color:#f0c860; }
+  .dream-side .src { font-size:11px; color:var(--tx3); margin-bottom:8px; }
+  .dream-side p { font-size:13px; line-height:1.7; color:var(--tx2); white-space:pre-wrap; word-break:break-all; }
+  .dream-side .empty-hint { color:var(--tx3); font-size:12.5px; line-height:1.8; }
+  .sec-chips { display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 10px; }
+  .sec-chip { font-size:12px; padding:4px 10px; border-radius:12px; background:var(--panel); border:1px solid var(--line); color:var(--tx2); cursor:pointer; }
+  .sec-chip:hover { border-color:var(--acc); color:var(--tx1); }
+  .sec-chip.on { background:var(--acc); border-color:var(--acc); color:#fff; }
+  .guji-item { font-size:12px; color:var(--tx2); padding:5px 8px; margin:2px 0; border-radius:4px; cursor:pointer; background:#161a26; }
+  .guji-item:hover { background:#20283a; color:var(--tx1); }
+  .guji-item .k { color:#e0a65e; }
+  .recent-item { font-size:12px; color:var(--tx2); padding:4px 6px; margin:2px 0; border-radius:4px; cursor:pointer; background:#161a26; }
+  .recent-item:hover { background:#20283a; color:var(--tx1); }
+  .recent-item .k { color:#e0a65e; }
+  .dream-hint { font-size:12px; color:var(--tx3); }
+  .hit-card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 12px; cursor:pointer; transition:border-color .15s; }
+  .hit-card:hover { border-color:var(--acc); }
+  .hit-head { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
+  .hit-char { font-size:17px; font-weight:700; color:var(--tx1); }
+  .hit-verdict { font-size:12.5px; color:#e0a65e; font-weight:600; }
+  .hit-verdict.mid { color:var(--tx2); }
+  .hit-src { font-size:11px; color:var(--tx3); }
+  .fan-card { border-color:#6c4fce !important; }
+  .fan-row { font-size:12.5px; line-height:1.7; color:var(--tx2); padding:3px 0; }
+  .fan-inv { color:#8affc0; font-weight:600; }
+  .fan-basis { font-size:11px; color:var(--tx3); }
+  .miss-note { font-size:13px; color:var(--tx3); line-height:1.8; padding:10px 2px; }
+  .snippet { font-size:12px; color:var(--tx3); line-height:1.6; }
+  .snippet mark { background:#6c4fce; color:#fff; border-radius:2px; padding:0 1px; }
+  .opt { display:inline-flex; align-items:center; gap:5px; font-size:12px; color:var(--tx3); cursor:pointer; padding:4px 10px; border:1px solid var(--line); border-radius:12px; background:var(--panel); user-select:none; }
+  .opt:hover { border-color:var(--acc); }
+  .opt input { accent-color:var(--acc); cursor:pointer; }
+  #results { display:flex; flex-direction:column; gap:10px; }
+  #results-title { font-size:13.5px; color:var(--tx2); }
+  #results mark { background:#6c4fce; color:#fff; border-radius:2px; padding:0 1px; }
+  /* ===== 测字（Tab 17）===== */
+  #t-cezi .gzl-row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  #t-cezi .gz-badge { font-size:14px; font-weight:700; color:#e0a65e; background:#161a26; border:1px solid var(--acc); border-radius:6px; padding:3px 12px; }
+  #t-cezi .gz-out { font-size:13px; color:var(--tx2); line-height:1.7; margin-top:8px; }
+  #t-cezi .gz-out .lbl { color:var(--tx3); font-size:12px; }
+  #t-cezi .lbl { font-size:11.5px; color:var(--tx3); }
+  #t-cezi .c { font-size:12px; color:var(--tx3); }
+  #t-cezi .k { color:#e0a65e; font-weight:600; }
+  #t-cezi .rtabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+  #t-cezi .rtab { font-size:12px; padding:5px 12px; border-radius:14px; border:1px solid var(--line); background:var(--panel); color:var(--tx2); cursor:pointer; transition:background .15s,border-color .15s; }
+  #t-cezi .rtab:hover { border-color:var(--acc); }
+  #t-cezi .rtab.on { background:var(--acc); border-color:var(--acc); color:#fff; }
+  #t-cezi .rbody { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; max-height:calc(100vh - 430px); overflow-y:auto; }
+  #t-cezi .rbody h4 { font-size:14px; color:var(--tx1); margin-bottom:4px; }
+  #t-cezi .rbody .src { font-size:11px; color:var(--tx3); margin-bottom:8px; }
+  #t-cezi .rbody .sec { margin:8px 0; padding:8px 10px; background:#161a26; border:1px solid var(--line); border-radius:6px; cursor:pointer; }
+  #t-cezi .rbody .sec:hover { border-color:var(--acc); }
+  #t-cezi .rbody .sec .t { font-size:13px; color:var(--tx1); font-weight:600; }
+  #t-cezi .rbody .sec .t::before { content:"▸"; color:var(--tx3); margin-right:6px; font-size:11px; }
+  #t-cezi .rbody .sec.open .t::before { content:"▾"; color:#e0a65e; }
+  #t-cezi .rbody .sec .body { font-size:12px; color:var(--tx2); line-height:1.6; margin-top:4px; max-height:120px; overflow:auto; white-space:pre-wrap; }
+  #t-cezi .rbody .sec.open .body { max-height:none; }
+  #t-cezi .rbody .grid81 { display:flex; flex-wrap:wrap; gap:6px; }
+  #t-cezi .rbody .grid81 .cell { width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; background:var(--panel); border:1px solid var(--line); border-radius:6px; cursor:pointer; transition:background .15s,border-color .15s; }
+  #t-cezi .rbody .grid81 .cell:hover { border-color:var(--acc); background:#20283a; }
+  #t-cezi .rbody .item { font-size:12px; color:var(--tx2); line-height:1.6; margin:3px 0; padding:5px 8px; background:#161a26; border-radius:5px; cursor:pointer; transition:background .15s; }
+  #t-cezi .rbody .item:hover { background:#20283a; }
+  #t-cezi .rbody .people-sec { margin:8px 0; padding:8px 10px; background:#161a26; border-radius:6px; }
+  #t-cezi .rbody .people-sec .lbl { font-size:12px; color:var(--tx1); font-weight:600; }
+  #t-cezi .rbody .chips { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
+  #t-cezi .rbody .chip { font-size:12px; padding:3px 10px; border-radius:12px; background:var(--panel); border:1px solid var(--line); color:#e0a65e; cursor:pointer; transition:border-color .15s; }
+  #t-cezi .rbody .chip:hover { border-color:#f0c860; }
+  #t-cezi .rsearch { width:100%; margin-bottom:10px; padding:7px 10px; border-radius:6px; border:1px solid var(--line); background:#161a26; color:var(--tx1); font-size:13px; }
+  #t-cezi .rsearch:focus { border-color:var(--acc); outline:none; }
+  #t-cezi mark.rule-hit { background:var(--acc); color:#fff; border-radius:2px; padding:0 1px; }
+  #t-cezi .decomp-tree { font-size:12px; color:var(--tx2); line-height:1.7; }
+  #t-cezi .decomp-tree .tnode { margin:2px 0; padding-left:10px; border-left:1px solid var(--line); }
+  #t-cezi .decomp-tree .tchildren { padding-left:14px; border-left:1px dashed var(--line); margin-left:6px; }
+  #t-cezi .decomp-tree .titem { margin:2px 0; }
+  #t-cezi .decomp-tree .titem.leaf { padding-left:10px; border-left:1px solid var(--line); }
+  #t-cezi #cz-checks .check-item { font-size:12px; color:var(--tx2); line-height:1.6; margin:3px 0; padding:5px 8px; background:#161a26; border:1px solid var(--line); border-radius:5px; cursor:pointer; transition:background .15s,border-color .15s; }
+  #t-cezi #cz-checks .check-item:hover { border-color:var(--acc); }
+  #t-cezi #cz-checks .check-item.on { background:#20283a; border-color:#f0c860; color:var(--tx1); }
+  #t-cezi .part-w { display:inline-block; font-size:14px; color:#e0a65e; margin:2px 3px; padding:2px 6px; background:#161a26; border:1px solid var(--line); border-radius:5px; cursor:pointer; }
+  #t-cezi .part-w:hover { border-color:#f0c860; color:var(--tx1); }
+  #t-cezi .part-w .tag { font-size:10px; color:var(--tx3); margin-left:2px; }
+  #t-cezi #cz-part-out { font-size:13px; line-height:1.8; }
+  #t-cezi #cz-picked { margin-top:6px; }
+  /* ── Tab 18 塔罗（韦特体系：翻牌 3D / 叠压让位 / 双击浮起归位，结构自塔罗引擎子件移植，勿改）── */
+  #t-tarot { padding:0; }
+  #t-tarot .tl-wrap { display:flex; min-height:0; height:100%; }
+  #t-tarot #tl-board { flex:1.4; overflow:auto; padding:18px; display:flex; flex-direction:column; gap:14px; background:var(--bg); }
+  #t-tarot #tl-board::-webkit-scrollbar { width:0; height:0; }
+  #t-tarot #tl-board-title { font-size:14px; color:var(--tx2); }
+  #t-tarot #tl-cards { display:flex; flex-wrap:wrap; gap:14px; align-content:flex-start; }
+  #t-tarot .card-slot { width:150px; text-align:center; cursor:pointer; }
+  #t-tarot .card-slot .pos-label { font-size:12px; color:var(--tx2); margin-bottom:4px; height:16px; }
+  #t-tarot .card-3d { width:140px; height:240px; position:relative; transform-style:preserve-3d; transition:transform .55s ease; margin:0 auto; }
+  #t-tarot .card-face { position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:8px; overflow:hidden; border:1px solid var(--line); }
+  #t-tarot .card-back { background:linear-gradient(135deg,var(--panel2) 0%,var(--panel) 100%); border:2px solid var(--acc2); display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--acc); font-size:16px; font-weight:600; letter-spacing:3px; gap:8px; }
+  #t-tarot .card-back .back-mark { width:46px; height:46px; border:2px solid var(--acc); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; }
+  #t-tarot .card-front { transform:rotateY(180deg); }
+  #t-tarot .card-front img { width:100%; height:100%; object-fit:cover; }
+  #t-tarot .card-3d.flipped { transform:rotateY(180deg); }
+  #t-tarot .card-slot.reversed .card-front img { transform:rotate(180deg); }
+  #t-tarot .card-slot.crossing .card-3d { transform:rotate(90deg); }
+  #t-tarot .card-slot.crossing .card-3d.flipped { transform:rotate(90deg) rotateY(180deg); }
+  #t-tarot .card-slot.crossing { z-index:2; }
+  #t-tarot .card-slot:hover .card-face { border-color:var(--acc); }
+  #t-tarot .card-slot.raised { z-index:20; }
+  #t-tarot .card-slot.raised .card-3d { transform:scale(1.12); }
+  #t-tarot .card-slot.raised .card-3d.flipped { transform:rotateY(180deg) scale(1.12); }
+  #t-tarot .card-slot.raised .card-face { border-color:#f0c860; }
+  #t-tarot .card-slot .card-name { font-size:12px; margin-top:4px; color:var(--tx); }
+  #t-tarot .card-slot .card-name .rev-tag { color:#ff9d8a; }
+  #t-tarot .card-slot.selected .card-face { box-shadow:0 0 0 2px rgba(240,200,96,.45); }
+  #t-tarot .card-slot.small { width:66px; }
+  #t-tarot .card-slot.small .pos-label { font-size:9px; height:12px; margin-bottom:2px; }
+  #t-tarot .card-slot.small .card-3d { width:60px; height:104px; }
+  #t-tarot .card-slot.small .card-name { font-size:9px; }
+  #t-tarot .card-slot.small .card-back .back-mark { width:22px; height:22px; font-size:8px; border-width:1px; }
+  #t-tarot .card-slot.small .card-back { font-size:9px; letter-spacing:1px; gap:3px; }
+  #t-tarot .card-slot.mid { width:104px; }
+  #t-tarot .card-slot.mid .pos-label { font-size:10px; }
+  #t-tarot .card-slot.mid .card-3d { width:98px; height:170px; }
+  #t-tarot .card-slot.mid .card-name { font-size:10px; }
+  #t-tarot #tl-side { width:580px; border-left:1px solid var(--line); display:flex; flex-direction:column; overflow:auto; background:var(--panel); }
+  #t-tarot #tl-controls { padding:14px 16px; border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:10px; }
+  #t-tarot .tl-row { display:flex; align-items:center; gap:8px; }
+  #t-tarot .tl-row label { font-size:13px; color:var(--tx2); min-width:56px; }
+  #t-tarot select, #t-tarot button { font-family:inherit; }
+  #t-tarot #tl-detail { flex:1; padding:14px 16px; overflow:auto; }
+  #t-tarot #tl-detail h2 { font-size:16px; color:var(--tx); margin-bottom:4px; }
+  #t-tarot #tl-detail .meta { font-size:12px; color:var(--tx2); margin-bottom:10px; }
+  #t-tarot #tl-detail .meta span { margin-right:10px; }
+  #t-tarot #tl-detail h3 { font-size:13px; color:var(--acc); margin:10px 0 4px; }
+  #t-tarot #tl-detail p { font-size:13px; line-height:1.65; color:var(--tx); white-space:pre-wrap; }
+  #t-tarot .sum-row { display:flex; align-items:center; gap:10px; padding:8px 10px; border-bottom:1px solid var(--line); cursor:pointer; }
+  #t-tarot .sum-row:hover { background:var(--panel2); }
+  #t-tarot .sum-pos { font-size:12px; color:var(--tx2); min-width:120px; }
+  #t-tarot .sum-name { font-size:13px; color:var(--tx); font-weight:600; min-width:140px; }
+  #t-tarot .sum-kw { font-size:12px; color:var(--tx2); }
+  #t-tarot #tl-detail .src { font-size:11px; color:var(--tx2); margin-bottom:8px; }
+  #t-tarot #tl-rule-search { width:100%; margin-bottom:10px; padding:7px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--tx); font-size:13px; box-sizing:border-box; }
+  #t-tarot #tl-rule-search:focus { border-color:var(--acc); outline:none; }
+  #t-tarot #tl-rule-search::placeholder { color:var(--tx2); }
+  #t-tarot mark.rule-hit { background:var(--acc); color:#111; border-radius:2px; padding:0 1px; }
+  #t-tarot #tl-detail .empty-hint { color:var(--tx2); font-size:13px; line-height:1.8; }
+  #t-tarot input[type=range] { accent-color:var(--acc); }
+  /* ── Tab 19 大六壬 ── */
+  #t-liunren { padding:14px; }
+  #t-liunren .ln-wrap { display:flex; gap:16px; height:100%; min-height:0; }
+  #t-liunren .ln-left { flex:1; min-width:0; overflow:auto; }
+  #t-liunren .ln-side { width:560px; flex:none; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+  #t-liunren .ln-title { font-size:15px; color:var(--tx1); margin-bottom:8px; }
+  #t-liunren .ln-si { font-size:13px; color:var(--tx2); line-height:1.8; margin-top:10px; }
+  #t-liunren .ln-controls, #t-liunren #ln-controls { display:flex; flex-direction:column; gap:8px; }
+  #t-liunren .ln-row { display:flex; align-items:center; gap:8px; font-size:13px; }
+  #t-liunren .ln-row label { width:64px; flex:none; color:var(--tx2); }
+  #t-liunren .ln-row select { flex:1; }
+  #t-liunren .ln-mini { padding:2px 10px; font-size:12px; }
+  #t-liunren .ln-hint { font-size:11px; }
+  #t-liunren .ln-out { font-size:13px; line-height:1.9; }
+  #t-liunren .ln-out h3 { margin:12px 0 4px; font-size:14px; color:var(--acc); }
+  #t-liunren .ln-out .src { font-size:11px; color:var(--tx3); }
+  #t-liunren .ln-pan-box { background:#12151f; border:1px solid var(--line); border-radius:8px; padding:12px; }
+  #t-liunren .ln-4ke { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:8px 0; }
+  #t-liunren .ln-ke { border:1px solid var(--line); border-radius:6px; padding:8px; font-size:13px; }
+  #t-liunren .ln-ke b { color:var(--acc); }
+  #t-liunren .ln-3c { display:flex; gap:8px; margin:8px 0; }
+  #t-liunren .ln-3c .ln-chuan { flex:1; border:1px solid var(--line); border-radius:6px; padding:8px; text-align:center; }
+  #t-liunren #ln-pan { display:flex; justify-content:center; }
+  #t-liunren #ln-pan svg { width:100%; max-width:560px; }
+  #t-liunren .ln-extra { margin-top:14px; border-top:1px dashed var(--line); padding-top:10px; }
+  #t-liunren .ln-extra select { margin-bottom:8px; }
+  #t-liunren .ln-tj { display:flex; flex-wrap:wrap; gap:4px 10px; font-size:12px; color:var(--tx2); margin-top:6px; }
+  #t-liunren .ln-tj span { white-space:nowrap; }
+  #t-liunren .ln-tj b { color:var(--tx1); }
+  .param-note { margin-top:10px; padding:8px 10px; background:rgba(20,24,38,.55); border:1px solid var(--line); border-radius:8px; font-size:11.5px; line-height:1.65; color:var(--tx2); }
+  .param-note .pn-title { font-size:12px; color:var(--tx1); font-weight:700; margin-bottom:5px; }
+  .param-note .pn-item { margin-bottom:4px; }
+  .param-note .pn-item b { color:var(--acc); }
+  .param-note .pn-item span { color:var(--tx3); }
+  #t-liunren .ln-verdict { border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:6px 0; background:#131827; }
+  #t-liunren .ln-verdict b { color:var(--acc); }
+  /* ── 大六壬论命（并入 Tab 19 左右栏）── */
+  #t-liunren .llr-head { display:flex; align-items:baseline; gap:10px; margin:14px 0 10px; flex-wrap:wrap; padding-top:12px; border-top:1px dashed var(--line); }
+  #t-liunren .llr-head h3 { margin:0; font-size:15px; color:var(--acc); }
+  #t-liunren .llr-tag { font-size:11.5px; color:var(--tx3); }
+  #t-liunren .llr-ctl { border-top:1px dashed var(--line); padding-top:10px; margin-top:4px; display:flex; flex-direction:column; gap:8px; }
+  #t-liunren .llr-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  #t-liunren .llr-row label { color:var(--tx2); font-size:13px; flex:none; }
+  #t-liunren .llr-row input, #t-liunren .llr-row select { width:76px; background:#141926; border:1px solid var(--line); color:var(--tx1); border-radius:6px; padding:5px 8px; font-size:13px; }
+  #t-liunren .llr-row select { width:110px; }
+  #t-liunren .llr-row input[type="number"]::-webkit-inner-spin-button { opacity:.4; }
+  #t-liunren .llr-hint { font-size:11.5px; color:var(--tx3); line-height:1.6; margin:8px 0; }
+  #t-liunren #llr-result, #t-liunren #llr-analysis { margin-top:6px; }
+  #t-liunren #llr-result .tbl, #t-liunren #llr-analysis .tbl { border-collapse:collapse; width:100%; background:#141926; border:1px solid var(--line); }
+  #t-liunren #llr-result .tbl th, #t-liunren #llr-analysis .tbl th { background:#1a2133; color:var(--acc); font-size:12px; font-weight:600; padding:6px 10px; text-align:left; border-bottom:1px solid var(--line); }
+  #t-liunren #llr-result .tbl td, #t-liunren #llr-analysis .tbl td { padding:5px 10px; font-size:12.5px; border-bottom:1px solid rgba(255,255,255,.045); }
+  #t-liunren #llr-result .tbl tr:last-child td, #t-liunren #llr-analysis .tbl tr:last-child td { border-bottom:none; }
+  #t-liunren #llr-result .tbl tr:nth-child(even) td, #t-liunren #llr-analysis .tbl tr:nth-child(even) td { background:rgba(255,255,255,.022); }
+  #t-liunren #llr-result h4, #t-liunren #llr-analysis h4 { color:var(--acc); font-size:13px; margin:12px 0 6px; padding-left:8px; border-left:3px solid var(--acc); }
+  #t-liunren #llr-result .warn, #t-liunren #llr-analysis .warn { color:#e0a34a; font-size:12.5px; margin:6px 0; }
+  #t-liunren #llr-result .card, #t-liunren #llr-analysis .card { background:#131827; border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin:6px 0; }
+  /* ── Tab 20 金口诀 ── */
+  #t-jinkoujue { padding:14px; }
+  #t-jinkoujue .jk-wrap { display:flex; gap:16px; height:100%; min-height:0; }
+  #t-jinkoujue .jk-left { flex:1; min-width:0; overflow:auto; }
+  #t-jinkoujue .jk-side { width:430px; flex:none; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+  #t-jinkoujue #jk-pan { display:flex; justify-content:center; }
+  #t-jinkoujue #jk-pan svg { width:100%; max-width:540px; }
+  #t-jinkoujue .jk-title { font-size:15px; color:var(--tx1); margin-bottom:8px; }
+  #t-jinkoujue .jk-si { font-size:13px; color:var(--tx2); line-height:1.8; margin-top:10px; }
+  #t-jinkoujue .jk-row { display:flex; align-items:center; gap:8px; font-size:13px; }
+  #t-jinkoujue .jk-row label { width:110px; flex:none; color:var(--tx2); }
+  #t-jinkoujue .jk-row select { flex:1; }
+  #t-jinkoujue .jk-mini { padding:2px 10px; font-size:12px; }
+  #t-jinkoujue .jk-hint { font-size:11px; }
+  #t-jinkoujue .jk-out { font-size:13px; line-height:1.9; }
+  #t-jinkoujue .jk-out h3 { margin:12px 0 4px; font-size:14px; color:var(--acc); }
+  #t-jinkoujue .jk-out .src { font-size:11px; color:var(--tx3); }
+  #t-jinkoujue .jk-4w { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0; }
+  #t-jinkoujue .jk-w { border:1px solid var(--line); border-radius:6px; padding:8px; text-align:center; font-size:13px; }
+  #t-jinkoujue .jk-w b { display:block; color:var(--acc); font-size:15px; margin-bottom:2px; }
+  /* ── Tab 神易数兵占（shenyishu/kentang2017/MIT 现代整理层） ── */
+  #t-shenyishu { padding:14px; }
+  #t-shenyishu .sy-gz { display:flex; gap:10px; margin:8px 0; flex-wrap:wrap; }
+  #t-shenyishu .sy-gz-i { border:1px solid var(--line); border-radius:6px; padding:6px 14px; font-size:13px; }
+  #t-shenyishu .sy-gz-i b { display:block; color:var(--acc); font-size:16px; }
+  #t-shenyishu .sy-zw { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0; }
+  #t-shenyishu .sy-zw-i { border:1px solid var(--line); border-radius:6px; padding:8px; text-align:center; font-size:13px; }
+  #t-shenyishu .sy-zw-i b { display:block; color:var(--acc); font-size:15px; }
+  #t-shenyishu .sy-zk { font-size:13px; line-height:1.8; margin-top:6px; }
+  #t-shenyishu .sy-zk ul { margin:4px 0 0 18px; }
+  #t-shenyishu .sy-wx { font-size:13px; line-height:1.8; margin-top:6px; }
+  #t-shenyishu .sy-ss { border-collapse:collapse; font-size:13px; margin:8px 0; width:100%; }
+  #t-shenyishu .sy-ss td { border:1px solid var(--line); padding:5px 10px; }
+  #t-shenyishu .sy-ss td:first-child { color:var(--tx3); width:70px; }
+  #t-shenyishu .sy-cs { font-size:13px; line-height:1.8; margin-top:6px; }
+  #t-shenyishu .sy-jx { font-size:14px; line-height:1.9; }
+  #t-shenyishu .sy-jx ul { margin:4px 0 0 18px; font-size:12px; color:var(--tx2); }
+  #t-shenyishu .tag-ji { color:#4ade80; font-weight:bold; }
+  #t-shenyishu .tag-xiong { color:#ff8a8a; font-weight:bold; }
+  /* ── Tab 堅五兆（kinwuzhao/kentang2017/MIT 现代整理层；敦煌 P.2859 五兆要诀略） ── */
+  #t-kinwuzhao { padding:14px; }
+  #t-kinwuzhao .kz-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0; }
+  #t-kinwuzhao .kz-cell { border:1px solid var(--line); border-radius:6px; padding:8px; text-align:center; font-size:13px; min-height:86px; }
+  #t-kinwuzhao .kz-empty { border:none; }
+  #t-kinwuzhao .kz-name { font-weight:bold; color:var(--tx2); margin-bottom:4px; }
+  #t-kinwuzhao .kz-el { font-size:17px; font-weight:bold; margin-bottom:2px; }
+  #t-kinwuzhao .kz-sub { font-size:12px; color:var(--tx2); line-height:1.6; }
+  #t-kinwuzhao .kz-tag { display:inline-block; margin-top:3px; font-size:11px; color:var(--acc); border:1px solid var(--line); border-radius:4px; padding:1px 6px; }
+  /* ── 太玄筮法卡（taixuanshifa/kentang2017/MIT 现代整理层；已并入 t-taixuan tab，与太玄经/太玄数同 tab 内不同筮法实现、不同数据源） ── */
+  #t-taixuan .tsx-gz { display:flex; gap:10px; margin:8px 0; flex-wrap:wrap; }
+  #t-taixuan .tsx-gz span { border:1px solid var(--line); border-radius:6px; padding:6px 14px; font-size:13px; }
+  #t-taixuan .tsx-gz b { display:block; color:var(--acc); font-size:16px; }
+  #t-taixuan .tsx-yao { font-size:13px; line-height:1.5; margin:6px 0; white-space:pre; color:var(--tx2); }
+  #t-taixuan .tsx-line { font-size:14px; line-height:1.9; margin-top:4px; }
+  #t-taixuan .tsx-ci { font-size:15px; line-height:2; }
+  #t-taixuan .tsx-biao { border-collapse:collapse; font-size:13px; margin:8px 0; width:100%; }
+  #t-taixuan .tsx-biao td { border:1px solid var(--line); padding:6px 10px; vertical-align:top; line-height:1.9; }
+  #t-taixuan .tsx-biao .tsx-zan { color:var(--tx3); width:56px; text-align:center; }
+  #t-taixuan .tag-ji { color:#4ade80; font-weight:bold; }
+  /* ── Tab 21 六爻-纳甲 ── */
+  #t-liuyao { padding:14px; }
+  #t-liuyao .ly-wrap { display:flex; gap:16px; height:100%; min-height:0; }
+  #t-liuyao .ly-left { flex:1; min-width:0; overflow:auto; }
+  #t-liuyao .ly-side { width:560px; flex:none; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+  #t-liuyao #ly-pan { display:flex; justify-content:center; }
+  #t-liuyao #ly-pan svg { width:100%; max-width:580px; }
+  #t-liuyao .ly-title { font-size:15px; color:var(--tx1); margin-bottom:8px; }
+  #t-liuyao .ly-si { font-size:13px; color:var(--tx2); line-height:1.8; margin-top:10px; }
+  #t-liuyao .ly-row { display:flex; align-items:center; gap:8px; font-size:13px; flex-wrap:wrap; }
+  #t-liuyao .ly-row label { width:110px; flex:none; color:var(--tx2); }
+  #t-liuyao .ly-row select { flex:1; min-width:120px; }
+  #t-liuyao .ly-manual { display:flex; flex-direction:column; gap:4px; flex:1; min-width:180px; }
+  #t-liuyao .ly-yao { width:100%; }
+  #t-liuyao .ly-mini { padding:2px 10px; font-size:12px; }
+  #t-liuyao .ly-out { font-size:13px; line-height:1.9; }
+  #t-liuyao .ly-out h3 { margin:12px 0 4px; font-size:14px; color:var(--acc); }
+  #t-liuyao .ly-out .src { font-size:11px; color:var(--tx3); }
+  #t-liuyao .ly-param .pn-item b { color:var(--tx1); }
+  #t-liuyao .ly-param .pn-item span { display:block; margin-top:2px; color:var(--tx3); font-size:12px; line-height:1.7; }
+  /* 协纪辨方书（iframe 整包承载，独立配色，零样式冲突） */
+  #t-xjb { padding:0; overflow:hidden; }
+  #t-xjb iframe { width:100%; height:100%; border:0; display:block; background:#05070d; }
+  /* ── Tab 23 奇门遁甲 ── */
+  #t-qimen { padding:14px; }
+  #t-qimen .qm-wrap { display:flex; gap:16px; height:100%; min-height:0; }
+  #t-qimen .qm-pan-col { flex:none; width:560px; max-width:100%; display:flex; flex-direction:column; gap:10px; min-width:0; }
+  #t-qimen #qm-pan { display:flex; justify-content:center; }
+  #t-qimen #qm-pan svg { width:100%; max-width:560px; background:#0f1420; border:1px solid var(--line); border-radius:10px; }
+  #t-qimen .qm-verdict-col { flex:1; min-width:0; display:flex; flex-direction:column; min-height:0; }
+  #t-qimen #qm-verdict { flex:1; overflow:auto; min-height:0; }
+  #t-qimen .qm-side { width:440px; flex:none; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+  #t-qimen .qm-title { font-size:15px; color:var(--tx1); margin-bottom:8px; }
+  #t-qimen .qm-si { font-size:13px; color:var(--tx2); line-height:1.9; margin-top:8px; }
+  #t-qimen .qm-doc { white-space:pre-wrap; word-break:break-all; font-size:12px; line-height:1.7; color:var(--tx2); background:#0f1420; border:1px solid var(--line); border-radius:8px; padding:10px; margin:6px 0; max-height:340px; overflow:auto; }
+  #t-qimen .qm-row { display:flex; align-items:center; gap:8px; font-size:13px; flex-wrap:wrap; }
+  #t-qimen .qm-row label { width:90px; flex:none; color:var(--tx2); }
+  #t-qimen .qm-row select, #t-qimen .qm-row input { flex:1; min-width:90px; }
+  #t-qimen .qm-mini { padding:2px 10px; font-size:12px; }
+  #t-qimen .qm-out { font-size:13px; line-height:1.9; }
+  #t-qimen .qm-out h3 { margin:14px 0 4px; font-size:14px; color:var(--acc); }
+  #t-qimen .qm-out details { border:1px solid var(--line); border-radius:8px; padding:8px 12px; margin:8px 0; background:#12151f; }
+  #t-qimen .qm-out summary { cursor:pointer; font-weight:bold; color:var(--tx1); font-size:13px; }
+  #t-qimen .qm-verdict { border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:6px 0; background:#131827; font-size:13px; line-height:1.8; }
+  #t-qimen .qm-verdict.ji { border-color:rgba(74,222,128,0.4); background:rgba(74,222,128,0.06); }
+  #t-qimen .qm-verdict.ji b { color:#4ade80; }
+  #t-qimen .qm-verdict.xiong { border-color:rgba(255,120,120,0.4); background:rgba(255,120,120,0.06); }
+  #t-qimen .qm-verdict.xiong b { color:#ff8a8a; }
+  #t-qimen .qm-sum { font-size:13px; line-height:1.8; margin:4px 0; }
+  #t-qimen .qm-tj { display:flex; flex-wrap:wrap; gap:4px 8px; font-size:12px; margin-top:6px; }
+  #t-qimen .qm-tj-item { cursor:pointer; white-space:nowrap; padding:1px 8px; border:1px solid var(--line); border-radius:12px; color:var(--acc); }
+  #t-qimen .qm-tj-item:hover { background:var(--acc); color:#0b0e17; }
+  #t-qimen .qm-param .pn-item b { color:var(--tx1); }
+  #t-qimen .qm-param .pn-item span { display:block; margin-top:2px; color:var(--tx3); font-size:12px; line-height:1.7; }
+  /* 子平八字 */
+  #t-bazi .bz-wrap { display:flex; gap:16px; height:100%; min-height:0; }
+  #t-bazi .bz-main { flex:1; min-width:0; overflow:auto; }
+  #t-bazi .bz-side { width:420px; flex:none; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+  #t-bazi .bz-row { display:flex; align-items:center; gap:8px; font-size:13px; flex-wrap:wrap; }
+  #t-bazi .bz-row label { width:90px; flex:none; color:var(--tx2); }
+  #t-bazi .bz-row select, #t-bazi .bz-row input { flex:1; min-width:90px; }
+  #t-bazi .bz-out { font-size:13px; line-height:1.9; }
+  #t-bazi .bz-out h3 { margin:14px 0 4px; font-size:14px; color:var(--acc); }
+  #t-bazi .bz-out details { border:1px solid var(--line); border-radius:8px; padding:8px 12px; margin:8px 0; background:#12151f; }
+  #t-bazi .bz-out summary { cursor:pointer; font-weight:bold; color:var(--tx1); font-size:13px; }
+  #t-bazi .bz-param .pn-item b { color:var(--tx1); }
+  #t-bazi .bz-param .pn-item span { display:block; margin-top:2px; color:var(--tx3); font-size:12px; line-height:1.7; }
+</style>
+</head>
+<body>
+<header>
+  <h1>术数引擎</h1>
+  <span class="sub">术数引擎 · 卜筮 / 命理 / 三式 / 杂占——仅做古籍复原机判，不做玄学有效性背书</span>
+</header>
+<nav id="tabs">
+  <button data-tab="t-lingqi" class="on">灵棋经</button>
+  <button data-tab="t-zhuge">诸葛神数</button>
+  <button data-tab="t-81">81 数理</button>
+  <button data-tab="t-zhouyi">周易蓍占</button>
+  <button data-tab="t-jinqianke">六十四卦金钱课</button>
+  <button data-tab="t-kongming">孔明神卦</button>
+  <button data-tab="t-jingjue">荆诀十六卦</button>
+  <button data-tab="t-xiaoliuren">小六壬</button>
+  <button data-tab="t-jinqianke3">金钱卦</button>
+  <button data-tab="t-dream">解梦</button>
+  <button data-tab="t-cezi">测字</button>
+  <button data-tab="t-tarot">塔罗</button>
+  <i class="br"></i>
+  <button data-tab="t-tieban">铁板神数</button>
+  <button data-tab="t-shaozi">邵子神数</button>
+  <button data-tab="t-beiji">北极神数</button>
+  <button data-tab="t-nanji">南极神数</button>
+  <button data-tab="t-meihua">梅花易数</button>
+  <button data-tab="t-taiyi">太乙神数</button>
+  <button data-tab="t-shenyishu">神易数兵占</button>
+  <button data-tab="t-huangji">皇极经世</button>
+  <button data-tab="t-kinwuzhao">堅五兆</button>
+  <button data-tab="t-wuyunliuqi">五运六气</button>
+  <button data-tab="t-fendjing">鬼谷分定经</button>
+  <button data-tab="t-taixuan">太玄经 · 太玄数 · 筮法</button>
+  <i class="br"></i>
+  <button data-tab="t-xjb">协纪辨方书</button>
+  <button data-tab="t-bazi">子平八字</button>
+  <button data-tab="t-diyi">涤器遗诀</button>
+  <button data-tab="t-ziwei14">紫微斗数·十四主星</button>
+  <button data-tab="t-ziwei18">紫微斗数·十八飞星</button>
+  <button data-tab="t-liunren">大六壬</button>
+  <button data-tab="t-jinkoujue">金口诀</button>
+  <button data-tab="t-qimen">奇门遁甲</button>
+  <button data-tab="t-liuyao">六爻-纳甲</button>
+  <button data-tab="t-jingfang">京房易</button>
+  <button data-tab="t-yilin">焦氏易林</button>
+</nav>
+<main>
+  <!-- Tab 1 灵棋经 -->
+  <section id="t-lingqi" class="tab on">
+    <div class="row" style="margin-bottom:12px;">
+      <button class="act" id="lingqi-throw">掷十二棋子</button>
+      <span class="muted">上子·中子·下子各四枚，字面朝上数 0–4</span>
+      <span class="muted" style="margin-left:12px;">或手动：</span>
+      <select id="lq-shang"><option value="0">上 0</option><option value="1">上 1</option><option value="2">上 2</option><option value="3">上 3</option><option value="4">上 4</option></select>
+      <select id="lq-zhong"><option value="0">中 0</option><option value="1">中 1</option><option value="2">中 2</option><option value="3">中 3</option><option value="4">中 4</option></select>
+      <select id="lq-xia"><option value="0">下 0</option><option value="1">下 1</option><option value="2">下 2</option><option value="3">下 3</option><option value="4">下 4</option></select>
+      <button class="sec" id="lingqi-query">查卦</button>
+    </div>
+    <div class="anim-area" id="lingqi-anim"></div>
+    <div id="lingqi-result"></div>
+  </section>
+
+  <!-- Tab 2 诸葛神数 -->
+  <section id="t-zhuge" class="tab">
+    <div class="card">
+      <h3>诸葛神数 · 384 签</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">起数方式：</span>
+        <button class="sec on" id="zhuge-mode-hz">汉字起数</button>
+        <button class="sec" id="zhuge-mode-num">数字起数</button>
+      </div>
+      <div class="row">
+        <input type="text" id="zhuge-input" placeholder="输入汉字（1–3 字）" maxlength="3" style="width:200px;">
+        <button class="act" id="zhuge-go">起数取签</button>
+      </div>
+      <div id="zhuge-strokes" class="muted" style="margin-top:8px;"></div>
+      <div class="steps" style="margin-top:6px;" id="zhuge-help">起数法（通行）：三字=百十个位笔画组数，二字=十位个位，一字=个位；所得数对 384 取模，余 0 取第 384 签。</div>
+    </div>
+    <div id="zhuge-result"></div>
+  </section>
+
+  <!-- Tab 3 81 数理 -->
+  <section id="t-81" class="tab">
+    <div class="card">
+      <h3>五格剖象 · 81 数理吉凶</h3>
+      <div class="row">
+        <span class="muted">直接查数：</span>
+        <input type="number" id="num81-input" min="1" max="81" placeholder="1–81" style="width:90px;">
+        <button class="sec" id="num81-go">查</button>
+        <span class="muted" style="margin-left:16px;">或姓名起五格：</span>
+        <input type="text" id="wuge-surname" placeholder="姓（单/复姓）" style="width:110px;">
+        <input type="text" id="wuge-given" placeholder="名" style="width:110px;">
+        <button class="sec" id="wuge-go">起五格</button>
+      </div>
+    </div>
+    <div id="num81-result"></div>
+  </section>
+
+  <!-- Tab 4 周易蓍占 -->
+  <section id="t-zhouyi" class="tab">
+    <div class="row" style="margin-bottom:12px;">
+      <span class="muted">起卦方式：</span>
+      <button class="sec on" id="zy-mode-auto">大衍自动</button>
+      <button class="sec" id="zy-mode-manual">手动定爻</button>
+      <button class="sec" id="zy-mode-assist">活人辅助</button>
+    </div>
+    <details class="help-card" open>
+      <summary>什么是动爻 · 活人该怎么筮（大衍筮法全流程）</summary>
+      <div class="help-body">
+        <b>一、什么是动爻</b>
+        <div class="step-line">每爻三变后剩余策数 ÷ 4，得四值：<b>6 老阴（动）· 7 少阳（静）· 8 少阴（静）· 9 老阳（动）</b>。</div>
+        <div class="step-line">7、8 为静爻：本爻不变。<b>6、9 为动爻</b>：阴至极必反阳、阳至极必反阴，动爻在成卦后要变，变后之卦即「之卦」。卦象中动爻以橙色描边标出。</div>
+        <div class="step-line"><b>断法（朱熹《易学启蒙》通行）</b>：六爻皆静 → 以本卦卦辞断；一爻动 → 以该动爻爻辞断；两爻动 → 以本卦两动爻中上爻之辞为主；三爻动 → 以本卦与之卦卦辞合断（本卦为贞、之卦为悔）；四爻动 → 以之卦两静爻中下爻之辞断；五爻动 → 以之卦静爻之辞断；六爻全动 → 乾用「用九」、坤用「用六」，余卦以之卦卦辞断。</div>
+        <b>二、活人一步步怎么筮</b>
+        <div class="step-line">备 50 策（蓍草 / 竹签 / 围棋子皆可），「大衍之数五十，其用四十有九」——先取 <b>49 策</b>（1 策置旁象太极）。<b>每爻三变，六爻共十八变</b>。</div>
+        <div class="step-line"><b>一变（49 策起）</b>：① 随意分两堆（象两仪）→ ② 从右堆取 1 策挂起（象三才）→ ③ 左堆 4 个 4 个数，数剩 1–4 记左余 → ④ 右堆（已去掉挂的 1 策）同样 4 个 4 个数，数剩 1–4 记右余 → ⑤ 归奇 = 挂 1 + 左余 + 右余（正常为 <b>5 或 9</b>）→ 剩余 = 49 − 归奇（<b>40 或 44</b>）。</div>
+        <div class="step-line"><b>二变（40 或 44 策起）</b>：同法再分二、挂一、揲四、归奇（正常归奇 <b>4 或 8</b>）→ 剩 32 / 36 / 40。</div>
+        <div class="step-line"><b>三变（32 / 36 / 40 策起）</b>：再同法（正常归奇 4 或 8）→ 剩 24 / 28 / 32 / 36 → <b>÷ 4 = 6 / 7 / 8 / 9</b>，得初爻。</div>
+        <div class="step-line">换一卦再起 49 策，同法再筮五遍，得二爻至上爻，<b>六爻成卦</b> → 按上文断法断之。</div>
+        <b>三、辅助计算怎么用</b>
+        <div class="step-line">切到「活人辅助」模式：真人照上面步骤做分二、挂一、揲四（体力活），把 <b>左堆余数</b> 与 <b>右堆余数</b> 填进输入框，点「记录本变」，程序自动算归奇、剩余策数、爻值；三变定一爻，六爻成卦自动出卦象与断辞。若归奇非正常值（一变 5/9、二三变 4/8）会提示检查，但按诚实记录继续。</div>
+      </div>
+    </details>
+    <div id="zy-auto-area">
+      <div class="row" style="margin-bottom:12px;">
+        <button class="act" id="zy-step">单步一变</button>
+        <button class="sec" id="zy-auto">自动十八变</button>
+        <button class="sec" id="zy-reset">重来</button>
+        <span class="muted">大衍筮法：三变成一爻，十八变成一卦。动爻（6 老阴 / 9 老阳）变后得之卦。</span>
+      </div>
+      <div class="card" id="zy-proc" style="min-height:110px;">
+        <div class="zy-vis" id="zy-vis"></div>
+        <div id="zy-vis-log"></div>
+      </div>
+    </div>
+    <div id="zy-manual-area" style="display:none;">
+      <div class="card">
+        <h3>手动定六爻（自初爻至上爻）</h3>
+        <div id="zy-picker"></div>
+        <div class="row" style="margin-top:10px;">
+          <button class="act" id="zy-build">成卦</button>
+          <span class="muted">六爻各选一种，动爻（老阴 6 / 老阳 9）变后得之卦。</span>
+        </div>
+      </div>
+    </div>
+    <div id="zy-assist-area" style="display:none;">
+      <div class="card">
+        <h3>活人辅助 · 人机配合筮</h3>
+        <div id="zy-assist-status" class="muted">第 1 爻 · 第 1 变 · 当前 49 策</div>
+        <div class="row" style="margin-top:10px;">
+          <span class="muted">左堆余数（揲四后 1–4）：</span>
+          <input type="number" id="zy-a-left" min="1" max="4" style="width:70px;">
+          <span class="muted">右堆余数（揲四后 1–4）：</span>
+          <input type="number" id="zy-a-right" min="1" max="4" style="width:70px;">
+          <button class="act" id="zy-a-go">记录本变</button>
+          <button class="sec" id="zy-a-reset">重来</button>
+        </div>
+        <div class="muted" style="margin-top:8px;">操作：49 策分两堆 → 右堆挂 1 → 左右各 4 个 4 个数 → 把两堆「数剩的余数」填进来。</div>
+        <div id="zy-assist-log" class="steps" style="margin-top:6px;"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>卦象</h3>
+      <div class="hex-box" id="zy-hex"></div>
+    </div>
+    <div class="card" id="zy-detail"></div>
+  </section>
+
+  <!-- Tab 5 六十四卦金钱课 -->
+  <section id="t-jinqianke" class="tab">
+    <details class="help-card" open>
+      <summary>金钱课怎么摇（文王六十四卦）</summary>
+      <div class="help-body">
+        <div class="step-line">用六枚铜钱/硬币（或一枚连掷六次），一次抛出后看落地：<b>国徽/字面朝上 = 阳爻 ○</b>，<b>花面朝上 = 阴爻 ●</b>。</div>
+        <div class="step-line">连续掷六次，<b>自下而上</b>排成一行（第一次掷的为初爻在最下），六爻成卦 → 六十四卦中唯一一卦，无动爻、不用变卦。</div>
+        <div class="step-line">掷前净手静心、专心所问；卦不可空占。断语为民间歌诀体系（卦辞/推断/象曰/诗曰/断曰+历史典故）。</div>
+        <div class="step-line">来源：美篇《秘传文王六十四卦金钱课》（2024-06-01，八宫卦序）全文录入。串位1=上爻。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <button class="act" id="jqk-throw">掷六枚铜钱</button>
+      <span class="muted">或手动选六爻（自下而上）：</span>
+      <div class="coin-ring" id="jqk-picker"></div>
+      <button class="sec" id="jqk-query">查卦</button>
+    </div>
+    <div class="anim-area" id="jqk-anim"></div>
+    <div id="jqk-result"></div>
+  </section>
+
+  <!-- Tab 6 孔明神卦 -->
+  <section id="t-kongming" class="tab">
+    <details class="help-card" open>
+      <summary>孔明神卦怎么占（三十二课金钱卦）</summary>
+      <div class="help-body">
+        <div class="step-line">用五枚硬币（古钱），净手焚香、默祷所问，于香烟上薰过，两手高举连摇数下，虔敬拜请后掷下。</div>
+        <div class="step-line"><b>有字/正面朝上 = 阳爻 ○</b>，<b>无字花面朝上 = 阴爻 ●</b>；<b>自上而下</b>排成一行五爻，共 32 课（三十二课内占一课）。</div>
+        <div class="step-line">数据来源三层：A1 道客巴巴《三十二课金钱卦之孔明神卦》（第 1/2/3/25 课原文）；A2 道客巴巴《观音神课三十二卦》（第 1–11 课，与孔明神卦同文族）；B 第一范文网《观音感应灵课》（32 课对照文本，课名体系不同，非孔明原文）。</div>
+        <div class="step-line" style="color:#d9a05e;"><b>缺口如实标注</b>：第 12–24、26–32 课孔明原文因道客巴巴登录墙未取得，暂显示 B 版同课次对照文本（标注"对照文本，非孔明原文"），待后续补全。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <button class="act" id="km-throw">掷五枚铜钱</button>
+      <span class="muted">或手动选五爻（自上而下）：</span>
+      <div class="coin-ring" id="km-picker"></div>
+      <button class="sec" id="km-query">查课</button>
+    </div>
+    <div class="anim-area" id="km-anim"></div>
+    <div id="km-result"></div>
+  </section>
+
+  <!-- Tab 7 小六壬 -->
+  <section id="t-xiaoliuren" class="tab">
+    <details class="help-card" open>
+      <summary>小六壬怎么掐（马前课 · 六神掌诀）</summary>
+      <div class="help-body">
+        <div class="step-line">六宫顺序固定：<b>大安 → 留连 → 速喜 → 赤口 → 小吉 → 空亡</b>（循环）。掌诀定位：大安=食指根、留连=食指尖、速喜=中指尖、赤口=无名指尖、小吉=无名指根、空亡=中指根。</div>
+        <div class="step-line">正统起课：<b>大安起正月</b>（顺数至当月，落点为月宫）→ <b>月上起日</b>（从月宫起初一顺数至当日，落点为日宫）→ <b>日上起时</b>（从日宫起子时顺数至当辰，落点为时宫）。<b>以时辰落宫为最终结果</b>。</div>
+        <div class="step-line">变通取数法：任意报三个数替代月/日/时，掐法相同；随机取数法：1 至任意多个数字均可（如电话号码、座位号、门牌号…第一感觉取数）。</div>
+        <div class="step-line">来源：三种现代传本（无古籍刊本）——六宫速断表、初天麟《小六壬口诀详解大全》、麟毅轩《一分钟学会小六壬》。留连/空亡配神两版不一（玄武/勾陈），两版并存如实标注。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <span class="muted">起课方式：</span>
+      <button class="sec on" id="xln-mode-time">月日时</button>
+      <button class="sec" id="xln-mode-num">三个数字</button>
+      <button class="sec" id="xln-mode-random">随机取数</button>
+    </div>
+    <div id="xln-time-area">
+      <div class="row" style="margin-bottom:12px;">
+        <span class="muted">农历月：</span>
+        <select id="xln-month"></select>
+        <span class="muted">日：</span>
+        <input type="number" id="xln-day" min="1" max="30" value="1" style="width:70px;">
+        <span class="muted">时：</span>
+        <select id="xln-shichen"></select>
+        <button class="sec" id="xln-now">当前时辰</button>
+        <button class="act" id="xln-go">起课</button>
+      </div>
+    </div>
+    <div id="xln-num-area" style="display:none;">
+      <div class="row" style="margin-bottom:12px;">
+        <span class="muted">三个数（替代月/日/时，任意正整数）：</span>
+        <input type="number" id="xln-n1" min="1" value="1" style="width:70px;">
+        <input type="number" id="xln-n2" min="1" value="1" style="width:70px;">
+        <input type="number" id="xln-n3" min="1" value="1" style="width:70px;">
+        <button class="act" id="xln-go-num">起课</button>
+      </div>
+    </div>
+    <div id="xln-random-area" style="display:none;">
+      <div class="row" style="margin-bottom:12px;">
+        <button class="act" id="xln-go-random">掐指随机一占</button>
+        <span class="muted">程序取三个随机数（1–12）替代月日时，第一感觉取数原理由你自己掌握。</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>六宫掌诀</h3>
+      <div class="xln-palm" id="xln-palm"></div>
+    </div>
+    <div id="xln-result"></div>
+  </section>
+
+  <!-- Tab 8 金钱卦（三枚铜钱六次版） -->
+  <section id="t-jinqianke3" class="tab">
+    <details class="help-card" open>
+      <summary>金钱卦怎么摇（三枚铜钱 · 六次成卦）</summary>
+      <div class="help-body">
+        <div class="step-line">取铜钱三文，净手静心、默祷所问，<b>抛六次</b>。每次三枚看正反：</div>
+        <div class="step-line"><b>两正一反（一背）= 单 = 少阳 7（静）</b>；<b>一正两反（两背）= 折 = 少阴 8（静）</b>；<b>三反（三背）= 重 = 老阳 9（动）</b>；<b>三正（三字）= 交 = 老阴 6（动）</b>。</div>
+        <div class="step-line">六次<u>自下而上</u>排成六爻（第一次掷的为初爻）。<b>动爻（6/9）阴阳互变</b>，变后之卦为「之卦」：本卦主事之常、之卦主事之变。</div>
+        <div class="step-line">断语查《文王金钱课》六十四卦（象曰/诗曰/断曰）。三枚版规则取自 13_金钱卦《文王金钱课》原文；64 卦断语补全自 17_金钱课美篇完整版（13 版仅至第 26 卦，两版同源，已按补齐说明用 17 补全）。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <button class="act" id="jq3-throw">抛三枚铜钱（六次）</button>
+      <span class="muted">或手动选六爻（自下而上，6/7/8/9）：</span>
+      <div id="jq3-picker"></div>
+      <button class="sec" id="jq3-build">成卦</button>
+    </div>
+    <div class="anim-area" id="jq3-anim"></div>
+    <div id="jq3-result"></div>
+  </section>
+
+  <!-- Tab 9 太玄经 -->
+  <section id="t-taixuan" class="tab">
+    <details class="help-card" open>
+      <summary>太玄经怎么占（揲蓍四变 · 推玄筭 · 定赞 · 昼夜休咎）</summary>
+      <div class="help-body">
+        <b>一、揲蓍定首（太玄筮法，黄宗羲《易学象数论》引）</b>
+        <div class="step-line">备 36 策（蓍草 / 竹签 / 围棋子），<b>虚三不用，实用 33 策</b>。分二、挂一（右取 1）、揲四，得余数——<b>余 7 画一（方/州/部/家=1）· 余 8 画二（=2）· 余 9 画三（=3）</b>；余 6 为不吉当重筮（古法有"再揲"之说）。</div>
+        <div class="step-line"><b>四揲成四位数</b>：初揲定<b>方</b>、再揲定<b>州</b>、三揲定<b>部</b>、四揲定<b>家</b>，得方州部家（各 1–3），共 3⁴=81 组，对应 81 首。</div>
+        <b>二、推玄筭定首序（积筭法，胡一桂《周易启蒙翼传》注）</b>
+        <div class="step-line">家：1/2/3 → 置 <b>1/2/3</b> 筹；部：1 勿增、2 增 <b>3</b>、3 增 <b>6</b>；州：1 勿增、2 增 <b>9</b>、3 增 <b>18</b>；方：1 勿增、2 增 <b>27</b>、3 增 <b>54</b>；四数相加的积筭即首之次序（中=1111→1，应=2222→41，养=3333→81）。</div>
+        <b>三、定赞（赞辞九位）</b>
+        <div class="step-line">每首九赞：<b>初一、次二 … 次八、上九</b>（通行本上九），赞序 = (首序 − 1) × 9 + 赞位（1–9）。占得的赞辞与"测曰"即断辞。</div>
+        <b>四、昼夜休咎（三表取从违，定休咎之决）</b>
+        <div class="step-line">阳家（奇位为阳之首）：奇位赞（1/3/5/7/9）= <b>昼为休</b>，偶位赞（2/4/6/8）= <b>夜为咎</b>；阴家反之：偶位赞为昼为休、奇位赞为夜为咎。</div>
+        <div class="step-line"><b>三表</b>：旦（赞 1/5/7）经 · 夕（赞 3/4/8）纬 · 日中夜中（赞 2/6/9）。休咎与表不合为"违"，合为"从"：从则大休、违则大咎（司马迁《太玄》本旨：休咎相须，从违为决）。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：正文 = 本地《太玄经》无标点本（OCR 噪声如实保留）；缺漏 13 首首辞补自国学导航《太玄经》全文并标注；占法 = 黄宗羲《易学象数论·太玄筮法》、胡一桂《周易启蒙翼传外篇·太玄经云》、永乐大典卷四九三六《太玄索隐》。</div>
+      </div>
+    </details>
+    <div class="card">
+      <h3>太玄数（扬雄《太玄经》81 首）· 本命排盘 / 即时问卜</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+        <span class="muted">公历：</span>
+        <input type="number" id="tx-year" style="width:80px;" placeholder="年">
+        <input type="number" id="tx-month" min="1" max="12" style="width:60px;" placeholder="月">
+        <input type="number" id="tx-day" min="1" max="31" style="width:60px;" placeholder="日">
+        <span class="muted">时（24小时制）：</span>
+        <input type="number" id="tx-hour" min="0" max="23" style="width:60px;" placeholder="时">
+        <button class="act" id="tx-go">本命排盘</button>
+        <button class="act" id="tx-qigua">即时问卜（随机）</button>
+      </div>
+      <div class="muted" style="font-size:12px;">本命排盘：以出生年月日时起命宫首（距冬至天数 ÷ 每首 ≈4.51 天，81 首循环），配四时段时间选赞、二十八宿入宿度、七政行星、干支四柱、行年大限 81 年。即时问卜：随机取首取赞（模拟蓍草乱数）。算法对译 kinastro(MIT) taixuan_calculator.py；数据用《太玄经》81 首原文（与下方揲蓍占法同源同库）。</div>
+    </div>
+    <div id="tx-num-result"></div>
+    <div class="card">
+      <h3>太玄筮法 · 扬雄《太玄经》方州部家八十一首</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">公历年：</span>
+        <input type="number" id="tsx-y" style="width:80px;" placeholder="如 2023">
+        <span class="muted">月：</span>
+        <input type="number" id="tsx-m" min="1" max="12" style="width:60px;" placeholder="1-12">
+        <span class="muted">日：</span>
+        <input type="number" id="tsx-d" min="1" max="31" style="width:60px;" placeholder="1-31">
+        <span class="muted">时（0-23）：</span>
+        <input type="number" id="tsx-h" min="0" max="23" style="width:60px;" placeholder="0-23">
+        <button class="act" id="tsx-go">起筮</button>
+      </div>
+      <div class="muted tsx-hint" id="tsx-hint" style="font-size:12px;"></div>
+      <div class="muted" style="font-size:12px;margin-top:4px;">推演：四揲得方州部家 → 定 81 首之一 → 旦/日中/夕/夜中选赞 → 三投从违休咎 → 二十八宿度。来源：taixuanshifa/kentang2017/MIT 现代整理层（繁体转简体，数据照录源包 taixuandict.p）。本卡与上方太玄数/下方揲蓍为同一《太玄经》81 首体系的不同筮法实现，数据文本各自独立：本卡=源包字典（含独有「起筮休咎·三投从违」断辞），上方太玄数/揲蓍=本地 taixuan.json 无标点本。</div>
+    </div>
+    <div id="tsx-result"></div>
+    <div class="row" style="margin-bottom:12px;">
+      <span class="muted">起首方式：</span>
+      <button class="sec on" id="tx-mode-auto">揲蓍自动</button>
+      <button class="sec" id="tx-mode-manual">手动选首</button>
+      <button class="sec" id="tx-mode-zan">定赞详解</button>
+    </div>
+    <div id="tx-auto-area">
+      <div class="row" style="margin-bottom:12px;">
+        <button class="act" id="tx-throw">揲蓍四变</button>
+        <button class="sec" id="tx-reset">重来</button>
+        <span class="muted">33 策分二挂一揲四，余 7/8/9 → 一/二/三，四揲定方州部家。</span>
+      </div>
+      <div class="anim-area" id="tx-anim"><div class="zy-vis" id="tx-vis"></div></div>
+      <div id="tx-step-log" class="steps"></div>
+    </div>
+    <div id="tx-manual-area" style="display:none;">
+      <div class="card">
+        <h3>手动选方州部家（各 1–3）</h3>
+        <div class="row">
+          <span class="muted">方：</span>
+          <select id="tx-f"><option value="1">一</option><option value="2">二</option><option value="3">三</option></select>
+          <span class="muted">州：</span>
+          <select id="tx-zhou"><option value="1">一</option><option value="2">二</option><option value="3">三</option></select>
+          <span class="muted">部：</span>
+          <select id="tx-bu"><option value="1">一</option><option value="2">二</option><option value="3">三</option></select>
+          <span class="muted">家：</span>
+          <select id="tx-jia"><option value="1">一</option><option value="2">二</option><option value="3">三</option></select>
+          <button class="act" id="tx-build">积筭定首</button>
+        </div>
+      </div>
+    </div>
+    <div id="tx-zan-area" style="display:none;">
+      <div class="card">
+        <h3>定赞详解（赞序 = (首序−1)×9 + 赞位）</h3>
+        <div class="row" style="margin-bottom:8px;">
+          <span class="muted">首序（1–81）：</span>
+          <input type="number" id="tx-xu" min="1" max="81" placeholder="1–81" style="width:90px;">
+          <span class="muted">赞位（1–9，初一=1 … 上九=9）：</span>
+          <input type="number" id="tx-pos" min="1" max="9" placeholder="1–9" style="width:70px;">
+          <button class="sec" id="tx-query-zan">查赞</button>
+        </div>
+        <div class="muted" id="tx-zan-hint">选首序与赞位，看该赞的赞辞、测曰与昼夜休咎。</div>
+      </div>
+    </div>
+    <div class="card" id="tx-hex"></div>
+    <div id="tx-result"></div>
+  </section>
+  <!-- Tab 10 焦氏易林 -->
+  <section id="t-yilin" class="tab">
+    <details class="help-card" open>
+      <summary>焦氏易林怎么占（六爻成卦 · 动爻定之卦 · 4096 条卦辞查表）</summary>
+      <div class="help-body">
+        <b>一、起卦</b>
+        <div class="step-line">摇六爻（三枚铜钱六次：一背=少阳7静、两背=少阴8静、三背=老阳9动、三字=老阴6动），或手动逐爻选 6/7/8/9。六爻自下而上成<b>本卦</b>。</div>
+        <b>二、定之卦</b>
+        <div class="step-line">动爻（6/9）阴阳互变即得<b>之卦</b>；<b>六爻皆静（无动爻）</b>时无之卦，按古法以本卦自占（如「乾之乾」，即本卦之自己）。</div>
+        <b>三、查卦辞</b>
+        <div class="step-line">以「<b>本卦→之卦</b>」查《焦氏易林》4096 条卦辞（64 本卦 × 64 之卦，四言韵语）。西汉焦延寿撰，孟喜/京房同门，卦辞多采史事典故，为《周易》占候之支。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：github.com/eanzhao/jiaoshiyilin 结构化数据集（维基文库《易林（四库全书本）》/识典古籍/易学网三源校订，校订 9 处、注释 403 条）；缺文「涣之大过」已补通行本正文并标注（异文"婴鬼/不可得祀"见震之坤、未济之乾）。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <span class="muted">起卦方式：</span>
+      <button class="sec on" id="yl-mode-coin">摇卦</button>
+      <button class="sec" id="yl-mode-manual">手动六爻</button>
+      <button class="sec" id="yl-mode-direct">直查</button>
+    </div>
+    <div id="yl-coin-area">
+      <div class="row" style="margin-bottom:12px;">
+        <button class="act" id="yl-throw">掷六次铜钱</button>
+        <button class="sec" id="yl-reset">重来</button>
+        <span class="muted">三枚一组掷六次，自下而上成卦；动爻变出之卦 → 查易林卦辞。</span>
+      </div>
+      <div class="anim-area" id="yl-anim"></div>
+      <div id="yl-log" class="steps"></div>
+    </div>
+    <div id="yl-manual-area" style="display:none;">
+      <div class="card">
+        <h3>手动逐爻（自下而上，6/7/8/9）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">初爻：</span><select id="yl-y0"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">二爻：</span><select id="yl-y1"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">三爻：</span><select id="yl-y2"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">四爻：</span><select id="yl-y3"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">五爻：</span><select id="yl-y4"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">上爻：</span><select id="yl-y5"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <button class="act" id="yl-build">成卦</button>
+        </div>
+      </div>
+    </div>
+    <div id="yl-direct-area" style="display:none;">
+      <div class="card">
+        <h3>直查（本卦 → 之卦 → 卦辞）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">本卦：</span>
+          <select id="yl-from"></select>
+          <span class="muted">之卦：</span>
+          <select id="yl-to"></select>
+          <button class="sec" id="yl-query">查辞</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="yl-hex"></div>
+    <div id="yl-result"></div>
+  </section>
+  <!-- Tab 11 京房易（京氏易传） -->
+  <section id="t-jingfang" class="tab">
+    <details class="help-card" open>
+      <summary>京房易怎么占（六爻成卦 · 查《京氏易传》该卦参数 · 按断法判吉凶）</summary>
+      <div class="help-body">
+        <b>一、起卦</b>
+        <div class="step-line">摇六爻（三枚铜钱六次：一背=少阳7静、两背=少阴8静、三背=老阳9动、三字=老阴6动），或手动逐爻选 6/7/8/9。六爻自下而上成<b>本卦</b>。〈原文起卦用揲蓍“分四营而成易，十有八变而成卦”，铜钱为后世俗用。〉</div>
+        <b>二、装卦（京房八宫法）</b>
+        <div class="step-line">得卦后按八宫归属定位：<b>本卦/一世/二世/三世/四世/五世/游魂/归魂</b>，确定<b>世爻、应爻</b>（八纯卦世在上爻，一世在初爻，二世在二爻…游魂四爻、归魂三爻；应位与世相隔两位）。八宫：乾姤遁否观剥晋大有 / 震豫解恒升井大过随 / 坎节屯既济革丰明夷师 / 艮贲大畜损睽履中孚渐 / 坤复临泰大壮夬需比 / 巽小畜家人益无妄噬嗑颐蛊 / 离旅鼎未济蒙涣讼同人 / 兑困萃咸蹇谦小过归妹。</div>
+        <b>三、查参数与断法</b>
+        <div class="step-line">展示《京氏易传》该卦条目：<b>阴阳用事 · 飞伏 · 世应 · 纳甲 · 建候 · 积算 · 五星从位 · 二十八宿从位 · 气候数 · 配人事 · 于类 · 六亲 · 降入</b>；断法按卷末“遇王则吉，废则凶，冲则破，刑则败，死则危，生则荣”“静为悔，发为贞，贞为本，悔为末”及世应飞伏建积互组合论法。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：《京氏易传》通行本 txt（玄学分类法/04_京房易-京氏易传，1662 行）。字段由脚本按原文提取：机械字段（飞伏/积算/五星/宿位）64 卦齐全；描述性字段（用事/世应/建候/人事/六亲/降入）原文详略不均，有则显示、无则原文全文兜底，不编造。世应位次按京房八宫法通例补（原文只给职位）。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <span class="muted">起卦方式：</span>
+      <button class="sec on" id="jf-mode-coin">摇卦</button>
+      <button class="sec" id="jf-mode-manual">手动六爻</button>
+      <button class="sec" id="jf-mode-direct">直查</button>
+    </div>
+    <div id="jf-coin-area">
+      <div class="row" style="margin-bottom:12px;">
+        <button class="act" id="jf-throw">掷六次铜钱</button>
+        <button class="sec" id="jf-reset">重来</button>
+        <span class="muted">三枚一组掷六次，自下而上成卦 → 查京氏易传该卦参数。</span>
+      </div>
+      <div class="anim-area" id="jf-anim"></div>
+      <div id="jf-log" class="steps"></div>
+    </div>
+    <div id="jf-manual-area" style="display:none;">
+      <div class="card">
+        <h3>手动逐爻（自下而上，6/7/8/9）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">初爻：</span><select id="jf-y0"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">二爻：</span><select id="jf-y1"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">三爻：</span><select id="jf-y2"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">四爻：</span><select id="jf-y3"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">五爻：</span><select id="jf-y4"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <span class="muted">上爻：</span><select id="jf-y5"><option value="7">少阳 7 · 静</option><option value="8">少阴 8 · 静</option><option value="9">老阳 9 · 动</option><option value="6">老阴 6 · 动</option></select>
+          <button class="act" id="jf-build">成卦</button>
+        </div>
+      </div>
+    </div>
+    <div id="jf-direct-area" style="display:none;">
+      <div class="card">
+        <h3>直查（64 卦选一 → 京房参数）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">卦：</span>
+          <select id="jf-from"></select>
+          <button class="sec" id="jf-query">查参数</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="jf-hex"></div>
+    <div id="jf-result"></div>
+  </section>
+
+  <!-- Tab 12 梅花易数 -->
+  <section id="t-meihua" class="tab">
+    <details class="help-card" open>
+      <summary>梅花易数怎么占（取数起卦 · 本互变三卦 · 分体用 · 十八占断语 · 应期）</summary>
+      <div class="help-body">
+        <b>一、起卦（卦以八除、爻以六除）</b>
+        <div class="step-line">先天数：<b>乾一兑二离三震四巽五坎六艮七坤八</b>。时间起卦：年月日数和÷8 取<b>上卦</b>，年月日时数和÷8 取<b>下卦</b>，总数÷6 取<b>动爻</b>（整除取坤/六）。数字起卦：上数÷8 上卦、下数÷8 下卦、两数和÷6 动爻。</div>
+        <b>二、排卦（本卦·互卦·变卦）</b>
+        <div class="step-line">本卦 = 上下卦合成；<b>互卦</b>：去初爻与上爻，以中间四爻分两卦（2/3/4 为下互，3/4/5 为上互）；<b>变卦</b>：动爻阳变阴、阴变阳。</div>
+        <b>三、分体用（动者为用、静者为体）</b>
+        <div class="step-line">动爻所在之卦为<b>用卦</b>（主事），另一卦为<b>体卦</b>（主己身）；互卦分体互/用互（体在上则上互为体互、下互为用互）。体卦为主，用卦为事，互卦为事之中间，变卦为事之终。</div>
+        <b>四、断吉凶（体用生克比和）</b>
+        <div class="step-line"><b>体克用，诸事吉；用克体，诸事凶；体生用，有耗失之患；用生体，有进益之喜；体用比和，则百事顺遂。</b>再按所选占事（十八占）类别套五档断语，并看互变中何卦生体（吉）、何卦克体（凶）。</div>
+        <b>五、应期</b>
+        <div class="step-line">生体之卦气之日为吉期（如乾兑庚辛戌亥酉日、震巽甲乙卯辰日、离丙丁午日、坎壬癸子日、艮坤辰戌丑未月），克体之卦气之日为凶期。体卦宜旺不宜衰（春震巽、夏离、秋乾兑、冬坎、四季坤艮旺）。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：《梅花易数》托名邵康节古籍 txt（玄学分类法/15_梅花易数，2030 行）+ 整理表（八卦类象/体用总诀十八占断语）。结构化规则全部取自原文或整理表原文，不改写；原文全文保留。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;">
+      <span class="muted">起卦方式：</span>
+      <button class="sec on" id="mh-mode-time">时间起卦</button>
+      <button class="sec" id="mh-mode-num">数字起卦</button>
+      <button class="sec" id="mh-mode-manual">手动成卦</button>
+    </div>
+    <div id="mh-time-area">
+      <div class="card">
+        <h3>时间起卦（年月日时，取数÷8÷6）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">年数（子1…亥12）：</span><input id="mh-y" type="number" min="1" max="12" style="width:70px;">
+          <span class="muted">月数（正月1…十二月12）：</span><input id="mh-m" type="number" min="1" max="12" style="width:70px;">
+          <span class="muted">日数（初一1…三十30）：</span><input id="mh-d" type="number" min="1" max="30" style="width:70px;">
+          <span class="muted">时数（子时1…亥时12）：</span><input id="mh-h" type="number" min="1" max="12" style="width:70px;">
+          <button class="act" id="mh-time-go">起卦</button>
+          <span class="muted" id="mh-time-today"></span>
+        </div>
+      </div>
+    </div>
+    <div id="mh-num-area" style="display:none;">
+      <div class="card">
+        <h3>数字起卦（两组数 ÷8 ÷6）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">上数（除 8 取上卦）：</span><input id="mh-n1" type="number" min="1" style="width:90px;">
+          <span class="muted">下数（除 8 取下卦）：</span><input id="mh-n2" type="number" min="1" style="width:90px;">
+          <button class="act" id="mh-num-go">起卦</button>
+          <span class="muted">动爻 = 两数和 ÷ 6 取余（整除为 6）。</span>
+        </div>
+      </div>
+    </div>
+    <div id="mh-manual-area" style="display:none;">
+      <div class="card">
+        <h3>手动成卦（自选上下卦 + 动爻）</h3>
+        <div class="row" style="flex-wrap:wrap;gap:8px;">
+          <span class="muted">上卦：</span><select id="mh-up"></select>
+          <span class="muted">下卦：</span><select id="mh-down"></select>
+          <span class="muted">动爻：</span><select id="mh-dong"><option value="1">初爻</option><option value="2">二爻</option><option value="3">三爻</option><option value="4">四爻</option><option value="5">五爻</option><option value="6">上爻</option></select>
+          <button class="act" id="mh-manual-go">成卦</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <div class="row" style="flex-wrap:wrap;gap:8px;">
+        <span class="muted">占事类别（十八占断语）：</span>
+        <select id="mh-kind">
+          <option value="通用体用">通用体用（不分占事）</option>
+          <option value="天时">天时占</option><option value="人事">人事占</option><option value="家宅">家宅占</option>
+          <option value="屋舍">屋舍占</option><option value="婚姻">婚姻占</option><option value="生产">生产占</option>
+          <option value="饮食">饮食占</option><option value="求谋">求谋占</option><option value="求名">求名占</option>
+          <option value="求财">求财占</option><option value="交易">交易占</option><option value="出行">出行占</option>
+          <option value="行人">行人占</option><option value="谒见">谒见占</option><option value="失物">失物占</option>
+          <option value="疾病">疾病占</option><option value="官讼">官讼占</option><option value="坟墓">坟墓占</option>
+        </select>
+        <span class="muted">具体情况（可选项）：</span>
+        <select id="mh-case"></select>
+      </div>
+    </div>
+    <div id="mh-result"></div>
+    <!-- 六十四卦查询（周易·王弼注） -->
+    <div class="item-block" style="margin-top:14px;"><span class="k">六十四卦查询（周易·王弼注）</span><span class="muted" style="font-size:12px;">上卦 × 下卦定位任意一卦，展示卦辞/彖/象/六爻爻辞/文言全文</span></div>
+    <div class="row" style="flex-wrap:wrap;gap:8px;margin-top:8px;">
+      <span class="muted">上卦：</span><select id="mh-64up">
+        <option value="乾">乾 ☰</option><option value="兑">兑 ☱</option><option value="离">离 ☲</option><option value="震">震 ☳</option>
+        <option value="巽">巽 ☴</option><option value="坎">坎 ☵</option><option value="艮">艮 ☶</option><option value="坤">坤 ☷</option>
+      </select>
+      <span class="muted">下卦：</span><select id="mh-64lo">
+        <option value="乾">乾 ☰</option><option value="兑">兑 ☱</option><option value="离">离 ☲</option><option value="震">震 ☳</option>
+        <option value="巽">巽 ☴</option><option value="坎">坎 ☵</option><option value="艮">艮 ☶</option><option value="坤">坤 ☷</option>
+      </select>
+    </div>
+    <div id="mh-64res" style="margin-top:8px;"></div>
+  </section>
+
+  <!-- Tab 13 太乙神数 -->
+  <section id="t-taiyi" class="tab">
+    <details class="help-card" open>
+      <summary>太乙神数怎么占（定元定局 · 七十二局排盘 · 主客算 · 格局 · 胜负断 · 进阶体系）</summary>
+      <div class="help-body">
+        <b>〇、身份与用式（先定问事人，原文"王者岁计，卿士月计，师尹日计，时通上下"）</b>
+        <div class="step-line">王者问国运→岁计；卿士问政务→月计；师尹问职事→日计；庶民问时下→时计。太乙为政治独占术（唐六典禁私家蓄、私习死罪），专测国运/天灾/兵革。</div>
+        <b>一、定元定局（积年法，死）</b>
+        <div class="step-line">积年 = 上元甲子至所求年算数（锚点：万历戊子 1588 年积 10155505 算）。先以周纪 360 去之，余以 72 约之不尽为入元局数：<b>局 = 积年 mod 72（余 0 取 72）</b>；元 =（积年 mod 360）÷72 得甲子/丙子/戊子/庚子/壬子五元。月计起算加天正地正二算（积年+2）；时计不加二算、冬至后用阳局、夏至后用阴局。</div>
+        <div class="step-line"><b>日局（纪法求日，已实现）</b>：基准弘治元年戊申（1488）正月初一（公历 01-14，日干支丙申）"截算得祖数 213 策"（213 mod 60 = 33 = 丙申，与历表互证自洽）。目标日祖数 = 213 + 距基准日天数（公历积日，逐日一进，闰日自然计入，等价"逐年一进一退、逢闰重退"）；局 = 祖数 mod 72，元与岁计同。</div>
+        <b>二、排盘（七十二局立成表，死）</b>
+        <div class="step-line">金镜式经立成表（阳 72 + 阴 72 局）每局给出：<b>太乙宫、天目（文昌）、主算、始击（客目）、客算、计神</b>。太乙顺行八宫不游中五，三年徙一宫，二十四年一周。宫位配卦：一乾二离三艮四震六兑七坤八坎九巽。</div>
+        <b>三、主客算与胜负（查表，死）</b>
+        <div class="step-line">算和/不和分类表（上和 14/18 → 国有祯祥更利为将；次和 23/29/32/36 → 四塞息兵天下丰乐；下和 12/16/21/27/34/38 → 九野人安衣食乐足）；长（≥11）多利深入、短（≤9）利浅入，长为胜短为负；无天（算无十）、无地（算无五）、无人（10/20/30/40）；单阳（个位 1/3/7/9）、单阴（2/4/6/8）、孤阳（10/30）、孤阴（20/40）；大将宫=算数个位，参将=大将×3 取个位，算得 5/15/25/35 八门杜塞。</div>
+        <b>四、格局（11 种，检测死/权衡活）</b>
+        <div class="step-line">掩（始击临太乙）、击（始击前/后辰宫）、迫（文昌前/后辰宫）、囚（文昌大小将与太乙同宫）、关（主客大小将自相）、格（客目对太乙）、对（文昌冲太乙）、四郭固、四郭杜、执提、提挟——各格局判语原文预写。</div>
+        <b>五、进阶体系（查表/原文，唯一活口约 50 字）</b>
+        <div class="step-line">三基/五福/大游/四神/十精/阳九百六/敌国占/二十八舍/日常占/九州分野。唯一不能选项化的是"有道/无道/善恶"定性（原文只给后果句，如"太乙所临之国，有道则昌，无道则殃"，判定须临机结合现实政治，无法程序化）。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：《太乙金镜式经》（唐·王希明，立成表 144 局+原文）＋《太乙秘书》（144 局判语展开版）＋《太乙淘金歌》（排盘口诀，玄学分类法/03_太乙神数）。排盘以金镜式经立成表为准，判语照录太乙秘书本局原文；两书异文局如实标注（秘书原缺第六十局，已用立成表补齐排盘要素）。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+      <span class="muted">公元年：</span><input id="ty-year" type="number" min="1" style="width:90px;">
+      <span class="muted">用式层级：</span>
+      <select id="ty-mode">
+        <option value="sui">岁计（王者·国运）</option>
+        <option value="yue">月计（卿士·政务，积年+2）</option>
+        <option value="shi">时计（庶民·时下）</option>
+        <option value="ri">日计（纪法求日·已实现）</option>
+      </select>
+      <span class="muted">阴阳遁：</span>
+      <select id="ty-dun">
+        <option value="auto">自动（按节气）</option>
+        <option value="yang">阳遁</option>
+        <option value="yin">阴遁</option>
+      </select>
+      <span class="muted" id="ty-ri-label" style="display:none;">日计·公历月/日：</span>
+      <input id="ty-month" type="number" min="1" max="12" style="width:70px;display:none;">
+      <input id="ty-day" type="number" min="1" max="31" style="width:70px;display:none;">
+      <span class="muted" id="ty-hour-label" style="display:none;">时辰：</span>
+      <select id="ty-hour" style="display:none;width:74px;">
+        <option>子</option><option>丑</option><option>寅</option><option>卯</option><option>辰</option><option>巳</option>
+        <option>午</option><option>未</option><option>申</option><option>酉</option><option>戌</option><option>亥</option>
+      </select>
+      <button class="act" id="ty-go">排盘</button>
+    </div>
+    <div id="ty-result"></div>
+
+    <!-- 太乙四法积年对照 + 人道命法（kintaiyi/kentang2017/MIT 补强，不新建 tab） -->
+    <div class="card" style="margin-top:12px;">
+      <h3>太乙四法积年对照 · 人道命法（kintaiyi/MIT 补强）</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <span class="muted">公历：</span>
+        <input id="ty2-y" type="number" value="2023" style="width:80px;">
+        <input id="ty2-m" type="number" value="12" min="1" max="12" style="width:60px;">
+        <input id="ty2-d" type="number" value="22" min="1" max="31" style="width:60px;">
+        <span class="muted">时：</span><input id="ty2-h" type="number" value="10" min="0" max="23" style="width:60px;">
+        <span class="muted">虚岁：</span><input id="ty2-age" type="number" value="0" min="0" style="width:60px;">
+        <button class="act" id="ty2-go">算四法积年与命卦</button>
+      </div>
+      <div class="muted" id="ty2-hint" style="font-size:12px;"></div>
+    </div>
+    <div id="ty2-result"></div>
+
+    <div class="card" style="margin-top:12px;">
+      <h3>进阶体系（问事身份 + 体系查表）</h3>
+      <div class="row" style="flex-wrap:wrap;gap:8px;">
+        <span class="muted">问事人身份：</span>
+        <select id="ty-role">
+          <option value="王者">王者（岁计·国运）</option>
+          <option value="卿士">卿士（月计·政务）</option>
+          <option value="师尹">师尹（日计·职事）</option>
+          <option value="庶士">庶士（时计·时下）</option>
+        </select>
+        <span class="muted">体系（多选）：</span>
+        <label><input type="checkbox" class="ty-sys" value="三基"> 三基</label>
+        <label><input type="checkbox" class="ty-sys" value="五福"> 五福</label>
+        <label><input type="checkbox" class="ty-sys" value="大游"> 大游</label>
+        <label><input type="checkbox" class="ty-sys" value="四神"> 四神/天乙/地乙/直符</label>
+        <label><input type="checkbox" class="ty-sys" value="十精"> 十精</label>
+        <label><input type="checkbox" class="ty-sys" value="阳九百六"> 阳九百六</label>
+        <label><input type="checkbox" class="ty-sys" value="敌国"> 敌国占</label>
+        <label><input type="checkbox" class="ty-sys" value="二十八舍"> 二十八舍</label>
+        <label><input type="checkbox" class="ty-sys" value="日常"> 日常占</label>
+        <label><input type="checkbox" class="ty-sys" value="九州"> 九州分野</label>
+        <button class="sec" id="ty-jinjie-go">查看</button>
+      </div>
+    </div>
+    <div id="ty-jinjie"></div>
+  </section>
+
+  <!-- Tab 14 紫微斗数·十四主星 -->
+  <section id="t-ziwei14" class="tab">
+    <details class="help-card" open>
+      <summary>十四主星紫微斗数怎么排（定命身宫 · 五行局 · 十四主星 · 辅星 · 四化 · 大限小限 · 断语查表）</summary>
+      <div class="help-body">
+        <b>〇、输入</b>
+        <div class="step-line">出生年（公历）、月、日、时辰、性别。年柱以立春分界、真太阳时修正属使用者参数（算法固定）。</div>
+        <b>一、安命宫身宫（死）</b>
+        <div class="step-line">从寅宫起正月顺数至生月，月宫起子时<b>逆</b>数至生时安命、<b>顺</b>数至生时安身；闰月按"闰月正月生者要在二月内起"处理。</div>
+        <b>二、定五行局（死）</b>
+        <div class="step-line">命宫干支纳音（六十甲子纳音歌）→ 水二局/木三局/金四局/土五局/火六局。火局初一日在酉宫起紫微（原文例，算法互证）。</div>
+        <b>三、安十四主星（死）</b>
+        <div class="step-line">紫微 = 生日÷局数（商为宫序，寅1…丑12；整除即商宫；不整除加最小数至整除，加数<b>单数退</b>、<b>偶数进</b>，不含本位）。紫微系逆布：天机-1、太阳-3、武曲-4、天同-5、廉贞-8。天府 =（6-紫微序），寅申同宫；天府系顺布：太阴+1、贪狼+2、巨门+3、天相+4、天梁+5、七杀+6、破军+10。</div>
+        <b>四、辅星与四化（死）</b>
+        <div class="step-line">文昌戌起时逆、文曲辰起时顺；左辅辰起月顺、右弼戌起月逆；魁钺按年干（通行表）；天马按年支；禄存按年干、擎羊禄前陀罗禄后；火铃按年支+时；天空地劫亥起时逆/顺；天刑酉起月顺、天姚丑起月顺；四化按生年干（甲廉破武阳…）。</div>
+        <b>五、大限小限（死）</b>
+        <div class="step-line">阳男阴女从命宫顺行、阴男阳女逆行，十年一宫，起限年龄=五行局数；小限按年支三合库宫起，男顺女逆一年一宫。</div>
+        <b>六、断语（素材库查表＋综合活层）</b>
+        <div class="step-line">本引擎输出：诸星问答（命宫主星）、入男命/女命/限吉凶诀、十二宫断语（各宫所落星断句）、格局论（19 格原文）、富贵贫贱十等/四局、赋文全文。活层原文 8 句 95 字（"大抵在人之机变，更加作意之推详"等）＋阴骘延寿段约 120 字——综合读盘须临机判断，本引擎不代替。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：《紫微斗数全书》（明嘉靖庚戌罗洪先序本，玄学分类法/08_紫微斗数）。安星按通行排盘法，与全书"火局初一生从酉宫起紫微"互证；魁钺取通行版（与市面排盘一致）。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+      <span class="muted">公历年：</span><input id="zw-year" type="number" min="1" style="width:80px;">
+      <span class="muted">月：</span><input id="zw-month" type="number" min="1" max="12" style="width:60px;">
+      <span class="muted">日：</span><input id="zw-day" type="number" min="1" max="31" style="width:60px;">
+      <span class="muted">时辰：</span>
+      <select id="zw-hour" style="width:74px;">
+        <option>子</option><option>丑</option><option>寅</option><option>卯</option><option>辰</option><option>巳</option>
+        <option>午</option><option>未</option><option>申</option><option>酉</option><option>戌</option><option>亥</option>
+      </select>
+      <span class="muted">性别：</span>
+      <select id="zw-gender"><option value="男">男</option><option value="女">女</option></select>
+      <span class="muted" style="font-size:12px;">年支换年：</span>
+      <select id="zw-yearrule" style="width:112px;font-size:12px;" title="紫微年支换年口径：主流紫微软件按农历正月初一；八字口径按立春（两口径在正月初一至立春间出生者不同）">
+        <option value="zhengyue" selected>正月初一（主流）</option>
+        <option value="lichun">立春（八字口径）</option>
+      </select>
+      <span class="muted">问事：</span>
+      <select id="zw-ask">
+        <option value="">（全盘断）</option>
+        <option value="career">事业</option>
+        <option value="money">财运</option>
+        <option value="marry">婚姻</option>
+        <option value="child">子女</option>
+        <option value="health">健康</option>
+        <option value="travel">出行迁移</option>
+        <option value="study">学业功名</option>
+        <option value="family">家庭田宅</option>
+      </select>
+      <span class="muted" style="font-size:12px;">（闰月按闰月前一个月处理）</span>
+      <button class="act" id="zw-go">排盘</button>
+      <details style="margin-left:6px;display:inline-block;vertical-align:middle;">
+        <summary style="font-size:12px;color:var(--tx2);cursor:pointer;">倪师《天纪·紫微斗数》原话检索（现代注释层·1848条）</summary>
+        <div style="padding:6px 10px;font-size:12px;line-height:1.7;">
+          <span class="muted">关键词（星曜/宫位/断语词）：</span>
+          <input id="zw-nihai-kw" type="text" style="width:150px;" placeholder="如 紫微 贪狼 化忌">
+          <button class="act" id="zw-nihai-go" style="margin-left:4px;">检索</button>
+          <div class="muted" style="margin-top:4px;">倪海厦《天纪·紫微斗数》课程原话 1848 条（正课14讲+2补充），源自 nihai-tianji-corpus；<b>现代注释层，非古籍</b>。原话照录，每条带 B 站视频时间戳，命中仅展示原话、不做条件机判。</div>
+          <div id="zw-nihai-res" class="muted" style="margin-top:4px;">输入关键词后点检索。</div>
+        </div>
+      </details>
+      <details style="margin-left:6px;display:inline-block;vertical-align:middle;">
+        <summary style="font-size:12px;color:var(--tx2);cursor:pointer;">真太阳时校正（可选）</summary>
+        <div style="padding:6px 10px;font-size:12px;line-height:1.7;">
+          <span class="muted">出生城市（自动填经度）：</span>
+          <select id="zw-city-p" style="width:92px;"><option value="">省/直辖市</option></select>
+          <select id="zw-city-c" style="width:100px;"><option value="">市/地区</option></select>
+          <select id="zw-city-d" style="width:100px;"><option value="">县/区</option></select>
+          <span id="zw-city-note" class="muted" style="margin-left:6px;"></span>
+          <br>
+          <span class="muted">出生地经度（东经°，如北京116.4/哈尔滨126.63；选城市后自动填）：</span><input id="zw-lon" type="number" step="0.01" style="width:84px;" placeholder="留空=不校正">
+          <span class="muted" style="margin-left:8px;">出生钟点（可选，留空=按时辰中点）：</span><input id="zw-clock" type="text" style="width:64px;" placeholder="如14:30">
+          <br>
+          <span class="muted">晚子时规则：</span>
+          <select id="zw-late">
+            <option value="next-day">晚子时算次日（主流）</option>
+            <option value="current-day">晚子时算当日</option>
+            <option value="all-current">全天均算当日</option>
+            <option value="day-cur-time-next">日干随时辰换日</option>
+          </select>
+          <label style="margin-left:8px;"><input type="checkbox" id="zw-usetst" checked> 以校正时辰排盘</label>
+          <div class="muted" style="margin-top:4px;">地方真太阳时 = 北京时间 + 经度修正（(经度-120)×4分） + 均时差（NOAA 近似式，工具层非古籍）。校正只影响时辰分野与晚子时归属，不影响安星（安星只用年月日生时）。</div>
+        </div>
+      </details>
+      <span class="muted" style="font-size:12px;color:var(--tx2);">｜流年：</span><input id="zw-ly" type="number" min="1" style="width:70px;">
+      <span class="muted" style="font-size:12px;">流月：</span>
+      <select id="zw-lm" style="width:56px;">
+        <option value="">（全年）</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+        <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+      </select>
+      <span class="muted" style="font-size:12px;">流日：</span><input id="zw-ld" type="number" min="1" max="31" style="width:56px;">
+      <span class="muted" style="font-size:12px;">问时：</span>
+      <select id="zw-lh" style="width:56px;">
+        <option value="">（全天）</option>
+        <option>子</option><option>丑</option><option>寅</option><option>卯</option><option>辰</option><option>巳</option>
+        <option>午</option><option>未</option><option>申</option><option>酉</option><option>戌</option><option>亥</option>
+      </select>
+      <button class="act" id="zw-flow">推流年</button>
+    </div>
+    <div id="zw-result"></div>
+  </section>
+
+  <!-- Tab 15 紫微斗数·十八飞星 -->
+  <section id="t-ziwei18" class="tab">
+    <details class="help-card" open>
+      <summary>十八飞星紫微斗数怎么排（起十八星 · 安命身 · 大限小运 · 流年 · 断语查表）</summary>
+      <div class="help-body">
+        <b>〇、体系独立</b>
+        <div class="step-line">《紫微斗数（别本）· 术天机照胆经/四言十八飞星》——与十四主星<b>不同体系</b>：星名（紫微/文昌等）重叠但指代不同、安法不同、断语不同，勿混。</div>
+        <b>一、起十八星（死）</b>
+        <div class="step-line">起紫微：从未宫起子年顺数至生年支安紫微，逆布天虚、天贵、天印、天寿、天空、红鸾、天库、天贯、文昌、天福、天禄（一宫一星）。起天杖：子宫起正月逆数至生月；逆布天异、毛头、天刃。天刑酉起月顺、天姚丑起月顺、天哭生年六合处。</div>
+        <b>二、安命身（死）</b>
+        <div class="step-line">命宫：从杖星宫起子时顺数至生时安命；身宫：从杖宫逆数一宫两日半，数至本生日安身（初三/十三/二十三/初八/十八/二十八六日午时不过宫、未时过宫）。</div>
+        <b>三、大限小运流年（死）</b>
+        <div class="step-line">大限：阳男阴女从命宫顺数十年一宫，阴男阳女从申宫逆数（原文作"申宫"，疑"命宫"衍文，按原文直译）；小运：阳男阴女从申宫逆、阴男阳女从命宫顺，一年一宫；流年十二神：太岁/太阳/丧门/太阴/官符/死符/岁破/龙德/白虎/福星/吊客/病符。</div>
+        <b>四、断语（素材库查表）</b>
+        <div class="step-line">本引擎输出：命星时刻度数总论（十二时×刻断语）、十八星×十二宫断语（各宫所落星断句）、洞微十八星断（命宫/身宫主星星段）、入骨仙经四言总断、九吉九凶入庙例、定死生诀（天哭天虚论）、星行限吉凶论。原文晦涩处（安命/大限）按直译实现并标注。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：《紫微斗数（别本）》（玄学分类法/08_紫微斗数，孤本单行文本）。</div>
+      </div>
+    </details>
+    <div class="row" style="margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+      <span class="muted">公历年：</span><input id="fx-year" type="number" min="1" style="width:80px;">
+      <span class="muted">月：</span><input id="fx-month" type="number" min="1" max="12" style="width:60px;">
+      <span class="muted">日：</span><input id="fx-day" type="number" min="1" max="31" style="width:60px;">
+      <span class="muted">时辰：</span>
+      <select id="fx-hour" style="width:74px;">
+        <option>子</option><option>丑</option><option>寅</option><option>卯</option><option>辰</option><option>巳</option>
+        <option>午</option><option>未</option><option>申</option><option>酉</option><option>戌</option><option>亥</option>
+      </select>
+      <span class="muted">性别：</span>
+      <select id="fx-gender"><option value="男">男</option><option value="女">女</option></select>
+      <span class="muted" style="font-size:12px;">（生年/月/日/时地支按公历推算）</span>
+      <button class="act" id="fx-go">排盘</button>
+    </div>
+    <div id="fx-result"></div>
+  </section>
+  <!-- Tab 16 解梦（周公解梦 988 / 现代解梦库 / 古今图书集成·梦部） -->
+  <section id="t-dream" class="tab">
+    <details class="help-card" open>
+      <summary>解梦引擎怎么用（三路查梦 · 谐音比象 · 反梦 · 结果反查 · 古籍象征 · 拼音检索）</summary>
+      <div class="help-body">
+        <b>〇、三路数据</b>
+        <div class="step-line">① 周公解梦 988 条梦象断语（维基文库 CC BY-SA 4.0，含英文草译，k=吉凶等级 1-6 原数据未注含义）；② 现代解梦库 9467 条长文（GitHub oswin-hu/zhougong_dream 清洗版，正文按需加载）；③ 《古今图书集成·梦部》13 大节全文（汇考/总论/艺文/纪事一~六/杂录/外编，162K 字）。</div>
+        <b>一、三路查梦</b>
+        <div class="step-line">输入梦象词（如：蛇、桥、飞、死人、结婚、牙齿）→ 同时查 988 梦象标题（精确/前缀/子串打分排序）、现代库标题、古籍全文（"梦见/梦到…"模板段落摘取）。整句输入自动剥"梦见/梦到"前缀并 2-gram 词元回退。</div>
+        <b>二、联想扩散</b>
+        <div class="step-line">谐音/比象联想（如"棺材→官+财"、"梨→离"）并入查询词集；同义词组扩散；反梦（古人反训：梦见棺材主得财）；结果反查（输入"升官/发财"逆推梦象）；古籍象征（"X者，Y也"取象）。</div>
+        <b>三、拼音检索</b>
+        <div class="step-line">纯字母输入（如 "she" "huanghe"）走拼音索引（988+现代库标题，首字母/全拼模糊命中）。右侧栏：27 类分类浏览、古籍 13 大节列表、最近查询（localStorage，点击回查）。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：维基文库周公解梦（CC BY-SA 4.0）、GitHub oswin-hu/zhougong_dream、清《古今图书集成》梦部。本引擎数据全部来自本地，仅供文化研究。</div>
+      </div>
+    </details>
+    <div class="dream-wrap">
+      <div class="dream-board">
+        <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <input id="kw-input" type="text" placeholder="输入梦象关键词，如：蛇、桥、飞、死人、结婚、牙齿…" maxlength="8" style="flex:1;min-width:180px;padding:9px 12px;font-size:15px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--tx1);">
+          <button class="act" id="btn-query">解</button>
+          <button class="btn" id="btn-random">随机梦象</button>
+          <span class="dream-hint">三路查：988 梦象断语 / 现代解梦库 9467 条 / 古籍全文检索</span>
+        </div>
+        <div class="card" style="margin-bottom:10px;padding:8px 12px;">
+          <div class="row" style="flex-wrap:wrap;gap:8px;align-items:center;">
+            <select id="sec-select" class="btn" style="padding:6px 26px 6px 10px;"><option value="">全部分类（27）</option></select>
+            <select id="k-select" class="btn" style="padding:6px 26px 6px 10px;">
+              <option value="">吉凶等级：不限</option>
+              <option value="6">k=6（17 条）</option><option value="5">k=5（65 条）</option>
+              <option value="4">k=4（695 条）</option><option value="3">k=3（160 条）</option>
+              <option value="2">k=2（45 条）</option><option value="1">k=1（6 条）</option>
+            </select>
+            <label class="opt"><input type="checkbox" id="opt-xieyin" checked>谐音/比象联想</label>
+            <label class="opt"><input type="checkbox" id="opt-fanmeng" checked>反梦解读</label>
+          </div>
+        </div>
+        <div id="results-title"></div>
+        <div id="results"></div>
+      </div>
+      <div class="dream-side">
+        <div id="detail">
+          <div class="empty-hint">梦占三源：<br>· 周公解梦 988 条：梦象 → 断语（维基文库 CC BY-SA 4.0，含英文草译）<br>· 现代解梦库 9467 条：长文解析（GitHub oswin-hu/zhougong_dream，正文按需加载）<br>· 《古今图书集成·梦部》：汇考/总论/艺文/纪事 139 节全文<br><br>注：k 为原数据吉凶等级 1-6，来源未注明具体含义，展示仅供参考。<br>数据全部来自本地，仅供文化研究。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tab 17 测字（字库直查 / 秘牒十法六法 / 拆字部汇考 / 认字测 / 字触 / MMH 拆字推演） -->
+  <section id="t-cezi" class="tab">
+    <details class="help-card" open>
+      <summary>测字引擎怎么用（查字六路 · 拆字推演 · 规则库六卷 · 六十甲子时方）</summary>
+      <div class="help-body">
+        <b>〇、六路数据</b>
+        <div class="step-line">① 字库直查表 2786 条（条目字/原文/白话/拆字原理/断语性质/应用场景/来源篇名）；② 《测字秘牒》十法·心易六法 + 取格 1224 条 + 杂占 53 条；③ 《拆字部汇考》13 节歌诀（探元赋/立八卦断/字画经验等）；④ 《认字测》81 字（明·周宇，六书测义）；⑤ 《字触》六卷实例（清·周亮工）；⑥ Make Me a Hanzi 拆字部件库（字→IDS，反向索引）。</div>
+        <b>一、查字六路</b>
+        <div class="step-line">输入一字或一句话（自动逐字去重）→ 同时查：字库直查 / 秘牒取格 / 杂占 / 十法六法拆法（反向索引）/ 探元赋字象 / 认字测 / 《字触》实例（全文定位前后 70 字上下文 ≤6 段）。未入字库的字会给出拆解建议。</div>
+        <b>二、拆字推演（拆演按钮）</b>
+        <div class="step-line">① 字形拆解树（IDS 递归，MMH 97.8% 满足）；② 拆法变换（正向 base→expand + 反向由 X 得）；③ 部件/成字断语聚合（字库/取格/探元赋）；④ 部件可入字（反向索引，每部件 ≤10）；⑤ 笔画特征自查（立八卦断 + 字画经验，点选聚合）；⑥ 组合取象（部件两两组合在古籍断语中双命中 ≤8）。</div>
+        <b>三、规则库</b>
+        <div class="step-line">秘牒十法·六法 / 取格·杂占（按部首分组）/ 汇考歌诀（含立八卦断结构化表）/ 认字测 81 字格 / 字触六卷（人名索引）/ 查字历史（localStorage 50 条）。规则搜索框实时过滤 + 高亮。</div>
+        <b>四、六十甲子时方</b>
+        <div class="step-line">写测时的时辰参考：选择干支 → 程序解析（按原文地支组自动拆解，吉凶词取自原文、未人工核定）+ 原文断语照录（识典非 OCR，残字照录）。</div>
+        <div class="step-line" style="color:#d9a05e;">来源：清·程省《测字秘牒》、清·周亮工《字触》、明·周宇《认字测》、《古今图书集成》拆字部、Make Me a Hanzi（GPL-3.0，本地自用）。OCR 噪声如实保留未修。本引擎数据全部来自本地，仅供文化研究。</div>
+      </div>
+    </details>
+    <div class="dream-wrap">
+      <div class="dream-board">
+        <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <input id="cz-char" type="text" placeholder="写一个字（或一句话），如：天、平安、考试…" maxlength="12" style="flex:1;min-width:180px;padding:9px 12px;font-size:18px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--tx1);letter-spacing:2px;">
+          <button class="act" id="cz-go">测</button>
+          <button class="btn" id="cz-tuilian" title="字形拆解 + 拆法变换 + 部件断语推演">拆演</button>
+          <button class="btn" id="cz-random">随机字</button>
+          <span class="dream-hint">支持单字与多字；未入字库的字会查《测字秘牒》取格/杂占</span>
+        </div>
+        <div class="card" style="margin-bottom:10px;padding:8px 12px;">
+          <div class="row" style="flex-wrap:wrap;gap:8px;align-items:center;">
+            <span class="lbl">后天时方 · 六十甲子吉凶（写测时的时辰参考）</span>
+            <select id="cz-gz" class="btn" style="padding:6px 26px 6px 10px;"><option value="">选择时辰干支…</option></select>
+            <span class="gz-badge" id="cz-gz-badge">—</span>
+          </div>
+          <div class="gz-out" id="cz-gz-out"></div>
+        </div>
+        <div id="cz-results-title"></div>
+        <div id="cz-results"></div>
+        <div class="card">
+          <h3 class="lbl" style="font-size:13px;color:var(--tx1);margin-bottom:8px;">规则库 / 古籍</h3>
+          <div class="rtabs">
+            <span class="rtab on" data-rt="midie">秘牒十法·六法</span>
+            <span class="rtab" data-rt="quge">秘牒取格·杂占</span>
+            <span class="rtab" data-rt="dispatch">汇考歌诀</span>
+            <span class="rtab" data-rt="renzi">认字测·81 字</span>
+            <span class="rtab" data-rt="zichu">字触·六卷</span>
+            <span class="rtab" data-rt="history">查字历史</span>
+          </div>
+          <input id="cz-rsearch" class="rsearch" type="text" placeholder="搜索规则库：输入字、法名或关键词…">
+          <div id="cz-rbody" class="rbody"></div>
+        </div>
+      </div>
+      <div class="dream-side">
+        <div id="cz-detail">
+          <div class="empty-hint">点击左侧条目查看详情。<br><br>测字法门：<br>· 装头/接脚/穿心/包笼/破解/添笔/减笔/对关/摘字（秘牒十法）<br>· 象形/会意/假借/谐声/指事/转注（心易六法）<br>· 取格断语（按部首归类）<br>· 时辰参考（后天时方六十甲子）<br><br>本引擎数据全部来自本地古籍文本与字库表，仅供文化研究。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tab 18 塔罗（韦特体系：三源对照牌义 + Case/Papus/De Laurence 规则层 + RWS 1909 公版牌面） -->
+  <section id="t-tarot" class="tab">
+    <div class="tl-wrap">
+      <div id="tl-board">
+        <div id="tl-board-title"></div>
+        <div id="tl-cards"></div>
+      </div>
+      <div id="tl-side">
+        <div id="tl-controls">
+          <div class="tl-row"><label>牌阵</label>
+            <select id="tl-spread">
+              <option value="single">单张 · 当下指引</option>
+              <option value="choice">二选一 · 此路/他路</option>
+              <option value="three">三张（圣三角）· 过去-现在-未来</option>
+              <option value="horseshoe">马蹄 · 五张</option>
+              <option value="relation">关系 · 七张</option>
+              <option value="celtic">凯尔特十字 · 十张</option>
+              <option value="celtic_dl">凯尔特法（De Laurence）· 11 张含 Significator</option>
+              <option value="m35">35 卡法（De Laurence）· 六行</option>
+              <option value="m42">42 卡法（De Laurence）· 六行七列</option>
+              <option value="p4">四点位（Papus）· 十字</option>
+              <option value="p12">十二点位（Papus）· 十二月</option>
+            </select>
+          </div>
+          <div class="tl-row"><label>模式</label>
+            <select id="tl-mode">
+              <option value="random">随机抽牌</option>
+              <option value="manual">手动选牌</option>
+            </select>
+          </div>
+          <div id="tl-manual-box" style="display:none; flex-direction:column; gap:8px; border-top:1px solid var(--line); padding-top:10px;">
+            <div class="tl-row">
+              <select id="tl-manual-card" style="flex:1;"></select>
+              <select id="tl-manual-rev">
+                <option value="0">正位</option>
+                <option value="1">逆位</option>
+              </select>
+              <button class="btn" id="tl-manual-add">加入</button>
+            </div>
+            <div id="tl-manual-picks" style="font-size:12px; color:var(--tx2); line-height:1.7;"></div>
+          </div>
+          <div class="tl-row"><label>逆位率</label>
+            <input type="range" id="tl-rev-rate" min="0" max="100" value="50" style="flex:1;">
+            <span id="tl-rev-rate-val" style="width:44px;text-align:right;">50%</span>
+          </div>
+          <div class="tl-row"><label>牌池</label>
+            <select id="tl-pool" style="flex:1;">
+              <option value="all">全部 78 张</option>
+              <option value="major">大阿卡纳 22 张</option>
+              <option value="minor">小阿卡纳 56 张</option>
+              <option value="wands">权杖 14 张</option>
+              <option value="cups">圣杯 14 张</option>
+              <option value="swords">宝剑 14 张</option>
+              <option value="pentacles">钱币 14 张</option>
+            </select>
+          </div>
+          <div class="tl-row"><label>抽牌</label>
+            <button class="act" id="tl-draw">洗牌并抽牌</button>
+            <button class="btn" id="tl-reset">清空</button>
+            <button class="btn" id="tl-summary">汇总</button>
+            <button class="btn" id="tl-history">历史</button>
+            <button class="btn" id="tl-rules">规则库</button>
+            <button class="btn" id="tl-astro">占星对应</button>
+          </div>
+          <div class="tl-row" style="font-size:12px;color:var(--tx2);" id="tl-hint">随机模式：洗牌后随机取牌，每张独立随机正/逆位。</div>
+        </div>
+        <div id="tl-detail">
+          <div class="empty-hint">点「洗牌并抽牌」开始。<br>抽出的牌显示在左侧，点击任意牌查看三源牌义详情。<br><br>翻牌交互：点击翻面；凯尔特十字②翻开后自动让位露出①，双击②滑回原位；双击竖柱牌/马蹄/关系牌浮起置顶放大，再双击归位。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 19 大六壬（四课三传体系） -->
+  <section id="t-liunren" class="tab">
+    <div class="ln-wrap">
+      <div class="ln-left">
+        <div id="ln-title" class="ln-title"></div>
+        <div id="ln-pan"></div>
+        <div id="ln-si" class="ln-si"></div>
+        <div class="llr-head">
+          <h3>大六壬论命 · 按出生时间起课</h3>
+          <span class="llr-tag">kinastro(MIT) 对译 · 与占课并列：占课问当下事，论命论终身格局</span>
+        </div>
+        <div id="llr-result"></div>
+        <div id="llr-analysis"></div>
+      </div>
+      <div class="ln-side">
+        <div id="ln-controls">
+          <div class="ln-row"><label>日干支</label><select id="ln-day"></select>
+            <button class="act ln-mini" id="ln-today">今日</button></div>
+          <div class="ln-row"><label>时辰</label><select id="ln-hour"></select></div>
+          <div class="ln-row"><label>月将</label><select id="ln-yuejiang"></select>
+            <span class="muted ln-hint">按节气定月将</span></div>
+          <div class="ln-row"><label>太岁</label><select id="ln-sui"></select>
+            <span class="muted ln-hint">年支，推岁破</span></div>
+          <div class="ln-row"><label>月建</label><select id="ln-yue"></select>
+            <span class="muted ln-hint">节气月支，推月破/四废</span></div>
+          <div class="ln-row"><label>生年</label><input id="ln-birth" type="number" min="1900" max="2030" value="2005" style="width:84px;">
+            <label style="margin-left:8px;">性别</label><select id="ln-sex"><option value="男">男（行年顺布）</option><option value="女">女（行年逆布）</option></select>
+            <span class="muted ln-hint">推行年/本命入课（管辂·论行年本命）</span></div>
+          <div class="ln-row"><label>事类</label><select id="ln-lei"></select></div>
+          <div class="ln-row"><button class="act" id="ln-go">起课占断</button></div>
+        </div>
+        <div class="param-note ln-param">
+          <div class="pn-title">输入说明</div>
+          <div class="pn-item"><b>日干支</b>：占课当天的干支纪日（如 丙寅）。<span>怎么看：点「今日」自动填当天；手输则查万年历当日干支。注意大六壬以子时换日，子时（23 点后）起的课用次日干支。</span></div>
+          <div class="pn-item"><b>时辰</b>：占课时刻的十二时辰。<span>怎么看：23-1 子、1-3 丑、3-5 寅、5-7 卯、7-9 辰、9-11 巳、11-13 午、13-15 未、15-17 申、17-19 酉、19-21 戌、21-23 亥。</span></div>
+          <div class="pn-item"><b>月将</b>：太阳过宫所临之将，按节气定。<span>怎么看：雨水后亥将、春分后戌将、谷雨后酉将……程序已按当前节气列出选项，占课当日落在哪个节气区间就选哪个。</span></div>
+          <div class="pn-item"><b>太岁</b>：当年地支（推岁破、岁破入课用）。<span>怎么看：2026 年为丙午年，太岁取「午」；直接选当年干支的地支即可。</span></div>
+          <div class="pn-item"><b>月建</b>：当前节气月的地支（推月破、四废用）。<span>怎么看：立春起寅月、惊蛰起卯月……按当日所在节气月取地支，程序已列选项。</span></div>
+          <div class="pn-item"><b>生年 + 性别</b>：问课人的出生年份与性别，男顺女逆推行年、本命入课。<span>怎么看：填公历出生年即可；本命支 =（生年−4）÷12 余数取地支，行年从本命起男顺数女逆数至今年虚岁。</span></div>
+          <div class="pn-item"><b>事类</b>：所问事项类别。<span>怎么看：按所问之事选（天时/家宅/求财…），决定翠雨歌按事类取断、管辂章节预选与断语侧重。</span></div>
+        </div>
+        <div class="llr-ctl">
+          <div class="ln-hint">论命与占课共用输入：日干支 / 时辰 / 月将 / 月建 / 生年。时柱干支按五鼠遁自日干起，盘面月将跟随占课所选。</div>
+          <div class="ln-row"><button class="act" id="llr-go">论命排盘</button></div>
+          <div class="ln-row">
+            <label>本命地支</label>
+            <select id="llr-benming">
+              <option value="子">子（鼠）</option><option value="丑">丑（牛）</option><option value="寅">寅（虎）</option>
+              <option value="卯">卯（兔）</option><option value="辰">辰（龙）</option><option value="巳">巳（蛇）</option>
+              <option value="午">午（马）</option><option value="未">未（羊）</option><option value="申">申（猴）</option>
+              <option value="酉">酉（鸡）</option><option value="戌">戌（狗）</option><option value="亥">亥（猪）</option>
+            </select>
+          </div>
+          <div class="ln-row"><button class="act" id="llr-analyze">生成论命分析</button></div>
+          <div class="ln-hint">按《六壬论命秘要》输出身命总则、女命专论、五节总决、十二宫论、二十四格、十六局与流年寿夭；需先排盘。本命地支随上方生年自动推算（(生年−4)÷12 取支），可手动改。</div>
+        </div>
+        <div id="ln-out" class="ln-out"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 20 金口诀（四位体系） -->
+  <section id="t-jinkoujue" class="tab">
+    <div class="jk-wrap">
+      <div class="jk-left">
+        <div id="jk-title" class="jk-title"></div>
+        <div id="jk-pan"></div>
+        <div id="jk-si" class="jk-si"></div>
+      </div>
+      <div class="jk-side">
+        <div id="jk-controls">
+          <div class="jk-row"><label>地分（方位）</label><select id="jk-difen"></select></div>
+          <div class="jk-row"><label>日干支</label><select id="jk-day"></select>
+            <button class="act jk-mini" id="jk-today">今日</button></div>
+          <div class="jk-row"><label>时辰</label><select id="jk-hour"></select></div>
+          <div class="jk-row"><label>月将</label><select id="jk-yuejiang"></select>
+            <span class="muted jk-hint">按节气定月将</span></div>
+          <div class="jk-row"><label>事类</label><select id="jk-lei"></select></div>
+          <div class="jk-row"><button class="act" id="jk-go">起课占断</button></div>
+        </div>
+        <div class="param-note jk-param">
+          <div class="pn-title">输入说明</div>
+          <div class="pn-item"><b>地分（方位）</b>：问课方位或所问事物所在方位，起课四位之一。<span>怎么看：看占问时所面/所行的方向取地支——子正北、丑/寅东北、卯正东、辰/巳东南、午正南、未/申西南、酉正西、戌/亥西北；问失物、行人等也可按对方所在方位取。</span></div>
+          <div class="pn-item"><b>日干支</b>：占课当天干支，起贵神、遁人元用。<span>怎么看：点「今日」自动填当天；手输查万年历当日干支。</span></div>
+          <div class="pn-item"><b>时辰</b>：占课时刻的十二时辰，月将加时布天盘。<span>怎么看：23-1 子、1-3 丑、3-5 寅、5-7 卯、7-9 辰、9-11 巳、11-13 午、13-15 未、15-17 申、17-19 酉、19-21 戌、21-23 亥。</span></div>
+          <div class="pn-item"><b>月将</b>：太阳过宫所临之将，按节气定。<span>怎么看：雨水后亥将、春分后戌将、谷雨后酉将……按当日所在节气区间选。</span></div>
+          <div class="pn-item"><b>事类</b>：所问事项类别。<span>怎么看：按所问之事选（求财/婚姻/官司/疾病/出行/失物/灾祸/射覆/风水），决定分类断语自动命中的课象判定。</span></div>
+        </div>
+        <div id="jk-out" class="jk-out"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab 21 六爻-纳甲（自建装卦全表） -->
+  <section id="t-liuyao" class="tab">
+    <div class="ly-wrap">
+      <div class="ly-left">
+        <div id="ly-title" class="ly-title"></div>
+        <div id="ly-pan"></div>
+        <div id="ly-si" class="ly-si"></div>
+      </div>
+      <div class="ly-side">
+        <div id="ly-controls">
+          <div class="ly-row"><label>起卦方式</label>
+            <button class="act" id="ly-throw">摇卦（随机）</button>
+          </div>
+          <div class="ly-row"><label>手输六爻</label><span id="ly-manual" class="ly-manual"></span></div>
+          <div class="ly-row"><label>（手输后点）</label><button class="act" id="ly-go">起卦占断</button></div>
+          <div class="ly-row"><label>日干支</label><select id="ly-day"></select>
+            <button class="act ly-mini" id="ly-today">今日</button></div>
+          <div class="ly-row"><label>月建</label><select id="ly-month"></select></div>
+          <div class="ly-row"><label>事类</label><select id="ly-shi"></select></div>
+        </div>
+        <div class="param-note ly-param">
+          <div class="pn-title">输入说明</div>
+          <div class="pn-item"><b>摇卦</b>：三枚铜钱摇六次，自下而上成卦。一背为单（少阳）、二背为拆（少阴）、三背为重（老阳·动）、三字为交（老阴·动）。<span>怎么看：静心默问所事，每摇一次记一个爻，摇满六次；老阳/老阴为动爻，会变出对爻。</span></div>
+          <div class="pn-item"><b>手输六爻</b>：已知卦象时直接选六爻（自下而上），与摇卦同效。<span>怎么看：初爻在最上方的选择器，上爻在最下方；动爻会生成变卦。</span></div>
+          <div class="pn-item"><b>日干支</b>：占卦当天干支，定旬空与六神起例。<span>怎么看：点「今日」自动填当天；手输查万年历。</span></div>
+          <div class="pn-item"><b>月建</b>：占卦当月地支，定月破。<span>怎么看：正月建寅、二月建卯……冬月建子、腊月建丑；以节气交接为界。</span></div>
+          <div class="pn-item"><b>事类</b>：所问事项，决定取用神（占事→六亲）与分类断语。<span>怎么看：按所问选——如占求财取妻财为用、占婚姻男占女以妻财为用女占男以官鬼为用、占病以子孙为用。</span></div>
+        </div>
+        <div id="ly-out" class="ly-out"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Tab 23 奇门遁甲 -->
+  <section id="t-qimen" class="tab">
+    <div class="qm-wrap">
+      <div class="qm-pan-col">
+        <div id="qm-title" class="qm-title">奇门遁甲 · 时家奇门起局</div>
+        <div id="qm-pan" class="qm-pan"></div>
+      </div>
+      <div class="qm-verdict-col">
+        <div id="qm-verdict" class="qm-verdict-scroll"></div>
+      </div>
+      <div class="qm-side">
+        <div id="qm-controls">
+          <div class="qm-row"><label>起局时间</label>
+            <input id="qm-year" type="number" style="width:76px;" min="1900" max="2100"><span style="color:var(--tx3);">年</span>
+            <input id="qm-month" type="number" style="width:52px;" min="1" max="12"><span style="color:var(--tx3);">月</span>
+            <input id="qm-day" type="number" style="width:52px;" min="1" max="31"><span style="color:var(--tx3);">日</span>
+            <input id="qm-hour" type="number" style="width:52px;" min="0" max="23"><span style="color:var(--tx3);">时</span>
+          </div>
+          <div class="qm-row"><label>定局流派</label><select id="qm-liupai">
+            <option value="caicha">拆补法</option>
+            <option value="zhirun">置闰法</option>
+          </select></div>
+          <div class="qm-row"><label>布法</label><select id="qm-bufa">
+            <option value="zhuan">转盘（活盘）</option>
+            <option value="fei">飞盘（飞宫）</option>
+          </select></div>
+          <div class="qm-row"><label>占事类别</label><select id="qm-shi"></select></div>
+          <div class="qm-row"><label></label>
+            <button class="act" id="qm-go">起局占断</button>
+            <button class="act qm-mini" id="qm-now">现在时刻</button>
+          </div>
+        </div>
+        <div class="param-note qm-param">
+          <div class="pn-title">输入说明</div>
+          <div class="pn-item"><b>起局时间</b>：所问之事的公历年月日时，即起局四柱。<span>怎么看：占问当下填现在时刻（点「现在时刻」）；占未来事填预定时辰。时辰以两小时为一时辰：23-1 子、1-3 丑、3-5 寅、5-7 卯、7-9 辰、9-11 巳、11-13 午、13-15 未、15-17 申、17-19 酉、19-21 戌、21-23 亥。</span></div>
+          <div class="pn-item"><b>定局流派</b>：拆补法与置闰法在节气交接处的局数选择有差异。<span>怎么看：多数今注本用拆补法（交节即换局）；置闰法仅在芒种/大雪后符头超神一旬以上时置闰，用上一节气下元。</span></div>
+          <div class="pn-item"><b>布法</b>：转盘（星门神整体旋转）与飞盘（星门按九宫序飞布）排盘不同。<span>怎么看：主流用转盘；飞盘为飞宫派用法，格局判定相同。</span></div>
+          <div class="pn-item"><b>占事类别</b>：选定后出对应分类占原文（金函玉镜『奇门占事』108 类）。<span>怎么看：按所问选——求财/婚姻/官讼/出行/行人/病/失物/捕捉/考试/升迁/干谒/借贷等；不选则只出盘面与格局。</span></div>
+        </div>
+        <div id="qm-out" class="qm-out"></div>
+        <div id="kq-extra"></div>
+        <div style="margin-top:10px;">
+          <button class="act qm-mini" id="qml-go">奇门禄命分析</button>
+          <div class="qm-si muted" style="font-size:12px;margin-top:4px;">基于本页起局结果，以年干为本命，按《奇门遁甲》禄命篇分析六亲、八门、八神、格局。算法对译 kinastro(MIT) qimen_luming.py（现代整理层）。需先完成一次起局。</div>
+          <div id="qml-out" class="qm-out"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="t-bazi" class="tab">
+    <div class="bz-wrap">
+      <div class="bz-main">
+        <div id="bz-out" class="bz-out"></div>
+      </div>
+      <div class="bz-side">
+        <div id="bz-controls">
+          <div class="bz-row"><label>出生时间</label>
+            <input id="bz-year" type="number" style="width:76px;" min="1900" max="2100"><span style="color:var(--tx3);">年</span>
+            <input id="bz-month" type="number" style="width:52px;" min="1" max="12"><span style="color:var(--tx3);">月</span>
+            <input id="bz-day" type="number" style="width:52px;" min="1" max="31"><span style="color:var(--tx3);">日</span>
+            <input id="bz-hour" type="number" style="width:52px;" min="0" max="23"><span style="color:var(--tx3);">时</span>
+          </div>
+          <div class="bz-row"><label>性别</label><select id="bz-gender">
+            <option value="1">男</option>
+            <option value="0">女</option>
+          </select>
+          <span style="color:var(--tx3);font-size:12px;">双生</span><input id="bz-twins" type="checkbox" style="width:auto;min-width:0;" title="双胞胎：按乾元秘旨加长幼提示">
+          </div>
+          <details class="bz-row" style="align-items:flex-start;padding:4px 0;">
+            <summary style="width:120px;flex:none;cursor:pointer;color:var(--acc);font-size:12px;">合婚 · 对方八字（可选）</summary>
+            <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+              <div class="bz-row"><label style="width:70px;">对方出生</label>
+                <input id="bz-o-year" type="number" style="width:76px;" min="1900" max="2100"><span style="color:var(--tx3);">年</span>
+                <input id="bz-o-month" type="number" style="width:52px;" min="1" max="12"><span style="color:var(--tx3);">月</span>
+                <input id="bz-o-day" type="number" style="width:52px;" min="1" max="31"><span style="color:var(--tx3);">日</span>
+                <input id="bz-o-hour" type="number" style="width:52px;" min="0" max="23"><span style="color:var(--tx3);">时</span>
+              </div>
+              <div class="bz-row"><label style="width:70px;">说明</label><span style="flex:1;color:var(--tx3);font-size:12px;line-height:1.6;">性别自动取反（与本人相反）。合婚按命理探源·论男女合婚 625-628：夫星/子星判定、比劫食伤相配、五行损益互补；三元九宫/骨髓破/铁扫帚等袁树珊按"万不可信"不入判。</span></div>
+            </div>
+          </details>
+          <div class="bz-row"><label>流派</label><select id="bz-liupai">
+            <option value="子平真诠（专寻月令）">子平真诠（专寻月令）</option>
+            <option value="滴天髓（中和）">滴天髓（中和）</option>
+            <option value="调候（评注）">调候（评注）</option>
+            <option value="三命通会（博采）">三命通会（博采）</option>
+            <option value="渊海子平（日为主）">渊海子平（日为主）</option>
+          </select></div>
+          <div class="bz-row"><label>断语类</label><select id="bz-focus"></select></div>
+          <div class="bz-row"><label>喜用神</label><select id="bz-xi">
+            <option value="">（不选）</option><option value="木">木</option><option value="火">火</option><option value="土">土</option><option value="金">金</option><option value="水">水</option>
+          </select></div>
+          <div class="bz-row"><label>忌神</label><select id="bz-ji">
+            <option value="">（不选）</option><option value="木">木</option><option value="火">火</option><option value="土">土</option><option value="金">金</option><option value="水">水</option>
+          </select></div>
+          <div class="bz-row"><label>身强弱</label><select id="bz-sq">
+            <option value="">（不选）</option><option value="身强">身强</option><option value="身弱">身弱</option>
+          </select></div>
+          <div class="bz-row"><label></label>
+            <button class="act" id="bz-go">排盘</button>
+            <button class="act bz-mini" id="bz-now">现在时间</button>
+          </div>
+        </div>
+        <div class="param-note bz-param">
+          <div class="pn-title">输入说明</div>
+          <div class="pn-item"><b>出生时间</b>：公历出生年月日时。<span>怎么看：八字论终身命理，出生时间即命局；时辰以两小时为一时辰（23-1 子、1-3 丑…）。排盘用立春分年、节气分月（lunar.js 干支历）。</span></div>
+          <div class="pn-item"><b>性别</b>：决定大运顺逆（阳男阴女顺行，阴男阳女逆行）。<span>怎么看：大运方向由年干阴阳与性别共同决定。</span></div>
+          <div class="pn-item"><b>流派</b>：取用神侧重不同，同一八字结论可能不同。<span>怎么看：子平真诠专寻月令用神；滴天髓主中和衰旺；评注（徐乐吾）调候为重；三命通会博采神煞纳音；渊海以日为主兼收外格。选流派即选断语立场。</span></div>
+          <div class="pn-item"><b>断语类</b>：断语查表包 12 类（财运/父母/功名/官运/婚姻/健康/流年/性格/兄弟姐妹/仪表/职业/子女）。<span>怎么看：按关注项选择，输出该类全部断语并标记疑似命中（关键词命中不假装）。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="t-xjb" class="tab">
+    <iframe id="xjb-frame" src="xjb/jzb_index.html"></iframe>
+  </section>
+
+  <!-- 铁板神数（kinastro/MIT 现代整理层） -->
+  <section id="t-tieban" class="tab">
+    <div class="card">
+      <h3>铁板神数 · 条文查（现代整理层，非古籍扫描）</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">考刻条文号（如 1001）：</span>
+        <input type="number" id="tb-code" min="1001" max="9999" style="width:90px;" placeholder="四位号">
+        <button class="act" id="tb-go">查条文</button>
+        <span class="muted" style="margin-left:12px;">或歌诀关键词：</span>
+        <input type="text" id="tb-kw" style="width:140px;" placeholder="如：夫妻/事业/迁移">
+        <button class="sec" id="tb-kw-go">搜歌诀</button>
+        <span class="muted" style="margin-left:12px;">歌诀类别：</span>
+        <select id="tb-cat"><option value="">全部</option></select>
+      </div>
+      <div class="muted" style="font-size:12px;">数据来源：kinastro(MIT) 现代整理层，铁板神数条文 12000 条 + 歌诀 6208 条（清刻足本·贞元书屋刻本整理，2013 心一堂影印本系），繁体已转简体。条文号为现代整理编号，非古籍原书页码。</div>
+    </div>
+    <div id="tb-result"></div>
+  </section>
+
+  <!-- 邵子神数（kinastro/MIT 现代整理层） -->
+  <section id="t-shaozi" class="tab">
+    <div class="card">
+      <h3>邵子神数 · 四位条文号查（现代整理层）</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">四位条文号（如 1111）：</span>
+        <input type="number" id="sz-code" min="1000" max="9999" style="width:90px;" placeholder="四位号">
+        <button class="act" id="sz-go">查条文</button>
+        <span class="muted" style="margin-left:12px;">或关键词：</span>
+        <input type="text" id="sz-kw" style="width:140px;" placeholder="如：父母/大运/妻">
+        <button class="sec" id="sz-kw-go">搜</button>
+      </div>
+      <div class="muted" style="font-size:12px;">数据来源：kinastro(MIT) 现代整理层，邵子神数条文 4608 条（洛书九宫起集·后天八卦配卦，条文号=四位）。条文为现代整理编号。</div>
+    </div>
+    <div id="sz-result"></div>
+  </section>
+
+  <!-- 北极神数（kinastro/MIT 现代整理层） -->
+  <section id="t-beiji" class="tab">
+    <div class="card">
+      <h3>北极神数 · 条文查（现代整理层）</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">条文号（如 1111）：</span>
+        <input type="number" id="bj-code" min="1000" max="9999" style="width:90px;" placeholder="四位号">
+        <button class="act" id="bj-go">查条文</button>
+        <span class="muted" style="margin-left:12px;">或关键词：</span>
+        <input type="text" id="bj-kw" style="width:140px;" placeholder="如：父母/子息/大运">
+        <button class="sec" id="bj-kw-go">搜</button>
+      </div>
+      <div class="muted" style="font-size:12px;">数据来源：kinastro(MIT) 现代整理层，北极神数条文 2341 条（北斗破军·奇门九星·六十四卦·二十八宿系，区分同八字异命）。</div>
+    </div>
+    <div id="bj-result"></div>
+  </section>
+
+  <!-- 南极神数（kinastro/MIT 现代整理层） -->
+  <section id="t-nanji" class="tab">
+    <div class="card">
+      <h3>南极神数 · 条文查（现代整理层）</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">关键词：</span>
+        <input type="text" id="nj-kw" style="width:140px;" placeholder="如：父母/寿/子息">
+        <button class="act" id="nj-go">搜条文</button>
+        <span class="muted" style="margin-left:12px;">部类：</span>
+        <select id="nj-sec"><option value="">全部</option></select>
+      </div>
+      <div class="muted" style="font-size:12px;">数据来源：kinastro(MIT) 现代整理层，南极神数条文 246 条（五大神数之一，四柱·二十八宿·建除十二辰系）。</div>
+    </div>
+    <div id="nj-result"></div>
+  </section>
+
+  <!-- 皇极经世（kinastro/MIT 全文） -->
+  <section id="t-huangji" class="tab">
+    <div class="card">
+      <h3>皇极经世书 · 十四卷全文（宋·邵雍）</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">章节：</span>
+        <select id="hj-sec" style="width:220px;"></select>
+        <button class="act" id="hj-go">读章节</button>
+        <span class="muted" style="margin-left:12px;">全文关键词：</span>
+        <input type="text" id="hj-kw" style="width:140px;" placeholder="如：元会运世/观物">
+        <button class="sec" id="hj-kw-go">搜</button>
+      </div>
+      <div class="muted" style="font-size:12px;">全文来源：kinastro(MIT) 整理《皇极经世书》十四卷（提要+正文，繁体转简体），190 节。</div>
+    </div>
+    <div id="hj-result"></div>
+
+    <!-- 皇极经世起数推演 + 心易（kinwangji/kentang2017/MIT 补强，不新建 tab） -->
+    <div class="card" style="margin-top:12px;">
+      <h3>皇极起数 · 元会运世九卦排盘（kinwangji/MIT 补强）</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <span class="muted">公历：</span>
+        <input id="hj2-y" type="number" value="2026" style="width:80px;">
+        <input id="hj2-m" type="number" value="3" min="1" max="12" style="width:60px;">
+        <input id="hj2-d" type="number" value="14" min="1" max="31" style="width:60px;">
+        <span class="muted">时：</span><input id="hj2-h" type="number" value="1" min="0" max="23" style="width:60px;">
+        <span class="muted">分：</span><input id="hj2-mi" type="number" value="2" min="0" max="59" style="width:60px;">
+        <button class="act" id="hj2-go">起皇极数</button>
+      </div>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <span class="muted">心易·先天两数：</span>
+        <input id="hj2-n1" type="number" value="5" min="1" style="width:64px;">
+        <input id="hj2-n2" type="number" value="10" min="1" style="width:64px;">
+        <button class="sec" id="hj2-xn">两数起卦</button>
+        <span class="muted" style="margin-left:8px;">后天方位：</span>
+        <select id="hj2-obj">
+          <option>乾</option><option>兑</option><option>离</option><option>震</option>
+          <option>巽</option><option>坎</option><option>艮</option><option>坤</option>
+        </select>
+        <select id="hj2-dir">
+          <option>南</option><option>北</option><option>东</option><option>西</option>
+          <option>东南</option><option>东北</option><option>西南</option><option>西北</option><option>中</option>
+        </select>
+        <button class="sec" id="hj2-xd">方位起卦</button>
+      </div>
+      <div class="muted" id="hj2-hint" style="font-size:12px;"></div>
+    </div>
+    <div id="hj2-result"></div>
+
+    <div class="card" style="margin-top:12px;">
+      <h3>补遗典籍 · 观物外篇衍义 / 心易发微（kinwangji/MIT 入库）</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <span class="muted">典籍：</span>
+        <select id="hj2-book">
+          <option value="yanyi">观物外篇衍义（宋·张行成，9卷）</option>
+          <option value="fawei">心易发微（5卷）</option>
+        </select>
+        <span class="muted">卷：</span>
+        <select id="hj2-sec" style="width:200px;"></select>
+        <button class="act" id="hj2-bookgo">读卷</button>
+      </div>
+    </div>
+    <div id="hj2-bookresult"></div>
+  </section>
+
+  <!-- 神易数兵占（shenyishu/kentang2017/MIT 现代整理层） -->
+  <section id="t-shenyishu" class="tab">
+    <div class="card">
+      <h3>神易数兵占 · 讲武全书兵占卷之十六（明州玄谷蔡时宜撰）</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <span class="muted">公历年：</span>
+        <input type="number" id="sy-y" style="width:80px;" placeholder="如 2023">
+        <span class="muted">月：</span>
+        <input type="number" id="sy-m" min="1" max="12" style="width:60px;" placeholder="1-12">
+        <span class="muted">日：</span>
+        <input type="number" id="sy-d" min="1" max="31" style="width:60px;" placeholder="1-31">
+        <span class="muted">时（0-23）：</span>
+        <input type="number" id="sy-h" min="0" max="23" style="width:60px;" placeholder="0-23">
+        <button class="act" id="sy-go">起课</button>
+      </div>
+      <div class="muted sy-hint" id="sy-hint" style="font-size:12px;"></div>
+      <div class="muted" style="font-size:12px;margin-top:4px;">推演：四柱（立春换年/节气月/23时换日）→ 年+月+日+时甲子码合计 → 行军占（百位主将/十位我兵/个位贼寇）→ 主客判断 → 连山/归藏/八卦 → 五行 → 神煞 → 长生 → 吉凶评分。来源：shenyishu/kentang2017/MIT 现代整理层（繁体转简体，非古籍扫描）。</div>
+    </div>
+    <div id="sy-result"></div>
+  </section>
+
+  <!-- 堅五兆（kinwuzhao/kentang2017/MIT 现代整理层；唐宋折竹弹占术·敦煌 P.2859《五兆要诀略》复原） -->
+  <section id="t-kinwuzhao" class="tab">
+    <div class="card">
+      <h3>堅五兆 · 唐宋折竹弹占术（敦煌 P.2859《五兆要诀略》复原）</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+        <span class="muted">公历年：</span>
+        <input type="number" id="kz-y" style="width:80px;" placeholder="如 2025">
+        <span class="muted">月：</span>
+        <input type="number" id="kz-m" min="1" max="12" style="width:60px;" placeholder="1-12">
+        <span class="muted">日：</span>
+        <input type="number" id="kz-d" min="1" max="31" style="width:60px;" placeholder="1-31">
+        <span class="muted">时（0-23）：</span>
+        <input type="number" id="kz-h" min="0" max="23" style="width:60px;" placeholder="0-23">
+        <span class="muted">报数：</span>
+        <input type="number" id="kz-num" min="0" max="90" style="width:60px;" value="0">
+        <span class="muted">起盘：</span>
+        <select id="kz-mode">
+          <option value="ganzhi">干支起盘</option>
+          <option value="rigan">日干起盘</option>
+          <option value="tang">唐代正法</option>
+        </select>
+        <button class="act" id="kz-go">起盘</button>
+      </div>
+      <div class="row" style="margin-bottom:8px;flex-wrap:wrap;gap:6px;font-size:12px;">
+        <span class="muted">古法层 · 年命支（官禄/行年用，可选）：</span>
+        <select id="kz-mingzhi" style="width:70px;">
+          <option value="">未指定</option><option>子</option><option>丑</option><option>寅</option><option>卯</option><option>辰</option><option>巳</option><option>午</option><option>未</option><option>申</option><option>酉</option><option>戌</option><option>亥</option>
+        </select>
+        <span class="muted">性别（行年起法用，可选）：</span>
+        <select id="kz-gender" style="width:70px;">
+          <option value="">未指定</option><option value="male">男</option><option value="female">女</option>
+        </select>
+        <span class="muted">行神月制：</span>
+        <select id="kz-xsmonth" style="width:90px;">
+          <option value="lunar">农历月</option>
+          <option value="jieqi">节气月</option>
+        </select>
+      </div>
+      <div class="muted kz-hint" id="kz-hint" style="font-size:12px;"></div>
+      <div class="muted" style="font-size:12px;margin-top:4px;">推演：四柱（立春换年/节气月/23时换日）→ 节气月将 → 六宫揲筮（水一火二木三金四土五）→ 五行六亲 × 六兽死害 × 孤虚关籥将军。来源：kinwuzhao/kentang2017/MIT 现代整理层（繁体转简体，非古籍扫描）。</div>
+    </div>
+    <div id="kz-result"></div>
+    <div id="kz-ext-result"></div>
+  </section>
+
+  <!-- 荆诀·北大竹简西汉算筹十六卦（jingjue/kentang2017/MIT 现代整理层） -->
+  <section id="t-jingjue" class="tab">
+    <div class="card">
+      <h3>荆诀 · 北大竹简西汉算筹十六卦</h3>
+      <div class="row" style="margin-bottom:10px;">
+        <button class="act" id="jj-go">起卦（三十算筹）</button>
+        <span class="muted" style="margin-left:10px;">左手持书，右手操算，必东面。用卅算分，以为三分，四四而除，不盈者勿除。</span>
+      </div>
+      <div class="muted" id="jj-hint" style="font-size:12px;"></div>
+      <div class="muted" style="font-size:12px;margin-top:4px;">推演：30 算筹随机分两段 → 上/中/下三份各以 4 除取余（余 0 作 4）→ 三位余数合键查十六卦。卦名以天干八（甲乙丙丁戊己壬癸）+ 地支八（子丑寅卯辰巳午未）命名。来源：jingjue/kentang2017/MIT 现代整理层（繁体转简体）。</div>
+    </div>
+    <div id="jj-result"></div>
+  </section>
+
+  <section id="t-wuyunliuqi" class="tab">
+    <div class="card">
+      <h3>五运六气（《黄帝内经·素问》运气七篇）· 年度推演与当前时刻位置</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+        <span class="muted">公历年：</span>
+        <input type="number" id="wl-year" style="width:80px;" placeholder="如 2026">
+        <span class="muted">月：</span>
+        <input type="number" id="wl-month" min="1" max="12" style="width:60px;" placeholder="1-12">
+        <span class="muted">日：</span>
+        <input type="number" id="wl-day" min="1" max="31" style="width:60px;" placeholder="1-31">
+        <span class="muted">时（24小时制，可选）：</span>
+        <input type="number" id="wl-hour" min="0" max="23" style="width:60px;" placeholder="0-23">
+        <button class="act" id="wl-go">推演</button>
+      </div>
+      <div class="muted" style="font-size:12px;">输入公历。五运六气年起大寒（约1月20日），大寒前属上一个运气年。输出：大运（太过/不及）、主运客运五步、司天在泉、主气客气六步、客主加临（顺化/同化/小逆/不和/逆）、运气同化（天符/岁会/太乙天符等）、胜复、五郁治法、当前时刻所在步骤及进度。算法逐行对译 kinastro(MIT) Python 原版。</div>
+    </div>
+    <div id="wl-result"></div>
+  </section>
+  <section id="t-fendjing" class="tab">
+    <div class="card">
+      <h3>鬼谷分定经（两头钳）· 排盘</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+        <span class="muted">公历：</span>
+        <input type="number" id="fj-year" style="width:80px;" placeholder="年">
+        <input type="number" id="fj-month" min="1" max="12" style="width:60px;" placeholder="月">
+        <input type="number" id="fj-day" min="1" max="31" style="width:60px;" placeholder="日">
+        <span class="muted">时（24小时制）：</span>
+        <input type="number" id="fj-hour" min="0" max="23" style="width:60px;" placeholder="时">
+        <button class="act" id="fj-go">排盘</button>
+      </div>
+      <div class="muted" style="font-size:12px;">以出生年干 + 时干为两头钳 key，查 100 组断语（判断 / 命格 / 基业 / 兄弟 / 行藏 / 婚姻 / 子息 / 收成）。历法：立春分年、农历月取月柱（五虎遁）、23 点子时换日换干。算法对译 kinastro(MIT) fendjing_calculator.py，数据为现代整理层 twogan 表。</div>
+    </div>
+    <div id="fj-result"></div>
+  </section>
+  <section id="t-diyi" class="tab">
+    <div class="card">
+      <h3>涤器遗诀（kinastro 对译）· 排盘</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+        <span class="muted">公历出生：</span>
+        <input type="number" id="dq-y" style="width:80px;" placeholder="年">
+        <input type="number" id="dq-m" min="1" max="12" style="width:60px;" placeholder="月">
+        <input type="number" id="dq-d" min="1" max="31" style="width:60px;" placeholder="日">
+        <span class="muted">时（24小时制）：</span>
+        <input type="number" id="dq-h" min="0" max="23" style="width:60px;" placeholder="时">
+        <span class="muted">性别：</span>
+        <select id="dq-gender" style="width:80px;">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+        <button class="act" id="dq-go">排盘</button>
+      </div>
+      <div class="muted" style="font-size:12px;">输入公历出生时间，取五条（胎/年/月/日/时干支纳音）、元影数、八宫起例（铺地锦）、本宫四位与别法、观空定卦、八卦体变、命宫与都数、起胞法、数尾、合孕数、盈卦、四位观八观、命主内外盘、三奇吉门、贵格凶星关杀、科数得失与寿限。算法对译 kinastro(MIT) diqiyijue/calculator.py（现代整理层，非古籍原文）。四柱口径照原版：年柱按农历年（春节换年，非立春）、月柱按节气、时柱五鼠遁，23 点按次日整柱计。</div>
+    </div>
+    <div id="dq-result"></div>
+    <div class="card" style="margin-top:10px;">
+      <h3>涤器遗诀 · 流年流筹</h3>
+      <div class="row" style="margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+        <span class="muted">行年岁数（出生年当年为 1，10 岁以上另有属齿卦）：</span>
+        <input type="number" id="dq-age" min="1" max="120" style="width:70px;" placeholder="岁">
+        <span class="muted">流年干支（如 壬申，可留空自动取当年）：</span>
+        <input type="text" id="dq-yeargz" style="width:90px;" placeholder="壬申">
+        <button class="act" id="dq-flow">算流年</button>
+      </div>
+      <div class="muted" style="font-size:12px;">以本宫四位×行年，折外补中取流筹四位，出观空定卦、八卦体变、属齿卦、八观、观数五章（阴阳众寡/数位顺逆/五行连叠/贼星/总数奇偶），并落位当年大运小运。需先完成排盘。</div>
+    </div>
+    <div id="dq-flow-out"></div>
+  </section>
+</main>
+<script src="vendor/lunar.js"></script>
+<script src="renderer/qimen.js"></script>
+<script src="renderer/qlmg_data.js"></script>
+<script src="renderer/liki_eval.js"></script>
+<script src="renderer/bazi.js"></script>
+<script src="renderer/ly_guji_eval.js"></script>
+<script src="renderer/ln_guji_eval.js"></script>
+<script src="renderer/zw_guji_eval.js"></script>
+<script src="renderer/qm_guji_eval.js"></script>
+<script src="renderer/wuyunliuqi.js?v=1"></script>
+<script src="renderer/blind_bazi.js?v=1"></script>
+<script src="renderer/taixuan_math.js?v=1"></script>
+<script src="renderer/fendjing.js?v=1"></script>
+<script src="renderer/liuren_life.js?v=2"></script>
+<script src="renderer/lunming_life.js?v=1"></script>
+<script src="renderer/diqiyijue.js?v=1"></script>
+<script src="renderer/qimen_luming.js?v=1"></script>
+<script src="renderer/shenyishu.js?v=1"></script>
+<script src="renderer/kinwangji.js?v=1"></script>
+<script src="renderer/kintaiyi.js?v=1"></script>
+<script src="renderer/kinwuzhao.js?v=1"></script>
+<script src="renderer/kinwuzhao_ext.js?v=1"></script>
+<script src="renderer/taixuanshifa.js?v=1"></script>
+<script src="renderer/jingjue.js?v=1"></script>
+<script src="renderer/kinqimen.js?v=2"></script>
+<script src="renderer/tst.js"></script>
+<script src="renderer/app.js"></script>
+</body>
+</html>

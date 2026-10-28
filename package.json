@@ -1,0 +1,43 @@
+{
+  "name": "shushu-engine",
+  "version": "0.1.0",
+  "description": "术数引擎子件：灵棋 125 · 诸葛 384 · 81 数理 · 周易蓍占 · 金钱课 64 · 孔明神卦 32 · 小六壬 · 金钱卦 · 太玄经 · 焦氏易林 4096 · 京房易 64 · 梅花易数 · 太乙神数",
+  "main": "main.js",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "electron": "^45.0.0"
+  },
+  "dependencies": {
+    "swisseph-wasm": "^0.1.0"
+  },
+  "author": "wang-er-1-2003",
+  "build": {
+    "appId": "com.wanger.shushu-engine",
+    "productName": "术数引擎子件",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "*.html",
+      "engine/**",
+      "renderer/**",
+      "vendor/**",
+      "xjb/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "术数引擎子件-${version}.${ext}"
+    },
+    "electronVersion": "45.0.0",
+    "npmRebuild": false
+  }
+}

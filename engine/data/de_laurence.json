@@ -1,0 +1,1215 @@
+{
+ "source": "De Laurence《The Illustrated Key to the Tarot》(1916?，Gutenberg 文本 244KB)；系 Waite《Pictorial Key》同期改编版，逐卡释义与 Waite 1910 同源、措辞有异，作第二原典对照；8=Fortitude、11=Justice、Zero=Fool、21=World（标准韦特编号）",
+ "minor": [
+  {
+   "suit": "wands",
+   "rank": "KING",
+   "name": "KING of Wands",
+   "desc": "The physical and emotional nature to which this card is attributed is\ndark, ardent, lithe, animated, impassioned, noble. The King uplifts a\nflowering wand, and wears, like his three correspondences in the\nremaining suits, what is called a cap of maintenance beneath his crown.\nHe connects with the symbol of the lion, which is emblazoned on the back\nof his throne.",
+   "divinatory": "Dark man, friendly, countryman,\ngenerally married, honest and conscientious. The card always signifies\nhonesty, and may mean news concerning an unexpected heritage to fall in\nbefore very long",
+   "reversed": "Good, but severe; austere, yet tolerant",
+   "cn_divinatory": "深色男子，友善，乡下人，通常已婚，诚实尽责。此牌恒象征诚实，也可能意味着关于不久将降临的意外遗产的消息",
+   "cn_reversed": "良善但严厉；严峻却宽容。"
+  },
+  {
+   "suit": "wands",
+   "rank": "QUEEN",
+   "name": "QUEEN of Wands",
+   "desc": "The Wands throughout this suit are always in leaf, as it is a suit of\nlife and animation. Emotionally and otherwise, the Queen's personality\ncorresponds to that of the King, but is more magnetic.",
+   "divinatory": "A dark woman, country-woman, friendly, chaste, loving,\nhonorable. If the card beside her signifies a man, she is well disposed\ntowards him; if a woman, she is interested in the Querent. Also, love of\nmoney, or a certain success in business",
+   "reversed": "Good, economical,\nobliging, serviceable. Signifies also--but in certain positions and in\nthe neighborhood of other cards tending in such directions--opposition,\njealousy, even deceit and infidelity",
+   "cn_divinatory": "深色女子，乡下女子，友善、贞洁、有爱心、可敬。若旁牌象征男子，她对他心怀善意；若象征女子，她对求问者有兴趣。亦主爱财，或在事业上有一定成功",
+   "cn_reversed": "良善、节俭、乐于助人、有服务精神。亦在特定位置且邻近倾向该方向的牌时，象征对立、嫉妒，甚至欺骗与不忠。"
+  },
+  {
+   "suit": "wands",
+   "rank": "KNIGHT",
+   "name": "KNIGHT of Wands",
+   "desc": "He is shown as if upon a journey, armed with a short wand, and although\nmailed is not on a warlike errand. He is passing mounds or pyramids. The\nmotion of the horse is a key to the character of its rider, and suggests\nthe precipitate mood, or things connected therewith.",
+   "divinatory": "Departure, absence, flight, emigration. A dark young man,\nfriendly. Change of residence",
+   "reversed": "Rupture, division,\ninterruption, discord",
+   "cn_divinatory": "离去、缺席、逃离、移居。一位友善的深色青年。更换住所",
+   "cn_reversed": "决裂、分裂、中断、不和。"
+  },
+  {
+   "suit": "wands",
+   "rank": "PAGE",
+   "name": "PAGE of Wands",
+   "desc": "In a scene similar to the former, a young man stands in the act of\nproclamation. He is unknown but faithful, and his tidings are strange.",
+   "divinatory": "Dark young man, faithful, a lover, an envoy, a\npostman. Beside a man, he will bear favorable testimony concerning him.\nA dangerous rival, if followed by the Page of Cups. Has the chief\nqualities of his suit. He may signify family intelligence",
+   "reversed": "Anecdotes, announcements, evil news. Also indecision and the instability\nwhich accompanies it",
+   "cn_divinatory": "深色青年，忠诚，恋人，信使，邮差。在男子旁，他会为其作有利证言。若后随圣杯侍从，则是危险的情敌。具其花色之主要特质。可能象征家中的消息",
+   "cn_reversed": "轶事、宣告、坏消息。亦主犹豫不决及其伴随的不稳定。"
+  },
+  {
+   "suit": "wands",
+   "rank": "TEN",
+   "name": "TEN of Wands",
+   "desc": "A man oppressed by the weight of the ten staves which he is carrying.",
+   "divinatory": "A card of many significances, and some of the\nreadings cannot be harmonized. I set aside that which connects it with\nhonor and good faith. The chief meaning is oppression simply, but it is\nalso fortune, gain, any kind of success, and then it is the oppression\nof these things. It is also a card of false-seeming, disguise, perfidy.\nThe place which the figure is approaching may suffer from the rods that\nhe carries. Success is stultified if the Nine of Swords follows, and if\nit is a question of a lawsuit, there will be certain loss",
+   "reversed": "Contrarieties, difficulties, intrigues, and their analogies",
+   "cn_divinatory": "此牌含义众多，部分解读无法调和。我搁置其与荣誉和诚信相关的含义。主要含义就是压迫，但亦主财富、获利、任何形式的成功，而此后便是对这些事物的压迫。亦是伪装、掩饰、背信之牌。图中人物所走近之处，可能因他所携之杖而受苦。若后随宝剑九，成功受挫；若涉及官司，则必败",
+   "cn_reversed": "相反、困难、阴谋及其同类。"
+  },
+  {
+   "suit": "wands",
+   "rank": "NINE",
+   "name": "NINE of Wands",
+   "desc": "The figure leans upon his staff and has an expectant look, as if\nawaiting an enemy. Behind are eight other staves--erect, in orderly\ndisposition, like a palisade.",
+   "divinatory": "The card signifies\nstrength in opposition. If attacked, the person will meet an onslaught\nboldly; and his build shows that he may prove a formidable antagonist.\nWith this main significance there are all its possible adjuncts--delay,\nsuspension, adjournment",
+   "reversed": "Obstacles, adversity, calamity",
+   "cn_divinatory": "此牌象征对抗中的力量。若受攻击，此人将勇敢迎击；其体格表明他可能是难缠的对手。在此主要含义下有其一切可能的附属——延迟、搁置、休会",
+   "cn_reversed": "障碍、逆境、灾祸。"
+  },
+  {
+   "suit": "wands",
+   "rank": "EIGHT",
+   "name": "EIGHT of Wands",
+   "desc": "The card represents motion through the immovable--a flight of wands\nthrough an open country; but they draw to the term of their course. That\nwhich they signify is at hand; it may be even on the threshold.",
+   "divinatory": "Activity in undertakings, the path of such\nactivity, swiftness, as that of an express messenger; great haste, great\nhope, speed towards an end which promises assured felicity; generally,\nthat which is on the move; also the arrows of love",
+   "reversed": "Arrows\nof jealousy, internal dispute, stingings of conscience, quarrels; and\ndomestic disputes for persons who are married",
+   "cn_divinatory": "事业中的活力、此类活力之路径、迅捷，如急件信使；大急促、大希望，快速奔向承诺确定幸福的目标；通常指一切在行进中之事；亦主爱情之箭",
+   "cn_reversed": "嫉妒之箭、内讧、良心之刺、争吵；已婚者之家庭纠纷。"
+  },
+  {
+   "suit": "wands",
+   "rank": "SEVEN",
+   "name": "SEVEN of Wands",
+   "desc": "A young man on a craggy eminence brandishing a staff; six other staves\nare raised towards him from below.",
+   "divinatory": "It is a card\nof valor, for, on the surface, six are attacking one, who has, however,\nthe vantage position. On the intellectual plane, it signifies\ndiscussion, wordy strife; in business--negotiations, war of trade,\nbarter, competition. It is further a card of success, for the combatant\nis on the top and his enemies may be unable to reach him",
+   "reversed": "Perplexity, embarrassments, anxiety. It is also a caution against\nindecision",
+   "cn_divinatory": "勇武之牌：表面上六人攻一人，而此人身居有利位置。在智性层面指讨论、口舌之争；在生意上——谈判、贸易战、以物易物、竞争。更进一步是成功之牌，因斗者居于上位，敌人或无法触及他",
+   "cn_reversed": "困惑、窘迫、焦虑。亦告诫勿犹豫不决。"
+  },
+  {
+   "suit": "wands",
+   "rank": "SIX",
+   "name": "SIX of Wands",
+   "desc": "A laurelled horseman bears one staff adorned with a laurel crown;\nfootmen with staves are at his side.",
+   "divinatory": "The card has\nbeen so designed that it can cover several significations; on the\nsurface, it is a victor triumphing, but it is also great news, such as\nmight be carried in state by the King's courier; it is expectation\ncrowned with its own desire, the crown of hope, and so forth",
+   "reversed": "Apprehension, fear, as of a victorious enemy at the gate;\ntreachery, disloyalty, as of gates being opened to the enemy; also\nindefinite delay",
+   "cn_divinatory": "此牌被设计为可涵盖数种含义：表面上是一位凯旋的胜利者，但也指大消息，如国王信使庄严传递者；是期待冠以其所欲、希望之冠，等等",
+   "cn_reversed": "忧惧、恐惧，如凯旋之敌临门；背叛、不忠，如城门向敌敞开；亦主无限期延迟。"
+  },
+  {
+   "suit": "wands",
+   "rank": "FIVE",
+   "name": "FIVE of Wands",
+   "desc": "A posse of youths, who are brandishing staves, as if in sport or strife.\nIt is mimic warfare, and hereto correspond the",
+   "divinatory": "Imitation, as, for example, sham fight, but also the strenuous\ncompetition and struggle of the search after riches and fortune. In this\nsense it connects with the battle of life. Hence some attributions say\nthat it is a card of gold, gain, opulence",
+   "reversed": "Litigation,\ndisputes, trickery, contradiction",
+   "cn_divinatory": "模仿，如假打，但也是追逐财富与运气的激烈竞争与奋斗。在此意义上与人生之战相连。故有说法称其为黄金、获利、富裕之牌",
+   "cn_reversed": "诉讼、争端、诡计、矛盾。"
+  },
+  {
+   "suit": "wands",
+   "rank": "FOUR",
+   "name": "FOUR of Wands",
+   "desc": "From the four great staves planted in the foreground there is a great\ngarland suspended; two female figures uplift nosegays; at their side is\na bridge over a moat, leading to an old manorial house.",
+   "divinatory": "They are for once almost on the surface--country life, haven\nof refuge, a species of domestic harvest-home, repose, concord, harmony,\nprosperity, peace, and the perfected work of these",
+   "reversed": "The\nmeaning remains unaltered; it is prosperity, increase, felicity, beauty,\nembellishment",
+   "cn_divinatory": "它们几乎在表面上——田园生活、避难之所、一种家庭的丰收归家、安息、和睦、和谐、繁荣、和平，及其完成之工",
+   "cn_reversed": "含义不变；是繁荣、增长、幸福、美丽、装饰。"
+  },
+  {
+   "suit": "wands",
+   "rank": "THREE",
+   "name": "THREE of Wands",
+   "desc": "A calm, stately personage, with his back turned, looking from a cliff's\nedge at ships passing over the sea. Three staves are planted in the\nground, and he leans slightly on one of them.",
+   "divinatory": "He\nsymbolizes established strength, enterprise, effort, trade, commerce,\ndiscovery; those are his ships, bearing his merchandise, which are\nsailing over the sea. The card also signifies able co-operation in\nbusiness, as if the successful merchant prince were looking from his\nside towards yours with a view to help you",
+   "reversed": "The end of\ntroubles, suspension or cessation of adversity, toil and\ndisappointment",
+   "cn_divinatory": "他象征已确立的力量、进取、努力、贸易、商业、发现；那些是他的船，载其货物，航行于海。此牌亦指商业上的得力合作，如成功的商界巨子从他那一边望向你这边的帮助",
+   "cn_reversed": "麻烦的终结，逆境的休止或终止，辛劳与失望。"
+  },
+  {
+   "suit": "wands",
+   "rank": "TWO",
+   "name": "TWO of Wands",
+   "desc": "A tall man looks from a battlemented roof over sea and shore; he holds a\nglobe in his right hand, while a staff in his left rests on the\nbattlement; another is fixed in a ring. The Rose and Cross and Lily\nshould be noticed on the left side.",
+   "divinatory": "Between the\nalternative readings there is no marriage possible; on the one hand,\nriches, fortune, magnificence; on the other, physical suffering,\ndisease, chagrin, sadness, mortification. The design gives one\nsuggestion; here is a lord overlooking his dominion and alternately\ncontemplating a globe; it looks like the malady, the mortification, the\nsadness of Alexander amidst the grandeur of this world's wealth",
+   "reversed": "Surprise, wonder, enchantment, emotion, trouble, fear",
+   "cn_divinatory": "两种替代解读无法调和：一方面，财富、好运、宏伟；另一方面，身体的痛苦、疾病、懊恼、悲伤、屈辱。图样给出一种暗示：一位领主俯瞰其领地，交替凝视一个球体；看似亚历山大身处尘世财富的壮丽中仍有的疾患、屈辱、悲伤",
+   "cn_reversed": "惊讶、惊奇、着迷、激动、麻烦、恐惧。"
+  },
+  {
+   "suit": "wands",
+   "rank": "ACE",
+   "name": "ACE of Wands",
+   "desc": "A hand issuing from a cloud grasps a stout wand or club.",
+   "divinatory": "Creation, invention, enterprise, the powers which result in\nthese; principle, beginning, source; birth, family, origin, and in a\nsense the virility which is behind them; the starting point of\nenterprises; according to another account, money, fortune, inheritance",
+   "reversed": "Fall, decadence, ruin, perdition, to perish; also a certain\nclouded joy",
+   "cn_divinatory": "创造、发明、进取，以及由此而来的力量；原理、开端、源头；诞生、家族、起源，并在某种意义上是其背后的阳刚之气；事业的起点；按另一说法，指金钱、财富、遗产",
+   "cn_reversed": "堕落、衰败、毁灭、沦丧、消亡；亦主某种蒙蔽的喜悦。"
+  },
+  {
+   "suit": "cups",
+   "rank": "KING",
+   "name": "KING of Cups",
+   "desc": "He holds a short scepter in his left hand and a great cup in his right;\nhis throne is set upon the sea; on one side a ship is riding and on the\nother a dolphin is leaping. The implicit is that the Sign of the Cup\nnaturally refers to water, which appears in all the court cards.",
+   "divinatory": "Fair man, man of business, law, or divinity;\nresponsible, disposed to oblige the Querent; also equity, art and\nscience, including those who profess science, law and art; creative\nintelligence",
+   "reversed": "Dishonest, double-dealing man; roguery,\nexaction, injustice, vice, scandal, pillage, considerable loss",
+   "cn_divinatory": "白皙男子，商人、法律或神职之人；负责，乐于为求问者效劳；亦主公正、艺术与科学，包括从业者；创造性的智慧",
+   "cn_reversed": "不诚实的、两面三刀之人；恶行、苛索、不义、邪恶、丑闻、劫掠、重大损失。"
+  },
+  {
+   "suit": "cups",
+   "rank": "QUEEN",
+   "name": "QUEEN of Cups",
+   "desc": "Beautiful, fair, dreamy--as one who sees visions in a cup. This is,\nhowever, only one of her aspects; she sees, but she also acts, and her\nactivity feeds her dream.",
+   "divinatory": "Good, fair woman;\nhonest, devoted woman, who will do service to the Querent; loving\nintelligence, and hence the gift of vision; success, happiness,\npleasure; also wisdom, virtue; a perfect spouse and a good mother",
+   "reversed": "The accounts vary; good woman; otherwise, distinguished\nwoman but one not to be trusted; perverse woman; vice, dishonor,\ndepravity",
+   "cn_divinatory": "良善、白皙的女子；诚实忠诚的女子，将为求问者服务；有爱之智慧，因而有异象之天赋；成功、幸福、愉悦；亦主智慧、美德；完美的妻子和好母亲",
+   "cn_reversed": "说法不一；良善女子；否则是出众但不可信的女子；乖戾的女子；邪恶、耻辱、堕落。"
+  },
+  {
+   "suit": "cups",
+   "rank": "KNIGHT",
+   "name": "KNIGHT of Cups",
+   "desc": "Graceful, but not warlike; riding quietly, wearing a winged helmet,\nreferring to those higher graces of the imagination which sometimes\ncharacterize this card. He too is a dreamer, but the images of the side\nof sense haunt him in his vision.",
+   "divinatory": "Arrival,\napproach--sometimes that of a messenger; advances, proposition,\ndemeanor, invitation, incitement",
+   "reversed": "Trickery, artifice,\nsubtlety, swindling, duplicity, fraud",
+   "cn_divinatory": "到来、接近——有时是信使；进展、提议、举止、邀请、激励",
+   "cn_reversed": "诡计、巧诈、阴险、诈骗、口是心非、欺诈。"
+  },
+  {
+   "suit": "cups",
+   "rank": "PAGE",
+   "name": "PAGE of Cups",
+   "desc": "A fair, pleasing, somewhat effeminate page, of studious and intent\naspect, contemplates a fish rising from a cup to look at him. It is the\npictures of the mind taking form.",
+   "divinatory": "Fair young man,\none impelled to render service and with whom the Querent will be\nconnected; a studious youth; news, message; application, reflection,\nmeditation; also these things directed to business",
+   "reversed": "Taste,\ninclination, attachment, seduction, deception, artifice",
+   "cn_divinatory": "白皙青年，受驱使去提供服务，求问者将与之产生关联；好学的青年；新闻、消息；应用、反思、沉思；亦指这些用于事业",
+   "cn_reversed": "趣味、倾向、依恋、诱惑、欺骗、巧诈。"
+  },
+  {
+   "suit": "cups",
+   "rank": "TEN",
+   "name": "TEN of Cups",
+   "desc": "Appearance of Cups in a rainbow; it is contemplated in wonder and\necstasy by a man and woman below, evidently husband and wife. His right\narm is about her; his left is raised upward; she raises her right arm.\nThe two children dancing near them have not observed the prodigy but are\nhappy after their own manner. There is a home-scene beyond.",
+   "divinatory": "Contentment, repose of the entire heart; the perfection of\nthat state; also perfection of human love and friendship; if with\nseveral picture-cards, a person who is taking charge of the Querent's\ninterests; also the town, village or country inhabited by the Querent",
+   "reversed": "Repose of the false heart, indignation, violence",
+   "cn_divinatory": "满足、全心的安息；此状态的圆满；亦主人类爱与友谊的圆满；若与若干人物牌同现，指照顾求问者利益之人；亦指求问者所居的城镇、乡村或国家",
+   "cn_reversed": "假心的安息、愤怒、暴力。"
+  },
+  {
+   "suit": "cups",
+   "rank": "NINE",
+   "name": "NINE of Cups",
+   "desc": "A goodly personage has feasted to his heart's content, and abundant\nrefreshment of wine is on the arched counter behind him, seeming to\nindicate that the future is also assured. The picture offers the\nmaterial side only, but there are other aspects.",
+   "divinatory": "Concord, contentment, physical _bien-être_; also victory, success,\nadvantage; satisfaction for the Querent or person for whom the\nconsultation is made",
+   "reversed": "Truth, loyalty, liberty; but the\nreadings vary and include mistakes, imperfections, etc",
+   "cn_divinatory": "和谐、满足、身体的安康；亦主胜利、成功、利益；对求问者或其所问之人的满足",
+   "cn_reversed": "真理、忠诚、自由；但解读各异，亦含错误、不完美等。"
+  },
+  {
+   "suit": "cups",
+   "rank": "EIGHT",
+   "name": "EIGHT of Cups",
+   "desc": "A man of dejected aspect is deserting the cups of his felicity,\nenterprise, undertaking or previous concern.",
+   "divinatory": "The\ncard speaks for itself on the surface, but other readings are entirely\nantithetical--giving joy, mildness, timidity, honor, modesty. In\npractice, it is usually found that the card shows the decline of a\nmatter, or that a matter which has been thought to be important is\nreally of slight consequence--either for good or evil",
+   "reversed": "Great\njoy, happiness, feasting",
+   "cn_divinatory": "此牌表面自明，但其他解读完全相反——给予喜乐、温和、羞怯、荣誉、谦逊。实践中通常发现此牌显示一事之衰退，或被认为重要之事其实无关紧要——或善或恶",
+   "cn_reversed": "大喜悦、幸福、宴乐。"
+  },
+  {
+   "suit": "cups",
+   "rank": "SEVEN",
+   "name": "SEVEN of Cups",
+   "desc": "Strange chalices of vision, but the images are more especially those of\nthe fantastic spirit.",
+   "divinatory": "Fairy favors, images of\nreflection, sentiment, imagination, things seen in the glass of\ncontemplation; some attainment in these degrees, but nothing permanent\nor substantial is suggested",
+   "reversed": "Desire, will, determination,\nproject",
+   "cn_divinatory": "仙女的恩赐、反思之象、情感、想象、观照之镜中可见之物；在这些程度上有所成就，但不暗示任何持久或实质之物",
+   "cn_reversed": "欲望、意志、决心、计划。"
+  },
+  {
+   "suit": "cups",
+   "rank": "SIX",
+   "name": "SIX of Cups",
+   "desc": "Children in an old garden, their cups filled with flowers.",
+   "divinatory": "A card of the past and of memories, looking back, as--for\nexample--on childhood; happiness, enjoyment, but coming rather from the\npast; things that have vanished. Another reading reverses this, giving\nnew relations, new knowledge, new environment, and then the children are\ndisporting in an unfamiliar precinct",
+   "reversed": "The future, renewal,\nthat which will come to pass presently",
+   "cn_divinatory": "过去与回忆之牌，回望，如童年；幸福、愉悦，但多来自过去；已逝之物。另一解读将其颠倒，给出新关系、新知识、新环境，而后孩童在不熟悉的园地嬉戏",
+   "cn_reversed": "未来、更新、即将到来之事。"
+  },
+  {
+   "suit": "cups",
+   "rank": "FIVE",
+   "name": "FIVE of Cups",
+   "desc": "A dark, cloaked figure, looking sideways at three prone cups; two others\nstand upright behind him; a bridge is in the background, leading to a\nsmall keep or holding.",
+   "divinatory": "It is a card of loss, but\nsomething remains over; three have been taken, but two are left; it is a\ncard of inheritance, patrimony, transmission, but not corresponding to\nexpectations; with some interpreters it is a card of marriage, but not\nwithout bitterness or frustration",
+   "reversed": "News, alliances,\naffinity, consanguinity, ancestry, return, false projects",
+   "cn_divinatory": "损失之牌，但留有残余；三杯被取走，仍余两杯；是继承、祖产、传承之牌，但不符期望；某些解牌者视其为婚姻之牌，但非无苦涩或挫败",
+   "cn_reversed": "消息、结盟、亲近、血缘、祖先、归来、虚假的计划。"
+  },
+  {
+   "suit": "cups",
+   "rank": "FOUR",
+   "name": "FOUR of Cups",
+   "desc": "A young man is seated under a tree and contemplates three cups set on\nthe grass before him; an arm issuing from a cloud offers him another\ncup. His expression notwithstanding is one of discontent with his\nenvironment.",
+   "divinatory": "Weariness, disgust, aversion,\nimaginary vexations, as if the wine of this world had caused satiety\nonly; another wine, as if a fairy gift, is now offered the wastrel, but\nhe sees no consolation therein. This is also a card of blended pleasure",
+   "reversed": "Novelty, presage, new instruction, new relations",
+   "cn_divinatory": "厌倦、厌恶、嫌恶、想象的烦恼，仿佛尘世之酒只带来饱足；另一杯酒，如仙赐之礼，如今献给浪子，但他视其中无慰藉。亦是混合愉悦之牌",
+   "cn_reversed": "新奇、预兆、新的教导、新关系。"
+  },
+  {
+   "suit": "cups",
+   "rank": "THREE",
+   "name": "THREE of Cups",
+   "desc": "Maidens in a garden-ground with cups uplifted, as if pledging one\nanother.",
+   "divinatory": "The conclusion of any matter in plenty,\nperfection and merriment; happy issue, victory, fulfilment, solace,\nhealing",
+   "reversed": "Expedition, dispatch, achievement, end. It\nsignifies also the side of excess in physical enjoyment, and the\npleasures of the senses",
+   "cn_divinatory": "任何事以丰盛、圆满与欢庆作结；如愿之果、胜利、完成、慰藉、痊愈",
+   "cn_reversed": "急速、派遣、达成、结束。亦指肉体享受过度的一面，感官之乐。"
+  },
+  {
+   "suit": "cups",
+   "rank": "TWO",
+   "name": "TWO of Cups",
+   "desc": "A youth and maiden are pledging one another, and above their cups rises\nthe Caduceus of Hermes, between the great wings of which there appears a\nlion's head. It is a variant of a sign which is found in a few old\nexamples of this card. Some curious emblematical meanings are attached\nto it, but they do not concern us in this place.",
+   "divinatory": "Love, passion, friendship, affinity, union, concord, sympathy, the\ninter-relation of the sexes, and--as a suggestion apart from all offices\nof divination--that desire which is not in Nature, but by which Nature\nis sanctified",
+   "reversed": "",
+   "cn_divinatory": "爱、激情、友谊、亲近、结合、和谐、同情、两性之相互关联，且——作为超越一切占卜职事的一种暗示——那不在本性之中、却因之使本性神圣化的欲望",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "cups",
+   "rank": "ACE",
+   "name": "ACE of Cups",
+   "desc": "The waters are beneath, and thereon are water-lilies; the hand issues\nfrom the cloud, holding in its palm the cup, from which four streams are\npouring; a dove, bearing in its bill a cross-marked Host, descends to\nplace the Wafer in the Cup; the dew of water is falling on all sides. It\nis an intimation of that which may lie behind the Lesser Arcana.",
+   "divinatory": "House of the true heart, joy, content, abode,\nnourishment, abundance, fertility; Holy Table, felicity hereof",
+   "reversed": "House of the false heart, mutation, instability,\nrevolution",
+   "cn_divinatory": "真心之家、喜悦、满足、居所、滋养、丰盛、多产；圣桌，其幸福",
+   "cn_reversed": "假心之家、变动、不稳定、革命。"
+  },
+  {
+   "suit": "swords",
+   "rank": "KING",
+   "name": "KING of Swords",
+   "desc": "He sits in judgment, holding the unsheathed sign of his suit. He\nrecalls, of course, the conventional Symbol of Justice in the Trumps\nMajor, and he may represent this virtue, but he is rather the power of\nlife and death, in virtue of his office.",
+   "divinatory": "Whatsoever arises out of the idea of judgment and all its\nconnections--power, command, authority, militant intelligence, law,\noffices of the crown, and so forth",
+   "reversed": "Cruelty, perversity,\nbarbarity, perfidy, evil intention",
+   "cn_divinatory": "凡自审判观念及其一切关联而生者——权力、命令、权威、尚武的智性、法律、王冠之职，等等",
+   "cn_reversed": "残忍、乖戾、野蛮、背信、恶念。"
+  },
+  {
+   "suit": "swords",
+   "rank": "QUEEN",
+   "name": "QUEEN of Swords",
+   "desc": "Her right hand raises the weapon vertically and the hilt rests on an arm\nof her royal chair; the left hand is extended, the arm raised; her\ncountenance is severe but chastened; it suggests familiarity with\nsorrow. It does not represent mercy, and, her sword notwithstanding, she\nis scarcely a symbol of power.",
+   "divinatory": "Widowhood, female\nsadness and embarrassment, absence, sterility, mourning, privation,\nseparation",
+   "reversed": "Malice, bigotry, artifice, prudery, bale,\ndeceit",
+   "cn_divinatory": "守寡、女性的悲伤与窘迫、缺席、不育、哀悼、匮乏、分离",
+   "cn_reversed": "恶意、偏执、巧诈、假正经、祸害、欺骗。"
+  },
+  {
+   "suit": "swords",
+   "rank": "KNIGHT",
+   "name": "KNIGHT of Swords",
+   "desc": "He is riding in full course, as if scattering his enemies. In the design\nhe is really a proto-typical hero of romantic chivalry. He might almost\nbe Galahad, whose sword is swift and sure because he is clean of heart.",
+   "divinatory": "Skill, bravery, capacity, defense, address,\nenmity, wrath, war, destruction, opposition, resistance, ruin. There is\ntherefore a sense in which the card signifies death, but it carries this\nmeaning only in its proximity to other cards of fatality",
+   "reversed": "Imprudence, incapacity, extravagance",
+   "cn_divinatory": "技巧、勇敢、能力、防卫、手段、敌意、愤怒、战争、毁灭、对立、抵抗、灭亡。故在某种意义上是死亡之牌，但仅在邻近其他凶煞之牌时才具此义",
+   "cn_reversed": "不审慎、无能、挥霍。"
+  },
+  {
+   "suit": "swords",
+   "rank": "PAGE",
+   "name": "PAGE of Swords",
+   "desc": "A lithe, active figure holds a sword upright in both hands, while in the\nact of swift walking. He is passing over rugged land, and about his way\nthe clouds are collocated wildly. He is alert and lithe, looking this\nway and that, as if an expected enemy might appear at any moment.",
+   "divinatory": "Authority, overseeing, secret service, vigilance,\nspying, examination, and the qualities thereto belonging",
+   "reversed": "More evil side of these qualities; what is unforeseen, unprepared state;\nsickness is also intimated",
+   "cn_divinatory": "权威、监督、秘密事务、警戒、窥探、查问，及其所属品质",
+   "cn_reversed": "这些品质的更恶一面；未预见之事、未备之态；亦暗示疾病。"
+  },
+  {
+   "suit": "swords",
+   "rank": "TEN",
+   "name": "TEN of Swords",
+   "desc": "A prostrate figure, pierced by all the swords belonging to the card.",
+   "divinatory": "Whatsoever is intimated by the design; also pain,\naffliction, tears, sadness, desolation. It is not especially a card of\nviolent death",
+   "reversed": "Advantage, profit, success, favor, but none\nof these are permanent; also power and authority",
+   "cn_divinatory": "图样所示之一切；亦主痛苦、苦难、眼泪、悲伤、荒凉。并非特指暴死之牌",
+   "cn_reversed": "利益、获利、成功、恩宠，但无一持久；亦主权力与权威。"
+  },
+  {
+   "suit": "swords",
+   "rank": "NINE",
+   "name": "NINE of Swords",
+   "desc": "One seated on her couch in lamentation, with the swords over her. She is\nas one who knows no sorrow which is like unto hers. It is a card of\nutter desolation.",
+   "divinatory": "Death, failure, miscarriage,\ndelay, deception, disappointment, despair",
+   "reversed": "Imprisonment,\nsuspicion, doubt, reasonable fear, shame",
+   "cn_divinatory": "死亡、失败、流产、延迟、欺骗、失望、绝望",
+   "cn_reversed": "监禁、猜疑、怀疑、合理的恐惧、羞耻。"
+  },
+  {
+   "suit": "swords",
+   "rank": "EIGHT",
+   "name": "EIGHT of Swords",
+   "desc": "A woman, bound and hoodwinked, with the swords of the card about her.\nYet it is rather a card of temporary durance than of irretrievable\nbondage.",
+   "divinatory": "Bad news, violent chagrin, crisis,\ncensure, power in trammels, conflict, calumny; also sickness",
+   "reversed": "Disquiet, difficulty, opposition, accident, treachery; what\nis unforeseen; fatality",
+   "cn_divinatory": "坏消息、剧烈的懊恼、危机、责难、受缚之力、冲突、诽谤；亦主疾病",
+   "cn_reversed": "不安、困难、对立、意外、背叛；未预见之事；厄运。"
+  },
+  {
+   "suit": "swords",
+   "rank": "SEVEN",
+   "name": "SEVEN of Swords",
+   "desc": "A man in the act of carrying away five swords rapidly; the two others of\nthe card remain stuck in the ground. A camp, is close at hand.",
+   "divinatory": "Design, attempt, wish, hope, confidence; also\nquarrelling, a plan that may fail, annoyance. The design is uncertain in\nits import, because the significations are widely at variance with each\nother",
+   "reversed": "Good advice, counsel, instruction, slander,\nbabbling",
+   "cn_divinatory": "设计、尝试、愿望、希望、信心；亦主争吵、可能失败的计谋、烦恼。其含义不确定，因诸义彼此大相径庭",
+   "cn_reversed": "忠告、劝告、教诲、诽谤、空谈。"
+  },
+  {
+   "suit": "swords",
+   "rank": "SIX",
+   "name": "SIX of Swords",
+   "desc": "A ferryman carrying passengers in his punt to the further shore. The\ncourse is smooth, and seeing that the freight is light, it may be noted\nthat the work is not beyond his strength.",
+   "divinatory": "Journey\nby water, route, way, envoy, commissionary, expedient",
+   "reversed": "Declaration, confession, publicity; one account says that it is a\nproposal of love",
+   "cn_divinatory": "水路之行、路线、道路、信使、专员、权宜之计",
+   "cn_reversed": "宣告、自白、公开；一说指爱的提议。"
+  },
+  {
+   "suit": "swords",
+   "rank": "FIVE",
+   "name": "FIVE of Swords",
+   "desc": "A disdainful man looks after two retreating and dejected figures. Their\nswords lie upon the ground. He carries two others on his left shoulder,\nand a third sword is in his right hand, point to earth. He is the master\nin possession of the field.",
+   "divinatory": "Degradation,\ndestruction, revocation, infamy, dishonor, loss, with the variants and\nanalogues of these",
+   "reversed": "The same; burial and obsequies",
+   "cn_divinatory": "贬黜、毁灭、废止、恶名、耻辱、损失，及其变体与同类",
+   "cn_reversed": "同前；埋葬与丧礼。"
+  },
+  {
+   "suit": "swords",
+   "rank": "FOUR",
+   "name": "FOUR of Swords",
+   "desc": "The effigy of a knight in the attitude of prayer, at full length upon\nhis tomb.",
+   "divinatory": "Vigilance, retreat, solitude, hermit's\nrepose, exile, tomb and coffin. It is these last that have suggested the\ndesign",
+   "reversed": "Wise administration, circumspection, economy,\navarice, precaution, testament",
+   "cn_divinatory": "警戒、退隐、孤独、隐士之安息、放逐、坟墓与棺椁。正是后者启发了此图样",
+   "cn_reversed": "明智的管理、审慎、节俭、吝啬、防范、遗嘱。"
+  },
+  {
+   "suit": "swords",
+   "rank": "THREE",
+   "name": "THREE of Swords",
+   "desc": "Three swords piercing a heart; cloud and rain behind.",
+   "divinatory": "Removal, absence, delay, division, rupture, dispersion, and\nall that the design signifies naturally, being too simple and obvious to\ncall for specific enumeration",
+   "reversed": "Mental alienation, error,\nloss, distraction, disorder, confusion",
+   "cn_divinatory": "迁离、缺席、延迟、分裂、决裂、消散，以及图样自然所示之一切，过于简单明显，无需一一列举",
+   "cn_reversed": "精神错乱、错误、损失、心神散乱、混乱、困惑。"
+  },
+  {
+   "suit": "swords",
+   "rank": "TWO",
+   "name": "TWO of Swords",
+   "desc": "A hoodwinked female figure balances two swords upon her shoulders.",
+   "divinatory": "Conformity and the equipoise which it suggests,\ncourage, friendship, concord in a state of arms; another reading gives\ntenderness, affection, intimacy. The suggestion of harmony and other\nfavorable readings must be considered in a qualified manner, as Swords\ngenerally are not symbolical of beneficent forces in human affairs",
+   "reversed": "Imposture, falsehood, duplicity, disloyalty",
+   "cn_divinatory": "一致及其暗示的平衡、勇气、友谊、武装状态下的和谐；另一解读给出温柔、深情、亲密。和谐之暗示及其他有利解读须有所保留地看待，因宝剑一般而言不象征人事中的有益力量",
+   "cn_reversed": "欺诈、虚伪、口是心非、不忠。"
+  },
+  {
+   "suit": "swords",
+   "rank": "ACE",
+   "name": "ACE of Swords",
+   "desc": "A hand issues from a cloud, grasping a sword, the point of which is\nencircled by a crown.",
+   "divinatory": "Triumph, the excessive\ndegree in everything, conquest, triumph of force. It is a card of great\nforce, in love as well as in hatred. The crown may carry a much higher\nsignificance than comes usually within the sphere of fortune-telling",
+   "reversed": "The same, but the results are disastrous; another account\nsays--conception--childbirth, augmentation, multiplicity",
+   "cn_divinatory": "胜利、一切之中的极端、征服、武力之胜。无论爱恨皆具大力的牌。王冠可能承载远超通常占卜范围的更高意义",
+   "cn_reversed": "同前，但结果灾祸；另一说——受孕、生育、增多、繁多。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "KING",
+   "name": "KING of Pentacles",
+   "desc": "The face of this figure is dark, suggesting courage, and the bull's head\nshould be noted as a recurrent symbol on the throne. The sign of this\nsuit is represented throughout as engraved with the pentigram, typifying\nthe correspondence of the four elements in human nature and that by\nwhich they may be governed. In old Tarot packs this suit represented\nmoney. The consensus of divinatory meanings is on the side of change, as\nthe cards do not deal especially with questions of money.",
+   "divinatory": "Valor, intelligence, business, mathematical gifts, and\nsuccess in these paths",
+   "reversed": "Vice, weakness, perversity, peril",
+   "cn_divinatory": "勇武、智性、商业、数学天赋，及在这些路径上的成功",
+   "cn_reversed": "邪恶、软弱、乖戾、危险。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "QUEEN",
+   "name": "QUEEN of Pentacles",
+   "desc": "The face suggests that of a dark woman, whose qualities might be summed\nup in the idea of greatness of soul; she has also the serious cast of\nintelligence; she contemplates her symbol and may see worlds therein.",
+   "divinatory": "Opulence, generosity, magnificence, security,\nliberty",
+   "reversed": "Evil, suspicion, suspense, fear, mistrust",
+   "cn_divinatory": "丰裕、慷慨、壮丽、安全、自由",
+   "cn_reversed": "邪恶、猜疑、悬念、恐惧、不信任。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "KNIGHT",
+   "name": "KNIGHT of Pentacles",
+   "desc": "He rides a slow, enduring, heavy horse, to which his own aspect\ncorresponds. He exhibits his symbol, but does not look therein.",
+   "divinatory": "Utility, serviceableness, interest,\nresponsibility, rectitude--all on the normal and external plane",
+   "reversed": "Inertia, idleness, repose of that kind, stagnation; also\nplacidity, discouragement, carelessness",
+   "cn_divinatory": "效用、有用性、利益、责任、正直——皆在正常外在层面",
+   "cn_reversed": "惰性、怠惰、此类安息、停滞；亦主平静、沮丧、粗心。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "PAGE",
+   "name": "PAGE of Pentacles",
+   "desc": "A youthful figure, looking intently at the pentacle which hovers over\nhis raised hands. He moves slowly, insensible of that which is about\nhim.",
+   "divinatory": "Application, study, scholarship, reflection;\nanother reading says news, messages and the bringer thereof; also rule,\nmanagement",
+   "reversed": "Prodigality, dissipation, liberality, luxury,\nunfavorable news",
+   "cn_divinatory": "应用、学习、学问、反思；另一解读说消息、讯息及其携来者；亦主统治、管理",
+   "cn_reversed": "挥霍、浪费、慷慨、奢侈、不利消息。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "TEN",
+   "name": "TEN of Pentacles",
+   "desc": "A man and woman beneath an archway which gives entrance to a house and\ndomain. They are accompanied by a child, who looks curiously at two dogs\naccosting an ancient personage seated in the foreground. The child's\nhand is on one of them.",
+   "divinatory": "Gain, riches; family\nmatters, archives, extraction, the abode of a family",
+   "reversed": "Chance, fatality, loss, robbery, games of hazard; sometimes gift, dowry,\npension",
+   "cn_divinatory": "获利、财富；家事、档案、家世、家族的居所",
+   "cn_reversed": "机运、命运、损失、劫掠、赌博；有时为礼物、嫁妆、年金。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "NINE",
+   "name": "NINE of Pentacles",
+   "desc": "A woman, with a bird upon her wrist, stands amidst a great abundance of\ngrape-vines in the garden of a manorial house. It is a wide domain,\nsuggesting plenty in all things. Possibly it is her own possession and\ntestifies to material well-being.",
+   "divinatory": "Prudence,\nsafety, success, accomplishment, certitude, discernment",
+   "reversed": "Roguery, deception, voided project, bad faith",
+   "cn_divinatory": "审慎、安全、成功、完成、确定、明辨",
+   "cn_reversed": "恶行、欺骗、落空的计划、背信。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "EIGHT",
+   "name": "EIGHT of Pentacles",
+   "desc": "An artist in stone at his work, which he exhibits in the form of\ntrophies.",
+   "divinatory": "Work, employment, commission,\ncraftsmanship, skill in craft and business, perhaps in the preparatory\nstage",
+   "reversed": "Voided ambition, vanity, cupidity, exaction, usury.\nIt may also signify the possession of skill, in the sense of the\ningenious mind turned to cunning and intrigue",
+   "cn_divinatory": "工作、职业、委托、手艺、工艺与商业之技巧，或处预备阶段",
+   "cn_reversed": "落空的野心、虚荣、贪欲、苛索、高利贷。亦可能指拥有技巧，即机巧之心转向狡诈与阴谋。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "SEVEN",
+   "name": "SEVEN of Pentacles",
+   "desc": "A young man, leaning on his staff, looks intently at seven pentacles\nattached to a clump of greenery on his right; one would say that these\nwere his treasures and that his heart was there.",
+   "divinatory": "These are exceedingly contradictory; in the main, it is a card of money,\nbusiness, barter; but one reading gives altercation, quarrel--and\nanother innocence, ingenuity, purgation",
+   "reversed": "Cause for anxiety\nregarding money which it may be proposed to lend",
+   "cn_divinatory": "这些极为矛盾；大体上是金钱、生意、交易之牌；但一读为争执、争吵——另一读为纯真、巧思、涤除",
+   "cn_reversed": "关于拟借出款项的焦虑之因。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "SIX",
+   "name": "SIX of Pentacles",
+   "desc": "A person in the guise of a merchant weighs money in a pair of scales and\ndistributes it to the needy and distressed. It is a testimony to his own\nsuccess in life, as well as his goodness of heart.",
+   "divinatory": "Presents, gifts, gratification; another account says\nattention, vigilance; now is the accepted time, present prosperity, etc",
+   "reversed": "Desire, cupidity, envy, jealousy, illusion",
+   "cn_divinatory": "礼物、馈赠、满足；另一说为关注、警戒；如今是应许之时、眼前的繁荣等",
+   "cn_reversed": "欲望、贪求、嫉妒、艳羡、幻象。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "FIVE",
+   "name": "FIVE of Pentacles",
+   "desc": "Two mendicants in a snowstorm pass a lighted casement.",
+   "divinatory": "The card foretells material trouble above all, whether in the\nform illustrated--that is, destitution--or otherwise. For some\ncartomancists, it is a card of love and lovers--wife, husband, friend,\nmistress; also concordance, affinities. These alternatives cannot be\nharmonized",
+   "reversed": "Disorder, chaos, ruin, discord, profligacy",
+   "cn_divinatory": "此牌首要预告物质上的麻烦，无论以图中形式——即贫困——或他途。对某些占卜者，它是爱与恋人之牌——妻、夫、友、情妇；亦主和谐、亲和。这些替代无法调和",
+   "cn_reversed": "混乱、混沌、毁灭、不和、放荡。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "FOUR",
+   "name": "FOUR of Pentacles",
+   "desc": "A crowned figure, having a pentacle over his crown, clasps another with\nhands and arms; two pentacles are under his feet. He holds to that which\nhe has.",
+   "divinatory": "The surety of possessions, cleaving to\nthat which one has, gift, legacy, inheritance",
+   "reversed": "Suspense,\ndelay, opposition",
+   "cn_divinatory": "占有之保证、固守己有、礼物、遗产、继承",
+   "cn_reversed": "悬念、延迟、对立。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "THREE",
+   "name": "THREE of Pentacles",
+   "desc": "A sculptor at his work in a monastery. Compare the design which\nillustrates the Eight of Pentacles. The apprentice or amateur therein\nhas received his reward and is now at work in earnest.",
+   "divinatory": "_Métier_, trade, skilled labor; usually, however, regarded as\na card of nobility, aristocracy, renown, glory",
+   "reversed": "Mediocrity,\nin work and otherwise, puerility, pettiness, weakness",
+   "cn_divinatory": "职业、手艺、熟练劳动；但通常被视为高贵、贵族、声望、荣耀之牌",
+   "cn_reversed": "平庸，在劳作及其他方面，幼稚、琐碎、软弱。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "TWO",
+   "name": "TWO of Pentacles",
+   "desc": "A young man, in the act of dancing, has a pentacle in either hand, and\nthey are joined by that endless cord which is like the number 8\nreversed.",
+   "divinatory": "On the one hand it is represented as a\ncard of gaiety, recreation and its connections, which is the subject of\nthe design; but it is read also as news and messages in writing, as\nobstacles, agitation, trouble, embroilment",
+   "reversed": "Enforced gaiety,\nsimulated enjoyment, literal sense, handwriting, composition, letters of\nexchange",
+   "cn_divinatory": "一方面被描绘为欢乐、娱乐及其关联之牌，即图样主题；但也读作书面的消息与讯息、障碍、骚动、麻烦、纠葛",
+   "cn_reversed": "强作的欢乐、假装的享受、字面之义、笔迹、写作、汇票。"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "ACE",
+   "name": "ACE of Pentacles",
+   "desc": "A hand--issuing, as usual, from a cloud--holds up a pentacle.",
+   "divinatory": "Perfect contentment, felicity, ecstasy; also\nspeedy intelligence; gold",
+   "reversed": "The evil side of wealth, bad\nintelligence; also great riches. In any case it shows prosperity,\ncomfortable material conditions, but whether these are of advantage to\nthe possessor will depend on whether the card is reversed or not",
+   "cn_divinatory": "完全的满足、幸福、狂喜；亦主快速的消息；黄金",
+   "cn_reversed": "财富之恶面、坏消息；亦主巨大财富。无论如何示繁荣、舒适的物境，但于持有者是否有益，取决于此牌是否逆位。"
+  }
+ ],
+ "major": [
+  {
+   "num": 1,
+   "name": "The Magician",
+   "divinatory": "Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male",
+   "reversed": "Physician, Magus, mental disease, disgrace, disquiet",
+   "cn_divinatory": "技巧、外交、手段、机敏；疾病、痛苦、损失、灾难、敌人之陷阱；自信、意志；求问者（若为男性）",
+   "cn_reversed": "医生、术士、精神疾病、耻辱、不安"
+  },
+  {
+   "num": 2,
+   "name": "The High Priestess",
+   "divinatory": "Secrets, mystery, the future as yet unrevealed; the woman who interests the Querent, if male; the Querent herself, if female; silence, tenacity; mystery, wisdom, science",
+   "reversed": "Passion, moral or physical ardor, conceit, surface knowledge",
+   "cn_divinatory": "秘密、神秘、尚未揭示的未来；令求问者（若男性）感兴趣的女子；若女性则为其本人；沉默、坚韧；神秘、智慧、科学",
+   "cn_reversed": "激情、道德或肉体之炽热、自负、表面知识"
+  },
+  {
+   "num": 3,
+   "name": "The Empress",
+   "divinatory": "Fruitfulness, action, initiative, length of days; the unknown, clandestine; also difficulty, doubt, ignorance",
+   "reversed": "Light, truth, the unravelling of involved matters, public rejoicings; according to another reading, vacillation",
+   "cn_divinatory": "多产、行动、主动、长寿；未知的、隐秘的；亦主困难、怀疑、无知",
+   "cn_reversed": "光明、真理、纠结之事的解开、公众欢庆；按另一解读，动摇不定"
+  },
+  {
+   "num": 4,
+   "name": "The Emperor",
+   "divinatory": "Stability, power, protection, realization; a great person; aid, reason, conviction; also authority and will",
+   "reversed": "Benevolence, compassion, credit; also confusion to enemies, obstruction, immaturity",
+   "cn_divinatory": "稳定、权力、保护、实现；一位伟大人物；帮助、理性、确信；亦主权威与意志",
+   "cn_reversed": "仁慈、同情、信誉；亦主敌人之混乱、阻碍、不成熟"
+  },
+  {
+   "num": 5,
+   "name": "The Hierophant",
+   "divinatory": "Marriage, alliance, captivity, servitude; by another account, mercy and goodness; inspiration; the man to whom the Querent has recourse",
+   "reversed": "Society, good understanding, concord, over-kindness, weakness",
+   "cn_divinatory": "婚姻、结盟、囚禁、奴役；按另一说法，仁慈与良善；灵感；求问者所求助之人",
+   "cn_reversed": "社会、良好的理解、和谐、过分仁慈、软弱"
+  },
+  {
+   "num": 6,
+   "name": "The Lovers",
+   "divinatory": "Attraction, love, beauty, trials overcome",
+   "reversed": "Failure, foolish designs. Another account speaks of marriage frustrated and contrarieties of all kinds",
+   "cn_divinatory": "吸引、爱、美、克服的考验",
+   "cn_reversed": "失败、愚蠢的设计。另一说为婚姻受挫及种种相反之事"
+  },
+  {
+   "num": 7,
+   "name": "The Chariot",
+   "divinatory": "Succor, providence; also war, triumph, presumption, vengeance, trouble",
+   "reversed": "Riot, quarrel, dispute, litigation, defeat",
+   "cn_divinatory": "援救、天佑；亦主战争、胜利、僭越、复仇、麻烦",
+   "cn_reversed": "暴乱、争吵、争讼、诉讼、败北"
+  },
+  {
+   "num": 8,
+   "name": "Fortitude",
+   "divinatory": "Power, energy, action, courage, magnanimity; also complete success and honors",
+   "reversed": "Despotism, abuse of power, weakness, discord, sometimes even disgrace",
+   "cn_divinatory": "力量、精力、行动、勇气、宽宏；亦主完全成功与荣誉",
+   "cn_reversed": "专制、滥用权力、软弱、不和、有时甚至耻辱"
+  },
+  {
+   "num": 9,
+   "name": "The Hermit",
+   "divinatory": "Prudence, circumspection; also and especially treason, dissimulation, roguery, corruption",
+   "reversed": "Concealment, disguise, policy, fear, unreasoned caution",
+   "cn_divinatory": "审慎、谨慎；亦尤其是背叛、伪装、恶行、腐败",
+   "cn_reversed": "隐藏、掩饰、策略、恐惧、不合理的谨慎"
+  },
+  {
+   "num": 10,
+   "name": "Wheel of Fortune",
+   "divinatory": "Destiny, fortune, success, elevation, luck, felicity",
+   "reversed": "Increase, abundance, superfluity",
+   "cn_divinatory": "命运、运气、成功、提升、幸运、幸福",
+   "cn_reversed": "增长、丰盛、多余"
+  },
+  {
+   "num": 11,
+   "name": "Justice",
+   "divinatory": "Equity, rightness, probity, executive; triumph of the deserving side in law",
+   "reversed": "Law in all its departments, legal complications, bigotry, bias, excessive severity",
+   "cn_divinatory": "公平、正当、正直、行政；法律上当得之方的胜利",
+   "cn_reversed": "法律各部门、法律纠葛、偏执、偏见、过度严厉"
+  },
+  {
+   "num": 12,
+   "name": "The Hanged Man",
+   "divinatory": "Wisdom, circumspection, discernment, trials, sacrifice, intuition, divination, prophecy",
+   "reversed": "Selfishness, the crowd, body politic",
+   "cn_divinatory": "智慧、谨慎、明辨、考验、牺牲、直觉、占卜、预言",
+   "cn_reversed": "自私、群众、政体"
+  },
+  {
+   "num": 13,
+   "name": "Death",
+   "divinatory": "End, mortality, destruction, corruption; also, for a man, the loss of a benefactor; for a woman, many contrarieties; for a maid, failure of marriage projects",
+   "reversed": "Inertia, sleep, lethargy, petrifaction, somnambulism; hope destroyed",
+   "cn_divinatory": "终结、死亡、毁灭、腐败；对男子，失去恩主；对女子，诸多相反；对少女，婚姻计划失败",
+   "cn_reversed": "惰性、睡眠、昏睡、石化、梦游；希望破灭"
+  },
+  {
+   "num": 14,
+   "name": "Temperance",
+   "divinatory": "Economy, moderation, frugality, management, accommodation",
+   "reversed": "Things connected with churches, religions, sects, the priesthood, sometimes even the priest who will marry the Querent; also disunion, unfortunate combinations, competing interests",
+   "cn_divinatory": "节约、节制、俭省、管理、调适",
+   "cn_reversed": "与教会、宗教、宗派、祭司相关之事，有时甚至是将为求问者主婚的祭司；亦主不和、不幸组合、利益相争"
+  },
+  {
+   "num": 15,
+   "name": "The Devil",
+   "divinatory": "Ravage, violence, vehemence, extraordinary efforts, force, fatality; that which is predestined but is not for this reason evil",
+   "reversed": "Evil fatality, weakness, pettiness, blindness",
+   "cn_divinatory": "蹂躏、暴力、猛烈、非凡的努力、强力、厄运；预定之事但不因此为恶",
+   "cn_reversed": "恶运、软弱、琐碎、盲目"
+  },
+  {
+   "num": 16,
+   "name": "The Tower",
+   "divinatory": "Misery, distress, indigence, adversity, calamity, disgrace, deception, ruin. It is a card in particular of unforeseen catastrophe",
+   "reversed": "According to one account, the same in a lesser degree; also oppression, imprisonment, tyranny",
+   "cn_divinatory": "悲惨、困苦、贫困、逆境、灾祸、耻辱、欺骗、毁灭。尤指未预见的灾难之牌",
+   "cn_reversed": "按一说，程度较轻的同义；亦主压迫、监禁、暴政"
+  },
+  {
+   "num": 17,
+   "name": "The Star",
+   "divinatory": "Loss, theft, privation, abandonment; another reading says--hope and bright prospects",
+   "reversed": "Arrogance, haughtiness, impotence",
+   "cn_divinatory": "损失、偷窃、匮乏、遗弃；另一读法说——希望与光明前景",
+   "cn_reversed": "傲慢、自大、无能"
+  },
+  {
+   "num": 18,
+   "name": "The Moon",
+   "divinatory": "Hidden enemies, danger, calumny, darkness, terror, deception, occult forces, error",
+   "reversed": "Instability, inconstancy, silence, lesser degrees of deception and error",
+   "cn_divinatory": "隐藏的敌人、危险、诽谤、黑暗、恐怖、欺骗、神秘力量、错误",
+   "cn_reversed": "不稳定、反复无常、沉默、较轻的欺骗与错误"
+  },
+  {
+   "num": 19,
+   "name": "The Sun",
+   "divinatory": "Material happiness, fortunate marriage, contentment",
+   "reversed": "The same in a lesser sense",
+   "cn_divinatory": "物质幸福、幸运婚姻、满足",
+   "cn_reversed": "较轻程度的同义"
+  },
+  {
+   "num": 20,
+   "name": "The Last Judgment",
+   "divinatory": "Change of position, renewal, outcome. Another account specifies total loss through lawsuit",
+   "reversed": "Weakness, pusillanimity, simplicity; also deliberation, decision, sentence",
+   "cn_divinatory": "位置变动、更新、结果。另一说为因诉讼而彻底损失",
+   "cn_reversed": "软弱、怯懦、单纯；亦主深思、决定、判决"
+  },
+  {
+   "num": 0,
+   "name": "The Fool",
+   "divinatory": "Folly, mania, extravagance, intoxication, delirium, frenzy, bewrayment",
+   "reversed": "Negligence, absence, distribution, carelessness, apathy, nullity, vanity",
+   "cn_divinatory": "愚蠢、狂躁、奢侈、陶醉、谵妄、疯狂、出卖",
+   "cn_reversed": "疏忽、缺席、分配、粗心、冷漠、虚无、虚荣"
+  },
+  {
+   "num": 21,
+   "name": "The World",
+   "divinatory": "Assured success, recompense, voyage, route, emigration, flight, change of place",
+   "reversed": "Inertia, fixity, stagnation, permanence",
+   "cn_divinatory": "确定成功、报偿、航行、路线、移居、逃离、换地",
+   "cn_reversed": "惰性、固定、停滞、恒久"
+  }
+ ],
+ "additional": [
+  {
+   "suit": "wands",
+   "rank": "King",
+   "meaning": "Generally favorable; may signify a good marriage",
+   "reversed": "Advice that should be followed",
+   "cn_meaning": "大体有利；可能意味一桩良缘",
+   "cn_reversed": "应遵循的忠告"
+  },
+  {
+   "suit": "wands",
+   "rank": "Queen",
+   "meaning": "A good harvest, which may be taken in several senses",
+   "reversed": "Good-will towards the Querent, but without the opportunity to exercise it",
+   "cn_meaning": "丰收，可从数种意义上理解",
+   "cn_reversed": "对求问者的善意，但无机会施展"
+  },
+  {
+   "suit": "wands",
+   "rank": "Knight",
+   "meaning": "A bad card; according to some readings, alienation",
+   "reversed": "For a woman, marriage, but probably frustrated",
+   "cn_meaning": "凶牌；按某些读法，疏远",
+   "cn_reversed": "对女子，婚姻，但可能受挫"
+  },
+  {
+   "suit": "wands",
+   "rank": "Page",
+   "meaning": "Young man of family in search of young lady",
+   "reversed": "Bad news",
+   "cn_meaning": "寻觅小姐的有家世青年",
+   "cn_reversed": "坏消息"
+  },
+  {
+   "suit": "wands",
+   "rank": "Ten",
+   "meaning": "Difficulties and contradictions, if near a good card",
+   "reversed": "",
+   "cn_meaning": "若邻近吉牌，指困难与矛盾",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "wands",
+   "rank": "Nine",
+   "meaning": "Generally speaking, a bad card",
+   "reversed": "",
+   "cn_meaning": "大体而言，凶牌",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "wands",
+   "rank": "Eight",
+   "meaning": "Domestic disputes for a married person",
+   "reversed": "",
+   "cn_meaning": "已婚者之家庭纠纷",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "wands",
+   "rank": "Seven",
+   "meaning": "A dark child",
+   "reversed": "",
+   "cn_meaning": "一个深色孩童",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "wands",
+   "rank": "Six",
+   "meaning": "Servants may lose the confidence of their masters; a young lady may be betrayed by a friend",
+   "reversed": "Fulfilment of deferred hope",
+   "cn_meaning": "仆人可能失去主人的信任；小姐可能被朋友出卖",
+   "cn_reversed": "延迟希望的实现"
+  },
+  {
+   "suit": "wands",
+   "rank": "Five",
+   "meaning": "Success in financial speculation",
+   "reversed": "Quarrels may be turned to advantage",
+   "cn_meaning": "金融投机之成功",
+   "cn_reversed": "争吵可转为有利"
+  },
+  {
+   "suit": "wands",
+   "rank": "Four",
+   "meaning": "Unexpected good fortune",
+   "reversed": "A married woman will have beautiful children",
+   "cn_meaning": "意外的好运",
+   "cn_reversed": "已婚妇人将育美孩"
+  },
+  {
+   "suit": "wands",
+   "rank": "Three",
+   "meaning": "A very good card; collaboration will favor enterprise",
+   "reversed": "",
+   "cn_meaning": "甚吉之牌；合作利于事业",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "wands",
+   "rank": "Two",
+   "meaning": "A young lady may expect trivial disappointments",
+   "reversed": "",
+   "cn_meaning": "小姐或遇琐碎失望",
+   "cn_reversed": ""
+  },
+  {
+   "suit": "wands",
+   "rank": "Ace",
+   "meaning": "Calamities of all kinds",
+   "reversed": "A sign of birth",
+   "cn_meaning": "种种灾祸",
+   "cn_reversed": "诞生之兆"
+  },
+  {
+   "suit": "cups",
+   "rank": "King",
+   "meaning": "Beware of ill-will on the part of a man of position, and of hypocrisy pretending to help",
+   "reversed": "Loss",
+   "cn_meaning": "提防有地位者的恶意与假意相助的虚伪",
+   "cn_reversed": "损失"
+  },
+  {
+   "suit": "cups",
+   "rank": "Queen",
+   "meaning": "Sometimes denotes a woman of equivocal character",
+   "reversed": "A rich marriage for a man and a distinguished one for a woman",
+   "cn_meaning": "有时指品行暧昧的女子",
+   "cn_reversed": "男子富婚，女子显婚"
+  },
+  {
+   "suit": "cups",
+   "rank": "Knight",
+   "meaning": "A visit from a friend, who will bring unexpected money to the Querent",
+   "reversed": "Irregularity",
+   "cn_meaning": "友人来访，将带给求问者意外之财",
+   "cn_reversed": "不规则"
+  },
+  {
+   "suit": "cups",
+   "rank": "Page",
+   "meaning": "Good augury; also a young man who is unfortunate in love",
+   "reversed": "Obstacles of all kinds",
+   "cn_meaning": "吉兆；亦指情场失意的青年男子",
+   "cn_reversed": "种种障碍"
+  },
+  {
+   "suit": "cups",
+   "rank": "Ten",
+   "meaning": "For a male Querent, a good marriage and one beyond his expectations",
+   "reversed": "Sorrow; also a serious quarrel",
+   "cn_meaning": "对男性求问者，超其期望的美满婚姻",
+   "cn_reversed": "悲伤；亦主严重争吵"
+  },
+  {
+   "suit": "cups",
+   "rank": "Nine",
+   "meaning": "Of good augury for military men",
+   "reversed": "Good business",
+   "cn_meaning": "对军人吉兆",
+   "cn_reversed": "好生意"
+  },
+  {
+   "suit": "cups",
+   "rank": "Eight",
+   "meaning": "Marriage with a fair woman",
+   "reversed": "Perfect satisfaction",
+   "cn_meaning": "与白皙女子成婚",
+   "cn_reversed": "完美满足"
+  },
+  {
+   "suit": "cups",
+   "rank": "Seven",
+   "meaning": "Fair child; idea, design, resolve, movement",
+   "reversed": "Success, if accompanied by the Three of Cups",
+   "cn_meaning": "白皙孩童；想法、设计、决心、行动",
+   "cn_reversed": "若伴圣杯三，成功"
+  },
+  {
+   "suit": "cups",
+   "rank": "Six",
+   "meaning": "Pleasant memories",
+   "reversed": "Inheritance to fall in quickly",
+   "cn_meaning": "愉快的回忆",
+   "cn_reversed": "遗产将至"
+  },
+  {
+   "suit": "cups",
+   "rank": "Five",
+   "meaning": "Generally favorable; a happy marriage; also patrimony, legacies, gifts, success in enterprise",
+   "reversed": "Return of some relative who has not been seen for long",
+   "cn_meaning": "大体有利；幸福婚姻；亦主祖产、遗产、礼物、事业成功",
+   "cn_reversed": "久未谋面的亲戚归来"
+  },
+  {
+   "suit": "cups",
+   "rank": "Four",
+   "meaning": "Contrarieties",
+   "reversed": "Presentiment",
+   "cn_meaning": "相反之事",
+   "cn_reversed": "预感"
+  },
+  {
+   "suit": "cups",
+   "rank": "Three",
+   "meaning": "Unexpected advancement for a military man",
+   "reversed": "Consolation, cure, end of the business",
+   "cn_meaning": "军人意外升迁",
+   "cn_reversed": "安慰、治愈、事务了结"
+  },
+  {
+   "suit": "cups",
+   "rank": "Two",
+   "meaning": "Favorable in things of pleasure and business, as well as in love; also wealth and honor",
+   "reversed": "Passion",
+   "cn_meaning": "在娱乐、事业及爱情上有利；亦主财富与荣誉",
+   "cn_reversed": "激情"
+  },
+  {
+   "suit": "cups",
+   "rank": "Ace",
+   "meaning": "Inflexible will, unalterable law",
+   "reversed": "Unexpected change of position",
+   "cn_meaning": "不可动摇的意志、不变的法则",
+   "cn_reversed": "意外的位置变动"
+  },
+  {
+   "suit": "swords",
+   "rank": "King",
+   "meaning": "A lawyer, senator, doctor",
+   "reversed": "A bad man; also a caution to put an end to a ruinous lawsuit",
+   "cn_meaning": "律师、议员、医生",
+   "cn_reversed": "恶人；亦告诫终止毁灭性的诉讼"
+  },
+  {
+   "suit": "swords",
+   "rank": "Queen",
+   "meaning": "A widow",
+   "reversed": "A bad woman, with ill-will towards the Querent",
+   "cn_meaning": "寡妇",
+   "cn_reversed": "对求问者怀恶意的恶女子"
+  },
+  {
+   "suit": "swords",
+   "rank": "Knight",
+   "meaning": "A soldier, man of arms, satellite, stipendiary; heroic action predicted for soldier",
+   "reversed": "Dispute with an imbecile person; for a woman, struggle with a rival, who will be conquered",
+   "cn_meaning": "军人、武士、随从、雇佣兵；为军人预示英雄之举",
+   "cn_reversed": "与愚人争执；对女子，与情敌斗争且获胜"
+  },
+  {
+   "suit": "swords",
+   "rank": "Page",
+   "meaning": "An indiscreet person will pry into the Querent's secrets",
+   "reversed": "Astonishing news",
+   "cn_meaning": "不谨慎之人将窥探求问者的秘密",
+   "cn_reversed": "惊人消息"
+  },
+  {
+   "suit": "swords",
+   "rank": "Ten",
+   "meaning": "Followed by Ace and King, imprisonment; for girl or wife, treason on the part of friends",
+   "reversed": "Victory and consequent fortune for a soldier in war",
+   "cn_meaning": "若随王牌与国王，指监禁；对少女或妻子，朋友的背叛",
+   "cn_reversed": "军人在战中获胜及其后之财富"
+  },
+  {
+   "suit": "swords",
+   "rank": "Nine",
+   "meaning": "An ecclesiastic, a priest; generally, a card of bad omen",
+   "reversed": "Good ground for suspicion against a doubtful person",
+   "cn_meaning": "教士、祭司；大体为凶兆之牌",
+   "cn_reversed": "对可疑之人的合理怀疑依据"
+  },
+  {
+   "suit": "swords",
+   "rank": "Eight",
+   "meaning": "For a woman, scandal spread in her respect",
+   "reversed": "Departure of a relative",
+   "cn_meaning": "对女子，有关她的流言蜚语",
+   "cn_reversed": "亲人离去"
+  },
+  {
+   "suit": "swords",
+   "rank": "Seven",
+   "meaning": "Dark girl; a good card; it promises a country life after a competence has been secured",
+   "reversed": "Good advice, probably neglected",
+   "cn_meaning": "深色少女；吉牌；许诺在获得财富后过田园生活",
+   "cn_reversed": "忠告，或被忽视"
+  },
+  {
+   "suit": "swords",
+   "rank": "Six",
+   "meaning": "The voyage will be pleasant",
+   "reversed": "Unfavorable issue of lawsuit",
+   "cn_meaning": "旅途愉快",
+   "cn_reversed": "诉讼不利结局"
+  },
+  {
+   "suit": "swords",
+   "rank": "Five",
+   "meaning": "An attack on the fortune of the Querent",
+   "reversed": "A sign of sorrow and mourning",
+   "cn_meaning": "对求问者财富的攻击",
+   "cn_reversed": "悲伤哀悼之兆"
+  },
+  {
+   "suit": "swords",
+   "rank": "Four",
+   "meaning": "A bad card, but if reversed a qualified success may be expected by wise administration of affairs",
+   "reversed": "A certain success following wise administration",
+   "cn_meaning": "凶牌，但若逆位，审慎管理事务或可望有限成功",
+   "cn_reversed": "明智管理后的确定成功"
+  },
+  {
+   "suit": "swords",
+   "rank": "Three",
+   "meaning": "For a woman, the flight of her lover",
+   "reversed": "A meeting with one whom the Querent has compromised; also a nun",
+   "cn_meaning": "对女子，其情人的离去",
+   "cn_reversed": "与求问者曾损害之人相遇；亦指修女"
+  },
+  {
+   "suit": "swords",
+   "rank": "Two",
+   "meaning": "Gifts for a lady, influential protection for a man in search of help",
+   "reversed": "Dealings with rogues",
+   "cn_meaning": "对女士，礼物；对求助的男子，有力庇护",
+   "cn_reversed": "与恶徒打交道"
+  },
+  {
+   "suit": "swords",
+   "rank": "Ace",
+   "meaning": "Great prosperity or great misery",
+   "reversed": "Marriage broken off, for a woman, through her own imprudence",
+   "cn_meaning": "大盛或大衰",
+   "cn_reversed": "女子因自身不审慎而婚姻破裂"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "King",
+   "meaning": "A rather dark man, a merchant, master, professor",
+   "reversed": "An old and vicious man",
+   "cn_meaning": "略深的男子，商人、主人、教授",
+   "cn_reversed": "年老邪恶之人"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Queen",
+   "meaning": "Dark woman; presents from a rich relative; rich and happy marriage for a young man",
+   "reversed": "An illness",
+   "cn_meaning": "深色女子；富亲戚的礼物；青年男子的富贵婚姻",
+   "cn_reversed": "疾病"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Knight",
+   "meaning": "A useful man; useful discoveries",
+   "reversed": "A brave man out of employment",
+   "cn_meaning": "有用之人；有用的发现",
+   "cn_reversed": "失业的勇敢之人"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Page",
+   "meaning": "A dark youth; a young officer or soldier; a child",
+   "reversed": "Sometimes degradation and sometimes pillage",
+   "cn_meaning": "深色青年；年轻军官或士兵；孩童",
+   "cn_reversed": "有时降级有时劫掠"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Ten",
+   "meaning": "Represents house or dwelling, and derives its value from other cards",
+   "reversed": "An occasion which may be fortunate or otherwise",
+   "cn_meaning": "象征房屋或居所，其价值由旁牌决定",
+   "cn_reversed": "或吉或凶的场合"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Nine",
+   "meaning": "Prompt fulfilment of what is presaged by neighboring cards",
+   "reversed": "Vain hopes",
+   "cn_meaning": "邻牌所预示之事的迅速实现",
+   "cn_reversed": "虚妄的希望"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Eight",
+   "meaning": "A young man in business who has relations with the Querent; a dark girl",
+   "reversed": "The Querent will be compromised in a matter of money-lending",
+   "cn_meaning": "与求问者有关系的经商青年；深色少女",
+   "cn_reversed": "求问者将因借贷之事受损"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Seven",
+   "meaning": "Improved position for a lady's future husband",
+   "reversed": "Impatience, apprehension, suspicion",
+   "cn_meaning": "女士未来丈夫地位的提升",
+   "cn_reversed": "急躁、忧虑、猜疑"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Six",
+   "meaning": "The present must not be relied on",
+   "reversed": "A check on the Querent's ambition",
+   "cn_meaning": "眼前之事不可依赖",
+   "cn_reversed": "求问者野心受挫"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Five",
+   "meaning": "Conquest of fortune by reason",
+   "reversed": "Troubles in love",
+   "cn_meaning": "以理性征服财富",
+   "cn_reversed": "爱情烦恼"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Four",
+   "meaning": "For a bachelor, pleasant news from a lady",
+   "reversed": "Observation, hindrances",
+   "cn_meaning": "对单身汉，女士的愉悦消息",
+   "cn_reversed": "观察、阻碍"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Three",
+   "meaning": "If for a man, celebrity for his eldest son",
+   "reversed": "Depends on neighboring cards",
+   "cn_meaning": "若为男子，其长子成名",
+   "cn_reversed": "取决于邻牌"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Two",
+   "meaning": "Troubles are more imaginary than real",
+   "reversed": "Bad omen, ignorance, injustice",
+   "cn_meaning": "烦恼多为想象而非真实",
+   "cn_reversed": "凶兆、无知、不义"
+  },
+  {
+   "suit": "pentacles",
+   "rank": "Ace",
+   "meaning": "The most favorable of all cards",
+   "reversed": "A share in the finding of treasure.  It will be observed (1) that these _additamenta_ have little connection with the pictorial designs of the cards to which they refer, as these correspond with the more important speculative values; (2) and further that the additional meanings are very often in disagreement with those previously given. All meanings are largely independent of one another and all are reduced, accentuated or subject to modification and sometimes almost reversal by their place in a sequence. There is scarcely any canon of criticism in matters of this kind. I suppose that in proportion as any system descends from generalities to details it becomes naturally the more precarious; and in the records of professional fortune-telling, it offers more of the dregs and lees of the subject. At the same time, divinations based on intuition and second sight are of little practical value unless they come down from the region of universals to that of particulars; but in proportion as this gift is present in a particular case, the specific meanings recorded by past cartomancists will be disregarded in favor of the personal appreciation of card values.  This has been intimated already. It seems necessary to add the following speculative readings",
+   "cn_meaning": "一切牌中最有利",
+   "cn_reversed": "分得发现宝藏之份"
+  }
+ ],
+ "methods": {
+  "recurrence": {
+   "title": "THE RECURRENCE OF CARDS IN DEALING IN THE NATURAL POSITION",
+   "text": "THE RECURRENCE OF CARDS IN DEALING IN THE NATURAL POSITION\n\n4 Kings = great honor; 3 Kings = consultation; 2 Kings = minor counsel.\n\n4 Queens = great debate; 3 Queens = deception by women; 2 Queens =\nsincere friends.\n\n4 Knights = serious matters; 3 Knights = lively debate; 2 Knights =\nintimacy.\n\n4 Pages = dangerous illness; 3 Pages = dispute; 2 Pages = disquiet.\n\n4 Tens = condemnation; 3 Tens = new condition; 2 Tens = change.\n\n4 Nines = a good friend; 3 Nines = success; 2 Nines = receipt.\n\n4 Eights = reverse; 3 Eights = marriage; 2 Eights = new knowledge.\n\n4 Sevens = intrigue; 3 Sevens = infirmity; 2 Sevens = news.\n\n4 Sixes = abundance; 3 Sixes = success; 2 Sixes = irritability.\n\n4 Fives = regularity; 3 Fives = determination; 2 Fives = vigils.\n\n4 Fours = journey near at hand; 3 Fours = a subject of reflection; 2\nFours = insomnia.\n\n4 Threes = progress; 3 Threes = unity; 2 Threes = calm.\n\n4 Twos = contention; 3 twos = security; 2 Twos = accord.\n\n4 Aces = favorable chance; 3 Aces = small success; 2 Aces = trickery.\n\nREVERSED\n\n4 Kings = celerity; 3 Kings = commerce; 2 Kings = projects.\n\n4 Queens = bad company; 3 Queens = gluttony; 2 Queens = work.\n\n4 Knights = alliance; 3 Knights = a duel, or personal encounter; 2\nKnights = susceptibility.\n\n4 Pages = privation; 3 Pages = idleness; 2 Pages = society.\n\n4 Tens = event, happening; 3 Tens = disappointment; 2 Tens = expectation\njustified.\n\n4 Nines = usury; 3 Nines = imprudence; 2 Nines = small profit.\n\n4 Eights = error; 3 Eights = a spectacle; 2 Eights = misfortune.\n\n4 Sevens = quarrellers; 3 Sevens = joy; 2 Sevens = women of no repute.\n\n4 Sixes = care; 3 Sixes = satisfaction; 2 Sixes = downfall.\n\n4 Fives = order; 3 Fives = hesitation; 2 Fives = reverse.\n\n4 Fours = walks abroad; 3 Fours = disquiet; 2 Fours = dispute.\n\n4 Threes = great success; 3 Threes = serenity; 2 Threes = safety.\n\n4 Twos = reconciliation; 3 Twos = apprehension; 2 Twos = mistrust.\n\n4 Aces = dishonor; 3 Aces = debauchery; 2 Aces = enemies.\n\n\n                               SECTION 6"
+  },
+  "art_of_divination": {
+   "title": "THE ART OF TAROT DIVINATION",
+   "text": "THE ART OF TAROT DIVINATION\n\nWe come now to the final and practical part of this division of our\nsubject, being the way to consult and obtain oracles by means of Tarot\ncards. The modes of operation are rather numerous, and some of them are\nexceedingly involved. I set aside those last mentioned, because persons\nwho are versed in such questions believe that the way of simplicity is\nthe way of truth. I set aside also the operations which have been\nrepublished recently in that section of _The Tarot Of The Bohemians_\nwhich is entitled \"The Divining Tarot\"; it may be recommended at its\nproper value to readers who wish to go further than the limits of this\nhandbook. I offer in the first place a short process which has been used\nprivately for many years past in England, Scotland and Ireland. I do not\nthink that it has been published--certainly not in connection with Tarot\ncards; I believe that it will serve all purposes, but I will add--by way\nof variation--in the second place what used to be known in France as the\nOracles of Julia Orsini.\n\n\n                               SECTION 7"
+  },
+  "celtic_method": {
+   "title": "AN ANCIENT CELTIC METHOD OF DIVINATION",
+   "text": "AN ANCIENT CELTIC METHOD OF DIVINATION\n\nThis mode of divination is the most suitable for obtaining an answer to\na definite question. The Diviner first selects a card to represent the\nperson or matter about which inquiry is made. This card is called the\nSignificator. Should he wish to ascertain something in connection with\nhimself he takes the one which corresponds to his personal description.\nA Knight should be chosen as the Significator if the subject of inquiry\nis a man of forty years old and upward; A King should be chosen for any\nmale who is under that age; a Queen for a woman over forty years; and a\nPage for any female of less age.\n\nThe four Court Cards in Wands represent very fair people, with yellow or\nauburn hair, fair complexion and blue eyes. The Court Cards in Cups\nsignify people with light brown or dull fair hair and grey or blue eyes.\nThose in Swords stand for people having hazel or grey eyes, dark brown\nhair and dull complexion. Lastly, the Court Cards in Pentacles are\nreferred to persons with very dark brown or black hair, dark eyes and\nsallow or swarthy complexions. These allocations are subject, however,\nto the following reserve, which will prevent them being taken too\nconventionally. You can be guided on occasion by the known temperament\nof a person; one who is exceedingly dark may be very energetic, and\nwould be better represented by a Sword card than a Pentacle. On the\nother hand, a very fair subject who is indolent and lethargic should be\nreferred to Cups rather than to Wands.\n\nIf it is more convenient for the purpose of a divination to take as the\nSignificator the matter about which inquiry is to be made, that Trump or\nsmall card should be selected which has a meaning corresponding to the\nmatter. Let it be supposed that the question is: Will a lawsuit be\nnecessary? In this case, take the Trump No. 11, or Justice, as the\nSignificator. This has reference to legal affairs. But if the question\nis: Shall I be successful in my lawsuit? one of the Court Cards must be\nchosen as the Significator. Subsequently, consecutive divinations may be\nperformed to ascertain the course of the process itself and its result\nto each of the parties concerned.\n\nHaving selected the Significator, place it on the table, face upwards.\nThen shuffle and cut the rest of the pack three times, keeping the faces\nof the cards downwards.\n\nTurn up the top or FIRST CARD of the pack; cover the Significator with\nit, and say: This covers him. This card gives the influence which is\naffecting the person or matter of inquiry generally, the atmosphere of\nit in which the other currents work.\n\nTurn up the SECOND CARD and lay it across the FIRST, saying: This\ncrosses him. It shows the nature of the obstacles in the matter. If it\nis a favorable card, the opposing forces will not be serious, or it may\nindicate that something good in itself will not be productive of good in\nthe particular connection.\n\nTurn up the THIRD CARD; place it above the Significator, and say: This\ncrowns him. It represents (_a_) the Querent's aim or ideal in the\nmatter; (_b_) the best that can be achieved under the circumstances, but\nthat which has not yet been made actual.\n\nTurn up the FOURTH CARD; place it below the Significator, and say: This\nis beneath him. It shows the foundation or basis of the matter, that\nwhich has already passed into actuality and which the Significator has\nmade his own.\n\nTurn up the FIFTH CARD; place it on the side of the Significator from\nwhich he is looking, and say: This is behind him. It gives the influence\nthat is just passed, or is now passing away.\n\n_N. B._--If the Significator is a Trump or any small card that cannot be\nsaid to face either way, the Diviner must decide before beginning the\noperation which side he will take it as facing.\n\nTurn up the SIXTH CARD; place it on the side that the Significator is\nfacing, and say: This is before him. It shows the influence that is\ncoming into action and will operate in the near future.\n\nThe cards are now disposed in the form of a cross, the\nSignificator--covered by the First Card--being in the center.\n\nThe next four cards are turned up in succession and placed one above the\nother in a line, on the right hand side of the cross.\n\nThe first of these, or the SEVENTH CARD of the operation, signifies\nhimself--that is, the Significator--whether person or thing--and shows\nits position or attitude in the circumstances.\n\nThe EIGHTH CARD signifies his house, that is, his environment and the\ntendencies at work therein which have an effect on the matter--for\ninstance, his position in life, the influence of immediate friends, and\nso forth.\n\nThe NINTH CARD gives his hopes or fears in the matter.\n\nThe TENTH is what will come, the final result, the culmination which is\nbrought about by the influences shown by the other cards that have been\nturned up in the divination.\n\nIt is on this card that the Diviner should especially concentrate his\nintuitive faculties and his memory in respect of the official divinatory\nmeanings attached thereto. It should embody whatsoever you may have\ndivined from the other cards on the table, including the Significator\nitself and concerning him or it, not excepting such lights upon higher\nsignificance as might fall like sparks from heaven if the card which\nserves for the oracle, the card for reading, should happen to be a Trump\nMajor.\n\nThe operation is now completed; but should it happen that the last card\nis of a dubious nature, from which no final decision can be drawn, or\nwhich does not appear to indicate the ultimate conclusion of the affair,\nit may be well to repeat the operation, taking in this case the Tenth\nCard as the Significator, instead of the one previously used. The pack\nmust be again shuffled and cut three times and the first ten cards laid\nout as before. By this a more detailed account of \"What will come\" may\nbe obtained.\n\nIf in any divination the Tenth Card should be a Court Card, it shows\nthat the subject of the divination falls ultimately into the hands of a\nperson represented by that card, and its end depends mainly on him. In\nthis event also it is useful to take the Court Card in question as the\nSignificator in a fresh operation, and discover what is the nature of\nhis influence in the matter and to what issue he will bring it.\n\nGreat facility may be obtained by this method in a comparatively short\ntime, allowance being always made for the gifts of the operator--that is\nto say, his faculty of insight, latent or developed--and it has the\nspecial advantage of being free from all complications.\n\n\nDIAGRAM\n\nI here append a diagram of the cards as laid out in this mode of\ndivination. The Significator is here facing to the left.\n\n\n          +---+                 +---+\n          |   |                 |   |\n          | 3 |                 |10 |\n          |   |                 |   |\n          +---+                 +---+\n                                +---+\n                                |   |\n                                | 9 |\n                                |   |\n        Significator            +---+\n          +----+\n+---+     |    |     +---+\n|   |    +------+    |   |\n| 6 |    |  2   |    | 5 |\n|   |    +------+    |   |\n+---+     |    |     +---+\n          +----+\n        and No. 1.              +---+\n                                |   |\n                                | 8 |\n                                |   |\n                                +---+\n          +---+                 +---+\n          |   |                 |   |\n          | 4 |                 | 7 |\n          |   |                 |   |\n          +---+                 +---+\n\n{The Significator.\n{1. What covers him.\n2. What crosses him.\n3. What crowns him.\n4. What is beneath him.\n5. What is behind him.\n6. What is before him.\n7. Himself.\n8. His house.\n9. His hopes or fears.\n10. What will come.\n\n\n                               SECTION 8"
+  },
+  "alternative_method": {
+   "title": "AN ALTERNATIVE METHOD OF READING THE TAROT CARDS",
+   "text": "AN ALTERNATIVE METHOD OF READING THE TAROT CARDS\n\nShuffle the entire pack and turn some of the cards round, so as to\ninvert their tops.\n\nLet them be cut by the Querent with his left hand.\n\nDeal out the first forty-two cards in six packets of seven cards each,\nface upwards, so that the first seven cards form the first packet, the\nfollowing seven the second, so on--as in the following diagram:--\n\n+------+ +------+ +------+ +------+ +------+ +------+\n|      | |      | |      | |      | |      | |      |\n| 6th  | | 5th  | | 4th  | | 3rd  | | 2nd  | | 1st  |\n|packet| |packet| |packet| |packet| |packet| |packet|\n|      | |      | |      | |      | |      | |      |\n+------+ +------+ +------+ +------+ +------+ +------+\n\nTake up the first packet; lay out the cards on the table in a row, from\nright to left; place the cards of the second packet upon them and then\nthe packets which remain. You will thus have seven new packets of six\ncards each, arranged as follows--\n\n+------+ +------+ +------+ +------+ +------+ +------+ +------+\n|      | |      | |      | |      | |      | |      | |      |\n| 7th  | | 6th  | | 5th  | | 4th  | | 3rd  | | 2nd  | | 1st  |\n|packet| |packet| |packet| |packet| |packet| |packet| |packet|\n|      | |      | |      | |      | |      | |      | |      |\n+------+ +------+ +------+ +------+ +------+ +------+ +------+\n\nTake the top card of each packet, shuffle them and lay out from right to\nleft, making a line of seven cards.\n\nThen take up the two next cards from each packet, shuffle and lay them\nout in two lines under the first line.\n\nTake up the remaining twenty-one cards of the packets, shuffle and lay\nthem out in three lines below the others.\n\nYou will thus have six horizontal lines of seven cards each, arranged\nafter the following manner.\n\n1st line.\n\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n|   | |   | |   | |   | |   | |   | |   |\n| 7 | | 6 | | 5 | | 4 | | 3 | | 2 | | 1 |\n|   | |   | |   | |   | |   | |   | |   |\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n\n2nd line.\n\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n|   | |   | |   | |   | |   | |   | |   |\n| 7 | | 6 | | 5 | | 4 | | 3 | | 2 | | 1 |\n|   | |   | |   | |   | |   | |   | |   |\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n\n3rd line.\n\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n|   | |   | |   | |   | |   | |   | |   |\n| 7 | | 6 | | 5 | | 4 | | 3 | | 2 | | 1 |\n|   | |   | |   | |   | |   | |   | |   |\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n\n4th line.\n\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n|   | |   | |   | |   | |   | |   | |   |\n| 7 | | 6 | | 5 | | 4 | | 3 | | 2 | | 1 |\n|   | |   | |   | |   | |   | |   | |   |\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n\n5th line.\n\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n|   | |   | |   | |   | |   | |   | |   |\n| 7 | | 6 | | 5 | | 4 | | 3 | | 2 | | 1 |\n|   | |   | |   | |   | |   | |   | |   |\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n\n6th line.\n\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n|   | |   | |   | |   | |   | |   | |   |\n| 7 | | 6 | | 5 | | 4 | | 3 | | 2 | | 1 |\n|   | |   | |   | |   | |   | |   | |   |\n+---+ +---+ +---+ +---+ +---+ +---+ +---+\n\nIn this method, the Querent--if of the male sex--is represented by the\nMagician, and if female by the High Priestess; but the card, in either\ncase, is not taken from the pack until the forty-two cards have been\nlaid out, as above directed. If the required card is not found among\nthose placed upon the table, it must be sought among the remaining\nthirty-six cards, which have not been dealt, and should be placed a\nlittle distance to the right of the first horizontal line. On the other\nhand, if it is among them, it is also taken out, placed as stated, and a\ncard is drawn haphazard from the thirty-six cards undealt to fill the\nvacant position, so that there are still forty-two cards laid out on the\ntable.\n\nThe cards are then read in succession, from right to left throughout,\nbeginning at card No. 1 of the topline, the last to be read being that\non the extreme left, or No. 7, of the bottom line.\n\nThis method is recommended when no definite question is asked--that is,\nwhen the Querent wishes to learn generally concerning the course of his\nlife and destiny. If he wishes to know what may befall within a certain\ntime, this time should be clearly specified before the cards are\nshuffled.\n\nWith further reference to the reading, it should be remembered that the\ncards must be interpreted relatively to the subject, which means that\nall official and conventional meanings of the cards may and should be\nadapted to harmonize with the conditions of this particular case in\nquestion--the position, time of life and sex of the Querent, or person\nfor whom the consultation is made.\n\nThus, the Fool may indicate the whole range of mental phases between\nmere excitement and madness, but the particular phase in each divination\nmust be judged by considering the general trend of the cards, and in\nthis naturally the intuitive faculty plays an important part.\n\nIt is well at the beginning of a reading, to run through the cards\nquickly, so that the mind may receive a general impression of the\nsubject--the trend of the destiny--and afterwards to start\nagain--reading them one by one and interpreting in detail.\n\nIt should be remembered that the Trumps represent more powerful and\ncompelling forces--by the Tarot hypothesis--than are referable to the\nsmall cards.\n\nThe value of intuitive and clairvoyant faculties is of course assumed in\ndivination. Where these are naturally present or have been developed by\nthe Diviner, the fortuitous arrangement of cards forms a link between\nhis mind and the atmosphere of the subject of divination, and then the\nrest is simple. Where intuition fails, or is absent, concentration,\nintellectual observation and deduction must be used to the fullest\nextent to obtain a satisfactory result. But intuition, even if\napparently dormant, may be cultivated by practice in these divinatory\nprocesses. If in doubt as to the exact meaning of a card in a particular\nconnection, the Diviner is recommended, by those who are versed in the\nmatter, to place his hand on it, try to refrain from thinking of what\nit ought to be, and note the impressions that arise in his mind. At the\nbeginning this will probably resolve itself into mere guessing and may\nprove incorrect, but it becomes possible with practice to distinguish\nbetween a guess of the conscious mind and an impression arising from the\nmind which is sub-conscious.\n\nIt is not within my province to offer either theoretical or practical\nsuggestions on this subject, in which I have no part, but the following\n_additamenta_ have been contributed by one who has more titles to speak\nthan all the cartomancists of Europe, if they could shuffle with a\nsingle pair of hands and divine with one tongue.\n\n                  NOTES ON THE PRACTICE OF DIVINATION\n\n     1. Before beginning the operation, formulate your question\n     definitely, and repeat it aloud.\n\n     2. Make your mind as blank as possible while shuffling the cards.\n\n     3. Put out of the mind personal bias and preconceived ideas as far\n     as possible, or your judgment will be tinctured thereby.\n\n     4. On this account it is more easy to divine correctly for a\n     stranger than for yourself or a friend.\n\n\n                               SECTION 9"
+  },
+  "method_35": {
+   "title": "THE METHOD OF READING BY MEANS OF THIRTY-FIVE CARDS",
+   "text": "THE METHOD OF READING BY MEANS OF THIRTY-FIVE CARDS\n\nWhen the reading is over, according to the scheme set forth in the last\nmethod, it may happen--as in the previous case--that something remains\ndoubtful, or it may be desired to carry the question further, which is\ndone as follows:\n\nTake up the undealt cards which remain over, not having been used in the\nfirst operation with 42 cards. The latter are set aside in a heap, with\nthe Querent, face upwards, on the top. The thirty-five cards, being\nshuffled and cut as before, are divided by dealing into six packets\nthus:--\n\n_Packet I_ consists of the first SEVEN CARDS; _Packet II_ consists of\nthe SIX CARDS next following in order; _Packet III_ consists of the FIVE\nCARDS following; _Packet IV_ contains the next FOUR CARDS; _Packet V_\ncontains TWO CARDS; and _Packet VI_ contains the last ELEVEN CARDS. The\narrangement will then be as follows:--\n\nPacket   Packet   Packet   Packet   Packet   Packet\n  VI.      V.       IV.     III.      II.      I.\n\n+-----+  +-----+  +-----+  +-----+  +-----+  +-----+\n|     |  |     |  |     |  |     |  |     |  |     |\n| 11  |  |  2  |  |  4  |  |  5  |  |  6  |  |  7  |\n|cards|  |cards|  |cards|  |cards|  |cards|  |cards|\n|     |  |     |  |     |  |     |  |     |  |     |\n+-----+  +-----+  +-----+  +-----+  +-----+  +-----+\n\nTake up these packets successively; deal out the cards which they\ncontain in six lines, which will be necessarily of unequal length.\n\nTHE FIRST LINE stands for the house, the environment and so forth.\n\nTHE SECOND LINE stands for the person or subject of the divination.\n\nTHE THIRD LINE stands for what is passing outside, events, persons, etc.\n\nTHE FOURTH LINE stands for a surprise, the unexpected, etc.\n\nTHE FIFTH LINE stands for consolation, and may moderate all that is\nunfavorable in the preceding lines.\n\nTHE SIXTH LINE is that which must be consulted to elucidate the\nenigmatic oracles of the others; apart from them it has no importance.\n\nThese cards should all be read from left to right, beginning with the\nuppermost line.\n\nIt should be stated in conclusion as to this divinatory part that there\nis no method of interpreting Tarot cards which is not applicable to\nordinary playing-cards, but the additional court cards, and above all\nthe Trumps Major, are held to increase the elements and values of the\noracles.\n\nAnd now in conclusion as to the whole matter, I have left for these last\nwords--as if by way of epilogue--one further and final point. It is the\nsense in which I regard the Trumps Major as containing Secret Doctrine.\nI do not here mean that I am acquainted with orders and fraternities in\nwhich such doctrine reposes and is there found to be part of higher\nTarot knowledge. I do not mean that such doctrine, being so preserved\nand transmitted, can be constructed as imbedded independently in the\nTrumps Major. I do not mean that it is something apart from the Tarot.\nAssociations exist which have special knowledge of both kinds; some of\nit is deduced from the Tarot and some of it is apart therefrom; in\neither case, it is the same in the root-matter. But there are also\nthings in reserve which are not in orders or societies, but are\ntransmitted after another manner. Apart from all inheritance of this\nkind, let any one who is a mystic consider separately and in combination\nthe Magician, the Fool, the High Priestess, the Hierophant, the Empress,\nthe Emperor, the Hanged Man and the Tower. Let him then consider the\ncard called the Last Judgment. They contain the legend of the soul. The\nother Trumps Major are the details and--as one might say--the accidents.\nPerhaps such a person will begin to understand what lies far behind\nthese symbols, by whomsoever first invented and however preserved. If he\ndoes, he will see also why I have concerned myself with the subject,\neven at the risk of writing about divination by cards.\n\n\n\n\n                             _BIBLIOGRAPHY_\n\nA Concise Bibliography Of The Chief Works Dealing With The Tarot And Its\n                              Connections\n\n\nAs in spite of its modest pretensions, this monograph is, so far as I am\naware, the first attempt to provide in English a complete synoptic\naccount of the Tarot, with its archæological position defined, its\navailable symbolism developed, and--as a matter of curiosity in\noccultism--with its divinatory meanings and modes of operation\nsufficiently exhibited, it is my wish, from the literate standpoint, to\nenumerate those text-books of the subject, and the most important\nincidental references thereto, which have come under my notice. The\nbibliographical particulars that follow lay no claim to completeness, as\nI have cited nothing that I have not seen with my own eyes; but I can\nunderstand that most of my readers will be surprised at the extent of\nthe literature--if I may so term it conventionally--which has grown up\nin the course of the last 120 years. Those who desire to pursue their\ninquiries further will find ample materials herein, though it is not a\ncourse which I am seeking to commend especially, as I deem that enough\nhas been said upon the Tarot in this place to stand for all that has\npreceded it. The bibliography itself is representative after a similar\nmanner. I should add that there is a considerable catalogue of cards and\nworks on card-playing in the British Museum, but I have not had occasion\nto consult it to any extent for the purposes of the present list.\n\n\nI\n\n     _Monde Primitif, analysé et comparé avec le Monde Moderne._ Par M.\n     Court de Gebelin. Vol. 8, 4to, Paris, 1781.\n\nThe articles on the _Jeu des Tarots_ will be found at pp. 365 to 410.\nThe plates at the end show the Trumps Major and the Aces of each suit.\nThese are valuable as indications of the cards at the close of the\neighteenth century. They were presumably then in circulation in the\nSouth of France, as it is said that at the period in question they were\npractically unknown at Paris. I have dealt with the claims of the papers\nin the body of the present work. Their speculations were tolerable\nenough for their mazy period; but that they are suffered still, and\naccepted indeed without question, by French occult writers is the most\nconvincing testimony that one can need to the qualifications of the\nlatter for dealing with any question of historical research.\n\n\nII\n\n     The Works of Etteilla. _Les Septs Nuances de l'[oe]uvre philosophique\n     Hermétique_; _Maniére de se récréer avec le Jeu de Cartes, nommées\n     Tarots_; _Fragments sur les Hautes Sciences_; _Philosophie des\n     Hautes Sciences_; _Jeu des Tarots, ou le Livre de Thoth_; _Leçons\n     Théoriques et Pratiques du Livre de Thoth_--all published between\n     1783 and 1787.\n\nThese are exceedingly rare and were frankly among the works of\n_colportage_ of their particular period. They contain the most curious\nfragments on matters within and without the main issue, lucubrations on\ngenii, magic, astrology, talismans, dreams, etc. I have spoken\nsufficiently in the text on the author's views on the Tarot and his\nplace in its modern history. He regarded it as a work of speaking\nhieroglyphics, but to translate it was not easy. He, however,\naccomplished the task--that is to say, in his own opinion.\n\n\nIII\n\n     _An Inquiry into the Ancient Greek Game, supposed to have been\n     invented by Palamedes._ (By James Christie.) London: 4to, 1801.\n\nI mention this collection of curious dissertations because it has been\ncited by writers on the Tarot. It seeks to establish a close connection\nbetween early games of antiquity and modern chess. It is suggested that\nthe invention attributed to Palamedes, prior to the Siege of Troy, was\nknown in China from a more remote period of antiquity. The work has no\nreference to cards of any kind whatsoever.\n\n\nIV\n\n     _Researches into the History of Playing Cards._ By Samuel Weller\n     Singer. 4to, London, 1816.\n\nThe Tarot is probably of Eastern origin and high antiquity, but the rest\nof Court de Gebelin's theory is vague and unfounded. Cards were known\nin Europe prior to the appearance of the Egyptians. The work has a good\ndeal of curious information and the appendices are valuable, but the\nTarot occupies comparatively little of the text and the period is too\nearly for a tangible criticism of its claims. There are excellent\nreproductions of early specimen designs. Those of Court de Gebelin are\nalso given _in extenso_.\n\n\nV\n\n     _Facts and Speculations on Playing Cards._ By W. A. Chatto. 8vo,\n     London, 1848.\n\nThe author suggested that the Trumps Major and the numeral cards were\nonce separate, but were afterwards combined. The oldest specimens of\nTarot cards are not later than 1440. But the claims and value of the\nvolume have been sufficiently described in the text.\n\n\nVI\n\n     _Les Cartes à Jouer et la Cartomancie._ Par D. R. P. Boiteau\n     d'Ambly. 4to, Paris, 1854.\n\nThere are some interesting illustrations of early Tarot cards, which are\nsaid to be of Oriental origin; but they are not referred to Egypt. The\nearly gipsy connection is affirmed, but there is no evidence produced.\nThe cards came with the gipsies from India, where they were designed to\nshow forth the intentions of \"the unknown divinity\" rather than to be\nthe servants of profane amusement.\n\n\nVII\n\n     _Dogme et Rituel de la Haute Magie._ Par Eliphas Lévi, 2 vols.,\n     demy 8vo, Paris, 1854.\n\nThis is the first publication of Alphonse Louis Constant on occult\nphilosophy, and it is also his _magnum opus_. It is constructed in both\nvolumes on the major Keys of the Tarot and has been therefore understood\nas a kind of development of their implicits, in the way that these were\npresented to the mind of the author. To supplement what has been said of\nthis work in the text of the present monograph, I need only add that the\nsection on transmutations in the second volume contains what is termed\nthe _Key of Thoth_. The inner circle depicts a triple _Tau_, with a\nhexagram where the bases join, and beneath is the Ace of Cups. Within\nthe external circle are the letters TARO, and about this figure as a\nwhole are grouped the symbols of the Four Living Creatures, the Ace of\nWands, Ace of Swords, the letter _Shin_, and a magician's candle, which\nis identical, according to Lévi, with the lights used in the Goetic\nCircle of Black Evocations and Pacts. The triple _Tau_ may be taken to\nrepresent the Ace of Pentacles. The only Tarot card given in the volumes\nis the Chariot, which is drawn by two sphinxes; the fashion thus set has\nbeen followed in later days. Those who interpret the work as a kind of"
+  }
+ }
+}

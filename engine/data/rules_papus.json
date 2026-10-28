@@ -1,0 +1,955 @@
+{
+    "source":  "Papus《The Tarot of the Bohemians》1892（英译本）；文本层提取自公版扫描 PDF。全部条目为原文事实摘录/摘要。注意：本体系的四元素对应与韦特/黄金黎明体系不同，使用时须标注体系来源。",
+    "tetragrammaton":  "四花色 = 四字母 Yod-He-Vau-He（Papus 原文 1237-1268 行）",
+    "suits":  [
+                  {
+                      "suit":  "wands",
+                      "papus_name":  "Sceptre",
+                      "letter":  "Yod",
+                      "principle":  "主动/Male or Active",
+                      "element":  "Fire（火三角：白羊/狮子/射手）",
+                      "note":  "Papus 原文：火三角对应权杖，灵性元素（swayed by the spiritual element）"
+                  },
+                  {
+                      "suit":  "cups",
+                      "papus_name":  "Cup",
+                      "letter":  "1st He",
+                      "principle":  "被动/Feminine",
+                      "element":  "Earth（土三角：金牛/处女/摩羯）",
+                      "note":  "Papus 原文：土三角对应圣杯，本质女性、较高级（substantial, superior order）——与韦特体系（圣杯=水）不同"
+                  },
+                  {
+                      "suit":  "swords",
+                      "papus_name":  "Sword",
+                      "letter":  "Vau",
+                      "principle":  "结合（crucial form 十字形）",
+                      "element":  "Air（风三角：双子/天秤/水瓶）",
+                      "note":  "Papus 原文：风三角对应宝剑，次级男性元素"
+                  },
+                  {
+                      "suit":  "pentacles",
+                      "papus_name":  "Pentacles",
+                      "letter":  "2nd He",
+                      "principle":  "过渡（自然→超自然）",
+                      "element":  "Water（水三角：巨蟹/天蝎/双鱼）",
+                      "note":  "Papus 原文：水三角对应星币，低等女性（inferior feminine）——与韦特体系（星币=土）不同"
+                  }
+              ],
+    "court_letters":  [
+                          {
+                              "rank":  "king",
+                              "card_group":  "4 Kings",
+                              "letter":  "Yod",
+                              "note":  "Papus：Sceptre 是 4 Kings 的 Yod（1325 行）"
+                          },
+                          {
+                              "rank":  "queen",
+                              "card_group":  "4 Queens",
+                              "letter":  "1st He",
+                              "note":  "Papus：Cup 是 4 Queens 的 He（1326 行）"
+                          },
+                          {
+                              "rank":  "knight",
+                              "card_group":  "4 Knights",
+                              "letter":  "Vau",
+                              "note":  "Papus：Sword 是 4 Knights 的 Vau（1327 行）"
+                          },
+                          {
+                              "rank":  "page",
+                              "card_group":  "4 Knaves",
+                              "letter":  "2nd He",
+                              "note":  "Papus：Pentacles 是 4 Knaves 的 2nd He（1328 行）；He 与 Knave 押韵原文"
+                          }
+                      ],
+    "letter_groups":  [
+                          {
+                              "letter":  "Yod",
+                              "keys":  [
+                                           1,
+                                           5,
+                                           9,
+                                           12,
+                                           13
+                                       ],
+                              "meaning":  "父/灵（Spirit）；也在 Keter、Hierophant、Wise Old Man；主持死亡",
+                              "note":  "Papus 原文 7772 行"
+                          },
+                          {
+                              "letter":  "1st He",
+                              "keys":  [
+                                           2,
+                                           6,
+                                           10,
+                                           14,
+                                           18
+                                       ],
+                              "meaning":  "天母（celestial Mother）：美、形式、节制天使、神之日之曙光、月之狄安娜",
+                              "note":  "Papus 原文 7781 行"
+                          },
+                          {
+                              "letter":  "Vau",
+                              "keys":  [
+                                           3,
+                                           7,
+                                           11,
+                                           15,
+                                           19
+                                       ],
+                              "meaning":  "子（Son）：爱、丰饶之力、物质之主/力、Typhon（Baphomet）、中央太阳",
+                              "note":  "Papus 原文 7785 行"
+                          },
+                          {
+                              "letter":  "2nd He",
+                              "keys":  [
+                                           4,
+                                           8,
+                                           12,
+                                           16,
+                                           20
+                                       ],
+                              "meaning":  "地母（terrestrial Mother）：神圣潜能的实现、慈悲、绝对正义、牺牲、复活",
+                              "note":  "Papus 原文 7792 行；XII 与 Yod 组重复出现系原文如此"
+                          }
+                      ],
+    "sectors":  [
+                    {
+                        "sector":  "Yod",
+                        "numbers":  [
+                                        1,
+                                        4,
+                                        7,
+                                        10
+                                    ],
+                        "figures":  "Kings",
+                        "colour":  "Sceptre",
+                        "zodiac":  "太阳由春分至夏至上升线",
+                        "note":  "Papus 原文 7661-7664 行"
+                    },
+                    {
+                        "sector":  "1st He",
+                        "numbers":  [
+                                        2,
+                                        5,
+                                        8,
+                                        11
+                                    ],
+                        "figures":  "Queens",
+                        "colour":  "Cup",
+                        "zodiac":  "太阳回归赤道四宫：收获与酿造之季",
+                        "note":  "Papus 原文 7666-7669 行"
+                    }
+                ],
+    "sephiroth":  "Redemption 系列：I（Magician/Keter）→ VI（Lovers/Tiphereth）→ IX（Hermit/Yesod）→ X（Wheel/Malchut）；即 Sepher Yetzirah 的 Sephiroth 柱（Kether-Tiphereth-Yesod-Malchut）——Papus 原文 7763-7766 行",
+    "zodiac_minor":  "12 黄道宫与 12 张小卡首位对应：第 1 宫与灵性区第一卡（King of Sceptres）相配，依序至第 12（Papus 原文 7615-7619 行）",
+    "christian_parallel":  "Yod/权杖=主教权杖（episcopal crosier）、1st He/圣杯=圣爵（Chalice）、Vau/剑=十字（Cross）、2nd He/星币=圣体（Host）（Papus 原文 1262-1269 行）",
+    "major_septenaries":  [
+                              {
+                                  "septenary":  1,
+                                  "range":  [
+                                                1,
+                                                2,
+                                                3,
+                                                4,
+                                                5,
+                                                6,
+                                                7
+                                            ],
+                                  "letter":  "Yod",
+                                  "polarity":  "正（positive）",
+                                  "world":  "神圣界/神（Divine World/God）",
+                                  "note":  "第一七组；7 为第一组末项兼第二组首项（原文 1609 行）；对应 Yod，统治 4 Kings/4 Aces/4 Fours/4 Sevens（原文 1664-1670 行）"
+                              },
+                              {
+                                  "septenary":  2,
+                                  "range":  [
+                                                7,
+                                                8,
+                                                9,
+                                                10,
+                                                11,
+                                                12,
+                                                13
+                                            ],
+                                  "letter":  "1st He",
+                                  "polarity":  "负（negative）",
+                                  "world":  "人界（Man）",
+                                  "note":  "第二七组；13 为第二组末项兼第三组首项；对应 1st He，统治 4 Queens/4 Twos/4 Fives/4 Eights（原文 1708-1714 行）"
+                              },
+                              {
+                                  "septenary":  3,
+                                  "range":  [
+                                                13,
+                                                14,
+                                                15,
+                                                16,
+                                                17,
+                                                18,
+                                                19
+                                            ],
+                                  "letter":  "Vau",
+                                  "polarity":  "中性（neuter）",
+                                  "world":  "自然（Nature）",
+                                  "note":  "第三七组；对应 Vau，统治 4 Knights/4 Threes/4 Sixes/4 Nines（原文 1730-1735 行）"
+                              },
+                              {
+                                  "septenary":  "transition",
+                                  "range":  [
+                                                19,
+                                                20,
+                                                21
+                                            ],
+                                  "letter":  "2nd He",
+                                  "polarity":  "过渡",
+                                  "world":  "创造/天意界→受造/命运界之通道（大小阿卡纳之桥）",
+                                  "note":  "过渡三组 19-20-21；对应 2nd He，统治 4 Knaves/4 Tens（原文 1612-1641、1747-1750 行）；原文说明：最后一卡本应编号 22（或希伯来对应）"
+                              }
+                          ],
+    "septenary_dominions":  [
+                                {
+                                    "septenary":  1,
+                                    "letter":  "Yod",
+                                    "minor_groups":  [
+                                                         "4 Kings",
+                                                         "4 Aces",
+                                                         "4 Fours",
+                                                         "4 Sevens"
+                                                     ],
+                                    "world":  "神圣界/神（Divine World/God）"
+                                },
+                                {
+                                    "septenary":  2,
+                                    "letter":  "1st He",
+                                    "minor_groups":  [
+                                                         "4 Queens",
+                                                         "4 Twos",
+                                                         "4 Fives",
+                                                         "4 Eights"
+                                                     ],
+                                    "world":  "人界（Man）"
+                                },
+                                {
+                                    "septenary":  3,
+                                    "letter":  "Vau",
+                                    "minor_groups":  [
+                                                         "4 Knights",
+                                                         "4 Threes",
+                                                         "4 Sixes",
+                                                         "4 Nines"
+                                                     ],
+                                    "world":  "自然（Nature）"
+                                },
+                                {
+                                    "septenary":  "transition",
+                                    "letter":  "2nd He",
+                                    "minor_groups":  [
+                                                         "4 Knaves",
+                                                         "4 Tens"
+                                                     ],
+                                    "world":  "创造/天意界→受造/命运界之通道（大小阿卡纳之桥）"
+                                }
+                            ],
+    "card_value_signs":  "每张小卡的精确值由大小阿卡纳两级符号组合定义（例：1 统治 King of Sceptres=正正 ++、King of Swords=正负 +-；原文 1769-1803 行）——\u0027The value of each of the 78 cards of the Tarot is thus defined\u0027",
+    "kabbalah":  {
+                     "source_note":  "Papus《The Tarot of the Bohemians》Ch18（7843-8034 行），文本层提取；Etteila 演绎 + Stanislas de Guaita 的 Adam 象形",
+                     "ettelia_decomposition":  [
+                                                   {
+                                                       "key":  "structure",
+                                                       "value":  "78 张 = 4 卷：22 大阿卡纳 = 3 卷，56 小阿卡纳 = 1 卷",
+                                                       "note":  "Book of Thoth；22 Major Atouts + 16 Minor Atouts(人物) + 40 Small cards"
+                                                   },
+                                                   {
+                                                       "key":  "packets",
+                                                       "value":  "56 = 26 + 17 + 11 + 2（第一读牌操作的余数分解）",
+                                                       "note":  "三叠余数：26=灵魂(Soul)、17=精神(Spirit)、11=身体(Body)；余 24=生命(Life)"
+                                                   },
+                                                   {
+                                                       "key":  "body_soul",
+                                                       "value":  "78=身体(body)、3=精神/媒介(spirit)、1=灵魂(soul)",
+                                                       "note":  "书如活物"
+                                                   },
+                                                   {
+                                                       "key":  "sum12",
+                                                       "value":  "1+2+3+…+12 = 78",
+                                                       "note":  "前 12 叶之和=全书总数"
+                                                   },
+                                                   {
+                                                       "key":  "numbers",
+                                                       "value":  "78=盐(Salt)/不朽精神；1=统一/神性(Divinity)；26=Jehovah(יהוה 数值)",
+                                                       "note":  "26 将塔罗分为三部分"
+                                                   },
+                                                   {
+                                                       "key":  "cosmos",
+                                                       "value":  "0=宇宙之圆周、1=中心点-神、2=男与女/人（God, Man, Universe）",
+                                                       "note":  "Etteila 神秘系统三要素"
+                                                   }
+                                               ],
+                     "adam_hierogram":  [
+                                            {
+                                                "key":  "spelling",
+                                                "value":  "ADM = Aleph(א) + Daleth(ד) + Mem(מ)",
+                                                "note":  "希伯来拼写 Adam"
+                                            },
+                                            {
+                                                "key":  "keys",
+                                                "value":  "Aleph=第 1 钥匙（Juggler）：神与人、原理与终点、均衡统一；Daleth=第 4 钥匙（Emperor）：权力与王国、四元言语、立方之增殖；Mem=第 13 钥匙（Death）：毁灭与重建、夜与日、过去之渊与未来之母、阴性被动",
+                                                "note":  "de Guaita；对应大阿卡纳钥匙"
+                                            },
+                                            {
+                                                "key":  "trinity",
+                                                "value":  "Aleph=父（三位一体之源）、Daleth=子（卡巴拉亦称王）、Mem=圣灵",
+                                                "note":  "与印度 Aum 象形类比"
+                                            },
+                                            {
+                                                "key":  "gematria",
+                                                "value":  "1 + 4 + 13 = 18 → 1+8 = 9（Adam 解析数）；9 + 1 = 10 = Yod（循环闭合回起点）",
+                                                "note":  "数值卡巴拉（Tarotic method）"
+                                            },
+                                            {
+                                                "key":  "ieue",
+                                                "value":  "IHVH/IEVE 四字母 = Mercavah 四元；Adam-Eve 六字母 = Bereschith 之六数；Vau=结合之丰饶，末 He=natura naturata",
+                                                "note":  "Fabre d\u0027Olivet 译法语境"
+                                            }
+                                        ]
+                 },
+    "numbers_esoterism":  {
+                              "source_note":  "Papus《The Tarot of the Bohemians》Ch3（693-887 行），文本层提取",
+                              "operations":  [
+                                                 {
+                                                     "name":  "Theosophic Reduction（神智学约简）",
+                                                     "rule":  "多位数各位相加，直至个位",
+                                                     "examples":  "10=1+0=1；11=1+1=2；126=1+2+6=9；2488=2+4+8+8=22=2+2=4",
+                                                     "note":  "相当于现代弃九法（proof by 9）"
+                                                 },
+                                                 {
+                                                     "name":  "Theosophic Addition（神智学加算）",
+                                                     "rule":  "某数的神智学值=从 1 加到该数本身（含）之和",
+                                                     "examples":  "4=1+2+3+4=10；7=1+2+3+4+5+6+7=28=2+8=10",
+                                                     "note":  "与约简联用"
+                                                 }
+                                             ],
+                              "unity_series":  "1、4、7、10 神智学等值均为 1：1=1；4=10=1；7=28=10=1；10=1。推广：4/7/10/13/16/19…皆为统一(Unity)的不同八度。每三个数系列骤回统一，中间两数渐进回归",
+                              "meaning":  [
+                                              {
+                                                  "number":  1,
+                                                  "name":  "Unity（统一）",
+                                                  "meaning":  "一切数的创造原则，主动原则至上（active principle pre-eminent）",
+                                                  "note":  "其余皆自它流出"
+                                              },
+                                              {
+                                                  "number":  2,
+                                                  "name":  "Duality（二元）",
+                                                  "meaning":  "统一自我对立（1/1）而生对立原则，被动原则至上（passive principle）",
+                                                  "note":  "对立之原理"
+                                              },
+                                              {
+                                                  "number":  3,
+                                                  "name":  "Ternary（三一）",
+                                                  "meaning":  "1+2=3：统一对立于共同中性，中性原则至上（neuter principle）",
+                                                  "note":  "对立之综合"
+                                              },
+                                              {
+                                                  "number":  4,
+                                                  "name":  "Quaternary（四元）",
+                                                  "meaning":  "前三原则归于第四，是新接受度的统一/主动原则（active 新八度）",
+                                                  "note":  "一切数最终可约简为前四个：1.2.3/4"
+                                              }
+                                          ]
+                          },
+    "application_key":  {
+                            "source_note":  "Papus《The Tarot of the Bohemians》Ch15（6107-6291 行），文本层提取",
+                            "principle":  "第 21 卡（世界）= 形象-原理（figure-principle）：如棱镜分解白光——图形恒定、所附词汇可变（类比法基础：一个固定不变的图形，逐层套用不同现象秩序）",
+                            "fixed_mobile":  [
+                                                 {
+                                                     "role":  "四角固定原则",
+                                                     "content":  "四个角符号不动，依次可作：四福音兽 → 四季节 → 四月相 → 人生四阶段",
+                                                     "note":  "每层应用都是同一图形"
+                                                 },
+                                                 {
+                                                     "role":  "中心轮动原则",
+                                                     "content":  "轮（rota）与中心符号可换：白光/唯一力 → 行星体系 → 太阳/月亮/地球 → 人类意志",
+                                                     "note":  "轮动中心+固定四角"
+                                                 }
+                                             ],
+                            "applications":  [
+                                                 {
+                                                     "level":  "年（Year）",
+                                                     "corners":  "四季",
+                                                     "wheel":  "黄道十二宫",
+                                                     "center":  "Eve（行星体系，animates 黄道）",
+                                                     "note":  "原文 6236-6241 行"
+                                                 },
+                                                 {
+                                                     "level":  "月（Month）",
+                                                     "corners":  "四月相",
+                                                     "wheel":  "月亮二十八宿",
+                                                     "center":  "太阳（animates 月亮）",
+                                                     "note":  "原文 6247-6254 行"
+                                                 },
+                                                 {
+                                                     "level":  "日（Day）",
+                                                     "corners":  "（四角）",
+                                                     "wheel":  "（轮）",
+                                                     "center":  "地球",
+                                                     "note":  "单日星盘；原文 6256-6266 行"
+                                                 },
+                                                 {
+                                                     "level":  "人生（Human Life）",
+                                                     "corners":  "人生四阶段",
+                                                     "wheel":  "三环时间结构",
+                                                     "center":  "人类意志",
+                                                     "note":  "占卜塔罗基础：神意(外圈)→未来、命运(中圈)→过去、人类意志(中心圈)→现在；原文 6268-6284 行"
+                                                 }
+                                             ]
+                        },
+    "zodiac_decani":  {
+                          "source_note":  "Papus《The Tarot of the Bohemians》Ch16 天文塔罗（PDF 页 186-189 插图对应表，已读图提取），与文本片段（King of Sceptres→白羊）一致",
+                          "court_zodiac":  [
+                                               {
+                                                   "season":  "Spring 春",
+                                                   "suit":  "Sceptres",
+                                                   "king":  "Aries 白羊",
+                                                   "queen":  "Taurus 金牛",
+                                                   "knight":  "Gemini 双子",
+                                                   "knave":  "过渡/闰日"
+                                               },
+                                               {
+                                                   "season":  "Summer 夏",
+                                                   "suit":  "Cups",
+                                                   "king":  "Cancer 巨蟹",
+                                                   "queen":  "Leo 狮子",
+                                                   "knight":  "Virgo 处女",
+                                                   "knave":  "过渡/闰日"
+                                               },
+                                               {
+                                                   "season":  "Autumn 秋",
+                                                   "suit":  "Swords",
+                                                   "king":  "Libra 天秤",
+                                                   "queen":  "Scorpio 天蝎",
+                                                   "knight":  "Sagittarius 射手",
+                                                   "knave":  "过渡/闰日"
+                                               },
+                                               {
+                                                   "season":  "Winter 冬",
+                                                   "suit":  "Pentacles",
+                                                   "king":  "Capricorn 摩羯",
+                                                   "queen":  "Aquarius 水瓶",
+                                                   "knight":  "Pisces 双鱼",
+                                                   "knave":  "过渡/闰日"
+                                               }
+                                           ],
+                          "month_structure":  "每季 3 月：KING=第 1 月（创造月·Yod）、QUEEN=第 2 月（均衡月·He）、KNIGHT=第 3 月（实现月·Vau）、KNAVE=季节过渡（Epagomene 闰日）；每月 3 旬（decani，每旬 10 日）——ACE=第 1 旬（创造旬·Yod）、2=第 2 旬（成形/保存旬·He）、3=第 3 旬（均衡旬·Vau）、4=下系列第 1 旬之过渡",
+                          "decan_days":  "每 decan 统治黄道 10°、对应每月约 10 日；每张小卡=一年中的确定时段。示例（原文）：Ace of Sceptres=3 月 21-30 日、2 of Sceptres=3 月 31-4 月 9 日、3 of Sceptres=4 月 10-19 日；其余按每旬 10 日顺推（推算值，标注）",
+                          "series":  [
+                                         {
+                                             "card":  "ace of sceptres",
+                                             "zodiac_sign":  "the ram",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "2 of sceptres",
+                                             "zodiac_sign":  "the ram",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "3 of sceptres",
+                                             "zodiac_sign":  "the ram",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "4 of sceptres",
+                                             "zodiac_sign":  "the bull",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "5 of sceptres",
+                                             "zodiac_sign":  "the bull",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "6 of sceptres",
+                                             "zodiac_sign":  "the bull",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "7 of sceptres",
+                                             "zodiac_sign":  "the twins",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "8 of sceptres",
+                                             "zodiac_sign":  "the twins",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "9 of sceptres",
+                                             "zodiac_sign":  "the twins",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "10 of sceptres",
+                                             "zodiac_sign":  "（季节过渡）",
+                                             "decan":  "transition / epagomene（闰日）"
+                                         },
+                                         {
+                                             "card":  "ace of cups",
+                                             "zodiac_sign":  "cancer",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "2 of cups",
+                                             "zodiac_sign":  "cancer",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "3 of cups",
+                                             "zodiac_sign":  "cancer",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "4 of cups",
+                                             "zodiac_sign":  "the lion",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "5 of cups",
+                                             "zodiac_sign":  "the lion",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "6 of cups",
+                                             "zodiac_sign":  "the lion",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "7 of cups",
+                                             "zodiac_sign":  "the virgin",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "8 of cups",
+                                             "zodiac_sign":  "the virgin",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "9 of cups",
+                                             "zodiac_sign":  "the virgin",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "10 of cups",
+                                             "zodiac_sign":  "（季节过渡）",
+                                             "decan":  "transition / epagomene（闰日）"
+                                         },
+                                         {
+                                             "card":  "ace of swords",
+                                             "zodiac_sign":  "the balance",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "2 of swords",
+                                             "zodiac_sign":  "the balance",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "3 of swords",
+                                             "zodiac_sign":  "the balance",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "4 of swords",
+                                             "zodiac_sign":  "the scorpion",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "5 of swords",
+                                             "zodiac_sign":  "the scorpion",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "6 of swords",
+                                             "zodiac_sign":  "the scorpion",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "7 of swords",
+                                             "zodiac_sign":  "sagittarius",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "8 of swords",
+                                             "zodiac_sign":  "sagittarius",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "9 of swords",
+                                             "zodiac_sign":  "sagittarius",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "10 of swords",
+                                             "zodiac_sign":  "（季节过渡）",
+                                             "decan":  "transition / epagomene（闰日）"
+                                         },
+                                         {
+                                             "card":  "ace of pentacles",
+                                             "zodiac_sign":  "capricornus",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "2 of pentacles",
+                                             "zodiac_sign":  "capricornus",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "3 of pentacles",
+                                             "zodiac_sign":  "capricornus",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "4 of pentacles",
+                                             "zodiac_sign":  "aquarius",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "5 of pentacles",
+                                             "zodiac_sign":  "aquarius",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "6 of pentacles",
+                                             "zodiac_sign":  "aquarius",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "7 of pentacles",
+                                             "zodiac_sign":  "the fishes",
+                                             "decan":  "1st decan"
+                                         },
+                                         {
+                                             "card":  "8 of pentacles",
+                                             "zodiac_sign":  "the fishes",
+                                             "decan":  "2nd decan"
+                                         },
+                                         {
+                                             "card":  "9 of pentacles",
+                                             "zodiac_sign":  "the fishes",
+                                             "decan":  "3rd decan"
+                                         },
+                                         {
+                                             "card":  "10 of pentacles",
+                                             "zodiac_sign":  "（季节过渡）",
+                                             "decan":  "transition / epagomene（闰日）"
+                                         }
+                                     ]
+                      },
+    "divining_minor":  {
+                           "source":  "Papus Ch20 第二课文本层（8339-8615 行）",
+                           "suits":  {
+                                         "SCEPTRES":  {
+                                                          "keywords":  "Creation. Enterprise. Agriculture.",
+                                                          "notes":  "",
+                                                          "cards":  {
+                                                                        "KING":  "The King of Sceptres symbolizes a dark man, a friend. He generally represents a married man, the father of a family.",
+                                                                        "QUEEN":  "A dark woman, a friend. Represents a serious woman, a very good counsellor, often the mother of a family.",
+                                                                        "KNIGHT":  "A dark young man, a friend.",
+                                                                        "KNAVE":  "A dark child, a friend. Also represents a message from a near relation.",
+                                                                        "ACE OF SCEPTRES":  "Commencement of an Enterprise.",
+                                                                        "TWO":  "Opposition to the commencement of the Enterprise. The Enterprise is commenced when an unexpected obstacle suddenly prevents its execution.",
+                                                                        "THREE":  "Realization of the commencement of the Enterprise. The basis of the work is now definitely established, and the undertaking can be fearlessly continued.",
+                                                                        "FOUR":  "Obstacles to the Enterprise. Nothing can be accomplished without obstacles. We therefore now find them appearing, and must prepare ourselves to overcome them.",
+                                                                        "FIVE":  "Opposition to the obstacles. Victory after surmounting them.",
+                                                                        "SIX":  "Realization of the opposition. At last the obstacles succeed. Failure of the Enterprise in the midst of its execution.",
+                                                                        "SEVEN":  "Certain success to the Enterprise.",
+                                                                        "EIGHT":  "Opposition to its success. The Enterprise will only partially succeed.",
+                                                                        "NINE":  "Realization of success. Success is continued.",
+                                                                        "TEN":  "Uncertainty in the management of the Enterprise.",
+                                                                        "cn_KING":  "权杖国王象征一位深色男子，一位朋友。通常代表已婚男子、一家之父。",
+                                                                        "cn_QUEEN":  "深色女子，一位朋友。代表严肃的女子、很好的参谋，常为一家之母。",
+                                                                        "cn_KNIGHT":  "深色青年，一位朋友。",
+                                                                        "cn_KNAVE":  "深色孩童，一位朋友。亦代表近亲的消息。",
+                                                                        "cn_ACE OF SCEPTRES":  "事业的开始。",
+                                                                        "cn_TWO":  "对事业开始的阻碍。当意外的障碍突然阻止其执行时，事业便告开始。",
+                                                                        "cn_THREE":  "事业开始的实现。工作的基础现已确定建立，事业可无畏地继续。",
+                                                                        "cn_FOUR":  "事业的障碍。无阻碍则一事无成。故此刻它们出现，我们必须准备克服。",
+                                                                        "cn_FIVE":  "对障碍的对抗。克服它们之后的胜利。",
+                                                                        "cn_SIX":  "对抗的实现。障碍终于得逞。事业在执行中途失败。",
+                                                                        "cn_SEVEN":  "事业的确定成功。",
+                                                                        "cn_EIGHT":  "对其成功的对抗。事业将只部分成功。",
+                                                                        "cn_NINE":  "成功的实现。成功得以延续。",
+                                                                        "cn_TEN":  "事业管理中的不确定性。"
+                                                                    }
+                                                      },
+                                         "CUPS":  {
+                                                      "keywords":  "Preservation. Love. Instruction.",
+                                                      "notes":  "Knowing the meaning of one series, we know à priori the significations of the three others. We shall however give them in order to facilitate the work.",
+                                                      "cards":  {
+                                                                    "KING":  "A fair man, a friend. This card also represents a barrister, judge, or ecclesiastic. It symbolizes a Bachelor.",
+                                                                    "QUEEN":  "A fair woman, a friend. The woman loved. The Mistress.",
+                                                                    "KNIGHT":  "A young fair man, a friend. The young man loved. The Lover.",
+                                                                    "KNAVE":  "A fair child. A messenger. Birth.",
+                                                                    "ACE OF CUPS":  "Commencement of a love affair.",
+                                                                    "TWO":  "Opposition to this commencement. Unimportant obstacles raised by one of the lovers.",
+                                                                    "THREE":  "Realization of this commencement. The love is mutual.",
+                                                                    "FOUR":  "Serious obstacles to the love. They arise from other persons, not from the lovers.",
+                                                                    "FIVE":  "Opposition to the obstacles. Victory over the obstacles after a struggle.",
+                                                                    "SIX":  "The obstacles triumph. Love destroyed in the midst of happiness. Widowhood.",
+                                                                    "SEVEN":  "Success assured to the lovers.",
+                                                                    "EIGHT":  "Partial failure of love. Love only partially succeeds.",
+                                                                    "NINE":  "Motherhood.",
+                                                                    "TEN":  "Uncertainty in the management of the love affair.",
+                                                                    "cn_KING":  "白皙男子，一位朋友。此牌亦代表律师、法官或教士。象征一位单身汉。",
+                                                                    "cn_QUEEN":  "白皙女子，一位朋友。被爱之女子。女主人。",
+                                                                    "cn_KNIGHT":  "年轻白皙男子，一位朋友。被爱之青年。恋人。",
+                                                                    "cn_KNAVE":  "白皙孩童。信使。诞生。",
+                                                                    "cn_ACE OF CUPS":  "恋情的开始。",
+                                                                    "cn_TWO":  "对此开始的阻碍。一位恋人设下的小障碍。",
+                                                                    "cn_THREE":  "此开始的实现。两情相悦。",
+                                                                    "cn_FOUR":  "爱情的严重障碍。来自他人而非恋人自身。",
+                                                                    "cn_FIVE":  "对障碍的对抗。挣扎之后克服障碍的胜利。",
+                                                                    "cn_SIX":  "障碍获胜。幸福之中爱情被毁。守寡。",
+                                                                    "cn_SEVEN":  "恋人们获得确定的成功。",
+                                                                    "cn_EIGHT":  "爱情的部分失败。爱只部分成功。",
+                                                                    "cn_NINE":  "母性。",
+                                                                    "cn_TEN":  "恋情管理中的不确定性。"
+                                                                }
+                                                  },
+                                         "SWORDS":  {
+                                                        "keywords":  "Transformation. Hatred. War.",
+                                                        "notes":  "",
+                                                        "cards":  {
+                                                                      "KING":  "A dark, bad man. He is a soldier, a powerful enemy, who must be distrusted.",
+                                                                      "QUEEN":  "A dark wicked woman. The card also indicates her actions, gossip and calumnies.",
+                                                                      "KNIGHT":  "A young, dark man, an enemy. He is also a spy.",
+                                                                      "KNAVE":  "A child, an enemy. Bad news. Delay. The figures generally indicate opposition raised outside the house.",
+                                                                      "ACE OF SWORDS":  "Commencement of enmity.",
+                                                                      "TWO":  "Opposition to this commencement. The enmity does not last.",
+                                                                      "THREE":  "Realization of the enmity. Hatred.",
+                                                                      "FOUR":  "Opposition to the hatred. Success against the enemy.",
+                                                                      "FIVE":  "Opposition to this opposition. The enemy triumphs at the moment one fancies the victory is secured.",
+                                                                      "SIX":  "Equilibrium of the opposition. The enemy is rendered powerless at last.",
+                                                                      "SEVEN":  "Success assured to the enemy.",
+                                                                      "EIGHT":  "Partial opposition to this success. The enemy only partially triumphs.",
+                                                                      "NINE":  "Certain duration of the hatred.",
+                                                                      "TEN":  "Uncertainty in the enmity.",
+                                                                      "cn_KING":  "深色恶男子。他是军人、强大的敌人，必须提防。",
+                                                                      "cn_QUEEN":  "深色恶女子。此牌亦指其行为、流言与诽谤。",
+                                                                      "cn_KNIGHT":  "年轻的深色男子，敌人。亦是间谍。",
+                                                                      "cn_KNAVE":  "孩童，敌人。坏消息。延迟。人物通常象征屋外兴起的对立。",
+                                                                      "cn_ACE OF SWORDS":  "敌意的开始。",
+                                                                      "cn_TWO":  "对此开始的对抗。敌意不持久。",
+                                                                      "cn_THREE":  "敌意的实现。仇恨。",
+                                                                      "cn_FOUR":  "对仇恨的对抗。对敌成功。",
+                                                                      "cn_FIVE":  "对此对抗的对抗。正当人以为胜利已稳时，敌人得胜。",
+                                                                      "cn_SIX":  "对抗的平衡。敌人最终无能为力。",
+                                                                      "cn_SEVEN":  "敌人获得确定成功。",
+                                                                      "cn_EIGHT":  "对此成功的部分对抗。敌人只部分得胜。",
+                                                                      "cn_NINE":  "仇恨的确定延续。",
+                                                                      "cn_TEN":  "敌意中的不确定性。"
+                                                                  }
+                                                    },
+                                         "PENTACLES":  {
+                                                           "keywords":  "Development. Money. Trade.",
+                                                           "notes":  "",
+                                                           "cards":  {
+                                                                         "KING":  "A fair man, inimical or indifferent.",
+                                                                         "QUEEN":  "A fair woman, indifferent, or inimical.",
+                                                                         "KNIGHT":  "A young, fair man. A stranger. An arrival.",
+                                                                         "KNAVE":  "A fair child. A messenger. A letter. The figures of the Pentacles are inverse to those of the Sceptres and Cups, and indicate all that comes from outside, from the country or abroad.",
+                                                                         "ACE OF PENTACLES":  "Commencement of fortune. Inheritance. Gifts. Economy, etc., etc.",
+                                                                         "TWO":  "Opposition to this commencement. Difficulty in well establishing the first landmarks of good fortune.",
+                                                                         "THREE":  "Realization of this commencement of fortune. A small sum.",
+                                                                         "FOUR":  "Opposition of fortune. Loss of money.",
+                                                                         "FIVE":  "Opposition to this opposition. A success coming which will balance the low.",
+                                                                         "SIX":  "Realization of the opposition. Ruin.",
+                                                                         "SEVEN":  "Success assured. A large fortune.",
+                                                                         "EIGHT":  "Partial success. Great loss of money at the moment apparently of definitely securing the fortune.",
+                                                                         "NINE":  "Equilibrium of Equilibrium. A durable fortune.",
+                                                                         "TEN":  "Uncertainty in the fortune. Great success and great reverses.",
+                                                                         "cn_KING":  "白皙男子，敌意或冷淡。",
+                                                                         "cn_QUEEN":  "白皙女子，冷淡或敌意。",
+                                                                         "cn_KNIGHT":  "年轻白皙男子。陌生人。来客。",
+                                                                         "cn_KNAVE":  "白皙孩童。信使。一封信。钱币人物与权杖、圣杯相反，指一切外来之物。",
+                                                                         "cn_ACE OF PENTACLES":  "财富的开始。遗产。礼物。节约等。",
+                                                                         "cn_TWO":  "对此开始的对抗。难以稳固确立好运的最初基石。",
+                                                                         "cn_THREE":  "财富开始的实现。一小笔款项。",
+                                                                         "cn_FOUR":  "财富的对抗。金钱损失。",
+                                                                         "cn_FIVE":  "对此对抗的对抗。一场平衡损失的成功到来。",
+                                                                         "cn_SIX":  "对抗的实现。破产。",
+                                                                         "cn_SEVEN":  "确定成功。大笔财富。",
+                                                                         "cn_EIGHT":  "部分成功。看似将稳获财富之际却遭金钱大损。",
+                                                                         "cn_NINE":  "平衡之平衡。持久的财富。",
+                                                                         "cn_TEN":  "财富中的不确定性。大成功与大挫折。"
+                                                                     }
+                                                       }
+                                     }
+                       },
+    "divining_major":  {
+                           "source":  "Papus Ch20 第三课扫描页 p239 OCR 提取；Papus 编号体系",
+                           "cards":  [
+                                         {
+                                             "papus_no":  1,
+                                             "papus_name":  "The Juggler",
+                                             "waite_name":  "The Magician",
+                                             "meaning":  "MALE INQUIRER.",
+                                             "cn_meaning":  "男性求问者。"
+                                         },
+                                         {
+                                             "papus_no":  2,
+                                             "papus_name":  "The High Priestess",
+                                             "waite_name":  "The High Priestess",
+                                             "meaning":  "FEMALE INQUIRER.",
+                                             "cn_meaning":  "女性求问者。"
+                                         },
+                                         {
+                                             "papus_no":  3,
+                                             "papus_name":  "The Empress",
+                                             "waite_name":  "The Empress",
+                                             "meaning":  "ACTION. INITIATIVE.",
+                                             "cn_meaning":  "行动。主动。"
+                                         },
+                                         {
+                                             "papus_no":  4,
+                                             "papus_name":  "The Emperor",
+                                             "waite_name":  "The Emperor",
+                                             "meaning":  "WILL",
+                                             "cn_meaning":  "意志。"
+                                         },
+                                         {
+                                             "papus_no":  5,
+                                             "papus_name":  "The Pope",
+                                             "waite_name":  "The Hierophant",
+                                             "meaning":  "INSPIRATION.",
+                                             "cn_meaning":  "灵感。"
+                                         },
+                                         {
+                                             "papus_no":  6,
+                                             "papus_name":  "The Lovers",
+                                             "waite_name":  "The Lovers",
+                                             "meaning":  "LOVE.",
+                                             "cn_meaning":  "爱情。"
+                                         },
+                                         {
+                                             "papus_no":  7,
+                                             "papus_name":  "The Chariot",
+                                             "waite_name":  "The Chariot",
+                                             "meaning":  "TRIUMPH. PROVIDENTIAL PROTECTION.",
+                                             "cn_meaning":  "胜利。天佑护佑。"
+                                         },
+                                         {
+                                             "papus_no":  8,
+                                             "papus_name":  "Justice",
+                                             "waite_name":  "Justice",
+                                             "meaning":  "JUSTICE.",
+                                             "cn_meaning":  "正义。"
+                                         },
+                                         {
+                                             "papus_no":  9,
+                                             "papus_name":  "The Hermit",
+                                             "waite_name":  "The Hermit",
+                                             "meaning":  "PRUDENCE.",
+                                             "cn_meaning":  "审慎。"
+                                         },
+                                         {
+                                             "papus_no":  10,
+                                             "papus_name":  "The Wheel of Fortune",
+                                             "waite_name":  "Wheel of Fortune",
+                                             "meaning":  "FORTUNE. DESTINY.",
+                                             "cn_meaning":  "命运。天命。"
+                                         },
+                                         {
+                                             "papus_no":  11,
+                                             "papus_name":  "Strength",
+                                             "waite_name":  "Strength",
+                                             "meaning":  "STRENGTH. FORTITUDE.",
+                                             "cn_meaning":  "力量。坚毅。"
+                                         },
+                                         {
+                                             "papus_no":  12,
+                                             "papus_name":  "The Hanged Man",
+                                             "waite_name":  "The Hanged Man",
+                                             "meaning":  "TRIALS. SACRIFICE.",
+                                             "cn_meaning":  "考验。牺牲。"
+                                         },
+                                         {
+                                             "papus_no":  13,
+                                             "papus_name":  "Death",
+                                             "waite_name":  "Death",
+                                             "meaning":  "DEATH.",
+                                             "cn_meaning":  "死亡。"
+                                         },
+                                         {
+                                             "papus_no":  14,
+                                             "papus_name":  "Temperance",
+                                             "waite_name":  "Temperance",
+                                             "meaning":  "TEMPERANCE. ECONOMY.",
+                                             "cn_meaning":  "节制。节约。"
+                                         },
+                                         {
+                                             "papus_no":  15,
+                                             "papus_name":  "The Devil",
+                                             "waite_name":  "The Devil",
+                                             "meaning":  "IMMENSE FORCE. ILLNESS.",
+                                             "cn_meaning":  "巨大力量。疾病。"
+                                         },
+                                         {
+                                             "papus_no":  16,
+                                             "papus_name":  "The Lightning-struck Tower",
+                                             "waite_name":  "The Tower",
+                                             "meaning":  "RUIN. DECEPTION.",
+                                             "cn_meaning":  "毁灭。欺骗。"
+                                         },
+                                         {
+                                             "papus_no":  17,
+                                             "papus_name":  "The Stars",
+                                             "waite_name":  "The Star",
+                                             "meaning":  "HOPE.",
+                                             "cn_meaning":  "希望。"
+                                         },
+                                         {
+                                             "papus_no":  18,
+                                             "papus_name":  "The Moon",
+                                             "waite_name":  "The Moon",
+                                             "meaning":  "HIDDEN ENEMIES. DANGER",
+                                             "cn_meaning":  "隐藏的敌人。危险。"
+                                         },
+                                         {
+                                             "papus_no":  19,
+                                             "papus_name":  "The Sun",
+                                             "waite_name":  "The Sun",
+                                             "meaning":  "MATERIAL HAPPINESS. LUCKY MARRIAGE.",
+                                             "cn_meaning":  "物质幸福。幸运婚姻。"
+                                         },
+                                         {
+                                             "papus_no":  20,
+                                             "papus_name":  "The Judgment",
+                                             "waite_name":  "Judgement",
+                                             "meaning":  "CHANGE OF POSITION.",
+                                             "cn_meaning":  "位置变动。"
+                                         },
+                                         {
+                                             "papus_no":  21,
+                                             "papus_name":  "The Foolish Man",
+                                             "waite_name":  "The Fool",
+                                             "meaning":  "INCONSIDERATE ACTIONS. MADNESS.",
+                                             "cn_meaning":  "不假思索的行为。疯狂。"
+                                         },
+                                         {
+                                             "papus_no":  22,
+                                             "papus_name":  "The Universe",
+                                             "waite_name":  "The World",
+                                             "meaning":  "ASSURED SUCCESS.",
+                                             "cn_meaning":  "确定成功。"
+                                         }
+                                     ]
+                       },
+    "divining_system":  {
+                            "source":  "Papus《The Tarot of the Bohemians》1892 Ch20 The Divining Tarot in Seven Lessons；大卡表为扫描页 p239 读图 OCR 提取（Papus 编号 1-22，与韦特 0-21 不同：16=Tower 称 Lightning-struck Tower、21=Fool 称 Foolish Man、22=World 称 Universe；8/11 正义与力量未换位）",
+                            "four_principles":  "四花色原理：Sceptres=Enterprise（企业/事业）、Cups=Love（爱）、Swords=Hatred（恨/敌意）、Pentacles=Fortune（金钱/命运）",
+                            "triple_method":  "三元法：每花色 10 数字按 (1,2,3)(4,5,6)(7,8,9) 分组 + 10 不定；组内依次=开端/对立/平衡（Commencement/Opposition/Equilibrium=Thesis/Antithesis/Synthesis=Brahma/Siva/Vishnu）；1 开端、2 对立、3 实现；4 障碍、5 反对障碍、6 对立实现；7 成功保证、8 部分成功、9 成功实现、10 不定",
+                            "figure_logic":  "四人物=Man（创造者/阳性）/Woman（阴性/爱）/Young Man（冲突斗争敌意/中性）/Child（绝对中性，第二 He，金钱/普遍过渡）；Sceptres+Swords 人物=深肤色，Cups+Pentacles=浅肤色；Sceptres+Cups 人物=好，Swords+Pentacles=坏",
+                            "life_periods":  "人类生命四时期：Childhood/Youth/Maturity/Old Age；事件四演化：Commencement/Apogee/Decline/Fall",
+                            "four_points":  "四点位排布（十字）：1=Commencement/Childhood（开端/童年）、4=Apogee/Youth（顶点/青年）、3=Decline/Maturity（衰退/成熟）、2=Fall/Old Age（落幕/老年）；The Inquirer 居中心；读序：点位 1→4→3→2；符号右到左读",
+                            "twelve_points":  "重要占卜用十二点位，对应十二月",
+                            "past_present_future":  "人生/事件三时期：Past/Present/Future，三角排布，求问者居中"
+                        }
+}

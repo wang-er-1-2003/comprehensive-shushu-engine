@@ -1,0 +1,832 @@
+{
+ "source": "Paul Foster Case《The Tarot: A Key to the Wisdom of the Ages》1927 第一版；文本层提取自公版扫描 PDF（无 OCR）。全部条目为原文事实摘录/摘要，非演绎。",
+ "hebrew_attribution": [
+  {
+   "key": 0,
+   "card": "The Fool",
+   "letter": "Aleph",
+   "hebrew_char": "א",
+   "note": "Case 原文对应表 Key 0 → Aleph"
+  },
+  {
+   "key": 1,
+   "card": "The Magician",
+   "letter": "Beth",
+   "hebrew_char": "ב",
+   "note": "Key 1 → Beth"
+  },
+  {
+   "key": 2,
+   "card": "The High Priestess",
+   "letter": "Gimel",
+   "hebrew_char": "ג",
+   "note": "Key 2 → Gimel"
+  },
+  {
+   "key": 3,
+   "card": "The Empress",
+   "letter": "Daleth",
+   "hebrew_char": "ד",
+   "note": "Key 3 → Daleth"
+  },
+  {
+   "key": 4,
+   "card": "The Emperor",
+   "letter": "Heh",
+   "hebrew_char": "ה",
+   "note": "Key 4 → Heh"
+  },
+  {
+   "key": 5,
+   "card": "The Hierophant",
+   "letter": "Vav",
+   "hebrew_char": "ו",
+   "note": "Key 5 → Vav"
+  },
+  {
+   "key": 6,
+   "card": "The Lovers",
+   "letter": "Zain",
+   "hebrew_char": "ז",
+   "note": "Key 6 → Zain"
+  },
+  {
+   "key": 7,
+   "card": "The Chariot",
+   "letter": "Cheth",
+   "hebrew_char": "ח",
+   "note": "Key 7 → Cheth"
+  },
+  {
+   "key": 8,
+   "card": "Strength",
+   "letter": "Teth",
+   "hebrew_char": "ט",
+   "note": "Key 8 → Teth；Case 说明：Strength 在 Rider 包编号 8 对应 Leo；旧意大利/法国通行的外传版本把 8 给 Justice、11 给 Strength"
+  },
+  {
+   "key": 9,
+   "card": "The Hermit",
+   "letter": "Yod",
+   "hebrew_char": "י",
+   "note": "Key 9 → Yod"
+  },
+  {
+   "key": 10,
+   "card": "Wheel of Fortune",
+   "letter": "Kaph",
+   "hebrew_char": "כ",
+   "note": "Key 10 → Kaph"
+  },
+  {
+   "key": 11,
+   "card": "Justice",
+   "letter": "Lamed",
+   "hebrew_char": "ל",
+   "note": "Key 11 → Lamed；对应 Libra"
+  },
+  {
+   "key": 12,
+   "card": "The Hanged Man",
+   "letter": "Mem",
+   "hebrew_char": "מ",
+   "note": "Key 12 → Mem"
+  },
+  {
+   "key": 13,
+   "card": "Death",
+   "letter": "Nun",
+   "hebrew_char": "נ",
+   "note": "Key 13 → Nun"
+  },
+  {
+   "key": 14,
+   "card": "Temperance",
+   "letter": "Samekh",
+   "hebrew_char": "ס",
+   "note": "Key 14 → Samekh"
+  },
+  {
+   "key": 15,
+   "card": "The Devil",
+   "letter": "Ayin",
+   "hebrew_char": "ע",
+   "note": "Key 15 → Ayin"
+  },
+  {
+   "key": 16,
+   "card": "The Tower",
+   "letter": "Peh",
+   "hebrew_char": "פ",
+   "note": "Key 16 → Peh"
+  },
+  {
+   "key": 17,
+   "card": "The Star",
+   "letter": "Tzaddi",
+   "hebrew_char": "צ",
+   "note": "Key 17 → Tzaddi"
+  },
+  {
+   "key": 18,
+   "card": "The Moon",
+   "letter": "Qoph",
+   "hebrew_char": "ק",
+   "note": "Key 18 → Qoph"
+  },
+  {
+   "key": 19,
+   "card": "The Sun",
+   "letter": "Resh",
+   "hebrew_char": "ר",
+   "note": "Key 19 → Resh"
+  },
+  {
+   "key": 20,
+   "card": "Judgement",
+   "letter": "Shin",
+   "hebrew_char": "ש",
+   "note": "Key 20 → Shin；Qabalists 称 Shin 为 Holy Letter"
+  },
+  {
+   "key": 21,
+   "card": "The World",
+   "letter": "Tav",
+   "hebrew_char": "ת",
+   "note": "Key 21 → Tav（原文拼 Tav）"
+  }
+ ],
+ "numbers": [
+  {
+   "number": 0,
+   "meanings": "无形式的精神/零；Qabalah 中为 Ain/Ayin（Case 上下文）；与 Aleph 关联",
+   "qabalah_name": null,
+   "intelligence": null,
+   "note": "Case 数字章以 1 起；0 在 Fool/Aleph 章阐释"
+  },
+  {
+   "number": 1,
+   "meanings": "I AM；本质、实体、能量与意识；第一原理、第一推动；在人身上表现为醒觉的自我意识",
+   "qabalah_name": null,
+   "intelligence": null,
+   "note": "Case 原文：'the I AM, or number 1, is the essence, substance, energy and consciousness'"
+  },
+  {
+   "number": 2,
+   "meanings": "复制、反射、接受、依赖、交替、敌对；Qabalists 称 Wisdom（智慧），I AM 之镜；亦为万有中生命之力",
+   "qabalah_name": "Wisdom",
+   "intelligence": "Illuminating Intelligence（照亮智能）",
+   "note": "数字 2 = 智性之圆镜照"
+  },
+  {
+   "number": 3,
+   "meanings": "增殖、发展、成长、展开、表达；1 之原理经 2 反射后的实际展开；理解是抽象智慧的具体应用",
+   "qabalah_name": "Understanding",
+   "intelligence": "Sanctifying Intelligence（圣化智能）",
+   "note": "3 为 1 与 2 的结果/展开"
+  },
+  {
+   "number": 4,
+   "meanings": "秩序、度量、分类、记录、制表；Qabalists 以 4 为记忆之数；善施（测度而施，不浪费）",
+   "qabalah_name": null,
+   "intelligence": "Measuring Intelligence（度量智能）",
+   "note": "4 含三角形(3)与 T-square(4)之象"
+  },
+  {
+   "number": 5,
+   "meanings": "中介（1 起始与 9 完成之间的中数）、适应、手段、活动、过程；法则(Law)；宗教（畏惧而起献祭）；力量与严厉；也是人之数",
+   "qabalah_name": "Fear（恐惧）",
+   "intelligence": "Radical Intelligence（根本智能）",
+   "note": "5 是动态的法则，自抽象秩序(4)而来"
+  },
+  {
+   "number": 6,
+   "meanings": "平衡、均衡、对称、美；对立和谐、互补活动、极性、爱",
+   "qabalah_name": null,
+   "intelligence": "Intelligence of Mediating Influence（中介影响智能）",
+   "note": "6 的对称性暗示美的哲学观念"
+  },
+  {
+   "number": 7,
+   "meanings": "安息、安全、保障、胜利；希伯来语 '七' 与 '誓约' 同源；大功未竟、宇宙实验未成但必然成功",
+   "qabalah_name": null,
+   "intelligence": "Occult or Hidden Intelligence（隐秘智能）",
+   "note": "圣经大数；古代 7 表暂时止息非最终圆满"
+  },
+  {
+   "number": 8,
+   "meanings": "韵律、交替循环（卷入/进化）、振动、涨落；对立形式同出一因；魔法与赫尔墨斯科学之数；IHVH 的数字值；Thoth/Nebo/Hermes/Mercury 之数",
+   "qabalah_name": "Splendor（光辉）",
+   "intelligence": "Perfect Intelligence（完美智能）",
+   "note": "8 横向书写为无限符号"
+  },
+  {
+   "number": 9,
+   "meanings": "完成、达成、圆满、目标、活动周期之末；每一终结是新生之种；一切实用神秘学之基",
+   "qabalah_name": "Basis or Foundation（基础）",
+   "intelligence": "Pure or Clear Intelligence（纯净智能）",
+   "note": "9 非绝对停止，周期终即新周期始"
+  },
+  {
+   "number": 10,
+   "meanings": "完美与主权；超意识之圆(0)与自我意识之直线(1)之合；I AM 的主动、专精、集中而涌出无限生命之力",
+   "qabalah_name": "Kingdom（王国）",
+   "intelligence": "Resplendent Intelligence（光辉智能）",
+   "note": "10 的王国根基在理解(3)"
+  }
+ ],
+ "derived": "78 = 22 大阿卡纳 + 56 小阿卡纳；Case：78 表达光辉(8)的圆满(9)之数（原文见数字章末）",
+ "case_chapters": [
+  {
+   "key": "intro",
+   "title": "INTRODUCTION",
+   "cn_title": "导论：希伯来智慧",
+   "lines": "353-530",
+   "pages": "p1-5",
+   "char_count": 8387,
+   "text": "THETAROTis a pictorial text-book of Ageless Wisdom.\nFrom its pages has been drawn inspiration for some of the\nmost important works on occult science published during\nthe last seventy-five years. Its influence on the minds of a\nfew enlightened thinkers may be traced throughout the\nhistory of the modem revival of interest in esoteric science\nand philosophy.\n  This revival began in 1854 with the publication of\nEliphas Levi's Dogma and Ritual of Thnscendental Magic,\nfist of a series of occult writings in which he names the\nTarot as his most important source of information.\nEliphas Levi's teaching influenced the work of H.  P.\nBlavatsky and Dr. Anna Kingsford. It has been developed\nand extended in the circles of French occultism in which\n\"Papus\" (Dr. Gerard Encausse) was for long a leading\nspirit. For English readers it is interpreted in the books of\nS. L. MacGregor Mathers, Dr. W. Wynn Westcott, Dr.\nArthur Edward Waite and others. The works of New\nThought writers, especially the essays of Judge Thomas\nTroward, echo it again and again; and, though Levi himself\nwas a nominal Roman Catholic, his doctrine is utilized by\nScottish Rite Masonry in the United States, inasmuch as\nGeneral Albert Pike's Morals and Dogma of the Scottish\nRite repeats verbatim page after page from the French\noccultist's Dogma und Ritual.\n  Levi's opinion of the Tarot was very high. He said:\n  \"As an erudite Kabalistic book,  all combinations of\n\nThe Tarot\nwhich reveal the harmonies preexisting between signs,\nletters and numbers, the practical value of the Tarot is\ntruly and above all marvelous. A prisoner devoid of books,\nhad he only a Tarot of which he knew how to make use,\ncould in a few years acquire a universal science, and\nconverse with an unequalled doctrine and inexhaustible\neloquence.\"\n  The aim of this analysis is to show you how to use the\nTarot. A full treatment would require many volumes; but I\nhope to realize the promise of my title by giving a concise\nexplanation of the general plan of the Tarot, and a brief\noutline of its meaning. It should be understood, however,\nthat the student must fill in this outline with the results\nof his own observation and meditation.\n  Before entering upon a description of the construction\nand symbolism of this book of occult science, it may be\nwell to say a word as to its history. In the main, I am in\nagreement with Arthur Edward Waite, who discusses the\nvarious theories as to its origin in his Key to the Tarot,\npublished in London by Wm. Rider and Sons. Dr. Waite\nconcludes that the Tarot has no exoteric history before the\nfourteenth century. The oldest examples of Tarot designs\nnow preserved in European museums were probably made\nabout 1390. According to an occult tradition, in which I\nam inclined to place confidence, the actual date of its\ninvention was about the year 1200 A.D.\n  The inventors, this tradition avers, were a group of\nadepts who met at stated intervals in the city of Fez, in\nMorocco. After the destruction of Alexandria, Fez became\nthe literary and scientific capital of the world. Thither,\nfrom all parts of the globe, came wise men of all nations,\nspeaking all tongues. Their conferences were made\ndifficult by differences in language and philosophical\nterminology. So they hit upon the device of embodying the\nmost important of their doctrines in a book of pictures,\nwhose combinations should depend on the occult har-\nmonies of numbers.\n\n  Perhaps it was a Chinese adept who suggested the idea,\nfor the Chinese have a proverb, \"One picture is worth ten\nthousand words,\" and Chinese writing is made up of con-\nventionalized  pictures. These pictures express ideas\ninstead of words, so that Chinese, Japanese and Koreans,\nalthough they speak more than seven different languages,\ncommunicate easily with one another, if only they can\nread and write.\n  As a skeleton for their invention the wise men chose the\nrelatively simple system of numbers and letters afforded\nby the Qabalah, or Secret Wisdom of Israel. This esoteric\ndoctrine, apparently Jewish, was really a development of\nideas fundamentally identical with the wisdom taught in\nthe secret schools of China, Tibet and India. Some\naccount of  it, therefore, must precede our study of the\nTarot itself.\n\n              The Hebrew Wisdom\n  The master-key to the Hebrew wisdom is the \"name\"\ntranslated \"Lord\" in the Authorized Version of the Bible,\nand \"Jehovah\" in the revised versions. It is not really a\nname  at  all, but rather a verbal, numerical and\ngeometrical formula. In Roman letters corresponding to\nHebrew it is spelled IHVH.\n  This is a noun form derived from a Hebrew verb mean-\ning \"to be.\" Correctly translated, it means \"That which\nwas, That which is, That which shall be.\" THAT, not HE.\nThus, it is a perfect verbal symbol for the One Reality- for\nthat Something which has always subsisted behind all\nforms in the eternity of the past, for that Something which\nreally is behind all the appearances and misunderstand-\nings of the present, for that Something which will be the\nfoundation for all the changing forms of life-expression in\nthe eternity to come.\n  Never has Ageless Wisdom attempted to define this One\nReality. Its inner nature defies analysis, cannot be put\n\nThe Tarot\nwithin the limits of any formal statement, because the\nOne Reality is infinite. Yet, in every age the report of the\nwise has been that in the One Something inheres the\npower to know We say, therefore, that IHVH is a verbal\nsymbol for the Conscious Energy that brings all things and\ncreatures into existence.\n  The Qabalah classifies all possible operations of this\nOne Energy into four planes, or \"worlds.\" Each plane or\nworld is represented by a letter of IHVH, as follows:\n  The Archetypal World. This is the world of pure ideas. In\nthe archetypal plane are the root-notions inherent in the\ninnermost nature of the universal Conscious Energy.\nFrom these ideas are derived all actual forms of manifes-\ntation. For example, the pure idea of a chair is the idea of\nsitting. In that idea, as in all others,  is embodied a\nvolition - the will-to-sit. This will-to-sit is the single root-\nnotion behind all possible chair-forms that ever have been,\nare now, or ever shall be. Thus the archetypal world is seen\nto be the plane of will-ideas. To it Ageless Wisdom assigns\nthe element of fire, representing universal radiant energy.\nIn IHVH this world and this element are represented by\nthe letter \"I.\"\n  The Creative World. Here the ideas of the archetypal\nworld are specialized as particular patterns. \"Sitting\"\nbecomes the mental pattern for some special kind of chair.\nThe Cosmic Energy acting on this plane contains the pat-\nterns of all chairs that have been made or thought of in the\npast, of all existing in the present-but  not those as yet\nunthought  of. So with all other patterns of particular\nforms. To this world Ageless Wisdom assigns the element\nof water, symbolizing the fluid plasticity of the cosmic\nmind-stuff. The creative world is represented in IHVH by\nthe first \"H.\"\n  The Formative World. Here the archetypal ideas,\nspecialized in creative patterns, are brought forth into\nactual expression. It is the plane of processes, the world of\nforces behind the veil of physical things. The formative\n\nworld is that which is now explored by physicists and\nchemists. It is the world of vibratory activities, and also\nthe astral plane of occultism. Here take place the various\nkinds of action whereby the Cosmic Energy actualizes its\npatterns. Ageless Wisdom assigns to this world the ele-\nment of air, representing the life-energy which wise men\neverywhere have associated with breath. The formative\nworld is represented by \"V\" in IHVH.\n  The Material World. This is the plane of the actual\nforms which affect our physical senses. Here the process of\nbringing down the idea of sitting, through an operation\nbased on the pattern of a particular chair, is finally com-\npleted as the chair itself. This plane corresponds to the\nelement of earth, representing the solidity and tangibility\nof physical objects. It corresponds to the second \"H\" in\nIHVH.\n  In every one of the four worlds, the Qabalah conceives\nthe operation of ten aspects of the universal Conscious\nEnergy. This idea that all possible aspects of the one\nReality may be reduced to a tenfold classification is found\nin every version of the Ageless Wisdom. Thence arises the\nesoteric teaching concerning the meaning of numbers.\nThis is a subject almost limitless in its ramifications, but\nwhat is needed for Tarot study will be found in the next\nchapter."
+  },
+  {
+   "key": "numbers",
+   "title": "OCCULT MEANING OF NUMBERS",
+   "cn_title": "数字的奥义含义（0-10）",
+   "lines": "531-912",
+   "pages": "p6-15",
+   "char_count": 17928,
+   "text": "INTHIS CHAPTER we shall consider the occult significance of\nthe numbers from Zero to Ten, with particular reference to\nthe esoteric meanings of the so-called \"Arabic\" numerals.\nAs a matter of  fact, these numerals were invented by\nHindu priests, from whom they were borrowed (and slight-\nly altered) by the Arab mathematicians who introduced\nthem into Europe. The key to the meaning of the numerals\nis the diagram which appears as the frontispiece of this\nbook.\n  Readers of these pages, who are familiar with occult\nsymbolism, will perceive that the basis of the construc-\ntion of this diagram is the six-pointed star, known as the\n\"Shield of David\" and \"The Star of the Macrocosm.\" Years\nago, one of the Theosophical Masters declared that the\nsystem of six circles, tangent to a central seventh, is a key\nto the construction of the cosmos. At that time, the\nMaster's meaning was not grasped by the student to whom\nthe statement was made.\n   I hope the inclusion of this diagram in the front of the\nbook may stimulate some of my readers to further\nresearch. Want of space forbids my developing the various\ndetails. I shall therefore content myself by saying that this\none diagram is a key to the geometrical construction of the\nGreat Pyramid, to a very close approximation to the squar-\ning of the circle, to the true occult meaning of the apron\nworn by Free Masons, to the correct construction of the\nQabalistic diagram known as the Tree of Life (which has\nbeen called \"a key to all things\"), and to the proportions of\nthe mysterious Vault in which the body of the founder of\nthe Rosicrucian Order is said to have been discovered.\nThese are but a small selection of the mysteries to which\n\nthis one diagram affords a clue. I shall confine myself to its\nnumerical significance.\n  In Arabic notation all numbers are represented by ten\nsymbols, beginning with 0 and ending with 9. They are\nthus derived from the diagram:\n\n  0. An ellipse, representing the Cosmic Egg, whence\ncome all things. Zero is a symbol of the absence of quality,\nquantity, or mass. Thus it denotes absolute freedom from\nevery limitation whatever. It is a sign of the infinite and\neternal Conscious Energy,  itself No-Thing, though\nmanifested in everything. It is That which was, is, and\nshall be forever; but it is nothing we can name. Boundless,\ninfinitely potential, living light, it is the rootless root of all\nthings, of all activities, of all modes of consciousness. In it\nare  included  all  imaginable  and  unimaginable\npossibilities, but it transcends them all. The Qabalists\ncall  it: (a) No-Thing; (b) The Boundless; (c)Limitless\nLight. Pure Conscious Energy, above and beyond thought,\nto us it is Superconsciousness.\n  The descending arc of the ellipse, on the reader's left,\nrepresents Involution, the \"winding-up\" process whereby\nLimitless Light manifests itself in name and form. At B\nthe lowest point of involution is reached in the mineral\nkingdom.\n  From B back to A on the right side of the ellipse the\nascending arc represents Evolution, the \"unwinding\" proc-\ness. From B to F is the arc of evolution in the inorganic\nworld. F to H is the arc of organic development up through\nplants to animals. H to D is the arc of organic development\nfrom the lowest animal to the highest type of human con-\nsciousness at point D. Only a few human beings have\nreached this point, but the race is nearer to it now than\never before. The arc from D to A is that of conscious\nexpression beyond human levels, the evolution of con-\nscious one-ness with the Divine.\n  Thus the two sides of the ellipse suggest the esoteric\n\nThe Tarot\ndoctrine of Involution or descent, and a corresponding\nEvolution, or ascent. The ascending arc corresponds to the\noccult doctrine: \"First the stone, then the plant, then the\nanimal, then the man, and at last the god.\"\n  1. In the diagram, the number I is the vertical line from\nA to B, connecting the extreme height with the extreme\ndepth. Among the many occult meanings of this number\nare:\n  Beginning, initiative, originality, unity, singleness,\nisolation, and the like. In the Qabalah it is called the Ad-\nmirable or Wonderful Intelligence, the Supreme Crown, to\nshow that 1 represents the determining, ruling, directive\nand volitional aspect of consciousness. This primary\nmode of consciousness is concealed behind all veils of\nname and form. It is the consciousness of the true Self or\nI AM-the  Onlooker, seeing creation through countless\neyes, manifesting itself through innumerable per-\nsonalities. Ageless Wisdom teaches that all things are\nmanifestations or projections in time and space of the\npowers of the I AM. In short, the I AM, or number 1, is the\nessence, substance, energy and consciousness expressed\nin all forms. Everything in the universe is the self-\nexpression of the I AM. This is the first principle, the\nprimary existence, the First Mover. In and through human\npersonality it manifests as the waking Self-consciousness.\n\n  2. On the diagram this number begins at C, follows the\nupper circle through D to the center of the diagram,\nthence through the lower circle to E, and is completed by\nthe horizontal line from E to F. The meanings of the\nnumber include:\n  Duplication, reflection, receptivity, dependence, alter-\nnation, antagonism, and the like. Qabalists call it Wis-\ndom, the reflection of the perfect self-consciousness of the\nI AM. Wisdom is the mirror wherein the I AM sees itself.\nThe number 2 is also named Illuminating Intelligence. It\n\nis that which illuminates the personal mind. It is the\naspect  of universal consciousness which manifests\nthrough human personality as grasp of the inner prin-\nciples of the nature  of the one Conscious Energy. In\nHebrew occultism, 2 is also the particular number of the\nLife-force in all creatures.\n\n  3. The upper half of this figure is the same as the upper\nhalf of 2, from C through D to the center of the diagram.\nIts lower half begins at the center of the diagram, and\nfollows the lower circle through F and B around to E.\nAmong the meanings of 3 are:\n  Multiplication, development, growth, unfoldment,\ntherefore expression. 3 signifies the actual outworking of\nthe principles reflected from 1 by 2. In Qabalah, 3 is\nUnderstanding, looking forward into the field  of\nmanifestation, in contrast to Wisdom (2), which looks\nback to the self-knowledge of the I AM (1).Understanding\nis the concrete application of abstract Wisdom. Hence 3 is\ncalled the Sanctifying Intelligence, to convey the idea that\nthrough growth or expression comes the perfected mani-\nfestation of the potencies latent in the Limitless Light. On\nthe form side, perfect realization (sanctification)requires\nperfected organism: in consciousness,  it  is perfected\nfaculty and function.\n\n   4. This figure starts with the vertical line of the figure 1\n(Ato B on the diagram),and adds two other lines-A  to GI\nand G to H. Thus drawn, 4 shows in its upper portion a\ntriangle, symbol of the number 3, and in its lower portion\na T-square, a geometrical symbol of 4 itself. Triangle and\nT-square are among the most important instruments of\nthe draftsman. They have occult reference to the esoteric\nside of geometry. They suggest planning, surveying, topog-\nraphy and the like. From these considerations are derived\nthe following meanings of 4:\n  Order, measurement, classification, recording, tabula-\n\nThe Tarot\ntion, and so on. Because of these meanings Qabalists\nmake 4 the number of memory. Because the Life-power's\nperfect memory of its own potencies and of the needs of\neven the least of its centers of expression cannot be sup-\nposed to fail, the idea of Beneficence (\"good-givingness\")is\nalso assigned to 4. This beneficence is not wasteful\nprodigality. All the gifts of the Life-power are measured\nout. Every center of expression receives exactly what is\ncoming to it, always. Therefore the number 4 is called the\nMeasuring Intelligence.\n\n   5. On the diagram, the first line of this figure is the\nhorizontal, C to D. The second is vertical, C to I. The third\nincludes five-sixths of the lower circle, from I through F\nand B to E. Meanings of 5 include:\n  Mediation (because 5 is the middle number between 1,\nBeginning, and 9, Completion), adaptation, means,\nagency, activity, process, and the like. 5 is the dynamic\nLaw proceeding from abstract Order (4J .\n  To primitive minds, the working of Law seems to be the\noperation of many forces, mostly hostile to man. Hence 5\nis the number of versatility, and one of  its names in\nQabalah is Fear. Ignorant persons endeavor to propitiate\nthe power they fear. Their sacrifices are the beginning of\nreligious ritual. Hence 5 is the number of religion.\n A better, though incomplete, knowledge of Law sees it\nas a relentless, harsh, mechanical expression of mathe-\nmatical principles, taking no account of human needs and\naspirations. This is the interpretation of the materialist,\nwho sees the Law as a mighty power. Hebrew sages take\naccount of this also, and say that 5 is the number of\nStrength and Severity, as well as of Fear.\n   Finally, to seers and sages, Law appears as the manifesta-\ntion of perfect Justice, whereby man, whose numeral sym-\nbol is also 5, may so adapt natural conditions that he may\nrealize progressive liberation from every kind of bondage.\n   5, then, is the number of versatility, because it shows\n\nthe changing aspects of the One Law, inspiring fear in the\nignorant, perceived by the materialist as relentless\nstrength, and understood by the wise as undeviating\njustice. This One Law is the root of all operations of the\nLife-power, and is therefore called Radical Intelligence.\nThe root-consciousness expressed through human per-\nsonality is this One Law of mediation or adaptation. Man\ncan change conditions. This is the secret of his power to\nrealize freedom.\n\n  6. On the diagram, this is a continuous line from D to A,\ndown through the ellipse (on the Involution curve) to B,\nthen around the lower circle to E. Its symmetry suggests\nthe philosophical conception of Beauty. This is the direct\noutcome of ideas expressed by the preceding numerals.\n A free Life-power (01, knowing itself perfectly (1))grasp-\ning all possibilities of what it is in itself (2))understanding\njust how these possibilities may be worked out into\nexpression (3))never forgetting itself, or any detail of the\nperfect order of its self-manifestation (4)) and developing\nthat order through the agency of a perfectly just law or\nmethod (5),must inevitably be working toward a perfectly\nsymmetrical, balanced, and therefore beautiful, result.\nThis idea is implicit in the following meanings of 6:\n  Balance, equilibration, symmetry, beauty; harmony of\nopposites, reciprocity; complementary activities, polarity,\nlove. It is named Intelligence of Mediating Influence or\nIntelligence of the Separated Emanations.\n\n   7. On the diagram, this is composed of two lines - the\nfirst horizontal, from C to Dl the second diagonal, from D\nto E.\n  To exhaust the meanings of 7 would take as many pages\nas an encyclopaedia. It is the great Biblical number, many\nbooks in both the Old and the New Testaments being writ-\nten on a plan of sevens - seven chapters, seven subdivi-\nsions, and so on. On this point, see the literary introduc-\n\nThe Tarot\ntions in Moulton's Modern Readers' Bible. The more\nimportant occult meanings of 7 are:\n  Rest, safety, security,  victory. To the ancients 7\nrepresented temporary cessation, not final perfection, as\nsome have thought. In Hebrew, the word for \"seven\" and\nthat for \"oath1'are closely related, since the security and\nsafety of a sworn compact were represented in Hebrew\nthought by 7.\n  This number stands for the logical consequence of the\nideas symbolized by the numbers preceding it in the\nseries. A perfect Life-power, working in the way outlined\nin the explanation of 6, cannot be supposed to fail. Omni-\npotence must ultimately, no matter what present appear-\nances may be, arrive at a triumphantly successful conclu-\nsion to all its undertakings. The Great Work is as yet\nunfinished. The Cosmic Experiment has not come to\ncompletion; but when we consider the nature  of the\nSource of that experiment, the nature of the Worker in\nthat work, reason assures us that it must succeed, down to\nthe minutest detail. The aspect of consciousness to which\n7 corresponds is called the Occult or Hidden Intelligence.\n\n   8. On the diagram, this is a figure composed of the upper\nand lower circles within the ellipse. In writing it, we begin\nat A, describe a descending \"S\" to B, and return on an\nascending inverted \"S\" to A. Thus the form of the figure\nsuggests vibration by the shape of the lines, and alterna-\ntion by the two kinds of motion used in describing it. It is\nalso the only figure except 0 which may be written over\nand over again without lifting pen from paper. Thus in\nmathematics the figure 8, written horizontally, is the sign\nof infinity. Among its occult meanings are:\n  Rhythm, alternate cycles of involution and evolution,\nvibration, flux and reflux, and the like. It represents also\nthe fact that opposite forms of expression (that is, all pairs\nof opposites) are effects of a single Cause. (See, on this\npoint, Isaiah 45, verses 5 to 7).\n\n  This number 8 is the digit value of the name IHVH\n(Jehovah),888 is the numeration of the name Jesus in\nGreek, and 8 is not only the \"Dominica1 Number,\" or\n\"Number of the Lord,\" in Christian numeral symbolism,\nbut is also the particular number of the god called Thoth\nby Egyptians, Nebo by Assyrians, Hermes by Greeks, and\nMercury by Romans. Thus 8 is preeminently the number\nof magic and of Hermetic Science. Its Hebrew name is\nSplendor, and the aspect of consciousness to which it cor-\nresponds is called Perfect Intelligence. The Hebrew adjec-\ntive translated \"perfect\" is ShLM. A noun spelt with the\nsame letters means \"peace, security, health, wealth,\nsatisfaction,\" and thus refers to the perfect realization of\nthe success represented by the number 7.\n\n  9. On the diagram, it begins at Dl follows the upper cir-\ncle down to the center of the diagram, continues back to\nD, then along the line of the ellipse, on the right side of the\ndiagram, to E. As last of the numeral symbols, 9 represents\nthe following ideas:\n  Completion, attainment, fulfilment, the goal of\nendeavor, the end of a cycle of activity. Yet, because 8\nindicates Rhythm as part of the creative process, comple-\ntion is not absolute cessation. The end of one cycle is the\nbeginning of another. This fact is the basis of all practical\noccultism. Nobody ever comes to the end of his tether.\nNobody ever reaches a point where nothing more remains\nto be hoped for, where nothing remains to be accom-\nplished. Every End is the seed of a fresh Beginning. In\nQabalah, therefore, 9 is called Basis or Foundation, and\ncorresponds to the mode of consciousness named Pure or\nClear Intelligence, because the completion of any process\nis the pure, clear, unadulterated expression of the inten-\ntion or idea which initiated that process.\n\n  10.Ten combines the ellipse of superconsciousness (0)\nwith the vertical line of self-consciousness (1).It is the\n\nThe Tarot\nnumber of perfection and dominion. Read from right to\nleft, from units to tens (as all composite figures should be\nread symbolically), it suggests the outpouring of the\nlimitless Life-power through the initiative, specialization\nand concentration of the I AM. Qabalists call the number\n10 the Kingdom. The mode of consciousness assigned to it\nis the Resplendent Intelligence - brilliant, glowing, full of\nlife and power. In one esoteric text this mode of intel-\nligence is said to have its seat in Understanding, and\nUnderstanding is the number 3, or Sanctifying Intelli-\ngence. What is meant is, that in order to have the resplen-\ndent, glowing consciousness of mastery, one must have\nalso, as a basis, the sanctifying, perfecting, organizing\npower of Understanding. Our citizenship in the Kingdom-\nof-Heaven-on-Earth is determined by the degree of our\nunderstanding.\n  Such is the outline of the ten primary numbers, accord-\ning to Ageless Wisdom, as handed down to us through the\nSages of Israel. It affords a basic clue to the meaning of\nTarot.\n  For instance, the whole book, or pack of cards, contains\n78 pages. Interpreting the number 78 from the foregoing,\nwe see that it represents the expression of the Splendor of\nthe Perfect Intelligence (8) through the Victory of Occult\nIntelligence (7). Precisely, this is the great purpose of\nTarot.\n  In the practical work of the Builders of the Adytum, the\nesoteric meanings of the numeral symbols have been ex-\npanded into a series of eleven statements, or affirmations.\nThese are entitled The Pattern on the Trestleboard,\nbecause, while they are at all times true of the real Self at\nthe heart of every human personality, they are not intend-\ned to be taken as vainglorious claims to personal attain-\nment. They will aid the reader to remember the main at-\ntributions of the numbers 0 to 10. More than this, they\nhave, during the last twenty-five years, proved their value\nas seed-ideas which, planted in the mind by thoughtful\n\nand purposeful repetition, bear rich fruit in mental and\nspiritual unfoldment.\n\n    THE PATTERN ON THE TRESTLEBOARD\n  This is truth about the Self:\n   0. All the power that ever was or will be is here now.\n   1. I am a center of expression for the Primal Will-to-Good which\neternally creates and sustains the universe.\n   2. Through me its unfailing Wisdom takes form in thought and\nword.\n   3. Filled with Understanding of its perfect law, I am guided, mo-\nment by moment, along the path of liberation.\n   4. From the exhaustless riches of its Limitless Substance, I draw\nall things needful, both spiritual and material.\n   5. I recognize the manifestation of the undeviating Justice in all\nthe circumstances of my life.\n   6. In all things, great and small, I see the Beauty of the divine\nexpression.\n   7. Living from that Will, supported by its unfailing Wisdom and\nUnderstanding, mine is the Victorious Life.\n   8. I look forward with confidence to the perfect realization of the\nEternal Splendor of the Limitless Light.\n   9. In thought and word and deed, I rest my life, from day to day,\nupon the sure Foundation of Eternal Being.\n 10. The Kingdom of Spirit is embodied in my flesh."
+  },
+  {
+   "key": "construction",
+   "title": "CONSTRUCTION OF THE TAROT",
+   "cn_title": "塔罗的构造：大阿卡纳-希伯来字母对应",
+   "lines": "913-1361",
+   "pages": "p16-28",
+   "char_count": 21357,
+   "text": "THETAROTis a book, disguised as a pack of cards. Fifty-six\nof its seventy-eight pages are called minor trumps. These\nare divided into four suits, distinguished by emblems like\nthose on Spanish or Mexican playing-cards. The names of\nthe suits are: Scepters or Wands; Cups; Swords; Coins or\nPentacles. In the seventeenth century, French card-makers\naltered these, the original suit-emblems, to the Clubs,\nHearts, Spadcs and Diamonds familiar to everybody.\n  Basically, the suits represent the four worlds, or planes,\nmentioned in Chapter I. The wands (clubs)correspond to\nthe archetypal world, to the element of fire, and to I in\nIHVH. The cups (hearts)correspond to the creative world,\nto the element of water, and to the first H in IHVH. The\nswords (spades)correspond to the formative world, to the\nelement of air, and to the V in IHVH. The coins or penta-\ncles (diamonds) correspond to the material world, to the\nelement of earth, and to the second H in IHVH.\n  In each suit are ten minor trumps, numbered consec-\nutively from Ace to Ten. Thus the meaning of any num-\nbered card in the minor trumps may be determined by\ncombining the meanings of its number with the charac-\nteristics of the world represented by its suit. All the Twos,\nfor example, suggest duplication, alternation and the like,\nand every one of them has some relation to the idea of\nWisdom. So with the other numbered cards.\n  Besides the numbered cards, every suit of minor trumps\ncontains four courtcards, instead of the three found in\nmodern packs of playing-cards. They are:\n\nKING, symbol of Spirit, the essential Self in man;\nQUEEN,symbol of Soul, the inner \"pattern\" part of a particular\n  human personality;\nKNIGHT,symbol of that particular focus of energies, and of the per-\n   sonal sense of selfhood, which constitutes the Ego seated in the\n   heart of a particular human personality;\nPAGE,symbol of body, the personal vehicle of a particular human\n   being.\n  The King of Wands is the idea of Spirit, the Queen of\nWands the idea of Soul, the Knight of Wands the idea of\npersonal energies, and the idea of what may be called\n\"Egoity,\" the Page of Wands the idea of body. Similarly the\ncourtcards of Cups symbolize the patterns of Spirit, Soul,\npersonal energies and body; those of Swords stand for the\nprocesses requisite to the manifestation of Spirit, Soul,\npersonal energies and body; those of Coins or Pentacles\nrepresent the actualized manifestation of Spirit, Soul, per-\nsonal energies and body in a particular human being.\n  The more important part of the Tarot, with which this\nbook is mainly concerned, consists of twenty-two cards,\ncalled major trumps. These are pictures, numbered con-\nsecutively from Zero to Twenty-one. Every major trump\nhas a special title, which affords an important clue to its\nmeaning. In addition, every major trump corresponds to\none of the twenty-two letters of the Hebrew alphabet.\n  This alphabet differs from others in that every letter has\na name. These twenty-two letter-names are Hebrew\nnouns, and every one of them designates some familiar\nnatural object. They follow one another in logical se-\nquence, bringing to the mind's eye a series of pictures.\nThese pictures call up in every human mind, irrespective\nof race, certain basic associations of ideas. Hence, in\nstudying any major trump of the Tarot, we begin with the\nmental image called up by the name of the Hebrew letter\nto which it corresponds.\n  In addition to the clues afforded by the numbers and\ntitles of the major trumps, or Keys, and by the associations\n\nThe Tarot\nof ideas suggested by the letter-names, we find others\nderived from certain traditional occult interpretations of\nthe Hebrew letters. These are given in an ancient volume\nof Qabalistic wisdom. The name of this book is the Sepher\nYetzirah, or Book of Formation. From it are taken all\noccult attributions of the Hebrew alphabet given herein,\nwith the exception of the attributions of the sun, moon\nand planets to the seven letters technically known as\n\"doubles,\" because each of them has a hard and a soft\npronunciation.\n  In all ancient copies of The Book of Formation, the\nplanetary attributions to the double letters are purposely\nmixed, in order to mislead uninitiated readers into whose\nhands the book might fall. The correct attributions were\nreserved for mouth-to-ear instruction. When the first edi-\ntion of this book was published in 1927, these attributions\nhad never appeared in print outside the writings of the\npresent author, except in one article published in The\nOccult Review for March, 1910, and in certain other\npublications more or less directly inspired by the author of\nthat article. He received his knowledge from an occult\nsociety, under seals of secrecy which he violated by his\npublications of the true correspondences. He has been\nfollowed by other members of the same society, who offer\nthe excuse that bad management in the society itself\nthreatened the loss of its knowledge. Whether this be a\nvalid excuse for breaking a solemn obligation, the reader\nmust judge for himself; but it is only fair to add that the\nsociety in question rests under grave suspicion of having\nacted with considerably less than good faith in imposing\nobligations to keep secret knowledge which was by no\nmeans its exclusive possession, and to custody of which it\nhad, to say the least, a most dubious title. The present\nwriter worked out the attribution of the planets to the\ndouble letters from hints given in The Book of Formation,\nand from the Tarot itself, in the year 1907. His knowledge\nof the attributions was therefore in the nature of a\n\nrecovery, and he violates no obligation in making it public.\n  Instead of tabulating all the letters and their meanings\ntogether, this book will give a separate explanation of\nevery letter in connection with the major trump to which\nit corresponds. The various meanings and attributions\nshould be read, digested and elaborated by every student\nwho seeks to arrive at the deeper significance of Tarot.\n  In the first edition of my book, entitled Introduction to\nthe Study of the Tarot, the descriptions of the symbolism\nwere based on the Tarot known as the \"Rider pack,\" drawn\nby Miss Pamela Coleman Smith under the supervision of\nDr. Arthur Edward Waite. Dr. Waite had access to many\noccult manuscripts relating to Tarot. In some of his later\nwritings he endeavored to throw dust in the eyes of the\nuninitiated by pretending to believe that the attribution of\nthe cards to the letters exposed by the revelations before-\nmentioned was not the true arrangement. Yet his own\nrectifications of the symbolism and numbering of earlier\nexoteric versions of this picture book of Ageless Wisdom\nare sufficient evidence that he understood and accepted\nthe validity of this attribution.\n  For example, in accordance with an old esoteric tradi-\ntion, he transposed the numbering of the cards named\nStrength and Justice. Exoteric editions of Tarot, current in\nItaly and France subsequent to the eighteenth century,\ngave the number 11 to Strength, and 8 to Justice. In the\nRider pack these numbers were reversed, as they are in\nTarot packs belonging to certain occult schools.\n  The reason for this is that whatever card is numbered 8\nrepresents the zodiacal sign Leo, and the picture entitled\nStrength shows a woman taming a red lion. Similarly,\nwhatever card is number 11 corresponds to the sign Libra,\nand the picture entitled Justice shows a woman, carrying\nthe scales (Libra).Furthermore, a great many details in the\ntwenty-two major trumps of the Rider pack depend for\ntheir meaning on this same attribution of the major\ntrumps to the Hebrew letters. These were pointed out in\n\nThe Tarot\nthe first edition of Introduction to the Study of the Tarot.\n  In the present work, the twenty-two illustrations are\nreproductions of the Tarot Keys used by the Builders of the\nAdytum. They were drawn by Jessie Burns Parke,  of\nBoston, under the supervision of the present writer. This\nwas felt to be necessary for two reasons: 1. the obscuration\nof certain details in the symbolism, so that captious\ncritics might find reason for doubting the interpretations;\n2. the alteration of other Keys, so as to make them expres-\nsions of Dr. Waite's personal ideas, rather than correct\nstatements of their original meaning.\n  The twelve flaming fruit on the tree behind the male\nfigure in Key 6, The Lovers, is an example of the obscura-\ntion just mentioned. In the Rider pack it is by no means\nclear that every one of these is a triple flame. Another such\ndetail is the substitution, in Key 14, of iris flowers for the\nrainbow which, in our version, as in the esoteric versions\nas yet unpublished, is placed over the head of the angel. To\nbe sure, one who is sufficiently familiar with mythology\nmight see a relation between the flowers and the rainbow\ngoddess Iris; but there can be no question as to the mean-\ning of the bow itself.\n  Keys 4, 13 and 19 of the Rider pack afford examples of\nmarked departure from the traditional Tarot symbolism.\nThis will be evident to anybody who has opportunity to\ncompare the Rider Keys with the crude exoteric designs\nreproduced in Papus' book The Tarot of the Bohemians, or\nwith those published in the same book after designs made\nby Oswald Wirth.\n  Miss Parke, unfortunately, adhered rather too closely to\nthe tricks of style used by Miss Smith when the latter\ndrew the Rider pack. In spite of this, she succeeded ad-\nmirably in executing a set of Tarot Keys which are explicit\nin the details of their symbolism. There are no \"blinds\" in\nthis version, and every symbol is intended to mean just\nwhat it is said to signify in the explanations given in the\nfollowing chapters.\n\n  The attribution of the major trumps to the Hebrew\nalphabet is the crux in Tarot study. Eliphas Levi knew it,\nbut could not give it, because he received it from a secret\norder. He did, however, announce the fact that the major\ntrumps correspond to the Hebrew letters, and then pro-\nceeded to give an attribution so patently absurd that one\nwonders how it ever gained credence.\n  The absurdity consists in putting the picture numbered\nZero between those numbered Twenty and Twenty-one.\nYet even this affords a clue to the correct arrangement.\nEliphas Levi evidently chose this position for the Zero Key\nbecause the latter was thereby assigned to the only\nHebrew letter (besides the one to which it rightly belongs)\nwhich is a symbol of Spirit.\n  The letter Shin, next to the last in the Hebrew alphabet,\nhas the value 300, and 300 is the numeration of the\nHebrew words RVCh ALHIM, Ruach Elohim. The English\nof these words is Life-Breath of the gods, or Spirit of God.\nHence Qabalists call Shin the \"Holy Letter,\" because its\nnumber is the number of the name of the Divine Spirit. By\nassigning the Zero Key to this letter, Levi apprized his\nreaders that the Tarot Fool is a symbol of the Holy Spirit.\n  There is, however, another letter in the alphabet which\nis also a symbol of Spirit, or Life-Breath, and this is Aleph,\nthe first of the series. By attributing the Zero trump to\nAleph we put it in its correct place, and then the other\nTarot Keys are brought at once into correct relation to the\nletters whose occult meanings they symbolize.\n   It is, of course, obvious that in a series of numbered pic-\ntures including Zero and ending with Twenty-one, the\nlogical place for Zero is at the beginning of the series. Zero\nis the mathematical symbol for the No-Thing which we\nare obliged to think of as subsisting before the manifesta-\ntion of the relative Unity or Beginning represented by 1.\n  Again, there is a graceful allegory in the introduction to\nthe Zohar, that classic of Qabalism, which tells how all\nthe letters, beginning with Tav, and working backward\n\nThe Tarot\nthrough the alphabet, came before the Lord to prefer their\nclaims to being accepted as the means whereby He would\nbegin His creation. One by one they were rejected, until\nthe letter Beth was chosen, because, being the initial letter\nof the Hebrew word signifying \"Blessing,\" it was truly\nrepresentative of the beneficent character of the whole\ncreation. This same letter Beth is the first letter in the\nHebrew text of Genesis.\n  Beth having been accepted, after the rejection of all the\nletters following it in the alphabetical series, there re-\nmained the letter Aleph. So the Lord promised Aleph that,\nas a reward for modesty, it should be forever the first of all\nthe letters, and the special symbol of the Divine Spirit.\n  Here we have additional reason for the attribution of the\nKey numbered 1, that is, The Magician, to the letter which\nhas 2 for its numeral value. The subsisting Spirit, self-\nsustained before the beginning of manifestation, is No-\nThing or Zero. So also is the sound of the letter Aleph an\nunaspirated breath, or simple out-breathing. The letter\nBeth, on the contrary, is a true consonant, and, even in\nEnglish, is the initial of the verb \"begin.\" Aleph and Zero\nboth symbolize the formless Spirit. Beth and One both\nstand for the first step in the series of creative activities.\n  Dr. Waite, Manly P. Hall, and some others have objected\nthat this arrangement makes the numbers of the Keys and\nthe numbers of the letters conflict. The answer to this is\nthat the numbers printed on the Keys have one purpose,\nwhile those assigned to the letters have another.\n  The values of the Hebrew letters are used to determine\nthe numerations of words. The numbers printed on the\nTarot Keys determine the order of the pictures in the\nseries. What is more, the letter-values of the Hebrew\nalphabet are not serial. From Aleph to Teth they are the\ndigits from 1 through 9; from Yod to Tzaddi they are\nreckoned by tens, from 10 through 90, and from Qoph to\nTav by hundreds, from 100 through 400.\n  Thus the same objection, were it at all valid, would\n\napply to Levi's attribution, which assigned Key 1 to Aleph,\nKey 2 to Beth, and so on. This seems plausible, on the sur-\nface, because the series of Keys from 1 to 9 then cor-\nresponds by number to the digit values of the letters from\nAleph to Teth. Key 10, were this arrangement correct,\nwould correspond also to Yod, which has 10 for its value.\nBut Key 11 will then be assigned to a letter numbered 20,\nKey 13 to a letter numbered 40, and so on. Then, at the end\nof the series, Key 0 is assigned by Levi to a letter numbered\n300, while Key 21 is attributed to a letter numbered 400.\n  Finally, if we use the arrangement given hereafter, the\nsymbols on the pictures do agree, without question, to the\noccult meanings of the letters to which they are assigned.\nThose meanings do not have to be read into the pictures.\nEach symbol may be tested by comparison with the re-\nsearches of the best authorities, from the most ancient\nwriters down to the present. These are universal signs, and\ntheir fundamental significance is the same the world over,\nin all periods of history, in all forms of religion, in all\nvarieties of philosophy. They are, in fact, drawn from that\nstock of images, common to all men everywhere, stored in\nwhat Dr. Carl Jung calls the \"collective unconscious.\"\n  These pictorial images are those we weave into dreams.\nThey are the symbols of poets, dramatists and novelists, as\nwell as the substance of the visions of seers and prophets.\nThinking in pictures is the fundamental activity of the\nhuman mind. We see before we say. Words are but labels\nfor man's visual imagery.\n  Thus the letters of the Hebrew alphabet, because they\nare nouns, are actually twenty-two labels for mental pic-\ntures. From the same stock of pictures, by association, are\ndrawn the occult attributions of the letters, and the sym-\nbols of the Tarot Keys. To make this clear, and to establish\nthe correctness of this long-hidden attribution of the\nmajor trumps to the letters, is one of the main purposes of\nthis book.\n  This attribution is as follows:\n\nThe Tarot\n  0. The Fool, Aleph.              11. Justice, Lamed.\n  1. The Magician, Beth.          12. The Hanged Man, Mem.\n  2. The High Priestess, Gimel.    13. Death, Nun.\n 3. The Empress, Daleth.         14. Temperance, Samekh.\n 4. The Emperor, Heh.            15. The Devil, Ayin.\n  5. The Hierophant, Vav.          16. The Tower, Peh.\n  6. The Lovers, Zain.             17. The Star, Tzaddi.\n  7. The Chariot, Cheth.          18. The Moon, Qoph.\n 8. Strength, Teth.               19. The Sun, Resh.\n  9. The Hermit, Yod.             20. Judgment, Shin.\n10. The Wheel of Fortune, Kaph.  21. The World, Tav.\n\n  In connection with the following explanations, you will find it\nuseful to arrange the major trumps on a table, in the following\norder:\n\n\n\n\n\n  In this arrangement, the Zero Key is placed above the others to\nindicate that it precedes the whole series, and is not rcally included\nin the sequence of numbers. The pictures in the top row refer to\npowers or potencies; those in the middle row are symbols of laws or\nagencies; those in the bottom row represent conditions or effects.\nThus Key 1 is the power which works through the agency sym-\nbolized by Key 8 to mod*  the conditions or effects typified by Key\n15. Again, Key 2 stands for the potency or principle which operates\nthrough the agency symbolized by Key 9 to mod*  the conditions\nrepresented by Key 16. And so on, through the series.\n  Careful study of this tableau will reveal certain harmonies of\nnumber which k e helpful in getting at the deeper meaning of the\nKeys. For example, the middle card in any horizontal row is the\narithmetical mean term between three pairs of Keys on either side\nof it. That is, Key 4, in the top row, is the arithmetical mean be-\ntween Keys 1 and 7,2 and 6, and 3 and 5. Similarly, Key ll, in the\nmiddle row, is the mean between Keys 8 and 14, 9 and 13, 10 and\n12. On the bottom row, Key 18 is the arithmetical mean between\nKeys 15 and 21, 16 and 20, and 17 and 19.\n\n  In like manner, every Key in the middle row is the\narithmetical mean between the Key above it in the\ntableau, and the Key below. Thus 8 is the mean between 1\nand 15,9 the mean between 2 and 16, and so on.\n  In this tableau, therefore, Key 11 stands as the mean\nbetween ten pairs of Keys. These are, 1 and 21,2 and 20,3\nand 19,4 and 18,5 and 17,6 and 16, 7 and 15, 8 and 14,9\nand 13, and 10 and 12. The members of these ten pairs\nstand in diametrically opposed positions in the tableau,\nand Key 11 is at the center of the whole scheme, where it\nis obviously a symbol of the agency which effects balance,\nor equilibration, among all the forces symbolized by the\nother Keys.\n  Careful inspection of the twenty-two Keys, laid out in\nthis tableau, will reveal many other interesting and\nenlightening correspondences. It will also make clear the\nprinciple of antithesis utilized in designing the Keys. This\nprinciple may be observed also by comparing the letter-\nnames of the Hebrew alphabet. It is applied consistently\nthroughout the series, and conforms to fundamental laws\nof human thought.\n  For instance, in the top row of Keys, a male figure, the\nMagician, stands outdoors, in a garden. In Key 2, the cen-\ntral figure is a virgin priestess, sitting inside a temple. Key\n3, by contrast to the virgin High Priestess, is a pregnant\nwoman, sitting in a garden. Key 4 is her consort, clad in\narmor, sitting on a height, with the river that waters his\nwife's garden far below. Key 5 contrasts the power of the\nchurch, designated in the exoteric title as the Pope, with\nthe power of the State symbolized by the Emperor. Key 6\nis, in contrast to Key 5, an outdoor scene, suggesting the\nuntutored innocence of Adam and Eve in the garden. Key\n7 has in the background a city, and all the rest of the sym-\nbolism is made up of details having to do with a relatively\nadvanced stage of civilization. Bear this principle of anti-\nthesis in mind. As applied to Tarot, it means that any\nTarot Key is in direct contrast to the one which im-\n\nThe Tarot\nmediately precedes it in the series.\n  To what, then is Key 0 a contrast? To what else but Key\n21, the last card? For the very word Tarot is an artificial\nword, made up of the letters of the Latin noun, Rota, writ-\nten round a circle, as, indeed, you may see by inspecting\nKey 10. Start at the bottom of the wheel, with R, and go\nround the wheel, clockwise, and the four letters spell\nROTA. Begin at the top, and follow round the wheel in the\nsame direction, and the four letters spell TARO. Go on\nfrom 0 to your starting-point, and you come to T again,\nand so spell out TAROT.\n  The Tarot, then, is a symbolic wheel of human life. We\nmight, indeed, arrange these twenty-two pictures in a cir-\ncle, with the Keys equally spaced, like figures on a\nclockface. Then, when we had gone round the circle from\n0 to 21, we should, in completing the circuit, arrive at 0\nagain. This is an important clue to some of the deeper\nmeanings of Tarot. Ponder it well, and from within you\nwill come more light than we could shed in page after page\nof explanation.\n\nTABLEAU OF THE TAROT\n\nYellow / E\n\n                         PRINCIPLE\n      Name               The Fool\n      Roman #                 0\n     Key Number               0\n\n    Hebrew Letter                  Aleph\n    Value & Letter           A (1)\n     Meaning or\n                       Ox or Bull\n       Signification\n Cabalistic Intelligence      Fiery or Scintillating\n   Power / Aspect of          Cultural Power\n    Consciousness       Super-consciousness\n       Astrology                x Uranus\n\n                                       Air – Ruach   Human Faculty  M\n                                                    / Life-Breath\n         Color                Pale Yellow\n        Note               E\n   Path on the Tree      (11) Kether to Chokmah\n    Cube of Space         Above to Below\n   Alchemy / Metal            Uranium\n\nASTROLOGICAL CHART"
+  }
+ ],
+ "case_divination": {
+  "source": "Case《The Tarot: A Key to the Wisdom of the Ages》1927 · TAROT DIVINATION（原书行 6951-7379，文本层提取）",
+  "full_text": "TAROT DIVINATION\n\nTo CARRY OUT the instructions in this chapter, you will\nneed a complete Tarot pack. It does not much matter what\nthe designs may be. A good pack, drawn by Augustus\nKnapp, was issued some years since by Manly P. Hall. It is\nno longer available. Because of the war, the French exo-\nteric Tarot, which is perfectly good for divination, is hard\nto get, and so is the Rider pack. There is, however, an\nAmerican version of the Rider designs, which may be had\nfrom the publishers of this book.\n  Not everyone can use the Tarot for divination. It takes a\ncertain temperament. If one has this temperament, ordi-\nnary cards will serve just as well as the Tarot. If one lacks\nit, the most careful attention to the rules for divination\nwill not produce satisfactory results. There are many other\nsystems for giving \"readings\" with Tarot cards. We believe\nthis to be one of the best.\n  This method of divination is not intended for fortune-\ntelling. If you debase it to that purpose, you will cripple\nyourself spiritually. Its proper application is to the solu-\ntion of serious questions, for yourself or others.\n  Before attempting to divine, learn the divinatory mean-\nings of the 78 cards. Do not try divination until you have\ncommitted these meanings to memory, because the sub-\nconscious response and control of shuffling required for\ndivination necessitate thorough knowledge of the mean-\ning of every picture.\n  The divinatory meanings of the major trumps are:\n\n  0. The Fool. In spiritual matters: Originality, audacity, venture-\nsome quest. In material affairs: Folly, eccentricity, inconsiderate\naction.\n\n   1. The Magician. Constructive power, initiative, skill, subtlety,\ncraft, occult wisdom and power.\n   2. The High Priestess. All meanings derivable from duality.\nFluctuation, reaction, secrets, things hidden, unrevealed future.\n   3. The Empress. Fruitfulness, beauty, luxury, pleasure, success.\nBadly placed in a divinatory layout: Dissipation, luxuriousness,\nsensuality.\n   4. The Emperor. Stability, power; reason; ambition; oversight;\ncontrol.\n   5. The Hierophant. Intuition, teaching, inspiration; marriage,\nalliance; occult force voluntarily invoked.\n   6. The Lovers. Attraction, beauty, love. Harmony of inner and\nouter life.\n   7. The Chariot. Triumph, victory, and the like.\n   8. Strength. Action, courage, power, control of the life-force.\n   9. The Hermit. Wisdom from above, prudence, circumspection.\n 10. The Wheel of Fortune. Destiny; good fortune; turn for the\nbetter.\n  11. Justice. Strength and force, but arrested, as in the act of judge-\nment. Legal affairs, lawsuits, when the question relates to material\naffairs.\n 12. The Hanged Man. In spiritual matters: Wisdom, surrender to\nthe inevitable. In material affairs: Losses, reverses.\n  13. Death. Contrarieties; sudden change; death.\n  14. Temperance. Combination, adaptation, economy, management.\n  15. The Devil. Bondage, materiality, necessity, force, fate.\n 16. The Tower. Danger,  conflict, unforeseen catastrophes,\nambition.\n 17. The Star. Insight; hope; influence over others.\n  18. The Moon. Voluntary change; deception; hidden enemies.\n  19. The Sun. Liberation; gain; riches.\n 20. Judgement. Decision, renewal; determines a matter.\n 21. The World. Synthesis; success; change of place.\n\n WANDS:Ace (1):Energy, strength, enterprise; principle; beginning.\n   2. Dominion.\n   3. Established strength.\n   4. Perfected work.\n   5. Strife; competition.\n   6. Victory after strife; gain.\n\n  7. Valor; courage in face of difficulties.\n  8. Activity; swiftness; approach to goal.\n  9. Preparedness; strength in reserve; victory after opposition.\n10. Oppression; burden of ill-regulated power.\nKING:Dark man, friendly, ardent; honesty; possible inheritance.\nQUEEN:Dark woman, magnetic, friendly. Business success.\nKNIGHT: Dark, friendly, young man. Departure. Change of\n    residence.\nPAGE:Dark young man. Messenger. Brilliance, courage.\n\nCUPS:Ace (1):Fertility, productiveness, beauty, pleasure.\n  2. Reciprocity, reflection.\n  3. Pleasure, liberality, fulfilment, happy issue.\n  4. Contemplation. Dissatisfaction with material success.\n  5. Loss in pleasure. Partial loss. Vain regret.\n  6. Beginning of steady gain, but beginning only. New relations,\n   new environment.\n  7. Illusionary success. Ideas, designs, resolutions.\n  8. Abandoned success; instability. Leaving material success for\n    something higher.\n  9. Material success; physical well-being.\n10. Lasting success; happiness to come.\nKING: Fair man; calm exterior. Subtle, violent, artistic.\nQUEEN:Fair woman; imaginative, poetic. Gift of vision.\nKNIGHT Fair man, Venusian, indolent. Arrival, approach.\nPAGE:Fair, studious youth. Reflection. News.\n\nSWORDS:Ace (1):Invoked force; conquest; activity.\n  2. Balanced force; indecision; friendship.\n  3. Sorrow, disappointment, tears. Delay, absence, separation.\n  4. Rest from strife; relief from anxiety; Quietness, rest, rest after\n     illness. NOT a card of death.\n  5. Defeat, loss, failure, slander, dishonor.\n  6. Success after anxiety; passage from difficulties; a journey by\n    water.\n  7. Unstable effort; uncertainty; partial success.\n  8. Indecision; waste of energy in details; a crisis.\n  9. Worry; suffering, despair, misery. Loss.\n10. Ruin, pain, desolation; sudden misfortune. NOT a card of\n    sudden death. In spiritual matters: End of delusion.\nKING:Distrustful, suspicious man. Full of ideas, thoughts and\n     designs. Care, observation, extreme caution.\n\n QUEEN: Widowhood; mourning. A keen, quick, intensely percep-\n      tive, subtle woman. Usually fond of dancing.\n KNIGHTActive, clever, subtle, skilful, domineering young man.\n     Enmity, wrath, war.\n PAGE:Vigilant, acute, subtle, active youth.\n\n PENTACLES:Ace (1):Material gain, wealth, contentment.\n   2. Harmony in midst of change.\n   3. Construction; material increase; growth; financial gain.\n   4. Earthly power; physical forces; skill in directing them.\n   5. Concordance; affinity; adaptation. (Waite's symbolism shows\n     that the concord and harmony are necessarily interior. The\n     unfortunates out in the snow are the profane, those who have\n     not grasped the inner light. j\n   6. Material prosperity, philanthropy, presents.\n   7. Success unfulfilled; delay, but growth.\n   8. Skill in material affairs.\n   9. Prudence; material gain; completion.\n 10. Wealth, riches, material prosperity.\n KING: Friendly, steady, reliable married man.\n QUEEN: Generous, intelligent, charming, moody married woman.\n KNIGHTLaborious, patient, dull young man.\n PAGE:Diligent, careful, deliberate youth.\n\n  N.B. Pages may be young girls as well as young lads.\nQueens are not always married, but represent rather\nwomen with experience of life.\n  1. Before beginning to divine, be sure that the Querent\n[person for whom divination is made) has formulated his\nquestion. Explain to him that all questions come under\nfour major heads - [a) work, business, etc.; [b)love, mar-\nriage, or pleasure; (c) trouble, loss, scandal, quarreling,\netc.; (d) money, goods and such purely material matters.\nBe careful that the Querent does not tell you his question\nor its nature before you begin to divine.\n  2. Make your mind as passive as possible while you are\nshuffling and laying out the cards. Do not try to guess, Go\nby what the cards suggest to you.\n  3. Do not limit yourself to the divinatory meanings\n\ngiven in the outline. They are general, and under the\nspecial circumstances of a divination, may be altered. Say\nwhat comes to you to say.\n   4. It is better to learn the meanings of the cards than to\nwrite the meanings on them. Better for yourself, and more\nimpressive for the Querent. By learning the meanings of\nthree cards a day, you may master the significance of the\nwhole pack in 26 days.\n  In addition to the meanings given above, observe and\nlearn the following additional points:\n  Kings and Queens usually show actual men and women\nconnected with the matter.\n  Knights sometimes represent the coming or going of a\nmatter, according to the direction in which they face.\n  Pages indicate young people, but often show opinions,\nthought, ideas - either in harmony with, or opposed to the\nsubject.\n A majority of:\n           Energy, opposition, quarrel.  WANDS-\n  CUPS- Pleasure, merriment.\n  SWORDS-Trouble, sadness, sickness, death.\n  PENTACLES-Business, money, possessions.\n  MAJORTRUMPS- Strong forces beyond the Querent's control.\n  COURTCARDS- Society, meetings of many persons.\n  ACES- Strength generally. Aces are always strong cards.\n\n    If a spread contains:\n  4 Aces - Great power and force.\n  3 Aces -Riches, success.\n  4 Knights - Swiftness, rapidity.\n  3 Knights -Unexpected meetings. Knights, as a rule, show news.\n  4 Queens -Authority and iduence.\n  3 Queens - Powerful friends.\n  4 Kings-Meetings with the great.\n  3 Kings -Rank and honor.\n  4 Pages -New ideas or plans.\n  3 Pages - Society of the young.\n  4 Tens -Anxiety, responsibility.\n\n  3 Tens -Buying,  selling, commerce.\n  4 Nines -Added  responsibilities.\n  3 Nines - Correspondence.\n  4 Eights - Much news.\n  3 Eights -Much journeying.\n  4 Sevens -Disappointments.\n  3 Sevens - Compacts, contracts.\n  4 Sixes - Pleasure.\n  3 Sixes - Gain, success.\n  4 Fives - Order, regularity.\n  3 Fives - Quarrels, fights.\n  4 Fours -Rest, peace.\n  3 Fours -Industry.\n  4 Threes - Resolution, determination.\n  3 Threes -Deceit.\n  4 Twos - Conferences, conversations.\n  3 Twos - Reorganization, recommendation.\n\n A card is strong or weak, well dignified or ill dignified ac-\ncording to the cards next to it on either side. Cards of the\nsame suit on either side strengthen it greatly for good or\nevil, according to their nature. Cards of opposite natures\nweaken it greatly, for either good or evil.\n  Swords are inimical to Pentacles; Wands are inimical to\nCups. Swords are friendly with Cups and Wands; Wands\nare friendly with Swords and Pentacles.\n   If a card falls between two others which are inimical to\neach other (as a Sword card between a Cup and a Wand), it\nis not much affected by either.\n\n   1. The Significator.-This  is the card selected to repre-\nsent the Querent.\n\n              Married Men - Kings.\n               Bachelors -Knights.\n           Women Past 18-Queens.\n               Adolescents of Either Sex- Pages.\n\n  Some diviners use the Magician for men, the High\nPriestess for women. Others choose the major trump rep-\nresenting the sun sign of the Querent, on the hypothesis\nthat the sun sign represents the true individuality of the\nperson. In general, however, it is safer to choose one of the\nsixteen court cards, as indicated above. Choose the Sig-\nnificator according to your knowledge or judgement of the\nQuerent's character, rather than according to his physical\ncharacteristics.\n   2. Shuffle the cards, until you feel like stopping.\n   3. Hand the cards to Querent, ask him to think of the\nquestion attentively, and cut the cards with his left hand.\nThe Querent should restore the cut, that is, put the pile\nwhich was on the bottom before cutting above the pile\nconsisting of the upper half of the pack.\n   4. Take the cards as cut, and place them on the table\nbefore you.\n   5. Cut the pack with the left hand, and place the top\nhalf to the left.\n   6. Cut each of these two packs to the left.\n   7. These four stacks represent IHVH from right to left.\n   8. Find the Significator. If in the I pack, the question\nrefers to work, enterprise ideas, etc.; if in the H pack, to\nmarriage, love or pleasure; if in the V pack to trouble, loss,\nscandal, quarreling, etc.;  if in the second H pack, to\nmoney, goods, purely material matters.\n   9. Tell the Querent what he has come for. That is, from\nthe position of the Significator in one of the 4 piles, declare\nto him the general nature of his question. If wrong, aban-\ndon the divination. Do not resume the attempt within\ntwo hours. Better, wait until another day.\n 10. If right, spread out the pack containing the Signifi-\ncator, arranging the cards in a circle or wheel.\n  11. Count the cards from the Significator, in the direc-\ntion in which the figure printed on card faces. If the figure\non the card faces neither right nor left, but straight out\nfrom the picture, count to your left.\n\n  N.B.-It  is advisable to arrange the cards on the table so\nthat the Significator will be at the top of the wheel. But be\ncareful not to alter the sequence of the cards in so doing.\n\n  The counting should invariably include the card from\nwhich you start. Thus, if the Significator is a Page, you will\ncount Seven, and if the card the count ends with be a seven\nin one of the suits of minor trumps, you will begin your\nsecond count of seven with that card and so on.\n  For Kings, Queens and Knights, count 4.\n  For Pages, count 7.\n  For Aces, count 11.\n  For small cards of minor trumps, count according to the\nnumber printed at the top.\n  For major trumps, count: 3 for elemental trumps  (0,\nFOOL; 12, HANGEDMAN; 20, JUDGEMENT); 9 for the\nplanetary trumps (those corresponding to double letters\nand pairs of opposites); 12 for trumps representing signs of\nthe zodiac.\n  Make a story of these cards. It is the story of the begin-\nning of the affair.\n  12. Pair the cards on either side of the Significator, then\nthose outside them, and so on. Make another story, filling\nup details omitted in the first.\n  These two stories may not be quite accurate, but it is to\nbe remembered that your Querent does not, as a rule,\nknow everything about the matter. Nevertheless, the main\noutlines should be such as he can recognize. If not, aban-\ndon the operation at this point.\n\n  Develops the question.\n  1. Shuffle and let Querent cut, as before.\n  2. Deal the cards into 12 packs, for the 12 astrological\nhouses of heaven.\n\n  3. Find the Significator. According to house in which it\nis found, judge that the matter will be affected by the\ngeneral quality of that house. The meanings of the houses\nare:\n   First -The person himself.\n  Second-His finances. Gain or loss, according to the cards found\n     in this pile.\n  Third-Brothers,  sisters. Short journeys, writings, mental incli-\n     nations and abilities.\n  Fourth - Father, home, environment, domestic affairs, lands,\n     mines and real estate generally.\n   Fifth- Children, love affairs, pleasure, speculation.\n   Sixth-Sickness,  servants, employers, food, clothing, hygiene,\n      service, small animals.\n  Seventh - Unions, partnership, marriage, contracts, dealings\n     with others, and the public generally, legal affairs, open\n     enmities.\n  Eighth-Death,  psychic experiences of the spiritistic kind, all\n     matters connected with the dead, such as legacies, etc. Also\n      financial affairs of the business or marriage partner.\n  Ninth-Long  journeys, foreign countries, places remote from\n      birthplace, philosophy, religion, education, dreams, visions,\n     psychic development.\n  Tenth-Profession,   occupation, honor, fame, promotion,\n     mother, employer. Also government affairs.\n   Eleventh - Friends, associations, hopes and fears.\n  melfth - Unseen or unexpected troubles, hidden or secret enmi-\n      ties. Restraint, limitations, hospitals, prisons, insane\n     asylums, sanitariums and the like. Secret societies, occultism\n       of the practical sort, and organizations devoted to it. Large\n\n   4. Spread out the pile containing the Significator, as in\nformer operation, and count and pair as before. Remember\nthat the two stories thus developed must be more or less\ncolored by the nature  of the house in which the\n Significator falls.\n\n   1. Shuffle, etc., as before.\n\n  2. Deal cards into twelve stacks, representing the signs\nof the zodiac. Even if you have no astrological information\nparticularly, you can judge the general meaning of the\nsigns, because each is represented by a major trump. For\nexample, if the Significator should fall in the stack cor-\nresponding to Capricorn, the further development of the\nquestion would be in accordance with the occult meaning\nof the letter Ayin and the 15th major trump. If a material\nquestion, it would probably denote limitation. If one of\npleasure, danger or over-indulgence on the sense side. Your\nown knowledge of the trumps will help you in this.\n  The order of the 12 signs is:\n                   1. Aries - 4. EMPEROR\n                  2. Taurus - 5. HIEROPHANT\n                  3. Gemini - 6. LOVERS\n                   4. Cancer - 7. CHARIOT\n                   5. Leo - 8. STRENGTH\n                  6. Virgo - 9. HERMIT\n                    7. Libra - 11. JUSTICE\n                  8. Scorpio - 13. DEATH\n                   9. Sagittarius - 14. TEMPERANCE\n               10. Capricorn - 15. DEVIL\n             11. Aquarius - 17. STAR\n                12. Pisces - 18. MOON\n\n   3. Find Significator, count and pair as before.\n\n  1. Shuffle, etc., as before.\n   2. Deal cards into ten stacks. Each stack corresponds to\none of the Sephiroth, and thus to one of the statements of\nbeing in the B.O.T.A. affirmations. Thus, if the Significator\nshould fall in the seventh pile, the conclusions of the\ndivination would all be colored by the statement \"Living\nfrom that Will, supported by its unfailing Wisdom and\nUnderstanding, mine is the Victorious life,\" and your ad-\nvice to the Querent would all proceed from that basic idea.\n  3. Find Significator, count and pair as before.\n\n  As a rule, but not always, the first operation shows past\ntime, particularly in the pairing of cards, when those\nwhich are in the pile away from which the Significator\nfaces will usually indicate past time. If he faces out, those\non your right will be past time as a rule.\n  Experience alone will enable you to judge time with any\ndegree of accuracy, and no rules can be given. If you are\npossessed of the psychic qualifications necessary to a\ndiviner, you will \"feel\" time.\n  Finally, let me reiterate the thought that this is not to be\nused for vulgar fortune telling, or to amuse a party of\nfriends. If you yield to the temptation so to abuse this\ninformation, you will pay for it in the loss of all power of\ntrue divination, and probably in the loss of ability to con-\ntrol the higher rates of psychic vibration. Thus the ulti-\nmate result of abuse of this divinatory practice will be to\nmake you more negative, more the slave of circumstance,\nmore liable to evil of every kind.",
+  "char_count": 18317,
+  "major_meanings": [
+   {
+    "num": 0,
+    "text": "The Fool. In spiritual matters: Originality, audacity, venture- some quest. In material affairs: Folly, eccentricity, inconsiderate action."
+   },
+   {
+    "num": 1,
+    "text": "The Magician. Constructive power, initiative, skill, subtlety, craft, occult wisdom and power."
+   },
+   {
+    "num": 2,
+    "text": "The High Priestess. All meanings derivable from duality. Fluctuation, reaction, secrets, things hidden, unrevealed future."
+   },
+   {
+    "num": 3,
+    "text": "The Empress. Fruitfulness, beauty, luxury, pleasure, success. Badly placed in a divinatory layout: Dissipation, luxuriousness, sensuality."
+   },
+   {
+    "num": 4,
+    "text": "The Emperor. Stability, power; reason; ambition; oversight; control."
+   },
+   {
+    "num": 5,
+    "text": "The Hierophant. Intuition, teaching, inspiration; marriage, alliance; occult force voluntarily invoked."
+   },
+   {
+    "num": 6,
+    "text": "The Lovers. Attraction, beauty, love. Harmony of inner and outer life."
+   },
+   {
+    "num": 7,
+    "text": "The Chariot. Triumph, victory, and the like."
+   },
+   {
+    "num": 8,
+    "text": "Strength. Action, courage, power, control of the life-force."
+   },
+   {
+    "num": 9,
+    "text": "The Hermit. Wisdom from above, prudence, circumspection."
+   },
+   {
+    "num": 10,
+    "text": "The Wheel of Fortune. Destiny; good fortune; turn for the better."
+   },
+   {
+    "num": 11,
+    "text": "Justice. Strength and force, but arrested, as in the act of judge- ment. Legal affairs, lawsuits, when the question relates to material affairs."
+   },
+   {
+    "num": 12,
+    "text": "The Hanged Man. In spiritual matters: Wisdom, surrender to the inevitable. In material affairs: Losses, reverses."
+   },
+   {
+    "num": 13,
+    "text": "Death. Contrarieties; sudden change; death."
+   },
+   {
+    "num": 14,
+    "text": "Temperance. Combination, adaptation, economy, management."
+   },
+   {
+    "num": 15,
+    "text": "The Devil. Bondage, materiality, necessity, force, fate."
+   },
+   {
+    "num": 16,
+    "text": "The Tower. Danger,  conflict, unforeseen catastrophes, ambition."
+   },
+   {
+    "num": 17,
+    "text": "The Star. Insight; hope; influence over others."
+   },
+   {
+    "num": 18,
+    "text": "The Moon. Voluntary change; deception; hidden enemies."
+   },
+   {
+    "num": 19,
+    "text": "The Sun. Liberation; gain; riches."
+   },
+   {
+    "num": 20,
+    "text": "Judgement. Decision, renewal; determines a matter."
+   },
+   {
+    "num": 21,
+    "text": "The World. Synthesis; success; change of place."
+   }
+  ],
+  "minor_meanings": {
+   "wands": [
+    {
+     "rank": "ACE (1)",
+     "text": "Energy, strength, enterprise; principle; beginning."
+    },
+    {
+     "rank": "2",
+     "text": ". Dominion."
+    },
+    {
+     "rank": "3",
+     "text": ". Established strength."
+    },
+    {
+     "rank": "4",
+     "text": ". Perfected work."
+    },
+    {
+     "rank": "5",
+     "text": ". Strife; competition."
+    },
+    {
+     "rank": "6",
+     "text": ". Victory after strife; gain."
+    },
+    {
+     "rank": "7",
+     "text": ". Valor; courage in face of difficulties."
+    },
+    {
+     "rank": "8",
+     "text": ". Activity; swiftness; approach to goal."
+    },
+    {
+     "rank": "9",
+     "text": ". Preparedness; strength in reserve; victory after opposition."
+    },
+    {
+     "rank": "10",
+     "text": ". Oppression; burden of ill-regulated power."
+    },
+    {
+     "rank": "KING",
+     "text": "Dark man, friendly, ardent; honesty; possible inheritance."
+    },
+    {
+     "rank": "QUEEN",
+     "text": "Dark woman, magnetic, friendly. Business success."
+    },
+    {
+     "rank": "KNIGHT",
+     "text": "Dark, friendly, young man. Departure. Change of residence."
+    },
+    {
+     "rank": "PAGE",
+     "text": "Dark young man. Messenger. Brilliance, courage."
+    }
+   ],
+   "cups": [
+    {
+     "rank": "ACE (1)",
+     "text": "Fertility, productiveness, beauty, pleasure."
+    },
+    {
+     "rank": "2",
+     "text": ". Reciprocity, reflection."
+    },
+    {
+     "rank": "3",
+     "text": ". Pleasure, liberality, fulfilment, happy issue."
+    },
+    {
+     "rank": "4",
+     "text": ". Contemplation. Dissatisfaction with material success."
+    },
+    {
+     "rank": "5",
+     "text": ". Loss in pleasure. Partial loss. Vain regret."
+    },
+    {
+     "rank": "6",
+     "text": ". Beginning of steady gain, but beginning only. New relations, new environment."
+    },
+    {
+     "rank": "7",
+     "text": ". Illusionary success. Ideas, designs, resolutions."
+    },
+    {
+     "rank": "8",
+     "text": ". Abandoned success; instability. Leaving material success for something higher."
+    },
+    {
+     "rank": "9",
+     "text": ". Material success; physical well-being."
+    },
+    {
+     "rank": "10",
+     "text": ". Lasting success; happiness to come."
+    },
+    {
+     "rank": "KING",
+     "text": "Fair man; calm exterior. Subtle, violent, artistic."
+    },
+    {
+     "rank": "QUEEN",
+     "text": "Fair woman; imaginative, poetic. Gift of vision."
+    },
+    {
+     "rank": "KNIGHT",
+     "text": "Fair man, Venusian, indolent. Arrival, approach."
+    },
+    {
+     "rank": "PAGE",
+     "text": "Fair, studious youth. Reflection. News."
+    }
+   ],
+   "swords": [
+    {
+     "rank": "ACE (1)",
+     "text": "Invoked force; conquest; activity."
+    },
+    {
+     "rank": "2",
+     "text": ". Balanced force; indecision; friendship."
+    },
+    {
+     "rank": "3",
+     "text": ". Sorrow, disappointment, tears. Delay, absence, separation."
+    },
+    {
+     "rank": "4",
+     "text": ". Rest from strife; relief from anxiety; Quietness, rest, rest after illness. NOT a card of death."
+    },
+    {
+     "rank": "5",
+     "text": ". Defeat, loss, failure, slander, dishonor."
+    },
+    {
+     "rank": "6",
+     "text": ". Success after anxiety; passage from difficulties; a journey by water."
+    },
+    {
+     "rank": "7",
+     "text": ". Unstable effort; uncertainty; partial success."
+    },
+    {
+     "rank": "8",
+     "text": ". Indecision; waste of energy in details; a crisis."
+    },
+    {
+     "rank": "9",
+     "text": ". Worry; suffering, despair, misery. Loss."
+    },
+    {
+     "rank": "10",
+     "text": ". Ruin, pain, desolation; sudden misfortune. NOT a card of sudden death. In spiritual matters: End of delusion."
+    },
+    {
+     "rank": "KING",
+     "text": "Distrustful, suspicious man. Full of ideas, thoughts and designs. Care, observation, extreme caution."
+    },
+    {
+     "rank": "QUEEN",
+     "text": "Widowhood; mourning. A keen, quick, intensely percep- tive, subtle woman. Usually fond of dancing."
+    },
+    {
+     "rank": "KNIGHT",
+     "text": "Active, clever, subtle, skilful, domineering young man. Enmity, wrath, war."
+    },
+    {
+     "rank": "PAGE",
+     "text": "Vigilant, acute, subtle, active youth."
+    }
+   ],
+   "pentacles": [
+    {
+     "rank": "ACE (1)",
+     "text": "Material gain, wealth, contentment."
+    },
+    {
+     "rank": "2",
+     "text": ". Harmony in midst of change."
+    },
+    {
+     "rank": "3",
+     "text": ". Construction; material increase; growth; financial gain."
+    },
+    {
+     "rank": "4",
+     "text": ". Earthly power; physical forces; skill in directing them."
+    },
+    {
+     "rank": "5",
+     "text": ". Concordance; affinity; adaptation. (Waite's symbolism shows that the concord and harmony are necessarily interior. The unfortunates out in the snow are the profane, those who have not grasped the inner light. j"
+    },
+    {
+     "rank": "6",
+     "text": ". Material prosperity, philanthropy, presents."
+    },
+    {
+     "rank": "7",
+     "text": ". Success unfulfilled; delay, but growth."
+    },
+    {
+     "rank": "8",
+     "text": ". Skill in material affairs."
+    },
+    {
+     "rank": "9",
+     "text": ". Prudence; material gain; completion."
+    },
+    {
+     "rank": "10",
+     "text": ". Wealth, riches, material prosperity."
+    },
+    {
+     "rank": "KING",
+     "text": "Friendly, steady, reliable married man."
+    },
+    {
+     "rank": "QUEEN",
+     "text": "Generous, intelligent, charming, moody married woman."
+    },
+    {
+     "rank": "KNIGHT",
+     "text": "Laborious, patient, dull young man."
+    },
+    {
+     "rank": "PAGE",
+     "text": "Diligent, careful, deliberate youth."
+    }
+   ]
+  },
+  "question_heads": "- [a) work, business, etc.; [b)love, mar-\nriage, or pleasure; (c) trouble, loss, scandal, quarreling,\netc.; (d) money, goods and such purely material matters.\nBe careful that the Querent does not tell you his question\nor its nature before you begin to divine.",
+  "combos": [
+   {
+    "count": 4,
+    "rank": "Aces",
+    "meaning": "Great power and force."
+   },
+   {
+    "count": 3,
+    "rank": "Aces",
+    "meaning": "Riches, success."
+   },
+   {
+    "count": 4,
+    "rank": "Knights",
+    "meaning": "Swiftness, rapidity."
+   },
+   {
+    "count": 3,
+    "rank": "Knights",
+    "meaning": "Unexpected meetings. Knights, as a rule, show news."
+   },
+   {
+    "count": 4,
+    "rank": "Queens",
+    "meaning": "Authority and iduence."
+   },
+   {
+    "count": 3,
+    "rank": "Queens",
+    "meaning": "Powerful friends."
+   },
+   {
+    "count": 4,
+    "rank": "Kings",
+    "meaning": "Meetings with the great."
+   },
+   {
+    "count": 3,
+    "rank": "Kings",
+    "meaning": "Rank and honor."
+   },
+   {
+    "count": 4,
+    "rank": "Pages",
+    "meaning": "New ideas or plans."
+   },
+   {
+    "count": 3,
+    "rank": "Pages",
+    "meaning": "Society of the young."
+   },
+   {
+    "count": 4,
+    "rank": "Tens",
+    "meaning": "Anxiety, responsibility."
+   },
+   {
+    "count": 3,
+    "rank": "Tens",
+    "meaning": "Buying,  selling, commerce."
+   },
+   {
+    "count": 4,
+    "rank": "Nines",
+    "meaning": "Added  responsibilities."
+   },
+   {
+    "count": 3,
+    "rank": "Nines",
+    "meaning": "Correspondence."
+   },
+   {
+    "count": 4,
+    "rank": "Eights",
+    "meaning": "Much news."
+   },
+   {
+    "count": 3,
+    "rank": "Eights",
+    "meaning": "Much journeying."
+   },
+   {
+    "count": 4,
+    "rank": "Sevens",
+    "meaning": "Disappointments."
+   },
+   {
+    "count": 3,
+    "rank": "Sevens",
+    "meaning": "Compacts, contracts."
+   },
+   {
+    "count": 4,
+    "rank": "Sixes",
+    "meaning": "Pleasure."
+   },
+   {
+    "count": 3,
+    "rank": "Sixes",
+    "meaning": "Gain, success."
+   },
+   {
+    "count": 4,
+    "rank": "Fives",
+    "meaning": "Order, regularity."
+   },
+   {
+    "count": 3,
+    "rank": "Fives",
+    "meaning": "Quarrels, fights."
+   },
+   {
+    "count": 4,
+    "rank": "Fours",
+    "meaning": "Rest, peace."
+   },
+   {
+    "count": 3,
+    "rank": "Fours",
+    "meaning": "Industry."
+   },
+   {
+    "count": 4,
+    "rank": "Threes",
+    "meaning": "Resolution, determination."
+   },
+   {
+    "count": 3,
+    "rank": "Threes",
+    "meaning": "Deceit."
+   },
+   {
+    "count": 4,
+    "rank": "Twos",
+    "meaning": "Conferences, conversations."
+   },
+   {
+    "count": 3,
+    "rank": "Twos",
+    "meaning": "Reorganization, recommendation."
+   }
+  ],
+  "suit_relations": "to Pentacles; Wands are inimical to\nCups. Swords are friendly with Cups and Wands; Wands\nare friendly with Swords and Pentacles.\n   If a card falls between two others which are inimical to\neach other (as a Sword card between a Cup and a Wand), it\nis not much affected by either.",
+  "significator_rules": ".-This  is the card selected to repre-\nsent the Querent.\n\n              Married Men - Kings.\n               Bachelors -Knights.\n           Women Past 18-Queens.\n               Adolescents of Either Sex- Pages.\n\n  Some diviners use the Magician for men, the High\nPriestess for women. Others choose the major trump rep-\nresenting the sun sign of the Querent, on the hypothesis\nthat the sun sign represents the true individuality of the\nperson. In general, however, it is safer to choose one of the\nsixteen court cards, as indicated above. Choose the Sig-\nnificator according to your knowledge or judgement of the\nQuerent's character, rather than according to his physical\ncharacteristics.",
+  "counting_rules": "include the card from\nwhich you start. Thus, if the Significator is a Page, you will\ncount Seven, and if the card the count ends with be a seven\nin one of the suits of minor trumps, you will begin your\nsecond count of seven with that card and so on.\n  For Kings, Queens and Knights, count 4.\n  For Pages, count 7.\n  For Aces, count 11.\n  For small cards of minor trumps, count according to the\nnumber printed at the top.\n  For major trumps, count: 3 for elemental trumps  (0,\nFOOL; 12, HANGEDMAN; 20, JUDGEMENT); 9 for the\nplanetary trumps (those corresponding to double letters\nand pairs of opposites); 12 for trumps representing signs of\nthe zodiac.\n  Make a story of these cards. It is the story of the begin-\nning of the affair.",
+  "houses": {
+   "First": "The person himself.",
+   "Second": "His finances. Gain or loss, according to the cards found",
+   "Third": "Brothers,  sisters. Short journeys, writings, mental incli-",
+   "Fourth": "Father, home, environment, domestic affairs, lands,",
+   "Fifth": "Children, love affairs, pleasure, speculation.",
+   "Sixth": "Sickness,  servants, employers, food, clothing, hygiene,",
+   "Seventh": "Unions, partnership, marriage, contracts, dealings",
+   "Eighth": "Death,  psychic experiences of the spiritistic kind, all",
+   "Ninth": "Long  journeys, foreign countries, places remote from",
+   "Tenth": "Profession,   occupation, honor, fame, promotion,",
+   "Eleventh": "Friends, associations, hopes and fears.",
+   "Twelfth": "Unseen or unexpected troubles, hidden or secret enmi-"
+  },
+  "zodiac_table": [
+   {
+    "num": 1,
+    "sign": "Aries",
+    "key": 4,
+    "trump": "EMPEROR"
+   },
+   {
+    "num": 2,
+    "sign": "Taurus",
+    "key": 5,
+    "trump": "HIEROPHANT"
+   },
+   {
+    "num": 3,
+    "sign": "Gemini",
+    "key": 6,
+    "trump": "LOVERS"
+   },
+   {
+    "num": 4,
+    "sign": "Cancer",
+    "key": 7,
+    "trump": "CHARIOT"
+   },
+   {
+    "num": 5,
+    "sign": "Leo",
+    "key": 8,
+    "trump": "STRENGTH"
+   },
+   {
+    "num": 6,
+    "sign": "Virgo",
+    "key": 9,
+    "trump": "HERMIT"
+   },
+   {
+    "num": 7,
+    "sign": "Libra",
+    "key": 11,
+    "trump": "JUSTICE"
+   },
+   {
+    "num": 8,
+    "sign": "Scorpio",
+    "key": 13,
+    "trump": "DEATH"
+   },
+   {
+    "num": 9,
+    "sign": "Sagittarius",
+    "key": 14,
+    "trump": "TEMPERANCE"
+   },
+   {
+    "num": 10,
+    "sign": "Capricorn",
+    "key": 15,
+    "trump": "DEVIL"
+   },
+   {
+    "num": 11,
+    "sign": "Aquarius",
+    "key": 17,
+    "trump": "STAR"
+   },
+   {
+    "num": 12,
+    "sign": "Pisces",
+    "key": 18,
+    "trump": "MOON"
+   }
+  ],
+  "sephiroth_note": ". Each stack corresponds to\none of the Sephiroth, and thus to one of the statements of\nbeing in the B.O.T.A. affirmations. Thus, if the Significator\nshould fall in the seventh pile, the conclusions of the\ndivination would all be colored by the statement \"Living\nfrom that Will, supported by its unfailing Wisdom and\nUnderstanding, mine is the Victorious life,\" and your ad-\nvice to the Querent would all proceed from that basic idea."
+ }
+}

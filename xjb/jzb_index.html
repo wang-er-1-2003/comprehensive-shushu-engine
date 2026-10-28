@@ -1,0 +1,749 @@
+<!--SPDX-License-Identifier: GPL-3.0-or-later
+Copyright (C) 2026 wang-er-1-2003
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>协纪辨方书复原 · 择日计算</title>
+  <style>
+    :root { --bg:#05070d; --panel:#0c1220; --line:#1c2a44; --txt:#d7e3f4; --dim:#7d8da6;
+            --acc:#c9a25a; --acc2:#6fa3ff; --warn:#ff9f6b; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; padding:0; height:100%; background:var(--bg); color:var(--txt);
+                 font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    #app { display:flex; flex-direction:column; height:100vh; }
+    header { display:flex; align-items:center; gap:12px; padding:8px 14px; background:var(--panel);
+             border-bottom:1px solid var(--line); flex-wrap:wrap; }
+    header h1 { font-size:16px; margin:0; font-weight:600; letter-spacing:1px; }
+    header .sub { font-size:11px; color:var(--dim); }
+    #main { flex:1; display:flex; min-height:0; }
+    #params { width:320px; min-width:320px; padding:12px; font-size:13px; background:var(--panel);
+              overflow-y:auto; border-right:1px solid var(--line); }
+    #result { flex:1; overflow-y:auto; padding:12px 16px; }
+    h2 { font-size:13px; color:var(--acc); margin:14px 0 6px; letter-spacing:1px; }
+    .row { display:flex; align-items:center; gap:6px; margin:5px 0; flex-wrap:wrap; }
+    .row label { min-width:52px; color:var(--dim); }
+    input, select { background:#10182b; color:var(--txt); border:1px solid var(--line);
+                    border-radius:5px; padding:4px 6px; font-size:12px; }
+    input[type=number] { width:76px; }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; appearance:none; margin:0; }
+    input[type=checkbox] { accent-color:var(--acc2); width:14px; height:14px; cursor:pointer; }
+    select { -webkit-appearance:none; appearance:none; padding-right:18px;
+             background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%237d8da6'/%3E%3C/svg%3E");
+             background-repeat:no-repeat; background-position:right 6px center; cursor:pointer; }
+    select:hover { border-color:#2c3d5f; }
+    ::-webkit-scrollbar { width:8px; height:8px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:#233350; border-radius:4px; border:1px solid #10182b; }
+    ::-webkit-scrollbar-thumb:hover { background:#2e4266; }
+    * { scrollbar-width:thin; scrollbar-color:#233350 transparent; }
+    .btn { background:#1b2740; color:var(--txt); border:1px solid var(--acc); border-radius:6px;
+           padding:6px 14px; cursor:pointer; font-size:13px; }
+    .btn:hover { background:#243356; }
+    .btn.cur { background:#243356; color:#ffd97a; border-color:var(--acc); opacity:1; cursor:default; }
+    /* 折叠块 */
+    .blk-hd { font-size:12px; color:var(--acc2); font-weight:600; margin:12px 0 4px; letter-spacing:1px;
+              border-bottom:1px dashed #26364f; padding-bottom:2px; user-select:none; cursor:pointer; }
+    .blk-hd::after { content:" ▲"; font-size:10px; color:var(--dim); }
+    .blk-hd.collapsed-h::after { content:" ▼"; }
+    .blk-bd { margin:2px 0 8px; }
+    .blk-bd.collapsed { display:none; }
+    .kv-row { display:grid; grid-template-columns: 210px 1fr; gap:2px 10px; align-items:baseline;
+              font-size:12px; line-height:1.8; margin:2px 0; }
+    .kv-row .t { color:var(--acc); font-weight:600; word-break:break-all; }
+    .kv-row .c { color:var(--txt); word-break:break-all; }
+    .kv-row .c .ji { color:#7fd08a; font-weight:600; }
+    .kv-row .c .xiong { color:#ff9f6b; font-weight:600; }
+    .kv-row .c .src { color:var(--dim); font-size:11px; }
+    table.mini { width:100%; border-collapse:collapse; font-size:12px; margin:4px 0; }
+    table.mini th { text-align:left; color:var(--acc); font-weight:600; padding:3px 6px;
+                    border:1px solid var(--line); background:#10182b; }
+    table.mini td { padding:3px 6px; border:1px solid var(--line); vertical-align:top; }
+    .note { font-size:11px; color:var(--dim); line-height:1.7; margin:4px 0; }
+    .warn { color:var(--warn); }
+    .ok { color:#7fd08a; }
+    #yongshiGrid { display:grid; grid-template-columns: repeat(5, 1fr); gap:2px 8px; }
+    #yongshiGrid label { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--txt);
+                         cursor:pointer; white-space:nowrap; }
+    .summary { font-size:13px; line-height:2; }
+    .summary .yi { color:#7fd08a; }
+    .summary .ji2 { color:#ff9f6b; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>协纪辨方书复原 · 择日计算</h1>
+      <span class="sub">清乾隆官修《钦定协纪辨方书》卷三~卷三十二 义例/立成/宜忌/用事 计算引擎（年表·月表·日表以原书值为准查表）</span>
+    </header>
+    <div id="main">
+      <div id="params">
+        <h2>择日输入</h2>
+        <div class="row"><label>年</label>
+          <input type="number" id="year" value="2026" min="1900" max="2100" />
+        </div>
+        <div class="row"><label>月</label>
+          <input type="number" id="month" min="1" max="12" value="10" />
+          <label>日</label>
+          <input type="number" id="day" min="1" max="31" value="14" />
+        </div>
+        <div class="row"><label>时</label>
+          <select id="hour">
+            <option value="0">子 00</option><option value="1">丑 01</option><option value="2">丑 02</option>
+            <option value="3">寅 03</option><option value="4">寅 04</option><option value="5">卯 05</option>
+            <option value="6">卯 06</option><option value="7">辰 07</option><option value="8">辰 08</option>
+            <option value="9">巳 09</option><option value="10">巳 10</option><option value="11">午 11</option>
+            <option value="12" selected>午 12</option><option value="13">未 13</option><option value="14">未 14</option>
+            <option value="15">申 15</option><option value="16">申 16</option><option value="17">酉 17</option>
+            <option value="18">酉 18</option><option value="19">戌 19</option><option value="20">戌 20</option>
+            <option value="21">亥 21</option><option value="22">亥 22</option><option value="23">子 23</option>
+          </select>
+        </div>
+        <div class="note">干支历以立春分年、节气分月（定气口径）；农历查朔日表（1900–2100 权威历表）。</div>
+        <h2>用事勾选（卷十一）</h2>
+        <div class="note">不勾选=只输出全部民用事项判定摘要；勾选可聚焦。</div>
+        <div id="yongshiGrid"></div>
+        <h2>利用·坐山取向（卷33-34）</h2>
+        <div class="row"><label>坐山</label>
+          <select id="shan">
+            <option value="子">子(北)</option><option value="癸">癸</option><option value="丑">丑</option>
+            <option value="艮">艮</option><option value="寅">寅</option><option value="甲">甲</option>
+            <option value="卯">卯(东)</option><option value="乙">乙</option><option value="辰">辰</option>
+            <option value="巽">巽</option><option value="巳">巳</option><option value="丙">丙</option>
+            <option value="午" selected>午(南)</option><option value="丁">丁</option><option value="未">未</option>
+            <option value="坤">坤</option><option value="申">申</option><option value="庚">庚</option>
+            <option value="酉">酉(西)</option><option value="辛">辛</option><option value="戌">戌</option>
+            <option value="乾">乾</option><option value="亥">亥</option><option value="壬">壬</option>
+          </select>
+        </div>
+        <div class="row"><label>朝向</label>
+          <select id="xiang">
+            <option value="">（不判）</option>
+            <option value="子">子(北)</option><option value="癸">癸</option><option value="丑">丑</option>
+            <option value="艮">艮</option><option value="寅">寅</option><option value="甲">甲</option>
+            <option value="卯">卯(东)</option><option value="乙">乙</option><option value="辰">辰</option>
+            <option value="巽">巽</option><option value="巳">巳</option><option value="丙">丙</option>
+            <option value="午" selected>午(南)</option><option value="丁">丁</option><option value="未">未</option>
+            <option value="坤">坤</option><option value="申">申</option><option value="庚">庚</option>
+            <option value="酉">酉(西)</option><option value="辛">辛</option><option value="戌">戌</option>
+            <option value="乾">乾</option><option value="亥">亥</option><option value="壬">壬</option>
+          </select>
+        </div>
+        <div class="row"><label>主命</label>
+          <select id="mingGan">
+            <option value="甲">甲</option><option value="乙">乙</option><option value="丙">丙</option>
+            <option value="丁">丁</option><option value="戊" selected>戊</option><option value="己">己</option>
+            <option value="庚">庚</option><option value="辛">辛</option><option value="壬">壬</option>
+            <option value="癸">癸</option>
+          </select>
+          <select id="mingZhi">
+            <option value="子">子</option><option value="丑">丑</option><option value="寅">寅</option>
+            <option value="卯">卯</option><option value="辰">辰</option><option value="巳">巳</option>
+            <option value="午" selected>午</option><option value="未">未</option><option value="申">申</option>
+            <option value="酉">酉</option><option value="戌">戌</option><option value="亥">亥</option>
+          </select>
+        </div>
+        <div class="note">山家三令按坐山五行×当前节气；补龙取三合局；相主按主命生年干支对课四柱（年/月/日/时）——原书论生年，忌冲克命。</div>
+        <h2>卷三十五附录输入</h2>
+        <div class="row"><label>男年</label><input type="number" id="maleYear" value="1990" min="1900" max="2100" style="width:76px" />
+          <label>女年</label><input type="number" id="femaleYear" value="1992" min="1900" max="2100" style="width:76px" /></div>
+        <div class="row"><label>姓音</label>
+          <select id="xingYin">
+            <option value="宫" selected>宫（土）</option><option value="商">商（金）</option>
+            <option value="角">角（木）</option><option value="徵">徵（火）</option><option value="羽">羽（水）</option>
+          </select>
+        </div>
+        <div class="note">男女年用于合婚（命卦游年）；姓音用于五姓修宅配年；嫁娶周堂大小月由农历朔表自动判定。</div>
+        <h2>卷三十六辨讹</h2>
+        <div class="row"><label>并入宜忌</label><input type="checkbox" id="useBian" checked /></div>
+        <div class="note" style="color:var(--warn)">卷三十六《辨讹》为乾隆馆臣官方"禁用/纠正"清单。勾选（默认）后其日课性质命中（红沙/四不祥/杨公忌/斗首受克/五符吉时/九仙/大明日）并入下方宜忌汇总；取消则仅展示不并入。</div>
+        <h2>说明</h2>
+        <div class="note">
+          · 年神：卷十四~十九年表原书值查表（60 干支全覆盖）<br>
+          · 月神：卷二十~三十一月表月头原书值 + 卷四/卷六义例推算<br>
+          · 日神：卷五义例 + 卷九立成（固定干支/按年/按月/按月朔/按节气）<br>
+          · 时神：卷三十二六十日时辰定局原书值查表（60 日×12 时）+ 卷七义例对照<br>
+          · 贵登天门/四大吉时：卷三十二定局（按十二中气段×日干查表）<br>
+          · 宜忌：卷十表例附（神煞→宜/忌用事）聚合<br>
+          · 用事：卷十一详注（用事→宜神/忌神）判定<br>
+          · 原表缺行如实保留：六十日时辰定局缺壬子日（源文缺失）、若干日个别时辰残字无值（如癸丑午时）——此类回退卷七义例推算；六月/十月月表日课标注"推算补全"
+        </div>
+      </div>
+      <div id="result"></div>
+    </div>
+  </div>
+  <script src="./js/jzb_lunar.js"></script>
+  <script src="./js/jzb_year_shen.js"></script>
+  <script src="./js/jzb_month_shen.js"></script>
+  <script src="./js/jzb_lichang.js"></script>
+  <script src="./js/jzb_yiji_shen.js"></script>
+  <script src="./js/jzb_yongshi.js"></script>
+  <script src="./js/jzb_ri32.js"></script>
+  <script src="./js/jzb_liyong.js"></script>
+  <script src="./js/jzb_fulu_data.js"></script>
+  <script src="./js/jzb_fulu.js"></script>
+  <script src="./js/jzb_bian.js"></script>
+  <script src="./js/jzb_benyuan.js"></script>
+  <script src="./js/jzb_fengshui.js"></script>
+  <script src="./js/jzb_engine.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var JZB = window.JZB;
+    var yongshiAll = [
+      "祭祀","祈福","求嗣","上册进表章","颁诏","覃恩","肆赦","施恩封拜","诏命公卿","招贤","举正直",
+      "宣布政事","行幸","遣使","安抚边境","选将","训兵","出师","上官","赴任","临政","亲民",
+      "入学","冠带","结婚姻","会亲友","嫁娶","进人口","出行","移徙","安床","解除","沐浴","整容","剃头",
+      "求医疗病","裁制","营建宫室","修宫室","缮城郭","筑堤防","兴造","动土","竖柱","上梁","修仓库",
+      "鼓铸","经络","酝酿","开市","立券","交易","纳财","开仓库","出货财","修置产室","开渠","穿井",
+      "安碓磑","补垣","塞穴","修饰垣墙","平治道涂","破屋坏垣","栽种","牧养","纳畜","破土","安葬","启攒",
+      "伐木","捕捉","畋猎","取鱼"
+    ];
+    // 用事勾选网格
+    var g = document.getElementById("yongshiGrid");
+    yongshiAll.forEach(function (n, i) {
+      var l = document.createElement("label");
+      l.innerHTML = '<input type="checkbox" class="ysck" value="' + n + '"' + (i < 12 ? " checked" : "") + '>' + n;
+      g.appendChild(l);
+    });
+
+    var esc = function (s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); };
+    var cl = function (ji) {
+      if (/吉/.test(ji) || /上吉|黄道/.test(ji)) return '<span class="ji">' + esc(ji) + "</span>";
+      if (/凶|黑道|避/.test(ji)) return '<span class="xiong">' + esc(ji) + "</span>";
+      return esc(ji);
+    };
+    function blk(title, open) {
+      return '<div class="blk-hd' + (open ? "" : " collapsed-h") + '">' + title + "</div>" +
+             '<div class="blk-bd' + (open ? "" : " collapsed") + '">';
+    }
+    function render() {
+      var y = +document.getElementById("year").value, m = +document.getElementById("month").value,
+          d = +document.getElementById("day").value, h = +document.getElementById("hour").value;
+      if (!(y >= 1900 && y <= 2100) || m < 1 || m > 12 || d < 1 || d > 31) { return; }
+      var cks = document.querySelectorAll(".ysck:checked");
+      var yongshi = [];
+      cks.forEach(function (c) { yongshi.push(c.value); });
+      var shan = document.getElementById("shan").value;
+      var xiang = document.getElementById("xiang").value || null;
+      var mg = document.getElementById("mingGan").value;
+      var mz = document.getElementById("mingZhi").value;
+      var r;
+      try { r = JZB.compute(y, m, d, h, { yongshi: yongshi }); }
+      catch (e) { document.getElementById("result").innerHTML = '<div class="warn">计算失败：' + esc(e.message) + "</div>"; return; }
+      var html = "";
+      // 1. 干支历
+      html += '<h2 style="color:var(--acc)">' + r.gz.year + "年 " + r.gz.month + "月 " + r.gz.day + "日 " + r.gz.hour + "时</h2>";
+      html += blk("◆ 干支历 · 节气 · 纳音 · 建除", true);
+      html += kv("年干支", r.gz.year) + kv("月干支（节气分月）", r.gz.month)
+           + kv("日干支", r.gz.day) + kv("时干支", r.gz.hour)
+           + kv("年纳音", r.gz.nayinYear) + kv("日纳音", r.gz.nayinDay)
+           + kv("日·五行关系（宝义制专伐）", r.gz.wxRel ? r.gz.wxRel : "（月表日课缺）")
+           + kv("建除十二神", r.gz.jianchu + "（日支距月建" + r.gz.jianchuZhi + "）")
+           + kv("农历日", "农历" + (r.gz.lunarDay || "?") + "日（朔日表查得）")
+           + kv("节气", r.jieqi.name + "（黄经 " + r.jieqi.lon + "°）")
+           + "</div>";
+      // 2. 年神（查表）
+      html += blk("◆ 年神 · 卷十四~十九年表原书值（" + r.gz.year + "）", false);
+      var ysG = r.yearShen.filter(function (x) { return /吉/.test(x.类别 || ""); });
+      var ysX = r.yearShen.filter(function (x) { return /凶/.test(x.类别 || ""); });
+      var ysO = r.yearShen.filter(function (x) { return !/吉|凶/.test(x.类别 || ""); });
+      html += '<div class="note">来源：年表查表（原书值）' + (r.yearShenTable ? " ✓" : "（年表未加载，回退义例推算）") + "；吉/凶按原表类别分列。</div>";
+      if (ysG.length) { html += '<div class="blk-tag" style="color:#7fd08a;font-weight:600">吉神</div><table class="mini"><tr><th>神煞</th><th>值（原书）</th></tr>';
+        ysG.forEach(function (x) { html += "<tr><td>" + esc(x.名) + "</td><td>" + esc(x.值) + "</td></tr>"; }); html += "</table>"; }
+      if (ysX.length) { html += '<div class="blk-tag" style="color:#ff9f6b;font-weight:600">凶神·避方</div><table class="mini"><tr><th>神煞</th><th>值（原书）</th></tr>';
+        ysX.forEach(function (x) { html += "<tr><td>" + esc(x.名) + "</td><td>" + esc(x.值) + "</td></tr>"; }); html += "</table>"; }
+      if (ysO.length) { html += '<div class="blk-tag" style="color:var(--dim);font-weight:600">干支纳音/紫白等</div><table class="mini"><tr><th>神煞</th><th>值（原书）</th></tr>';
+        ysO.forEach(function (x) { html += "<tr><td>" + esc(x.名) + "</td><td>" + esc(x.值) + "</td></tr>"; }); html += "</table>"; }
+      html += "</div>";
+      // 3. 月神
+      html += blk("◆ 月神 · 月表月头（原书值） + 义例命中", false);
+      html += '<div class="note">当前月建：' + esc(r.gz.jianchuZhi) + "（" + r.gz.month + "月）。以下月头为卷二十~三十一月表原书原文：</div>";
+      r.monthShenHead.forEach(function (x) { html += kv(x.名, '<span class="src">' + esc(x.值) + "</span>"); });
+      if (r.monthShenHit.length) {
+        html += '<div class="blk-tag" style="color:var(--acc2)">今日命中的月神（义例推算）</div>';
+        r.monthShenHit.forEach(function (x) { html += kv(x.名, cl(x.吉凶) + (x.宜 ? "　" + esc(x.宜) : "") + ' <span class="src">' + esc(x.源) + "</span>"); });
+      } else { html += '<div class="note">今日无月神命中（除建除外）</div>'; }
+      html += "</div>";
+      // 4. 日神
+      html += blk("◆ 日神 · 卷五义例 + 卷九立成", false);
+      r.dayShen.forEach(function (x) { html += kv(x.名, cl(x.吉凶) + (x.值 && x.值 !== "值日" ? "　" + esc(x.值) : "") + (x.宜 ? "　" + esc(x.宜) : "") + (x.忌 ? ' <span class="ji2">' + esc(x.忌) + "</span>" : "") + ' <span class="src">' + esc(x.源) + "</span>"); });
+      html += "</div>";
+      // 5. 时神（卷七公式 + 卷三十二日表原书值）
+      html += blk("◆ 时神 · 卷三十二六十日时辰定局（原书值） + 卷七义例对照", false);
+      if (r.ri32.missingDay) {
+        html += '<div class="note" style="color:var(--warn)">' + esc(r.gz.day) + '日小节在卷三十二日表中缺失（原书源文缺页，甲辰旬壬子日缺失），以下为卷七义例推算：</div>';
+      }
+      var ri32Items = r.hourShen.filter(function (x) { return x.源 && x.源.indexOf("卷三十二") >= 0; });
+      var formulaItems = r.hourShenFormula || [];
+      if (ri32Items.length) {
+        html += '<div class="blk-tag" style="color:var(--acc2)">原书值（卷三十二·六十日时辰定局）</div>';
+        ri32Items.forEach(function (x) { html += kv(x.名, '<span class="src">原书值</span>'); });
+      }
+      if (formulaItems.length) {
+        html += '<div class="blk-tag" style="color:var(--dim)">义例推算（卷七，对照）</div>';
+        formulaItems.forEach(function (x) { html += kv(x.名, cl(x.吉凶) + ' <span class="src">' + esc(x.源) + "</span>"); });
+      }
+      // 贵登天门
+      html += '<div class="blk-tag" style="color:var(--acc2)">贵登天门时定局（卷三十二·' + esc(r.ri32.seg) + '后）</div>';
+      if (r.ri32.guiDeng && r.ri32.guiDeng.length) {
+        html += '<div class="kv-row"><span class="t">贵登天门之时</span><span class="c">' +
+          r.ri32.guiDeng.map(function (s) { return esc(s) + "时"; }).join("、") + "</span></div>";
+      } else { html += '<div class="note">本段本日无贵登天门之时（原书未列）</div>'; }
+      // 四大吉时
+      html += '<div class="blk-tag" style="color:var(--acc2)">四大吉时定局（卷三十二·' + esc(r.ri32.seg) + '后）</div>';
+      if (r.ri32.siDaJi && r.ri32.siDaJi.length) {
+        var sjHtml = r.ri32.siDaJi.map(function (x) {
+          return esc(x.时支) + "时（" + esc(x.时干) + esc(x.神) + "）";
+        }).join("、");
+        html += '<div class="kv-row"><span class="t">四大吉时</span><span class="c">' + sjHtml + "</span></div>";
+      } else { html += '<div class="note">本段本日无四大吉时（原书未列）</div>'; }
+      html += "</div>";
+      // 5.5 卷八 飞宫方位（逐月九宫飞布）
+      html += blk("◆ 卷八 飞宫方位 · 逐月九宫飞布", false);
+      html += '<div class="note">飞宫类为方位凶煞（忌修方动土），逐月轮转；月建入中宫顺/逆飞九宫：</div>';
+      if (r.monthFlying && r.monthFlying.length) {
+        html += '<table class="mini"><tr><th>神煞</th><th>本月所在宫</th><th>说明</th></tr>';
+        r.monthFlying.forEach(function (x) {
+          html += "<tr><td>" + esc(x.名) + "</td><td><b>" + esc(x.值) + "</b></td><td><span class='src'>" + esc(x.说明) + "</span></td></tr>";
+        });
+        html += "</table>";
+      } else { html += '<div class="note">本月无飞宫神煞</div>'; }
+      html += "</div>";
+      // 5.6 卷33-34 利用体系（山家三令/补龙/相主/山向凶煞/制煞/用日/用时/太阳到方）
+      var GAN2 = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+      var ZHI2 = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+      var yG = GAN2.indexOf(r.gz.year[0]), yZ = ZHI2.indexOf(r.gz.year[1]);
+      var moG = GAN2.indexOf(r.gz.month[0]), moZ = ZHI2.indexOf(r.gz.month[1]);
+      var dG = GAN2.indexOf(r.gz.day[0]), dZ = ZHI2.indexOf(r.gz.day[1]);
+      var hZ = ZHI2.indexOf(r.gz.hour[1]);
+      var jd = JZB.tools.toJD(y, m, d, h);
+      html += blk("◆ 卷33-34 山家三令 · 补龙 · 相主", false);
+      var sl = JZB.tools.shanSanLing(shan, jd);
+      if (sl.err) { html += '<div class="warn">' + esc(sl.err) + "</div>"; }
+      else {
+        html += kv("坐山五行", sl.wx + "（" + esc(shan) + "山）");
+        html += kv("当前节气", sl.jieqi + "（黄经 " + r.jieqi.lon + "°）");
+        html += kv("三令判定", sl.ling ? esc(sl.from) + "~" + esc(sl.to) + " → " + esc(sl.ling) : "非当令");
+        html += kv("用日取气", sl.yongri);
+        var bl2 = JZB.tools.buLongJu(shan);
+        if (!bl2.err) {
+          html += kv("补龙（" + bl2.wx + "龙）", esc(bl2.ju["旺局(三合)"]) + "　喜干 " + esc(bl2.xiGan));
+          html += kv("补龙·印局", esc(bl2.ju["印局(生我)"]));
+          html += kv("补龙·财局", esc(bl2.ju["财局(我克)"]));
+          html += kv("补龙·泄局", esc(bl2.ju["泄局(我生)"]));
+          html += kv("补龙·煞局", esc(bl2.ju["煞局(克我)"]));
+          html += kv("补龙·临官", esc(bl2.ju["临官位"]));
+          html += kv("补龙要诀", bl2.note);
+        }
+        var xz2 = JZB.tools.xiangZhu(mg, mz, [
+          { gan: r.gz.year[0], zhi: r.gz.year[1] },
+          { gan: r.gz.month[0], zhi: r.gz.month[1] },
+          { gan: r.gz.day[0], zhi: r.gz.day[1] },
+          { gan: r.gz.hour[0], zhi: r.gz.hour[1] }
+        ]);
+        if (!xz2.err) {
+          html += kv("相主（主命 " + esc(mg) + esc(mz) + "）", esc(xz2.conclusion));
+          html += '<table class="mini"><tr><th>课柱</th><th>判定</th></tr>';
+          [["年", r.gz.year], ["月", r.gz.month], ["日", r.gz.day], ["时", r.gz.hour]].forEach(function (p, i) {
+            html += "<tr><td>" + p[0] + "柱 " + esc(p[1]) + "</td><td>" + esc(xz2.rows[i].kind) + "</td></tr>";
+          });
+          html += "</table>";
+        }
+      }
+      html += "</div>";
+      // 5.7 山向凶煞 + 制煞要法
+      html += blk("◆ 卷34 山向凶煞 · 制煞要法", false);
+      var sxx = JZB.tools.shanXiangXiongSha(r.gz.year, moZ, shan, xiang);
+      if (sxx.err) { html += '<div class="warn">' + esc(sxx.err) + "</div>"; }
+      else {
+        html += '<div class="note">坐山 ' + esc(shan) + (xiang ? "，朝向 " + esc(xiang) : "") + "，年 " + esc(r.gz.year) + " 月 " + esc(r.gz.month) + "。年神按卷十四~十九年表官方值抽取方位 + 卷三十四年神总论起例；月凶神按月破/月厌 + 卷八飞宫（大月建/小月建/独火/游火/飞宫官符）。</div>";
+        html += '<div class="blk-tag" style="color:var(--acc2)">坐山凶煞命中</div>';
+        if (sxx.shanHit.length) {
+          html += '<table class="mini"><tr><th>神煞</th><th>吉凶</th><th>值</th><th>源</th></tr>';
+          sxx.shanHit.forEach(function (x) {
+            html += "<tr><td>" + esc(x.神煞) + "</td><td>" + cl(x.吉凶) + "</td><td>" + esc(x.值) + "</td><td><span class='src'>" + esc(x.源) + "</span></td></tr>";
+          });
+          html += "</table>";
+        } else { html += '<div class="note ok">坐山无凶煞命中</div>'; }
+        if (xiang) {
+          html += '<div class="blk-tag" style="color:var(--acc2)">朝向凶煞命中</div>';
+          if (sxx.xiangHit.length) {
+            html += '<table class="mini"><tr><th>神煞</th><th>吉凶</th><th>值</th><th>源</th></tr>';
+            sxx.xiangHit.forEach(function (x) {
+              html += "<tr><td>" + esc(x.神煞) + "</td><td>" + cl(x.吉凶) + "</td><td>" + esc(x.值) + "</td><td><span class='src'>" + esc(x.源) + "</span></td></tr>";
+            });
+            html += "</table>";
+          } else { html += '<div class="note ok">朝向无凶煞命中</div>'; }
+        }
+        var zs2 = JZB.tools.zhiShaFa(sxx.shanHit, sxx.xiangHit);
+        if (zs2.length) {
+          html += '<div class="blk-tag" style="color:var(--acc2)">制煞要法（卷三十四）</div>';
+          zs2.forEach(function (x) { html += kv(x.煞, x.法); });
+        }
+      }
+      html += "</div>";
+      // 5.8 用日法 + 用时法
+      html += blk("◆ 卷34 用日法 · 用时法", false);
+      var yr2 = JZB.tools.yongRiFa(dG, dZ, moZ);
+      if (yr2.err) { html += '<div class="warn">' + esc(yr2.err) + "</div>"; }
+      else {
+        html += kv("日干与月令", yr2.rel);
+        if (yr2.hits.length) { yr2.hits.forEach(function (x) { html += kv("用日判定", x); }); }
+        else { html += kv("用日判定", "无四废/荒芜/天吏/破日等忌格"); }
+      }
+      var ys2 = JZB.tools.yongShiFa(dG, dZ, hZ, moZ);
+      if (ys2.err) { html += '<div class="warn">' + esc(ys2.err) + "</div>"; }
+      else {
+        html += kv("所择时", ys2.hour + "（" + esc(r.gz.hour) + "）");
+        if (ys2.hits.length) { ys2.hits.forEach(function (x) { html += kv("用时判定", x); }); }
+        else { html += kv("用时判定", "无时破/时刑/五不遇/时冲月令；非四大吉时（可另择吉时）"); }
+      }
+      html += "</div>";
+      // 5.9 太阳到方（今法近似）
+      html += blk("◆ 卷34 太阳到方时刻（今法近似）", false);
+      var stf1 = JZB.tools.sunToFang(y, m, d, shan);
+      if (stf1.err) { html += '<div class="warn">' + esc(stf1.err) + "</div>"; }
+      else {
+        html += kv("坐山 " + shan + " 方位", stf1.az + "°");
+        html += kv("太阳到坐山", stf1.list.length ? stf1.list.map(function (x) { return esc(x.bjTime); }).join("、") : "当日不到此方（夜间或地平下）");
+        if (xiang) {
+          var stf2 = JZB.tools.sunToFang(y, m, d, xiang);
+          if (!stf2.err) {
+            html += kv("朝向 " + xiang + " 方位", stf2.az + "°");
+            html += kv("太阳到朝向", stf2.list.length ? stf2.list.map(function (x) { return esc(x.bjTime); }).join("、") : "当日不到此方（夜间或地平下）");
+          }
+        }
+        html += '<div class="note">' + esc(stf1.note) + "。原书例：夏至日午初三刻五分至午正初刻十分（京师）。</div>";
+      }
+      html += "</div>";
+      // 5.9b 卷35 附录 · 日用杂占计算
+      var F = window.JZB_FULU;
+      var gzd = { gan: dG, zhi: dZ, idx: JZB.tools.gzDay(y, m, d).idx, name: r.gz.day };
+      var gzh = { gan: GAN2.indexOf(r.gz.hour[0]), zhi: hZ, name: r.gz.hour };
+      var lam = r.jieqi.lon;
+      var jieqiName = r.jieqi.name;
+      var isYangBan = (lam >= 270 || lam < 90); // 冬至~夏至前
+      var GAN_WX2 = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4];
+      function lunarMonthBig(gy, gm) {
+        var L = window.JZB_LUNAR || [], i = 0;
+        while (i < L.length && (L[i][0] < gy || (L[i][0] === gy && L[i][1] < gm))) i++;
+        var a = L[i];
+        if (!a || a[0] !== gy || a[1] !== gm) return null;
+        var b = L[i + 1];
+        while (b && b[0] === gy && b[1] === gm) { b = L[i + 2]; }
+        if (!b) return null;
+        var days = Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / 86400000);
+        return days >= 30;
+      }
+      var isBig = lunarMonthBig(y, m);
+      var maleYear = +document.getElementById("maleYear").value;
+      var femaleYear = +document.getElementById("femaleYear").value;
+      var xingYin = document.getElementById("xingYin").value;
+      html += blk("◆ 卷35 附录 · 日用杂占计算", false);
+      // 推测时刻
+      var tc = F.tuiCe(jd);
+      html += '<div class="blk-tag" style="color:var(--acc2)">推测时刻（京师黄经 ' + Math.round(lam * 10) / 10 + '°）</div>';
+      if (tc.日出) {
+        html += kv("日出 / 昼刻", tc.日出 + "　昼" + tc.昼);
+        html += kv("日入 / 夜刻", tc.日入 + "　夜" + tc.夜);
+        html += kv("所在段", "节气" + esc(tc.段.节) + "后 " + tc.段.黄经 + "°（原表" + Math.round(lam * 10) / 10 + "°取前段）");
+      } else { html += kv("推测时刻", "无段命中"); }
+      // 男女九宫 / 人神 / 太白 / 长星短星 / 百忌 / 祀灶 / 洗头 / 周堂
+      var jg = F.jiuGong(y);
+      html += '<div class="blk-tag" style="color:var(--acc2)">九宫 · 人神 · 日宜（卷三十五）</div>';
+      html += kv("男女九宫（" + jg.元 + "）", "男" + jg.男宫 + " 女" + jg.女宫 + "（中宫寄男坤/女艮）");
+      var rs = F.renShen(d, dG, dZ, hZ);
+      html += kv("逐日人神", "日" + rs.日 + " · 干" + rs.干 + " · 支" + rs.支 + " · 时" + rs.时 + "（忌针灸）");
+      html += kv("太白游方", "初" + d + "日 " + F.taiBai(d));
+      var cd = F.changDuan(m, d);
+      html += kv("长星 / 短星", (cd.长星 ? "长星" : "") + (cd.短星 ? "短星" : "") + (cd.长星 || cd.短星 ? "（忌开市纳财立券交易裁衣）" : "无（历例列日外）"));
+      var bj = F.baiJi(dG, dZ);
+      html += kv("百忌日", bj.join("、"));
+      html += kv("祀灶（六癸）", F.siZao(dG) ? "今日是癸日，宜祀灶" : "今日非癸日");
+      var fsAll = F.fuShe(y);
+      var isFuShe = !!(fsAll.初伏 && ((m === fsAll.初伏.月 && d === fsAll.初伏.日) || (m === fsAll.中伏.月 && d === fsAll.中伏.日) || (m === fsAll.末伏.月 && d === fsAll.末伏.日) || (m === fsAll.春社.月 && d === fsAll.春社.日) || (m === fsAll.秋社.月 && d === fsAll.秋社.日)));
+      html += kv("伏社日（" + y + "）", (fsAll.初伏 ? "初伏" + fsAll.初伏.月 + "月" + fsAll.初伏.日 + "日 · 中伏" + fsAll.中伏.月 + "月" + fsAll.中伏.日 + "日 · 末伏" + fsAll.末伏.月 + "月" + fsAll.末伏.日 + "日 · 春社" + fsAll.春社.月 + "月" + fsAll.春社.日 + "日 · 秋社" + fsAll.秋社.月 + "月" + fsAll.秋社.日 + "日" : "推演失败") + (isFuShe ? '<span class="xiong">　今日命中（洗头忌）</span>' : ""));
+      var xt = F.xiTou(d, dZ, r.gz.jianchu, isFuShe);
+      html += kv("洗头日", (xt.宜.length ? "宜：" + xt.宜.join("、") : "非宜日") + (xt.忌.length ? "　忌：" + xt.忌.join("、") : ""));
+      var zt = F.zhouTang(isBig === null ? true : isBig, d);
+      html += kv("嫁娶周堂", (isBig === null ? "（朔表缺，按大月）" : (isBig ? "大月" : "小月")) + "初" + d + " → " + zt.位 + "，" + zt.吉凶);
+      // 年月神煞 / 天帑
+      var ny = F.nianYueShenSha(yG);
+      html += '<div class="blk-tag" style="color:var(--acc2)">年月神煞 · 年干起例对照（' + GAN2[yG] + '年）</div>';
+      html += '<table class="mini"><tr><th>神煞</th><th>值</th><th>说明</th></tr>';
+      ny.forEach(function (x) { html += "<tr><td>" + esc(x.神) + "</td><td><b>" + esc(x.值) + "</b></td><td><span class='src'>" + esc(x.说) + "</span></td></tr>"; });
+      html += "</table>";
+      html += kv("天帑星（纳甲）", F.tianTang(yG) + "（" + GAN2[yG] + "年）");
+      html += kv("吉将加时", F.yueJiang(jieqiName).月将 + "，" + F.yueJiang(jieqiName).说明);
+      // 奇门
+      var qm = F.qiMen(gzd, gzh, jieqiName);
+      html += '<div class="blk-tag" style="color:var(--acc2)">奇门三元（' + jieqiName + '）</div>';
+      if (qm.遁 !== "不明") {
+        html += kv("遁局", qm.遁 + qm.局数 + "局（" + qm.三元 + "）");
+        html += kv("直符 / 直使", qm.直符 + " / " + qm.直使);
+        html += kv("三奇所在宫", "乙" + qm.三奇宫.乙 + " 丙" + qm.三奇宫.丙 + " 丁" + qm.三奇宫.丁);
+        html += kv("三吉门", "休" + qm.三吉门宫.休 + " 生" + qm.三吉门宫.生 + " 开" + qm.三吉门宫.开);
+        html += kv("奇门会合", qm.会合.length ? qm.会合.join("、") : "本时无三吉门与三奇会合");
+        html += kv("口径", qm.note);
+      } else { html += kv("奇门", qm.note); }
+      // 五姓 / 杂用 / 入棺入殓
+      var wxz = F.wuXingZhai(xingYin, yZ);
+      if (wxz) { html += kv("五姓修宅（" + xingYin + "姓·" + ZHI2[yZ] + "年）", wxz.类 + (wxz.凶 ? "（凶）" : "（吉）")); }
+      var zg = F.zaYong(m, r.gz.day, false);
+      html += kv("杂用逐月吉日", zg.length ? zg.map(function (k) { return { qigongJiaMa: "起工架马", dingSangShanJia: "定磉扇架", xiuChu: "修厨", zaoMen: "造门", suHui: "塑绘", zuoNiuLan: "作牛栏", zuoMaFang: "作马枋", yangCan: "养蚕", zhanCao: "斩草", chengFu: "成服", chuFu: "除服" }[k]; }).join("、") + "（今日吉）" : "今日不入逐月吉日表（可查通用吉日）");
+      var rg = F.ruGuan(dZ), rl = F.ruLian(r.gz.day);
+      html += kv("入棺吉时", rg ? esc(rg) + "（" + ZHI2[dZ] + "日）" : "（" + ZHI2[dZ] + "日原表未列）");
+      html += kv("入殓吉时", rl ? esc(rl) + "（" + esc(r.gz.day) + "日）" : "（原表未列）");
+      html += '<div class="note">伏社日按太阳黄经节气日逐日推干支：初/中伏=夏至后第三/四庚日，末伏=立秋后第一庚日，春/秋社=立春/立秋后第五戊日；今日若为伏社日则洗头忌（入棺/入殓吉时原书六十甲子全覆盖）。</div>';
+      html += "</div>";
+      // 5.9c 卷36 辨讹 · 官修判伪俗术命中
+      var B = window.JZB_BIAN;
+      html += blk("◆ 卷36 辨讹 · 官修判伪俗术命中", false);
+      var hs = B.hongSha(moZ, dZ);
+      html += kv("红沙（转神历）", hs.hit ? '<span class="xiong">命中：忌' + hs.忌支 + '日</span>' : "未命中");
+      var sbx = B.siBuXiang(d);
+      html += kv("四不祥", sbx.hit ? '<span class="xiong">命中（忌上官）</span>' : "未命中");
+      var yg = B.yangGong(m, d);
+      html += kv("杨公忌", yg.hit ? '<span class="xiong">命中（' + esc(yg.说) + "）</span>" : "未命中");
+      var ld = B.liuDao(yZ);
+      html += '<div class="blk-tag" style="color:var(--acc2)">六道（' + ZHI2[yZ] + '年）</div>';
+      html += '<table class="mini"><tr><th>道</th><th>方位</th><th>吉凶</th></tr>';
+      ld.六道.forEach(function (x) { html += "<tr><td>" + esc(x.道) + "</td><td>" + esc(x.方位) + "</td><td>" + cl(x.吉凶) + "</td></tr>"; });
+      html += "</table>";
+      html += kv("支退流财", B.zhiTui(yZ).流财方 + "（" + ZHI2[yZ] + "年）");
+      var ds = B.douShou(shan, GAN_WX2[dG], GAN_WX2[GAN2.indexOf(r.gz.hour[0])]);
+      if (ds.hit) {
+        html += kv("斗首（" + esc(shan) + "山）", "元辰" + ds.元辰 + "：日干" + ds.日干五行 + " / 时干" + ds.时干五行);
+        html += kv("斗首按语", ds.说);
+      } else { html += kv("斗首", ds.note); }
+      var zd = B.zunDi(y, yG, m, gzd, gzh, isYangBan);
+      html += '<div class="blk-tag" style="color:var(--acc2)">尊星帝星（年/月/日/时）</div>';
+      html += kv("年", zd.年.尊 + "（对宫帝星" + zd.年.帝 + "，" + zd.年.元 + "）");
+      html += kv("月", zd.月.尊 + "（对宫帝星" + zd.月.帝 + "）");
+      html += kv("日", zd.日.尊 + "（对宫帝星" + zd.日.帝 + "）");
+      html += kv("时", zd.时.尊 + "（对宫帝星" + zd.时.帝 + "）");
+      html += kv("按语", zd.说);
+      var tg = B.tianGou(m);
+      html += kv("天狗（" + tg.季 + "季）", "头" + tg.头 + "（妨小姑无子） 尾" + tg.尾 + "（妨夫主）");
+      var wf = B.wuFu(dG);
+      html += kv("五符择时", "起" + wf.五符起 + "，临官" + wf.临官时 + "时 / 胎" + wf.胎时 + "时 / 养" + wf.养时 + "时吉");
+      var jx = B.jiuXian();
+      html += kv("九仙择时", "吉数" + jx.吉数.join("/") + "，凶数" + jx.凶数.join("/") + "；" + jx.例);
+      var hh = B.heHun(maleYear, femaleYear);
+      html += kv("合婚（" + maleYear + "/" + femaleYear + "）", "男" + hh.男命卦 + " 女" + hh.女命卦 + " → " + hh.八星 + "（" + hh.级别 + "）");
+      var dm = B.daMing(r.gz.day);
+      html += kv("大明日（上吉七圣）", dm ? "命中（十五大明日之一）" : "未命中（大明日：辛未壬申癸酉己卯壬午甲申壬寅甲辰丙午己酉庚戌丙辰己未庚申辛酉）");
+      var tw = B.tongWei();
+      html += '<div class="blk-tag" style="color:var(--acc2)">神煞同位异名（卷三十六·台本注释）</div>';
+      for (var twk in tw) { html += kv(twk, tw[twk]); }
+      html += '<div class="blk-tag" style="color:var(--dim)">辨讹条目·官修结论（内容）</div>';
+      B.bianItems.forEach(function (x) { html += kv(x.名, '<span class="src">' + esc(x.结论) + "</span>"); });
+      html += '<div class="note">' + (document.getElementById("useBian").checked ? '并入宜忌开关已启用：红沙/四不祥/杨公忌/斗首受克/五符吉时/九仙/大明日并入下方宜忌汇总。' : '并入宜忌开关未启用：以上命中仅在此展示。') + '方位类（六道/支退流财/天狗头尾）与婚配类（合婚）不并入日课宜忌（非日忌性质）。</div>';
+      html += "</div>";
+      // 6. 宜忌汇总（卷十 + 卷36辨讹命中并入）
+      html += blk("◆ 宜忌汇总 · 卷十表例附聚合 + 卷36辨讹命中", true);
+      var yijiYi = (r.yiji.宜 || []).slice(), yijiJi = (r.yiji.忌 || []).slice();
+      var useBianCk = document.getElementById("useBian").checked;
+      if (useBianCk) {
+        if (hs && hs.hit) yijiJi.push("红沙（出行嫁娶起造栽种）");
+        if (sbx && sbx.hit) yijiJi.push("四不祥（忌上官赴任）");
+        if (yg && yg.hit) yijiJi.push("杨公忌");
+        if (ds && ds.hit) {
+          if (ds.日干五行.indexOf("凶") >= 0) yijiJi.push("斗首日干受克");
+          if (ds.时干五行.indexOf("凶") >= 0) yijiJi.push("斗首时干受克");
+        }
+        if (wf && (hZ === ZHI2.indexOf(wf.临官时) || hZ === ZHI2.indexOf(wf.胎时) || hZ === ZHI2.indexOf(wf.养时))) yijiYi.push("五符吉时（临官/胎/养）");
+        if (jx && dG === 2 && dZ === 2 && hZ === 5) yijiYi.push("九仙择时（丙寅日巳时·太元数18吉）");
+        if (dm) yijiYi.push("大明日（上吉）");
+      }
+      html += '<div class="summary"><div class="yi">宜：' + (yijiYi.length ? yijiYi.join("、") : "—") + "</div>";
+      html += '<div class="ji2">忌：' + (yijiJi.length ? yijiJi.join("、") : "—") + "</div></div>";
+      html += '<div class="note">由今日命中神煞按卷十表例附映射聚合（命中神煞数 ' + countNames(r) + '）。' + (useBianCk ? '已并入卷36辨讹命中。' : '卷36辨讹命中未并入（勾选参数区"并入宜忌"后并入）。') + '括号注释词为原书注文切分残留，可忽略。</div>';
+      html += "</div>";
+      // 7. 用事判定（卷十一）
+      html += blk("◆ 用事判定 · 卷十一详注", true);
+      if (r.yongshi.length) {
+        html += '<table class="mini"><tr><th>用事</th><th>宜（命中神）</th><th>忌（命中神）</th></tr>';
+        r.yongshi.forEach(function (x) {
+          var c = x.忌神.length ? '<span class="xiong">不宜</span>' : (x.宜神.length ? '<span class="ji">宜</span>' : '<span class="src">平</span>');
+          html += "<tr><td>" + esc(x.用事) + "</td><td>" + (x.宜神.length ? esc(x.宜神.join("、")) : "—") +
+                  "</td><td>" + (x.忌神.length ? esc(x.忌神.join("、")) : "—") + "</td></tr>";
+        });
+        html += "</table>";
+      } else { html += '<div class="note">勾选用事项后显示判定</div>'; }
+      html += "</div>";
+      // 8. 卷一/卷二 本原（数理地基：卦气/历名/宿象/宿直/化气/纳甲/纳音/用事/山盘）
+      var BY = window.JZB_BENYUAN;
+      if (BY) {
+        html += blk("◆ 卷1-2 本原 · 卦气/历名/宿象/宿直/化气/纳甲/纳音/用事/山盘", false);
+        var gzDayS = r.gz.day, gzYearS = r.gz.year;
+        var dG = GAN2.indexOf(gzDayS[0]), dZ = ZHI2.indexOf(gzDayS[1]);
+        var yG = GAN2.indexOf(gzYearS[0]), yZ = ZHI2.indexOf(gzYearS[1]);
+        var mZ = ZHI2.indexOf(r.gz.jianchuZhi);
+        var gzIdxD = BY.gzIdxOf(dG, dZ); // 60甲子序号（甲子=0；非 g*12+z 编码）
+        // 卦气（十二月辟卦）
+        var pg = BY.piGua(mZ);
+        html += '<div class="blk-tag" style="color:var(--acc2)">十二月辟卦 · 卷一（月建→辟卦/月将/六壬将名）</div>';
+        html += kv("本月辟卦", pg.月建 + "月建 → " + pg.辟卦 + "（" + pg.爻 + "）");
+        html += kv("月将（日月会宫）", pg.月将 + "（" + pg.将宫 + "宫）");
+        html += kv("六壬将名", pg.六壬将名);
+        // 宿象
+        var qx = BY.qinXiang(dZ);
+        html += '<div class="blk-tag" style="color:var(--acc2)">十二辰二十八宿星象 · 卷一（考原禽象）</div>';
+        html += kv("日支" + ZHI2[dZ] + "宫宿象", qx.本象 + "（本象）｜" + qx.全象);
+        // 宿直（七元相对）
+        var xz = BY.xiuZhi(gzIdxD);
+        html += '<div class="blk-tag" style="color:var(--acc2)">二十八宿配日 · 卷一（七元说·相对宿直）</div>';
+        html += kv("今日宿直", xz.宿直 + "宿（" + xz.七政 + "曜）" + ' <span class="src">' + esc(xz.相对注) + "</span>");
+        html += '<div class="blk-tag" style="color:var(--dim)">七政配二十八宿（每政四宿）</div>';
+        html += '<div class="note">' + esc(BY.qiZhengBiao().join("；")) + "</div>";
+        // 化气
+        var hqY = BY.huaQi(yG), hqD = BY.huaQi(dG);
+        html += '<div class="blk-tag" style="color:var(--acc2)">五合化气 · 卷一</div>';
+        html += kv("年干化气", gzYearS[0] + "（" + hqY.合干 + "）→ " + hqY.化气 + "，河图合数 " + hqY.河图合数);
+        html += kv("日干化气", gzDayS[0] + "（" + hqD.合干 + "）→ " + hqD.化气 + "，河图合数 " + hqD.河图合数);
+        // 纳甲
+        var njY = BY.naJia(yG), njD = BY.naJia(dG);
+        html += '<div class="blk-tag" style="color:var(--acc2)">纳甲 · 卷一（考原）</div>';
+        html += kv("年干纳卦", gzYearS[0] + "→" + njY.卦);
+        html += kv("日干纳卦", gzDayS[0] + "→" + njD.卦);
+        html += '<div class="note">八句：' + esc(BY.naJiaBiao().join("，")) + "；六爻纳甲（内卦初~三，外卦四~上）：</div>";
+        ["乾", "坤", "震", "巽", "坎", "离", "艮", "兑"].forEach(function (g2) {
+          html += kv(g2 + "卦", '<span class="src">' + esc(BY.naJiaLiuYao(g2)) + "</span>");
+        });
+        // 纳音大衍余数法
+        var dy = BY.daYan(gzIdxD);
+        html += '<div class="blk-tag" style="color:var(--acc2)">纳音 · 大衍余数法验算（卷一·考原）</div>';
+        html += kv("日干支合数", dy.干支 + "　合数" + dy.合数 + "，49减之得" + dy.余);
+        html += kv("余属→所生", dy.余属 + "生" + dy.所生纳音 + " → 纳音" + dy.表值 +
+          (dy.相符 ? ' <span class="ji">与六十甲子纳音表一致</span>' : ' <span class="xiong">与表不符</span>'));
+        // 甲历
+        var monthNum = ((mZ - 2 + 12) % 12) + 1;
+        var lm = BY.liMing(yG, yZ, monthNum, dG);
+        html += '<div class="blk-tag" style="color:var(--acc2)">甲历 · 卷一（周礼/尔雅历名）</div>';
+        html += kv("岁名", lm.岁阳 + "·" + lm.岁名);
+        html += kv("月名/月阳", lm.月名 + "月（" + lm.月阳 + "）");
+        // 五行用事
+        var wj = BY.wangXing(JZB.tools.toJD(y, m, d, 12), JZB.tools);
+        if (wj) {
+          html += '<div class="blk-tag" style="color:var(--acc2)">五行用事 · 卷一（神枢经/历例）</div>';
+          html += kv("当令五行", wj.当令 + "（" + wj.段 + "）");
+        }
+        // 卷二 山盘
+        html += '<div class="blk-tag" style="color:var(--acc2)">二十四山八宫 · 正五行（卷二）</div>';
+        if (shan) html += kv("坐山 " + shan, BY.shanGong(shan) + "宫 / 正五行" + BY.shanWx(shan));
+        if (xiang) html += kv("朝向 " + xiang, BY.shanGong(xiang) + "宫 / 正五行" + BY.shanWx(xiang));
+        if (!shan && !xiang) html += '<div class="note">参数区输入坐山/朝向（二十四山字）后显示八宫与正五行。</div>';
+        // 二十四节气方位
+        var jqName = r.jieqi.name, jw = BY.jieqiFangWei(jqName);
+        html += '<div class="blk-tag" style="color:var(--acc2)">二十四节气方位 · 卷二（四立二分二至正应八卦）</div>';
+        if (jw) html += kv("当前节气", jqName + " → " + jw + "卦（八节奇门九局起于此）");
+        html += '<div class="note">' + esc(BY.jieqiFangWeiBiao().join("；")) + "</div>";
+        html += '<div class="note" style="color:var(--dim)">二十八宿配日之宿直为七元相对排布（绝对历元不可考）；卷二风水类（中针/缝针/洪范/墓龙/克山/游年）见下方"山家五行"块。</div>';
+        html += "</div>";
+      }
+      // 9. 卷二 山家五行 · 风水计算（双山三合/洪范/墓龙变运/年月克山家/后天纳甲/大小游年/24节气方位）
+      var FS = window.JZB_FENGSHUI;
+      if (FS) {
+        html += blk("◆ 卷二 山家五行 · 双山/洪范/墓运/克山/纳甲/游年（风水计算）", false);
+        var yG2 = GAN2.indexOf(r.gz.year[0]), yZ2 = ZHI2.indexOf(r.gz.year[1]);
+        var tsWx = (r.gz.nayinYear || "").slice(-1); // 太岁纳音五行
+        var mG = GAN2.indexOf(r.gz.month[0]), mZ2 = ZHI2.indexOf(r.gz.month[1]);
+        var mIdx = FS.gzIdxOf(mG, mZ2);
+        html += '<div class="note">输入坐山/朝向后，本块实时计算山家五行体系（卷二·中针/缝针/洪范/墓龙/克山/游年）。</div>';
+        // 双山三合
+        html += '<div class="blk-tag" style="color:var(--acc2)">双山三合五行（中针格龙/缝针消砂；四局六山）</div>';
+        if (shan) { var ss = FS.shuangShan(shan); html += kv("坐山 " + shan, ss.局 + "（" + ss.取生旺墓支 + "合局，六山：" + ss.六山 + "）"); }
+        if (xiang) { var ss2 = FS.shuangShan(xiang); html += kv("朝向 " + xiang, ss2.局 + "（六山：" + ss2.六山 + "）"); }
+        if (!shan && !xiang) html += '<div class="note">未输入坐山/朝向。</div>';
+        // 洪范五行
+        html += '<div class="blk-tag" style="color:var(--acc2)">洪范五行（山家大五行，与正五行对照）</div>';
+        if (shan) { var hf = FS.hongFan(shan); html += kv("坐山 " + shan, "洪范" + hf.洪范五行 + "（同组：" + hf.同组山 + "；正五行" + BY.shanWx(shan) + "）"); }
+        if (xiang) { var hf2 = FS.hongFan(xiang); html += kv("朝向 " + xiang, "洪范" + hf2.洪范五行 + "（正五行" + BY.shanWx(xiang) + "）"); }
+        // 墓龙变运（坐山）
+        if (shan) {
+          var ml2 = FS.muLong(shan, r.gz.year[0]);
+          if (ml2) {
+            html += '<div class="blk-tag" style="color:var(--acc2)">墓龙变运 · ' + esc(shan) + '山（五子元遁数至墓辰，墓辰纳音为变运）</div>';
+            html += kv("洪范五行 → 墓库", ml2.洪范五行 + " → " + ml2.墓库);
+            html += kv("本年墓辰/墓运", ml2.本年墓辰 + "（" + ml2.本年墓运 + "）　忌" + ml2.忌用);
+            if (ml2.冬至后墓运) html += kv("冬至后墓运", ml2.冬至后墓辰 + "（" + ml2.冬至后墓运 + "）　忌" + ml2.冬至后忌用 + ' <span class="src">金墓丑冬至后岁君未更而墓运已改（下岁口径）</span>');
+            var mj = FS.muYunJi(tsWx, ml2.本年墓运五行);
+            html += kv("太岁" + (r.gz.nayinYear || "") + " 与墓运", mj.关系 + " → " + cl(mj.吉凶) + "；忌" + mj.忌);
+            html += '<div class="note">同墓山：' + esc(ml2.同墓山) + "</div>";
+          }
+        }
+        // 年月克山家
+        html += '<div class="blk-tag" style="color:var(--acc2)">年月克山家（年月纳音克墓运即克某山；新建宅舍新立坟茔论）</div>';
+        if (r.gz.nayinYear) {
+          var ksy = FS.keShanJia(FS.gzIdxOf(yG2, yZ2), r.gz.year[0]);
+          html += kv("本年 " + r.gz.year + "（" + ksy.纳音 + "）克", ksy.被克.length ? ksy.被克.map(function (x) { return x.墓辰 + "(" + x.墓运 + ")运 → 克" + x.山.join(""); }).join("；") : "无克");
+        }
+        var ksm = FS.keShanJia(mIdx, r.gz.year[0]);
+        html += kv("本月 " + r.gz.month + "（" + ksm.纳音 + "）克", ksm.被克.length ? ksm.被克.map(function (x) { return "克" + x.山.join(""); }).join("；") : "无克");
+        html += '<div class="blk-tag" style="color:var(--dim)">本年四墓运（五子元遁历丑辰未戌）</div>';
+        FS.muYunBiao(r.gz.year[0]).forEach(function (x) {
+          html += kv(x.墓辰 + "（" + x.墓运 + "）", x.墓主 + "山墓 · " + esc(x.山));
+        });
+        // 八卦纳甲三合
+        html += '<div class="blk-tag" style="color:var(--acc2)">八卦纳甲三合（后天纳甲兼纳支；坐山九星净阴净阳起于此）</div>';
+        if (shan) { var ns3 = FS.naJiaSanHe(shan); html += kv("坐山 " + shan, ns3.宫 + "宫纳" + ns3.纳干 + (ns3.兼纳支 !== "—" ? "，兼纳" + ns3.兼纳支 : "") + "（" + ns3.三合局 + "）"); }
+        // 小游年 / 大游年（坐山宫本宫）
+        if (shan && FS.shanGong(shan)) {
+          var bg = FS.shanGong(shan);
+          var xy2 = FS.xiaoYouNian(bg);
+          html += '<div class="blk-tag" style="color:var(--acc2)">小游年九曜（' + bg + '宫翻卦；青囊经九曜）</div>';
+          html += '<table class="mini"><tr><th>变爻</th><th>得卦</th><th>九曜</th><th>吉凶</th></tr>';
+          xy2.九曜.forEach(function (x) { html += "<tr><td>" + esc(x.变爻) + "</td><td>" + esc(x.得卦) + "</td><td>" + esc(x.曜) + "</td><td>" + esc(x.吉凶) + "</td></tr>"; });
+          html += "</table>";
+          var dy3 = FS.daYouNian(bg);
+          html += '<div class="blk-tag" style="color:var(--acc2)">大游年八宅（' + bg + '宫；' + FS.zhaiType(bg) + '宅）</div>';
+          html += '<table class="mini"><tr><th>变爻</th><th>得卦</th><th>大游年</th><th>别名</th><th>吉凶</th></tr>';
+          dy3.九曜.forEach(function (x) { html += "<tr><td>" + esc(x.变爻) + "</td><td>" + esc(x.得卦) + "</td><td>" + esc(x.曜) + "</td><td>" + esc(x.别名) + "</td><td>" + esc(x.吉凶) + "</td></tr>"; });
+          html += "</table>";
+          html += '<div class="note">八宅：乾兑老阳、艮坤老阴=西四宅；离震少阴、巽坎少阳=东四宅。东西各自相配为吉，交错相配为凶。男女合婚用八宅游年见卷36辨讹。</div>';
+        }
+        // 二十四节气方位
+        html += '<div class="blk-tag" style="color:var(--acc2)">二十四节气方位（四立二分二至正应八卦，八节奇门九局起于此）</div>';
+        var fw24 = FS.jieqiFangWei24(r.jieqi.name);
+        if (fw24) html += kv("当前节气 " + r.jieqi.name, fw24 + "位");
+        html += '<div class="note">' + esc(FS.jieqiFangWei24Biao().join("、")) + "</div>";
+        html += '<div class="note" style="color:var(--dim)">考原按：小游年变卦"先天之说甚巧，其八宫卦象唯绝体/游魂/绝命与卦变义合"；年月克山家仅新建宅舍新立坟茔论之，拆修不动地基及旧茔附葬不论。三针体系：正针定向/中针格龙（双山五行）/缝针消砂纳水（三合五行），实皆双山法。</div>';
+        html += "</div>";
+      }
+      document.getElementById("result").innerHTML = html;
+    }
+    function kv(t, c) { return '<div class="kv-row"><span class="t">' + esc(t) + '</span><span class="c">' + c + "</span></div>"; }
+    function countNames(r) {
+      var n = 0;
+      ["yearShen", "monthShenHit", "dayShen", "hourShen"].forEach(function (k) { n += (r[k] || []).length; });
+      return n;
+    }
+    // 折叠委托
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      while (t && t !== document) {
+        if (t.classList && t.classList.contains("blk-hd")) {
+          var bd = t.nextElementSibling;
+          if (bd && bd.classList.contains("blk-bd")) {
+            var c = bd.classList.toggle("collapsed");
+            t.classList.toggle("collapsed-h", c);
+          }
+          return;
+        }
+        t = t.parentElement;
+      }
+    });
+    ["year", "month", "day", "hour", "shan", "xiang", "mingGan", "mingZhi", "maleYear", "femaleYear", "xingYin", "useBian"].forEach(function (id) {
+      document.getElementById(id).addEventListener("change", render);
+    });
+    document.addEventListener("change", function (e) { if (e.target.classList && e.target.classList.contains("ysck")) render(); });
+    render();
+  })();
+  </script>
+</body>
+</html>
